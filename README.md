@@ -101,12 +101,12 @@ Rotina para que se calcule a distância entre dois pontos:
 
 Contribuições são bem-vindas! Este projeto está em desenvolvimento ativo. Áreas que precisam de contribuição:
 
-- [ ] Implementação do compilador/interpretador
-- [ ] Bibliotecas padrão
-- [ ] Algoritmos de exemplo
-- [ ] IDE dedicada
-- [ ] Guias de solução de erros
-- [ ] Documentação adicional
+- [x] Implementação do compilador/interpretador
+- [x] Bibliotecas padrão
+- [x] Algoritmos de exemplo
+- [x] IDE dedicada
+- [x] Guias de solução de erros
+- [x] Documentação adicional
 - [ ] Testes e validação da gramática
 
 ## 📄 Licença
