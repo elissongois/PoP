@@ -1,4 +1,4 @@
-# Português Puro
+6# Português Puro
 
 Uma linguagem de programação em português brasileiro, projetada para ser natural, expressiva e acessível.
 
@@ -110,10 +110,9 @@ Rotina para que se calcule a distância entre dois pontos:
 
 ### Projetos Relacionados em Outras Línguas
 
-- **[CEL](https://github.com/elenderg)**: CEL – Compilador e Ligador para a linguagem de programação Português Puro (https://github.com/elenderg/CEL/blob/main/the%20compiler)(https://github.com/elenderg/CEL/issues)
-- **[SAL](https://github.com/elenderg/SAL)**: SAL – repositório de exemplos e executáveis para compilador Llano
-- **[SAL-PAL](https://github.com/elenderg)**: Repositório que busca converter o SAL em PAL
-- **[CAL](https://github.com/elenderg/CAL)**: CAL – Compiler and Linker for Plain English Programming Language (https://github.com/elenderg/CAL)(https://github.com/elenderg/CAL/blob/main/the%20writer)
+- **[CEL](https://github.com/elenderg/CEL/)**: CEL – Compilador e Ligador para a linguagem de programação Português Puro )- **[SAL](https://github.com/elenderg/SAL)**: SAL – repositório de exemplos e executáveis para compilador Llano
+- **[SAL-PAL](https://github.com/elenderg/SAL-PAL**: Repositório que busca converter o SAL em PAL
+- **[CAL](https://github.com/elenderg/CAL)**: CAL – Compiler and Linker for Plain English Programming Language (https://github.com/elenderg/CAL)
 - **[Plain-English-Extension-for-VS-Code](https://github.com/elenderg/Plain-English-Extension-for-VS-Code)**: Plain English Syntax Highlighting for Visual Studio Code (https://github.com/elenderg/Plain-English-Extension-for-VS-Code)
 - **[Plain-English-Compiler](https://github.com/elenderg/Plain-English-Compiler)**: Plain English Compiler – um compilador para a linguagem Plain English (https://github.com/elenderg/Plain-English-Compiler)
  
