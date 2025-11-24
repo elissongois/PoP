@@ -89,13 +89,32 @@ Rotina para que se calcule a distância entre dois pontos:
 
 ## 🔗 Links Externos
 
-- **GitHub Pages**: [elissongois.github.io/PoP](https://elissongois.github.io/PoP) *(em desenvolvimento)*
-- **Rosetta Code**: Exemplos comparativos *(em desenvolvimento)*
+### Documentação
+- **[GitBook - Documentação Oficial](https://portugues-puro.gitbook.io/documentacao)**: Documentação completa e organizada
+- **[Documentação no GitHub](https://github.com/elenderg/Documentacao-Portugues-Puro)**: Repositório da documentação
+
+### Rosetta Code
+- **[Categoria Português Puro](https://rosettacode.org/wiki/Category:Portugu%C3%AAs_Puro)**: Todos os exemplos na linguagem
+- **[Página da Linguagem](https://rosettacode.org/wiki/Portugu%C3%AAs_Puro)**: Descrição e informações
+- **[PAL-1000](https://rosettacode.org/wiki/PAL-1000)**: Versão anterior da linguagem
+- **[Compilador em Português Puro](https://rosettacode.org/wiki/Compilador_em_Portugu%C3%AAs_Puro)**: Implementação do compilador
 
 ## 📦 Repositórios Relacionados
 
-- **Gramática Langium**: Incluído neste repositório em `Gramática/`
-- **Extensão VS Code**: Incluído neste repositório em `Gramática/packages/extension/`
+### Português Puro
+- **[Compilador Principal](https://github.com/elenderg/Portugues-Puro)**: Implementação do compilador
+- **[PAL-1000](https://github.com/elenderg/PAL-1000/)**: Versão anterior da linguagem
+- **[Extensão VS Code](https://github.com/elenderg/Extensao-Portugues-Puro-VS-Code)**: Realce de sintaxe
+- **[Servidor de Linguagem](https://github.com/elenderg/Servidor-de-Linguagem)**: LSP para Português Puro
+- **[POP-LSP](https://github.com/elenderg/POP-LSP)**: Language Server Protocol
+
+### Projetos Relacionados em Outras Línguas
+- **[CEL](https://github.com/elenderg/CEL)**: Compilador em Español Llano
+- **[SAL-PAL](https://github.com/elenderg/SAL-PAL)**: Spanish Assembly Language - Plain Assembly Language
+- **[CAL](https://github.com/elenderg/CAL)**: Compilador para Español Llano
+- **[Plain English Extension](https://github.com/elenderg/Plain-English-Extension-for-VS-Code)**: Extensão VS Code para Plain English
+- **[Plain English Compiler](https://github.com/elenderg/Plain-English-Compiler)**: Compilador em Plain English
+
 
 ## 🤝 Contribuindo
 
