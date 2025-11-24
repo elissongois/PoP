@@ -110,12 +110,12 @@ Rotina para que se calcule a distância entre dois pontos:
 
 ### Projetos Relacionados em Outras Línguas
 
-- **[CEL](https://github.com/elenderg)**: CEL – Compilador e Ligador para a linguagem de programação Português Puro [1](https://github.com/elenderg/CEL/blob/main/the%20compiler)[2](https://github.com/elenderg/CEL/issues)
+- **[CEL](https://github.com/elenderg)**: CEL – Compilador e Ligador para a linguagem de programação Português Puro (https://github.com/elenderg/CEL/blob/main/the%20compiler)(https://github.com/elenderg/CEL/issues)
 - **[SAL](https://github.com/elenderg/SAL)**: SAL – repositório de exemplos e executáveis para compilador Llano
 - **[SAL-PAL](https://github.com/elenderg)**: Repositório que busca converter o SAL em PAL
-- **[CAL](https://github.com/elenderg/CAL)**: CAL – Compiler and Linker for Plain English Programming Language [3](https://github.com/elenderg/CAL)[4](https://github.com/elenderg/CAL/blob/main/the%20writer)
-- **[Plain-English-Extension-for-VS-Code](https://github.com/elenderg/Plain-English-Extension-for-VS-Code)**: Plain English Syntax Highlighting for Visual Studio Code [5](https://github.com/elenderg/Plain-English-Extension-for-VS-Code)
-- **[Plain-English-Compiler](https://github.com/elenderg/Plain-English-Compiler)**: Plain English Compiler – um compilador para a linguagem Plain English [6](https://github.com/elenderg/Plain-English-Compiler)
+- **[CAL](https://github.com/elenderg/CAL)**: CAL – Compiler and Linker for Plain English Programming Language (https://github.com/elenderg/CAL)(https://github.com/elenderg/CAL/blob/main/the%20writer)
+- **[Plain-English-Extension-for-VS-Code](https://github.com/elenderg/Plain-English-Extension-for-VS-Code)**: Plain English Syntax Highlighting for Visual Studio Code (https://github.com/elenderg/Plain-English-Extension-for-VS-Code)
+- **[Plain-English-Compiler](https://github.com/elenderg/Plain-English-Compiler)**: Plain English Compiler – um compilador para a linguagem Plain English (https://github.com/elenderg/Plain-English-Compiler)
  
 
 
