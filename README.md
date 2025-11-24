@@ -115,7 +115,7 @@ Contribuições são bem-vindas! Este projeto está em desenvolvimento ativo. Á
 
 ## 👤 Autor
 
-**Elisson Gois**
+**Elender Góis Gallas e Élisson Góis Gallas**
 
 ## 🎯 Status do Projeto
 
@@ -126,20 +126,22 @@ Contribuições são bem-vindas! Este projeto está em desenvolvimento ativo. Á
 - ✅ Gramática Langium básica
 - ✅ Definição de tipos e estruturas
 - ✅ Sistema de expressões
+- ✅ Guia de solução de erros
+- ✅ Binários de distribuição
+- ✅ GitHub Pages
+- ✅ UDL para Notepad++
+- ✅ Compilador/Interpretador
+- ✅ Biblioteca padrão
+- ✅ Bibliotecas adicionais
+- ✅ IDE dedicada
+- ✅ Algoritmos de exemplo
+- ✅ Página no Rosetta Code
 
 ### Em Desenvolvimento
 - 🚧 Extensão VS Code com LSP
-- 🚧 Compilador/Interpretador
-- 🚧 Bibliotecas padrão
-- 🚧 IDE dedicada
-- 🚧 Algoritmos de exemplo
 
 ### Planejado
-- 📋 Guia de solução de erros
-- 📋 Binários de distribuição
-- 📋 GitHub Pages
 - 📋 Exemplos no Rosetta Code
-- 📋 UDL para Notepad++
 
 ---
 
