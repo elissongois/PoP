@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar Português Puro (CWD)",
+            "type": "shell",
+            "command": "Compile", // Seu comando alias, que será executado no CWD especificado
+            "options": {
+                // Define o diretório de trabalho onde o comando 'Compile' será executado
+                "cwd": "D:\\Projetos\\Portugues-Puro\\Código-fonte unificado"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always", // O terminal não será exibido ou focado
+                "panel": "shared", // Usa o painel de terminal já visível e compartilhado (o embutido)
+                "clear": false // Limpa a saída anterior no painel
+            },
+            // Garante que o VS Code espere a conclusão do .bat (exito ou erro)
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

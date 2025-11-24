@@ -1,0 +1,210 @@
+Código de Erro #001. Falha ao definir a página de código do console para saída padrão (STDOUT). Verifique se o terminal suporta a codificação necessária e se possui permissões adequadas.
+Código de Erro #002. O diretório especificado não foi encontrado. Verifique se o caminho está correto e se a pasta realmente existe.
+Código de Erro #003. Não foi possível carregar o arquivo fonte. Verifique se o arquivo existe, se o caminho está correto e se você possui permissão de leitura.
+Código de Erro #004. Sintaxe não reconhecida pelo compilador. Verifique a grafia do comando e consulte a documentação para confirmar a estrutura correta.
+Código de Erro #005. Bloco de observação não finalizado. Insira um colchete direito ']' para encerrar o comentário.
+Código de Erro #006. Bloco de observação mal formado. Inicie seus comentários com um colchete esquerdo '['.
+Código de Erro #007. String literal não finalizada. Adicione aspas duplas '"' no final da string.
+Código de Erro #008. String literal mal formada. Inicie suas strings com aspas duplas '"'.
+Código de Erro #009. Qualificador não finalizado. Adicione um parêntese direito ')' para fechar o qualificador.
+Código de Erro #010. Qualificador mal formado. Inicie seus qualificadores com um parêntese esquerdo '('.
+Código de Erro #011. Não foi possível detectar o idioma da variável. Verifique se a variável foi declarada corretamente e se o idioma é suportado.
+Código de Erro #012. Operador de atribuição ausente ou incorreto. Utilize 'é' ou 'são' para realizar atribuições.
+Código de Erro #013. Artigo indefinido esperado. Utilize 'um' ou 'uma' antes da declaração do tipo.
+Código de Erro #014. Pontuação ausente após declaração de tipo. Insira um ponto final '.' para concluir a declaração.
+Código de Erro #015. Variável não declarada. Certifique-se de definir a variável antes de utilizá-la.
+Código de Erro #016. Estrutura não finalizada. Insira um ponto final '.' para encerrar a definição da estrutura.
+Código de Erro #017. Declaração de bytes inválida. Utilize apenas números inteiros para definir sequências de bytes.
+Código de Erro #018. Identificador 'bytes' ausente. Especifique a palavra 'bytes' após o número na declaração.
+Código de Erro #019. Artigo indefinido ausente. Insira 'um' ou 'uma' onde esperado na frase.
+Código de Erro #020. Artigo definido esperado. Utilize 'o' ou 'a' conforme a concordância necessária.
+Código de Erro #021. Conflito de nomes. O identificador já foi utilizado para outro tipo. Escolha um nome diferente e único para este tipo.
+Código de Erro #022. Escala inválida. A razão de escala não pode ser zero. Defina um valor de escala maior que zero.
+Código de Erro #023. Pontuação ausente após unidade de medida. Insira um ponto final '.' para concluir a declaração.
+Código de Erro #024. Sintaxe de ponteiro incorreta. Use a forma 'Aponte para um' ou 'Aponte para uma'.
+Código de Erro #025. Verbo de ligação esperado. Utilize 'é' ou 'está' na declaração.
+Código de Erro #026. Declaração global não finalizada. Insira um ponto final '.' ao fim da declaração da variável global.
+Código de Erro #027. Pontuação final ausente. Encerre a declaração com um ponto final '.'.
+Código de Erro #028. Nome de variável global duplicado. Escolha um nome único para a variável global, pois este já está em uso.
+Código de Erro #029. Inicialização mal formada. Insira um ponto final '.' após a inicialização da variável.
+Código de Erro #030. Pontuação ausente após dados complementares. Insira um ponto final '.' para concluir.
+Código de Erro #031. Termo de igualdade ausente. Utilize a expressão 'igual a' para comparações ou atribuições.
+Código de Erro #032. Declaração incompleta. Insira um ponto final '.' para terminar a declaração da variável.
+Código de Erro #033. Preposição 'para' ausente. Verifique a estrutura do comando e certifique-se de incluir 'para'.
+Código de Erro #034. Cabeçalho de rotina inválido. Insira o caractere ':' na posição correta do cabeçalho.
+Código de Erro #035. Sintaxe de rotina incorreta. Certifique-se de usar 'para' após o ponto e vírgula.
+Código de Erro #036. Posicionamento incorreto de ':'. Mova os dois pontos ':' para o final do cabeçalho da rotina.
+Código de Erro #037. Tipo base inválido ou desconhecido. Verifique se o tipo base foi definido corretamente antes de usá-lo.
+Código de Erro #038. Recursividade de tipos detectada. Evite definições circulares onde um tipo depende dele mesmo.
+Código de Erro #039. Uso inválido de 'Aponte para'. Utilize este comando apenas com variáveis do tipo ponteiro.
+Código de Erro #040. Uso incorreto de 'com'. A palavra-chave 'com' deve ser usada apenas em definições de estruturas e listas.
+Código de Erro #041. Tipo de dado incompatível com proporções. Utilize tipos numéricos para definir escalas e medidas.
+Código de Erro #042. Ponteiro sem tipo de conteúdo definido. Especifique claramente o tipo de dado para o qual o ponteiro aponta.
+Código de Erro #043. Nome de campo duplicado. Use nomes distintos para cada campo dentro da mesma estrutura.
+Código de Erro #044. Recursividade de campo detectada. Verifique a estrutura para evitar ciclos infinitos na definição dos campos.
+Código de Erro #045. Tipo de campo incompatível. Certifique-se de que o campo seja declarado como um ponteiro.
+Código de Erro #046. Nome de campo inválido. Verifique a grafia e a validade do identificador usado para o campo.
+Código de Erro #047. Tipo inválido na variável global. Declare o tipo corretamente antes de usá-lo na variável global.
+Código de Erro #048. Valor literal esperado. Atribua um valor literal válido correspondente ao tipo declarado.
+Código de Erro #049. Pontuação ausente após declaração. Insira um ponto final '.' após a declaração da variável.
+Código de Erro #050. Erro no valor literal. Verifique a sintaxe e o formato do valor literal fornecido.
+Código de Erro #051. Tipo da variável indeterminado. Certifique-se de que o tipo da variável foi especificado claramente.
+Código de Erro #052. Tipo da variável não encontrado. Verifique se o tipo foi definido anteriormente no código.
+Código de Erro #053. Unidade de medida inexistente. Utilize uma unidade de medida válida e previamente declarada.
+Código de Erro #054. Tipo não numérico. Utilize um tipo numérico válido para esta operação.
+Código de Erro #055. Proporção inválida (divisão por zero). Ajuste a unidade de medida para evitar denominadores iguais a zero.
+Código de Erro #056. Variável já inicializada. Remova a inicialização duplicada ou verifique se está redefinindo uma constante.
+Código de Erro #057. Sintaxe incorreta no cabeçalho. Utilize a expressão 'para que se determine se' no início.
+Código de Erro #058. Uso proibido de 'não' em cabeçalhos booleanos. Evite negações no nome da função; use lógica positiva.
+Código de Erro #059. Rotina já definida anteriormente. Verifique se há duplicidade de nomes e remova ou renomeie a rotina.
+Código de Erro #060. Rotina não localizada. Verifique se o nome da rotina está correto e se ela foi definida.
+Código de Erro #061. Parâmetro duplicado. Utilize nomes diferentes para cada parâmetro da rotina.
+Código de Erro #062. Preposição incorreta. Utilize 'em' ou 'para' conforme a regência do comando.
+Código de Erro #063. Rotina já definida. Escolha um nome único para a nova rotina ou remova a duplicata.
+Código de Erro #064. Artigo indefinido esperado. Insira 'um' ou 'uma' na posição apropriada.
+Código de Erro #065. Instruções inválidas no final da rotina. Verifique se há comandos soltos ou mal formados no fim do bloco.
+Código de Erro #066. Sintaxe de atribuição incorreta. Utilize apóstrofo seguido de 's' ('s) para indicar posse ou atribuição.
+Código de Erro #067. Esperado 'para' após identificador. Insira a preposição 'para' para completar a sintaxe.
+Código de Erro #068. Rotina já definida. Verifique se o nome da rotina é único no contexto.
+Código de Erro #069. Artigo indefinido esperado. Insira 'um' ou 'uma' onde necessário.
+Código de Erro #070. Instruções inválidas no final da rotina. Revise o final do bloco de código em busca de erros de sintaxe.
+Código de Erro #071. Rotina já definida. Renomeie a rotina para evitar conflitos de nomes.
+Código de Erro #072. Rotina já definida. Garanta que cada rotina tenha uma assinatura única.
+Código de Erro #073. Campo não encontrado na estrutura. Verifique se o nome do campo está correto e pertence à estrutura indicada.
+Código de Erro #074. Campo inválido na lista. Certifique-se de que o campo foi definido corretamente na estrutura.
+Código de Erro #075. Tipo de campo inválido. Verifique se o tipo do campo é válido e foi declarado.
+Código de Erro #076. Rotina não encontrada no catálogo. Verifique a grafia e se a rotina foi devidamente compilada.
+Código de Erro #077. Rotina não encontrada. Confirme se a rotina existe e se o nome está escrito corretamente.
+Código de Erro #078. Cabeçalho alternativo não encontrado. Verifique as definições de cabeçalho da rotina.
+Código de Erro #079. Esperada invocação de rotina. Verifique se a sintaxe corresponde a uma chamada de função válida.
+Código de Erro #080. Invocação de rotina inexistente ou palavra reservada. Verifique se o comando é válido e se a rotina existe.
+Código de Erro #081. Rotina de determinação inexistente. Verifique se a rotina 'para que se determine se...' foi definida.
+Código de Erro #082. Decisor necessário. Inclua 'determine se' no cabeçalho da rotina para funções condicionais.
+Código de Erro #083. Vírgula necessária. Substitua o termo encontrado por uma vírgula.
+Código de Erro #084. Pontuação final necessária. Utilize um ponto final '.' ou ponto e vírgula ';' para encerrar.
+Código de Erro #085. Termo esperado não encontrado. Verifique se faltou algum argumento ou variável no comando.
+Código de Erro #086. Comando 'inverta' inválido. Variável não encontrada. Verifique se a variável existe e foi escrita corretamente.
+Código de Erro #087. Rotina não encontrada. Certifique-se de que a rotina foi definida antes de ser chamada.
+Código de Erro #088. Incompatibilidade de tipo na variável global. Verifique se o tipo da variável corresponde ao esperado na rotina.
+Código de Erro #089. Rotina ainda não definida. Defina a rotina antes de tentar utilizá-la.
+Código de Erro #090. Comando '+' incorreto. Variável não localizada. Verifique se a variável envolvida na soma existe.
+Código de Erro #091. Rotina inexistente. Verifique se você está chamando a rotina correta e se ela foi implementada.
+Código de Erro #092. Artigo esperado após 'de'. Insira um artigo (o, a, um, uma) após a preposição 'de'.
+Código de Erro #093. Estrutura não encontrada. Verifique se o nome da estrutura está correto e se ela foi definida.
+Código de Erro #094. Conflito de nomes (parâmetro). O nome já é usado como parâmetro. Escolha outro nome.
+Código de Erro #095. Conflito de nomes (variável local). O nome já é usado como variável local. Escolha outro nome.
+Código de Erro #096. Falha ao desempilhar item. Rotina não localizada. Verifique a integridade da pilha e das chamadas de rotina.
+Código de Erro #097. Conflito de nomes (parâmetro). O nome escolhido já está em uso como parâmetro.
+Código de Erro #098. Variável local duplicada. Utilize um nome diferente para esta variável local.
+Código de Erro #099. Comando 'magnitude' inválido. Variável não localizada. Verifique se a variável existe.
+Código de Erro #100. Termo 'conteúdo' mal definido. Verifique a definição do termo ao qual 'conteúdo' se refere.
+Código de Erro #101. Uso incorreto de 'conteúdo'. A palavra-chave 'conteúdo' só se aplica a variáveis do tipo ponteiro.
+Código de Erro #102. Redirecionamento inválido. Termo não encontrado. Verifique se o termo de redirecionamento existe.
+Código de Erro #103. Ponteiro sem tipo definido. Associe o ponteiro a um tipo válido (ex: 'x é um ponteiro para um número').
+Código de Erro #104. Termo não encontrado na estrutura. Verifique se o campo existe na estrutura especificada.
+Código de Erro #105. Comando 'endereçamento' inválido. Variável não localizada. Verifique se a variável existe.
+Código de Erro #106. Variável não localizada. Certifique-se de que a variável foi declarada corretamente.
+Código de Erro #107. Tipo não localizado na estrutura. Verifique se o tipo faz parte da estrutura.
+Código de Erro #108. Campo não localizado na estrutura. Verifique o nome do campo e a definição da estrutura.
+Código de Erro #109. Parâmetro nulo. Forneça um parâmetro válido para a operação.
+Código de Erro #110. Tipo de parâmetro nulo ou inexistente. Verifique o tipo do parâmetro passado.
+Código de Erro #111. Comando 'tal como' incorreto. Variável nula. Verifique a variável usada na comparação.
+Código de Erro #112. Artigo indefinido esperado após 'tal como'. Insira 'um' ou 'uma' após o comando.
+Código de Erro #113. Tipo nulo. Verifique se o tipo foi corretamente identificado.
+Código de Erro #114. Numerador da fração nulo. Verifique o valor ou variável usada como numerador.
+Código de Erro #115. Denominador da fração nulo. Verifique o valor ou variável usada como denominador.
+Código de Erro #116. Rotina não localizada. Verifique se a rotina foi definida e o nome está correto.
+Código de Erro #117. Sintaxe incorreta de divisão. Utilize a expressão 'dividido POR'.
+Código de Erro #118. Comando 'dividido por' inválido. Erro na variável. Verifique a variável envolvida na divisão.
+Código de Erro #119. Divisão impossível. Verifique se o divisor é válido e compatível.
+Código de Erro #120. Subtração impossível. Verifique os operandos da subtração.
+Código de Erro #121. Subtração impossível. Verifique os termos da operação.
+Código de Erro #122. Soma impossível. Verifique os operandos da soma.
+Código de Erro #123. Adição impossível. Verifique os termos da adição.
+Código de Erro #124. Sintaxe incorreta. Utilize 'junto DE' ou 'junto COM'.
+Código de Erro #125. Variável da expressão matemática nula. Verifique se a variável foi inicializada.
+Código de Erro #126. Variável do termo nula. Certifique-se de que a variável existe e tem valor.
+Código de Erro #127. Rotina 'junto com' não definida. Implemente a rotina necessária para essa operação.
+Código de Erro #128. Variável não definida. Declare a variável antes de usá-la.
+Código de Erro #129. Multiplicação impossível. Verifique os operandos da multiplicação.
+Código de Erro #130. Multiplicação impossível. Verifique os termos da operação.
+Código de Erro #131. Aninhamento de condicionais não permitido. Reestruture o código para evitar condições dentro de condições.
+Código de Erro #132. Uso inválido de 'Preserve'. Não utilize 'Preserve' em nomes de rotinas.
+Código de Erro #133. Loops em condicionais proibidos. Mova o loop para fora da expressão condicional.
+Código de Erro #134. Uso exclusivo de 'Empregue'. Se usar 'Empregue', ele deve ser o único comando da rotina.
+Código de Erro #135. Retorno booleano inválido. Funções booleanas devem retornar explicitamente 'sim' ou 'não'.
+Código de Erro #136. Término booleano inválido. Encerre funções booleanas com 'sim' ou 'não'.
+Código de Erro #137. Esperado ponto final. Insira um '.' onde esperado.
+Código de Erro #138. Rotina não localizada. Verifique se a rotina existe.
+Código de Erro #139. Valor hexadecimal esperado. Forneça um valor no formato $DEADCODE ou &C0C0FEDE.
+Código de Erro #140. Empilhamento inválido. Variável inexistente. Verifique se a variável a ser empilhada existe.
+Código de Erro #141. Tipo não empilhável. Apenas certos tipos podem ser colocados na pilha (stack).
+Código de Erro #142. Nome de biblioteca sem aspas. Coloque o nome da biblioteca dinâmica entre aspas.
+Código de Erro #143. Variável não localizada. Verifique se a variável foi declarada.
+Código de Erro #144. Variável de expressão inexistente. Verifique os termos da expressão matemática.
+Código de Erro #145. Tipo não empilhável em expressão. O tipo resultante não pode ser empilhado.
+Código de Erro #146. Variável inexistente. Verifique a existência da variável.
+Código de Erro #147. Tamanho de variável inválido para retorno. Utilize variáveis de 1, 2 ou 4 bytes no retorno.
+Código de Erro #148. Variável de expressão inexistente. Verifique os termos da expressão.
+Código de Erro #149. 'Processe' exige ponteiro. O primeiro argumento de 'Processe' deve ser um ponteiro.
+Código de Erro #150. Variável inexistente. Verifique se a variável foi declarada.
+Código de Erro #151. Variável inexistente. Verifique se a variável foi declarada.
+Código de Erro #152. Literal inválido para apontar rotina. Use um endereço ou variável válida, não um literal.
+Código de Erro #153. Tamanho de ponteiro inválido. Ponteiros para rotinas devem ter 32 bits.
+Código de Erro #154. Esperado 'para' após 'aponte'. Complete o comando com 'para'.
+Código de Erro #155. Sintaxe incorreta de apontamento. Use 'Aponte para a rotina'.
+Código de Erro #156. Rotina inexistente. Verifique se a rotina alvo existe.
+Código de Erro #157. Sintaxe incorreta. Verifique a estrutura do termo.
+Código de Erro #158. Esperado 's. Insira o apóstrofo seguido de s ('s) onde necessário.
+Código de Erro #159. Esperado 'para'. Insira a palavra 'para' no local indicado.
+Código de Erro #160. Artigo indefinido esperado. Insira 'um' ou 'uma'.
+Código de Erro #161. Sintaxe incorreta no comando. Revise o comando para corrigir erros de sintaxe.
+Código de Erro #162. Sintaxe de determinação incorreta. Use 'Para que se determine SE ...'.
+Código de Erro #163. Ponto final necessário em repetição. Insira um '.' após os comandos no bloco de repetição.
+Código de Erro #164. Comando 'Preserve' inválido. Variável inexistente. Verifique se a variável a ser preservada existe.
+Código de Erro #165. Apenas variáveis podem ser preservadas. Certifique-se de que o alvo do 'Preserve' é uma variável.
+Código de Erro #166. Ponto final necessário. Encerre o comando com um ponto final '.'.
+Código de Erro #167. Rotina de finalização não encontrada. Implemente a rotina para finalizar o tipo especificado.
+Código de Erro #168. 'Empregue' deve terminar com ponto. Insira um '.' ao final do comando 'Empregue'.
+Código de Erro #169. Múltiplas cláusulas de reutilização. Use apenas uma cláusula de reutilização por rotina.
+Código de Erro #170. Rotina de emprego não encontrada. Verifique se a rotina referenciada existe.
+Código de Erro #171. Variável não encontrada. Verifique se a variável foi declarada.
+Código de Erro #172. Tipo inexistente. Verifique se o tipo da variável é válido.
+Código de Erro #173. Tamanho de tipo inválido para pilha. Use tipos de 8, 16 ou 32 bits.
+Código de Erro #174. Variável inexistente. Verifique se a variável foi declarada.
+Código de Erro #175. Tipo inexistente. Verifique se o tipo da variável é válido.
+Código de Erro #176. Tamanho de tipo inválido. Use tipos de 8, 16 ou 32 bits.
+Código de Erro #177. Categoria de variável inválida. A variável deve ser um parâmetro.
+Código de Erro #178. Emprego de rotina não encontrado. Verifique a referência da rotina.
+Código de Erro #179. Referência recursiva em 'Empregue'. Evite ciclos ao usar 'Empregue' .
+Código de Erro #180. Erro interno: Variável inexistente em 'Transforme um fragmento em código hexadecimal (increment)'.
+Código de Erro #181. Erro interno: Categoria da variável temporária de compilação inválida em 'Transforme um fragmento em código hexadecimal (increment)'.
+Código de Erro #182. Erro interno: Variável não localizada em 'Transforme um fragmento em código hexadecimal (desvio caso resultado negativo)'.
+Código de Erro #183. Erro interno: Variável não localizada em 'Transforme um fragmento em código hexadecimal (cláusula de retorno)'.
+Código de Erro #184. Erro interno: Variável não localizada em 'Transforme um fragmento em código hexadecimal (cláusula de repetição)'.
+Código de Erro #185. Erro interno: Variável não localizada em 'Transforme um fragmento em código hexadecimal (cláusula de interrupção)'.
+Código de Erro #186. Erro interno: Variável não localizada em 'Transforme um fragmento em código hexadecimal (cláusula de interrupção)'.
+Código de Erro #187. Erro interno: Variável não localizada em 'Transforme um fragmento em código hexadecimal (empilhamento de valor)'.
+Código de Erro #188. Erro interno: Tipo não encontrado em 'Transforme um fragmento em código hexadecimal (empilhamento de valor)'.
+Código de Erro #189. Erro interno: Tamanho inválido em 'Transforme um fragmento em código hexadecimal (empilhamento de valor)'.
+Código de Erro #190. Erro interno: Variável não localizada em 'Transforme um fragmento em código hexadecimal (registrador EAX)'.
+Código de Erro #191. Erro interno: Tipo não localizado em 'Transforme um fragmento em código hexadecimal (registrador EAX)'.
+Código de Erro #192. Erro interno: Tamanho inválido em 'Transforme um fragmento em código hexadecimal (registrador EAX)'.
+Código de Erro #193. Erro interno: Rotina não encontrada em 'Transforme um fragmento em código hexadecimal (endereço de rotina)'.
+Código de Erro #194. Erro interno: Rotina de inicialização PE não encontrada em 'Inicialize um Cabeçalho PE (cabeçalho opcional)'.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

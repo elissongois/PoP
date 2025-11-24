@@ -1,0 +1,226 @@
+# Query: "Código de Erro #
+# Including: ./Código-Fonte
+
+196 resultados - 13 arquivos
+
+Código-Fonte\00 - Etapa Inicial.pop:
+  486:         "Código de Erro #001. Erro ao definir o CodePage do Console para STDOUT." junto com o texto CRLF para STDOUT.
+  506:         "Código de Erro #002. O diretório '" junto com a string seguido de "' não foi encontrado." junto com o texto CRLF para StdOut;
+
+Código-Fonte\02 - Carregamento do código fonte.pop:
+  54:         "Código de Erro #003. Não foi possível carregar o arquivo '"
+
+Código-Fonte\03 - Validação do código fonte.pop:
+    39:         "Código de Erro #004. O compilador não reconhece a sintaxe '"
+    80:         "Código de Erro #005. Observações devem terminar com um colchete direito ']'." para a string de erro;
+    84:         "Código de Erro #006. Observações precisam iniciar com um colchete esquerdo '['." para a string de erro;
+    90:         "Código de Erro #007. Strings literais precisam terminar com aspas duplas: ""." para a string de erro;
+    94:         "Código de Erro #008. Strings literais devem começar com aspas duplas: ""." para a string de erro;
+   100:         "Código de Erro #009. Qualificadores devem terminar com um parêntese direito ')'." para a string de erro;
+   104:         "Código de Erro #010. Qualificadores precisam iniciar com um parêntese direito '('." para a string de erro;
+   215:         "Código de Erro #011. não foi possível detectar o idioma desta variável" junto com o texto CRLF e o endereço local deste tipo;
+   222:         "Código de Erro #012. O compilador esperava encontrar um operador de atribuição ('é' ou 'são'), porém encontrou o seguinte termo: '"
+   231:         "Código de Erro #013. Esperado encontrar 'um/uma'. Encontrado '"
+   239:         "Código de Erro #014. Insira um '.' após a declaração do tipo."
+   265:         "Código de Erro #015. A variável '" junto com o segmento inicial deste percorredor
+  1154:         "Código de Erro #016. Esperado '.' no final da estrutura. Encontrado '"
+  1215:         "Código de Erro #017. Erro de sintaxe. Bytes contíguos devem ser declarados apenas com números inteiros." junto com o texto CRLF e o percorredor;
+  1221:         "Código de Erro #018. Erro de sintaxe. Esperado encotrar o identificador 'bytes' após a declaração de número. Identificador encontrado: '"
+  1231:         "Código de Erro #019. Erro de sintaxe. Esperado encontrar um artigo indefinido. Identificador encontrado: '"
+  1250:         "Código de Erro #020. Sintaxe incorreta. Esperado 'o/a'. Encontrado: '"
+  1298:         "Código de Erro #021. O identificador '" junto com o nome seguido de
+  1320:         "Código de Erro #022. Impossível utilizar 0 como razão de escala em tipos escalares."
+  1327:         "Código de Erro #023. Esperado encontrar um '.' após a declaração de unidade de medida. Encontrado. '"
+  1350:         "Código de Erro #024. Esperava encontrar 'Aponte para UM/UMA'. Encontrado: '"
+  1383:         "Código de Erro #025. Erro de sintaxe. Esperado: 'é/está'. Encontrado: '"
+  1400:         "Código de Erro #026. Erro de sintaxe. Declaração de variáveis globais devem terminar com um '.'" junto com o texto CRLF e o percorredor;
+  1418:         "Código de Erro #027. Esperado '.' no final de declarações de variáveis globais. Encontrado: '"
+  1429:         "Código de Erro #028. O identificador '" junto com o nome desta variável global
+  1440:         "Código de Erro #029. Erro de sintaxe. Necessário inserir '.' ao inicializar variáveis globais."
+  1476:         "Código de Erro #030. Erro de sintaxe. Esperado '.' após informações complementares." junto com o texto CRLF e o percorredor;
+  1486:         "Código de Erro #031. Esperava encontrar 'igual a'. Encontrado: '"
+  1493:         "Código de Erro #032. Erro de sintaxe. Esperado '.' ao final de uma declaração variável variável global" junto com o texto CRLF e o percorredor;
+  1544:         "Código de Erro #033. Erro. Esperado 'para'. Encontrado '"
+  1560:         "Código de Erro #034. Erro de sintaxe no cabeçalho de rotina. ':' ausente ou mal posicionado"
+  1604:         "Código de Erro #035. Erro de sintaxe. Verifique se existe um 'para' após o ';'." e o percorredor original;
+  1621:         "Código de Erro #036. Mova o ':' para o final do cabeçalho desta rotina." junto com o texto CRLF e o percorredor;
+
+Código-Fonte\04 - Identificação de tipos.pop:
+  246:         "Código de Erro #037. O identificador '" junto com o nome do tipo primitivo deste tipo
+  252:         "Código de Erro #038. Definição recursiva encontrada no tipo '" junto com o nome do tipo primitivo deste tipo
+  299:         "Código de Erro #039. A expressão 'Aponte para' só pode ser utilizada em variáveis do tipo ponteiro."
+  307:         "Código de Erro #040. A palavra-chave 'com' deve ser utilizada apenas em estruturas e listas."
+  315:         "Código de Erro #041. Proporções e escalas de medida só devem ser utilizadas em tipos de dados numéricos."
+  328:         "Código de Erro #042. Não foi possível determinar o tipo do conteúdo apontado por este ponteiro."
+  343:         "Código de Erro #043. O campo '" junto com o nome deste campo
+  352:         "Código de Erro #044. Encontrada uma definição recursiva no campo '"
+  361:         "Código de Erro #045. O campo '"
+  413:         "Código de Erro #046. O identificador '" junto com o nome deste campo seguido de
+
+Código-Fonte\05 - Identificação de variáveis globais.pop:
+   25:         "Código de Erro #047. A variável global '" junto com o nome desta variável global
+   37:         "Código de Erro #048. Erro de tipo. O tipo: '" junto com o segmento inicial deste percorredor
+   44:         "Código de Erro #049. Esperado '.' após a declaração de uma variável global."\ ao invés de "
+   75:         "Código de Erro #050. O valor literal '" \ Erro interno
+  114:         "Código de Erro #051. Não foi possível determinar o tipo da variável '"
+  121:         "Código de Erro #052. Não foi possível determinar o tipo da variável '"
+  172:         "Código de Erro #053. O identificador '" junto com o nome seguido de
+  177:         "Código de Erro #054. O identificador '" junto com o nome seguido de
+  188:         "Código de Erro #055. Proporção com denominador igual a 0. Unidade de medida inválida."
+  232:         "Código de Erro #056. Esta variável já foi inicializada anteriormente." \ Erro interno
+
+Código-Fonte\06 - Compilação dos cabeçalhos de rotina.pop:
+   49:         "Código de Erro #057. Esperado encontrar 'para que se determine se'. Encontrado '"
+   57:         "Código de Erro #058. É proibido utilizar o identificador 'não' em cabeçalhos de funções booleanas." junto com o texto CRLF e o percorredor;
+   62:         "Código de Erro #059. A rotina para que se ''" junto com a representação interna da rotina desta rotina
+   86:         "Código de Erro #060. A rotina 'para que se '" junto com o segmento inicial deste percorredor
+  273:         "Código de Erro #061. O identificador '" junto com o nome deste parâmetro seguido de
+  430:         "Código de Erro #062. Esperado: 'para'. Encontrado: '"
+  437:         "Código de Erro #063. A 'rotina para que se " junto com a representação interna da rotina
+  444:         "Código de Erro #064. Erro. Esperado encontrar um artigo indefinido. Encontrado: '"
+  450:         "Código de Erro #065. O compilador detectou instruções inválidas no final desta rotina."
+  486:         "Código de Erro #066. Funções de atribuição requerem a utilização de um apóstro seguido de um s ['s]" junto com o texto CRLF e o percorredor;
+  493:         "Código de Erro #067. Esperado 'para' após o identificador. Encontrado '"
+  500:         "Código de Erro #068. A rotina para que se '" junto com a representação interna da rotina
+  507:         "Código de Erro #069. Esperava encontrar um artigo indefinido. Encontrado '"
+  513:         "Código de Erro #070. O compilador detectou instruções inválidas no final desta rotina." junto com o texto CRLF e o percorredor;
+  526:         "Código de Erro #071. A 'rotina para que se '" junto com a representação interna da rotina desta rotina
+  538:         "Código de Erro #072. A 'rotina para que se '" junto com a representação interna da rotina desta rotina
+
+Código-Fonte\07 - Cálculo de tamanhos e deslocamentos.pop:
+  78:         "Código de Erro #073. O campo '"
+
+Código-Fonte\08 - Gerenciamento de memória.pop:
+  160:         "Código de Erro #074. O identificador '" junto com o nome deste primeiro campo destes campos deste tipo
+  166:         "Código de Erro #075. O identificador '" junto com o nome deste tipo deste primeiro campo destes campos deste tipo
+
+Código-Fonte\09 - Identificação de rotinas.pop:
+  72:         "Código de Erro #076. A rotina não foi localizada no catálogo geral de rotinas"
+
+Código-Fonte\10 - Rotinas pré e pós execução.pop:
+    21:         "Código de Erro #077. A rotina 'para que se " junto com a string
+    59:         "Código de Erro #078. Não foi possível encontrar o cabeçalho alternativo desta rotina." junto com o texto CRLF e o percorredor;
+    96:         "Código de Erro #079. Esperado invocação de rotina. Encontrado: "
+   102:         "Código de Erro #080. Invocação de rotina inexistente (ou uso de palavra-chave reservada) no segmento '"
+   120:         "Código de Erro #081. A rotina 'para que se determine se "
+   126:         "Código de Erro #082. Necessário utilizar um decisor." junto com o texto CRLF e o percorredor;
+   135:         "Código de Erro #083. Necessário incluir uma vírgula ao invés de: '"
+   152:         "Código de Erro #084. Necessário incluir um '.' ou ';' ao invés de: "
+   258:         "Código de Erro #085. O Compilador esperava encontrar um termo. Encontrado: '"
+   269:         "Código de Erro #086. Comando 'inverta' inválido. A variável: "
+   328:         "Código de Erro #087. A rotina 'para que se " junto com a representação interna da rotina
+   363:         "Código de Erro #088. O tipo e o valor da variável variável global  não estão correspondendo." e
+   467:         "Código de Erro #089. A rotina 'para que se " junto com a representação interna da rotina
+   478:         "Código de Erro #090. Comando '+' incorreto. A variável do termo '" junto com a frase deste termo
+   487:         "Código de Erro #091. Esta rotina é inexistente." junto com
+   507:         "Código de Erro #092. O compilador esperava encontrar um artigo após o 'de'. Encontrado: '"
+   535:         "Código de Erro #093. Não foi possível encontrar a estrutura: "
+   553:         "Código de Erro #094. O termo: "junto com o nome desta variável local
+   558:         "Código de Erro #095. O termo: " junto com o nome desta variável local seguido de
+   605:         "Código de Erro #096. Rotina não localizada. Não foi possível desempilhar o item da stack." junto com o texto CRLF e o percorredor;
+   618:         "Código de Erro #097. O parâmetro: " junto com o nome desta variável local
+   623:         "Código de Erro #098. A variável local " junto com o nome desta variável local
+   667:         "Código de Erro #099. Comando magnitude inválido. A variável: "
+   681:         "Código de Erro #100. Palavra-chave 'conteúdo' detectada, mas o termo '"
+   686:         "Código de Erro #101. A palavra-chave 'conteúdo' só pode ser utilizada em ponteiros." junto com o texto CRLF e o percorredor;
+   694:         "Código de Erro #102. Cláusula redirecionamento inválida. O termo '"
+   699:         "Código de Erro #103. O identificador '" junto com a frase deste termo seguido de
+   724:         "Código de Erro #104. O termo '" junto com a frase deste termo \ ALTERAÇÃO - TESTAR
+   737:         "Código de Erro #105. palavra-chave 'endereçamento' detectada, mas a variável do termo: "
+   775:         "Código de Erro #106. A variável do termo '" junto com a frase deste termo
+   782:         "Código de Erro #107. O tipo: "junto com o nome
+   792:         "Código de Erro #108. O campo '" junto com o nome
+   895:         "Código de Erro #109. Parâmetro inexistente. " junto com o texto CRLF e o percorredor;
+   899:         "Código de Erro #110. Tipo de parâmetro inexistente. " junto com o texto CRLF e o percorredor;
+   942:         "Código de Erro #111. Comando 'como' inválido. Variável: "
+   949:         "Código de Erro #112. Esperado Artigo indefinido após a palavra-chave 'como'. Encontrado: "
+   957:         "Código de Erro #113. Tipo: '" junto com o nome do tipo
+   969:         "Código de Erro #114. Operador '/' detectado, mas o numerador do termo: "
+   977:         "Código de Erro #115. Operador '/' detectado, mas o denominador do termo: "
+  1015:         "Código de Erro #116. A rotina para que se '" junto com a representação interna da rotina
+  1033:         "Código de Erro #117. Você deve usar o termo 'dividido POR'." junto com o texto CRLF e o percorredor;
+  1037:         "Código de Erro #118. Comando 'dividido por' inválido. Erro na variável ''"
+  1046:         "Código de Erro #119. Não é possível dividir por '"
+  1080:         "Código de Erro #120. Não é possível subtrair de '"
+  1089:         "Código de Erro #121. Não é possível subtrair de '" junto com a frase deste termo
+  1118:         "Código de Erro #122. Não é possível somar o '"
+  1127:         "Código de Erro #123. Não é possível adicionar o '"
+  1156:         "Código de Erro #124. Necessário escrever 'junto DE/junto COM/etc'." e
+  1161:         "Código de Erro #125. A variável da expressão matemática: "
+  1170:         "Código de Erro #126. A variável do termo '" junto com a frase deste termo
+  1228:         "Código de Erro #127. A rotina para que se " junto com
+  1236:         "Código de Erro #128. A variável do termo '" junto com
+  1253:         "Código de Erro #129. Não é póssível multiplicar por '"
+  1262:         "Código de Erro #130. Não é póssível multiplicar por '"
+  1294:         "Código de Erro #129. Não é póssível multiplicar por '"
+  1303:         "Código de Erro #130. Não é póssível multiplicar por '"
+  1405:         "Código de Erro #131. O aninhamento de condicionais não é permitido." junto com o texto CRLF e o percorredor;
+  1409:         "Código de Erro #132. A palavra-chave 'Preserve' não pode ser usada nesse tipo de comando." junto com o texto CRLF e o percorredor;
+  1413:         "Código de Erro #133. Loops não são permitidos em expressões condicionais." junto com o texto CRLF e o percorredor;
+  1417:       \"Código de Erro #134. O comando 'Empregue' deve ser o único comando de uma rotina." junto com o texto CRLF e o percorredor;
+  1437:         "Código de Erro #135. Funções booleanas devem retornar 'sim' ou 'não'" junto com o texto CRLF e o percorredor;
+  1492:         "Código de Erro #136. Funções booleanas devem terminar com um 'sim' ou 'não'." junto com o texto CRLF e o percorredor;
+  1500:         "Código de Erro #137. O compilador esperava encontrar um '.' Encontrado o termo: "
+  1520:         "Código de Erro #138. A rotina para que se " junto com a representação interna da rotina
+  1553:         "Código de Erro #139. Encontrado '"junto com o segmento inicial deste percorredor
+  1569:         "Código de Erro #140. Comando de empilhamento inválido devido a variável '"
+  1574:         "Código de Erro #141. Valores do tipo: " junto com o nome deste tipo desta expressão matemática
+  1609:         "Código de Erro #142. Nomes de bibliotecas dinâmicas devem ser escritos entre aspas. Encontrado: "
+  1626:         "Código de Erro #143. A variável do termo '" junto com a frase deste termo
+  1684:         "Código de Erro #144. A variável da expressão matemática '"
+  1690:         "Código de Erro #145. O tipo '" junto com o nome deste tipo desta expressão matemática
+  1713:         "Código de Erro #146. O termo da variável: '" junto com a frase deste termo
+  1718:         "Código de Erro #147. Uma varíavel de 1, 2, ou 4 bytes é necessária na cláusula de devolução."
+  1734:         "Código de Erro #148. A variável da expressão matemática'"
+  1740:         "Código de Erro #149. Comando 'Processe' exige o tipo ponteiro." junto com o texto CRLF e o percorredor;
+  1752:         "Código de Erro #150. A variável do termo '"
+  1770:         "Código de Erro #151. A variável '" junto com a frase deste termo
+  1775:         "Código de Erro #152. Identificado valor literal na categoria deste termo."
+  1779:         "Código de Erro #153. Variável de tamanho diferente de 32 bits."
+  1783:         "Código de Erro #154. A palavra-chave 'para é necessária após o comando 'aponte'. Termo encontrado: "
+  1791:         "Código de Erro #155. A sintaxe do comando é 'Aponte para a rotina'. Encontrado termo: "
+  1801:         "Código de Erro #156. A rotina para que se " junto com a representação interna da rotina
+  1829:         "Código de Erro #157. O termo '" junto com o segmento inicial deste percorredor
+  1846:         "Código de Erro #158. O compilador esperava encontrar um 's. Encontrado: '"
+  1854:         "Código de Erro #159. O compilador esperava encontrar a palavra 'para'. Encontrado: '"
+  1861:         "Código de Erro #160. O compilador esperava encontrar um artigo indefinido. Encontrado: '"
+  1873:         "Código de Erro #161. O comando '" junto com o nome seguido de
+  1889:         "Código de Erro #162. Esperava encontrar: 'Para que se determine SE xxxx'. Encontrado: 'Para que se determine '"
+  1905:         "Código de Erro #163. Necessário incluir um '.' após comandos em blocos de repetição." junto com o texto CRLF e o percorredor;
+  1923:         "Código de Erro #164. Comando 'Isole', Inválido. A variável '"
+  1930:         "Código de Erro #165. Apenas parâmetros podem ser isolados." junto com o texto CRLF e o percorredor;
+  1945:         "Código de Erro #166. Necessário incluir um '.' ao fim do comando" junto com o texto CRLF e o percorredor;
+  1980:         "Código de Erro #167. A 'rotina para que se finalize um " junto com o tipo desta variável
+  1997:         "Código de Erro #168. O comando 'Empregue' deve terminar com um '.' ao invés de '"
+  2003:         "Código de Erro #169. Permitido apenas uma cláusula de reutilização dentro de cada rotina" junto com o texto CRLF e o percorredor;
+  2008:         "Código de Erro #170. A rotina para que se '" junto com a representação de emprego desta rotina
+
+Código-Fonte\13 - Endereçamento de itens.pop:
+  202:         "Código de Erro #171. A variável '" junto com o nome desta variável deste fragmento
+  207:         "Código de Erro #172. O tipo '" junto com o nome deste tipo desta variável deste fragmento
+  222:         "Código de Erro #173.  O tipo '" junto com o nome deste tipo desta variável deste fragmento
+  229:         "Código de Erro #174. A variável '" junto com o nome desta variável deste fragmento seguido de
+  234:         "Código de Erro #175. O tipo '" junto com o nome deste tipo desta variável deste fragmento
+  249:         "Código de Erro #176. O tipo '"
+
+Código-Fonte\14 - Transmutação.pop:
+  121:         "Código de Erro #177. A categoria da variável '" junto com o nome desta variável
+  145:         "Código de Erro #178. A 'Rotina para que se " junto com a representação de emprego desta rotina
+  151:         "Código de Erro #179. A palavra-chave 'Empregue' está fazendo uma referência recursiva. "
+  171:         "Código de Erro #180. A variável '" junto com o nome desta variável deste fragmento \ Erro interno
+  176:         "Código de Erro #181. A categoria da variável '" junto com o nome desta variável deste fragmento \ Erro interno
+  206:         "Código de Erro #182. A variável '"  junto com o nome desta variável deste segundo fragmento
+  237:         "Código de Erro #183. A variável '"  junto com o nome desta variável deste segundo fragmento
+  247:         "Código de Erro #184. A variável '"  junto com o nome desta variável deste segundo fragmento
+  271:         "Código de Erro #185. A variável '"  junto com o nome desta variável deste terceiro fragmento
+  276:         "Código de Erro #186. A variável '"  junto com o nome desta variável deste terceiro fragmento
+  317:         "Código de Erro #187. A variável '"  junto com o nome desta variável deste fragmento
+  322:         "Código de Erro #188. O tipo '" junto com o nome deste tipo desta variável deste fragmento
+  340:         "Código de Erro #189. Tamanho do fragmento inválido" junto com o texto CRLF. \ Erro interno
+  386:         "Código de Erro #190. A variável '" junto com o nome desta variável deste fragmento  \ Erro interno
+  391:         "Código de Erro #191. O tipo '" junto com o nome deste tipo desta variável deste fragmento  \ Erro interno
+  410:         "Código de Erro #192. O tipo '" junto com o tipo desta variável deste fragmento \ Erro interno
+  422:         "Código de Erro #193. Rotina não encontrada."
+
+Código-Fonte\15 - Vinculação.pop:
+  68:         "Código de Erro #194. A rotina de inicialização do cabeçalho PE não foi encontrada no catálogo geral de rotinas."

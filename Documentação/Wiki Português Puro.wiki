@@ -1,0 +1,206 @@
+= Português Puro =
+
+== Características e Paradigmas ==
+
+=== Linguagem de Alto Nível ===
+A linguagem permite a criação de programas com alto nível de abstração, aproximando a programação da linguagem natural.
+
+=== Passagem de Argumentos ===
+Os argumentos em rotinas e funções são passados por referência. Alterações feitas dentro de uma rotina refletem diretamente na variável original.
+
+=== Sistema de Tipos ===
+
+'''Tipagem estática e forte''': tipos definidos em tempo de compilação, sem compatibilidade implícita.
+
+'''Inferência de tipos''': o compilador pode deduzir o tipo de variáveis a partir do nome ou do contexto inicial.
+
+'''Conversão de tipos''': deve ser sempre explícita, sem conversões automáticas.
+
+=== Paradigma de Programação ===
+Segue os paradigmas imperativo e estruturado, com suporte a sequência, condição e repetição.
+
+=== Sensibilidade a Maiúsculas ===
+Não diferencia letras maiúsculas de minúsculas. Identificadores como ''número'', ''Número'' e ''NÚMERO'' são equivalentes.
+
+== Tipos de Dados ==
+
+=== Tipos Primitivos ===
+Dois tipos fundamentais: ''byte'' e ''estrutura''.
+Todos os outros tipos derivam deles.
+
+=== Tipos Derivados ===
+Entre os tipos derivados mais comuns estão: ''caractere'', ''string'', ''lista'', ''ponteiro'', ''número'', ''fração'', ''número hexadecimal'', ''sinalizador'' (booleano).
+
+== Sintaxe e Estrutura ==
+
+=== Comentários ===
+
+'''Linha única''': iniciados com barra invertida.
+Exemplo: <code>Inicialize os componentes. \ comentário</code>
+
+'''Bloco''': delimitados por colchetes, podendo ser usados no meio da linha.
+Exemplo: <code>Pinte a caixa [na borda] e a cor branca [como preenchimento].</code>
+
+=== Declaração de Variáveis ===
+
+'''Globais''': declaradas com artigos definidos.
+<code>A raiz de dois é uma fração igual a 99/70.</code>
+
+'''Locais''': declaradas dentro de rotinas com artigos indefinidos e opcionalmente nomeadas com ''denominado''.
+Exemplo:
+<code>Atribua 18 para um número denominado idade.</code>
+<code>Some 1 ao número.</code>
+
+=== Estruturas (Registros) ===
+Sintaxe:
+
+<code><artigo> <nome do tipo> é uma estrutura com <lista de campos>.</code>
+Exemplo:
+
+<code>Uma string é uma estrutura com um caractere inicial e um caractere final.</code>
+
+Estruturas vazias ocupam 0 bits. O tamanho equivale à soma de seus campos.
+
+=== Laços e Iterações ===
+
+<code>Itere.</code> ? Inicia um laço infinito.
+
+<code>Reitere.</code> ? Retorna ao início do laço.
+
+<code>Pare.</code> ? Interrompe o laço.
+
+Observação: não é permitido aninhar laços.
+
+=== Operadores ===
+
+'''Aritméticos''': ''mais'', ''menos'', ''vezes'', ''dividido por''.
+Todos possuem a mesma precedência, avaliados da esquerda para a direita.
+
+'''Concatenação de strings''': ''junto com'', ''seguido de'', ''acompanhado de''. Variações como ''junto'' e ''juntamente'' também são aceitas.
+
+=== Rotinas, Parâmetros e Funções ===
+
+Declaração:
+<code> Rotina para que se <nome>:</code>
+ou
+<code> Para que se <nome>:</code>
+
+Parâmetros: declarados com artigos indefinidos.
+
+Preposições do cabeçalho (''com'', ''para'', ''usando'') devem ser mantidas.
+
+Verbos ''ser'' e ''estar'' são sinônimos para o compilador.
+
+==== Funções Booleanas ====
+Chamadas de '''funções deliberativas'''.
+Sintaxe:
+
+<code>Função para que se determine se <condição>:</code>
+
+Exemplo:
+
+<code>Função para que se determine se um número é negativo:<br>  Se o número for menor que 0, diga sim.<br>  Diga não.</code>
+
+O retorno é feito com ''diga sim'' ou ''diga não''.
+
+=== Callbacks ===
+O cabeçalho pode incluir a palavra-chave ''compativelmente'', permitindo que o endereço da rotina seja passado externamente.
+Exemplo:
+<code>Aponte um ponteiro para a rotina <nome>.</code>
+
+=== Retorno ===
+Usa-se <code> Retorne.</code>.
+Funções booleanas retornam com ''diga sim'' ou ''diga não''.
+
+=== Manipulação de Strings ===
+
+Strings são estruturas com ponteiros para o caractere inicial e final.
+
+A biblioteca padrão fornece rotinas como ''Atribua'', ''Acrescente'' e ''Remova''.
+
+A alocação e desalocação são automáticas.
+
+É possível obter o comprimento em bytes.
+
+=== Integração com DLLs ===
+Chamadas externas:
+<code>Processe "dll" "função" com <argumentos> retornando <valor></code>
+
+Os parâmetros seguem a convenção C: ordem inversa e tipos simples por valor.
+
+=== Injeção de Código de Máquina ===
+Trechos em hexadecimal podem ser incluídos com:
+<code> Decodifique <texto hexadecimal></code>
+
+== Compilador e Memória ==
+
+=== Compilação ===
+A compilação pode ser efetuada via linha de comando ou através da IDE. O compilador está programado para incluir todos os arquivos com extensão '''.pop''' que estiverem dentro da pasta definida. O comando para compilação deve conter a estrutura a seguir:
+
+<code><Endereço do binário do Compilador> <Endereço da pasta do projeto a ser compilada></code>
+
+Exemplo:
+
+Suponhamos que o usuário está dentro de um terminal no diretório C:\Compilador\. Nesta pasta oo nome do binário do compilador do Português Puro é Compile.exe. A pasta com os arquivos de código para compilação é C:\Projeto\. Então o comando para compilar o projeto seria:
+
+<code> Compile C:\Projeto\</code>
+
+=== Estrutura de Strings ===
+Internamente, uma string é representada por uma estrutura que contém ponteiros para o byte inicial e final. Isso permite manipulação direta em memória.
+
+=== Pilha (Stack) ===
+Os registradores '''EBP''' (base pointer) e '''ESP''' (stack pointer) são usados para gerenciar variáveis e parâmetros.
+O compilador gera código x86 usando registradores:
+
+Primeiro argumento: <code>ebp+8</code>
+
+Segundo argumento: <code>ebp+12</code>
+
+Variáveis locais: <code>ebp-4</code>, <code>ebp-8</code>, etc.
+
+O compilador lida automaticamente com valores de 4 bytes. Para tamanhos maiores, o acesso deve ser feito diretamente via ESP
+
+=== Processo de Compilação ===
+
+O processo de compilação inclui:
+
+Identificação de tipos.
+Registro de variáveis globais.
+Análise de cabeçalhos de rotinas.
+Cálculo de tamanhos e deslocamentos.
+Geração de código em hexadecimal.
+Vinculação e montagem final do executável.
+
+=== Compilador ===
+
+Caso queira efetuar o download do [[Compilador em Português Puro]] para linha de comando, ele está disponível nesta página:
+
+[https://github.com/elenderg/Portugues-Puro Compilador]
+
+=== IDE ===
+
+Existe uma IDE ou ADI ([[Ambientes de Desenvolvimento Integrado]]) minimalista feita escrita e compilada completamente em Português Puro. Atualmente o nome do projeto deste ADI é [[PAL-1000]].
+
+Caso queira efetuar o download do PAL-1000, ele está disponível nesta página:
+
+[https://github.com/elenderg/PAL-1000 PAL-1000]
+
+=== Extensões ===
+
+Para quem prefere usar um editor de código mais popular, existe extensões de realce publicada para o VSCode:
+
+[https://github.com/elenderg/Extensao-Portugues-Puro-VS-Code Extensão de Realce de Sintaxe]
+
+Alternativamente, uma extensão para um LSP para o Português Puro está sendo desenvolvido:
+
+[https://github.com/elenderg/POP-LSP LSP para Português Puro]
+
+Caso você utilize o Notepad++ para editar código, no repositório do compilador para português puro encontra-se um pacote de configurações para realce de sintaxe e compilação de projeto utilizando o terminal do próprio editor Notepad++.
+
+=== Documentação ===
+
+A documentação da linguagem está disponível em:
+
+[https://portugues-puro.gitbook.io/documentacao Documentação do Português puro no GitBook]
+
+[https://github.com/elenderg/Documentacao-Portugues-Puro Documentação do Português puro no GitHub]

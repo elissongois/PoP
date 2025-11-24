@@ -1,0 +1,1453 @@
+# Query:         "Código de Erro #
+# Including: ./Código-Fonte
+# ContextLines: 3
+
+195 resultados - 13 arquivos
+
+Código-Fonte\00 - Etapa Inicial.pop:
+  483    Processe "kernel32.dll" "SetConsoleOutputCP" com o codepage retornando um número denominado status de erro.
+  484    Se o status de erro for 0 [NULL],
+  485      Escreva em vermelho 
+  486:         "Código de Erro #001. Erro ao definir o CodePage do Console para STDOUT." junto com o texto CRLF para STDOUT.
+  487    Obtenha uma string desde os argumentos da linha de comando.
+  488    Se a string estiver em branco,
+  489      Obtenha um endereço da pasta usando o diretório de trabalho atual;
+
+  503      Acrescente a barra invertida para a string.
+  504    Se a string não estiver no sistema de arquivos,
+  505      Escreva em vermelho 
+  506:         "Código de Erro #002. O diretório '" junto com a string seguido de "' não foi encontrado." junto com o texto CRLF para StdOut;
+  507      Retorne.
+  508    Escreva em verde "Compilando o diretório '" junto com a string seguido de "' …" para StdOut. \ #0
+  509    Escreva o texto CRLF para StdOut.
+
+Código-Fonte\02 - Carregamento do código fonte.pop:
+  51    Carregue o endereço completo deste arquivo fonte para uma string. \ necessário para expandir contrações.
+  52    Se o erro do fluxo de entrada/saída não estiver em branco,
+  53      Apresente uma mensagem de erro contendo
+  54:         "Código de Erro #003. Não foi possível carregar o arquivo '"
+  55          junto com o endereço completo deste arquivo fonte
+  56          seguido de "'. Verifique o arquivo possui permissão de leitura ou se está sendo usado por outro processo." junto com o texto CRLF;
+  57      Retorne.
+
+Código-Fonte\03 - Validação do código fonte.pop:
+    36        Reitere.
+    37      [Se o segmento inicial deste percorredor for outra coisa]
+    38      Apresente uma mensagem de erro contendo
+    39:         "Código de Erro #004. O compilador não reconhece a sintaxe '"
+    40        junto com o segmento inicial deste percorredor seguido de "'."
+    41        junto com o texto CRLF e o percorredor.
+    42    Reitere.
+
+    77  Rotina para que se mova um percorredor retornando uma string de erro (validação de comentários de bloco):
+    78    Se a quantidade de caracteres deste segmento inicial deste percorredor for menor do que 2,
+    79      Atribua 
+    80:         "Código de Erro #005. Observações devem terminar com um colchete direito ']'." para a string de erro;
+    81      Retorne.
+    82    Se o conteúdo deste caractere final deste segmento inicial deste percorredor não for o colchete direito,
+    83      Atribua 
+    84:         "Código de Erro #006. Observações precisam iniciar com um colchete esquerdo '['." para a string de erro;
+    85      Retorne.
+    86  
+    87  Rotina para que se mova um percorredor retornando uma string de erro (validação de strings literais):
+    88    Se a quantidade de caracteres deste segmento inicial deste percorredor for menor do que 2,
+    89      Atribua 
+    90:         "Código de Erro #007. Strings literais precisam terminar com aspas duplas: ""." para a string de erro;
+    91      Retorne.
+    92    Se o conteúdo deste caractere final deste segmento inicial deste percorredor não for as aspas duplas,
+    93      Atribua 
+    94:         "Código de Erro #008. Strings literais devem começar com aspas duplas: ""." para a string de erro;
+    95      Retorne.
+    96  
+    97  Rotina para que se mova um percorredor retornando uma string de erro (diretrizes de validação de qualificadores):
+    98    Se a quantidade de caracteres deste segmento inicial deste percorredor for menor do que 2,
+    99      Atribua 
+   100:         "Código de Erro #009. Qualificadores devem terminar com um parêntese direito ')'." para a string de erro;
+   101      Retorne.
+   102    Se o conteúdo deste caractere final deste segmento inicial deste percorredor não for o parênteses direito,
+   103      Atribua 
+   104:         "Código de Erro #010. Qualificadores precisam iniciar com um parêntese direito '('." para a string de erro;
+   105      Retorne.
+   106  
+   107  Rotina para que se apresente uma mensagem de erro contendo uma string e um endereço de byte:
+
+   212      Adicione 1 à contagem.
+   213    Se a contagem for igual ou maior do que 2, \ OBSOLETO. TODO: REMOVER VERIFICAÇÃO.
+   214      Apresente uma mensagem de erro contendo
+   215:         "Código de Erro #011. não foi possível detectar o idioma desta variável" junto com o texto CRLF e o endereço local deste tipo;
+   216      Retorne.
+   217    Se o segmento inicial deste percorredor for algum operador de atribuição de estruturas compostas,
+   218      Examine o tipo usando o percorredor (cláusula 'tem');
+   219      Retorne.
+   220    Se o segmento inicial deste percorredor não for algum operador de atribuição simples,
+   221      Apresente a mensagem de erro contendo
+   222:         "Código de Erro #012. O compilador esperava encontrar um operador de atribuição ('é' ou 'são'), porém encontrou o seguinte termo: '"
+   223         junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+   224      Retorne.
+   225    Mova o percorredor (usando diretrizes de compilação).
+
+   228      Retorne.
+   229    Se o segmento inicial deste percorredor não for algum artigo indefinido,
+   230      Apresente a mensagem de erro contendo
+   231:         "Código de Erro #013. Esperado encontrar 'um/uma'. Encontrado '"
+   232        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+   233      Retorne.
+   234    Mova o percorredor (usando diretrizes de compilação).
+
+   236    Examine algum dado complementar para o tipo usando o percorredor.
+   237    Se o segmento inicial deste percorredor não for o ponto final,
+   238      Apresente a mensagem de erro contendo
+   239:         "Código de Erro #014. Insira um '.' após a declaração do tipo."
+   240        junto com o segmento inicial deste percorredor seguido de "." junto com o texto CRLF e o percorredor;
+   241      Retorne.
+   242    Mova o percorredor (usando diretrizes de compilação).
+
+   262    Reitere.
+   263    Se o nome estiver em branco,
+   264      Apresente uma mensagem de erro contendo
+   265:         "Código de Erro #015. A variável '" junto com o segmento inicial deste percorredor
+   266        seguido de "' não foi definida ainda." junto com o texto CRLF e o percorredor;
+   267      Retorne.
+   268  
+
+  1151    Examine os campos deste tipo usando o percorredor.
+  1152    Se o segmento inicial deste percorredor não for o ponto final,
+  1153      Apresente uma mensagem de erro contendo
+  1154:         "Código de Erro #016. Esperado '.' no final da estrutura. Encontrado '"
+  1155        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1156      Retorne.
+  1157    Mova o percorredor (usando diretrizes de compilação).
+
+  1212    Reduza a proporção.
+  1213    Se o denominador desta proporção não for 1,
+  1214      Apresente uma mensagem de erro contendo
+  1215:         "Código de Erro #017. Erro de sintaxe. Bytes contíguos devem ser declarados apenas com números inteiros." junto com o texto CRLF e o percorredor;
+  1216      Retorne.
+  1217    Atribua o numerador desta proporção à contagem deste campo.
+  1218    Mova o percorredor (usando diretrizes de compilação).
+  1219    Se o segmento inicial deste percorredor não for "byte" ou "bytes",
+  1220      Apresente a mensagem de erro contendo
+  1221:         "Código de Erro #018. Erro de sintaxe. Esperado encotrar o identificador 'bytes' após a declaração de número. Identificador encontrado: '"
+  1222        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1223      Retorne.
+  1224    Mova o percorredor (usando diretrizes de compilação).
+
+  1228    Se existir algum problema de compilação, retorne.
+  1229    Se o segmento inicial deste percorredor não for algum artigo indefinido,
+  1230      Apresente uma mensagem de erro contendo
+  1231:         "Código de Erro #019. Erro de sintaxe. Esperado encontrar um artigo indefinido. Identificador encontrado: '"
+  1232        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1233      Retorne.
+  1234    Mova o percorredor (usando diretrizes de compilação).
+
+  1247    Mova o percorredor (usando diretrizes de compilação).
+  1248    Se o segmento inicial deste percorredor não for algum artigo definido,
+  1249      Apresente uma mensagem de erro contendo
+  1250:         "Código de Erro #020. Sintaxe incorreta. Esperado 'o/a'. Encontrado: '"
+  1251        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1252      Retorne.
+  1253    Mova o percorredor (usando diretrizes de compilação).
+
+  1295      Atribua o endereço local deste tipo procurado ao endereço local. \ aponta para um erro do tipo no código-fonte, não para um tipo gerado
+  1296    Se o endereço local não for inexistente,
+  1297      Apresente uma mensagem de erro contendo
+  1298:         "Código de Erro #021. O identificador '" junto com o nome seguido de
+  1299        "' corresponde a um tipo já declarado anteriormente." junto com o texto CRLF e o endereço local.
+  1300  
+  1301  Função para que se determine se uma string é algum operador de atribuição simples:
+
+  1317    Converta o segmento inicial deste percorredor para a razão de escala deste tipo.
+  1318    Se a razão de escala deste tipo for 0,
+  1319      Apresente uma mensagem de erro contendo
+  1320:         "Código de Erro #022. Impossível utilizar 0 como razão de escala em tipos escalares."
+  1321        junto com o texto CRLF e o endereço local deste tipo;
+  1322      Retorne.
+  1323    Mova o percorredor (usando diretrizes de compilação).
+  1324    Examine o nome do tipo primitivo deste tipo usando o percorredor.
+  1325    Se o segmento inicial deste percorredor não for o ponto final,
+  1326      Apresente a mensagem de erro contendo
+  1327:         "Código de Erro #023. Esperado encontrar um '.' após a declaração de unidade de medida. Encontrado. '"
+  1328        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1329      Retorne.
+  1330    Mova o percorredor (usando diretrizes de compilação).
+
+  1347    Mova o percorredor (usando diretrizes de compilação).
+  1348    Se o segmento inicial deste percorredor não for algum artigo indefinido,
+  1349      Apresente uma mensagem de erro contendo
+  1350:         "Código de Erro #024. Esperava encontrar 'Aponte para UM/UMA'. Encontrado: '"
+  1351        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1352      Retorne.
+  1353    Mova o percorredor (usando diretrizes de compilação).
+
+  1380      Retorne.
+  1381    Se o segmento inicial deste percorredor não for algum operador de atribuição simples,
+  1382      Apresente uma mensagem de erro contendo
+  1383:         "Código de Erro #025. Erro de sintaxe. Esperado: 'é/está'. Encontrado: '"
+  1384        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1385      Retorne.
+  1386    Mova o percorredor (usando diretrizes de compilação).
+
+  1397      Retorne.
+  1398    Se o segmento inicial deste percorredor não for o ponto final,
+  1399      Apresente a mensagem de erro contendo
+  1400:         "Código de Erro #026. Erro de sintaxe. Declaração de variáveis globais devem terminar com um '.'" junto com o texto CRLF e o percorredor;
+  1401      Retorne.
+  1402    Mova o percorredor (usando diretrizes de compilação).
+  1403    Catalogue a variável global.
+
+  1415    Examine os campos deste tipo usando o percorredor.
+  1416    Se o segmento inicial deste percorredor não for o ponto final,
+  1417      Apresente uma mensagem de erro contendo
+  1418:         "Código de Erro #027. Esperado '.' no final de declarações de variáveis globais. Encontrado: '"
+  1419        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1420      Retorne.
+  1421    Mova o percorredor (usando diretrizes de compilação).
+
+  1426    Se a variável global for inexistente, retorne.
+  1427    Se o nome desta variável global estiver no catálogo de variáveis globais,
+  1428      Apresente uma mensagem de erro contendo
+  1429:         "Código de Erro #028. O identificador '" junto com o nome desta variável global
+  1430        seguido de "' corresponde a uma variável global já declarada anteriormente."
+  1431        junto com o texto CRLF e o endereço local desta variável global;
+  1432      Retorne.
+
+  1437    Examine o corpo de variável global desta variável global usando o percorredor.
+  1438    Se o segmento inicial deste percorredor não for o ponto final,
+  1439      Apresente uma mensagem de erro contendo
+  1440:         "Código de Erro #029. Erro de sintaxe. Necessário inserir '.' ao inicializar variáveis globais."
+  1441        junto com o texto CRLF e o percorredor;
+  1442      Retorne.
+  1443    Mova o percorredor (usando diretrizes de compilação).
+
+  1473    Examine algum dado complementar para o tipo usando o percorredor.
+  1474    Se o segmento inicial deste percorredor não for o ponto final,
+  1475      Apresente uma mensagem de erro contendo
+  1476:         "Código de Erro #030. Erro de sintaxe. Esperado '.' após informações complementares." junto com o texto CRLF e o percorredor;
+  1477      Retorne.
+  1478    Mova o percorredor (usando diretrizes de compilação).
+  1479    Catalogue a variável global.
+
+  1483    Mova o percorredor (usando diretrizes de compilação).
+  1484    Se o segmento inicial deste percorredor não for algum termo de equivalência,
+  1485      Apresente uma mensagem de erro contendo
+  1486:         "Código de Erro #031. Esperava encontrar 'igual a'. Encontrado: '"
+  1487        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1488      Retorne.
+  1489    Mova o percorredor (usando diretrizes de compilação).
+  1490    Examine o corpo de variável global desta variável global usando o percorredor.
+  1491    Se o segmento inicial deste percorredor não for o ponto final,
+  1492      Apresente a mensagem de erro contendo
+  1493:         "Código de Erro #032. Erro de sintaxe. Esperado '.' ao final de uma declaração variável variável global" junto com o texto CRLF e o percorredor;
+  1494      Retorne.
+  1495    Mova o percorredor (usando diretrizes de compilação).
+  1496    Catalogue a variável global.
+
+  1541      Mova o percorredor (usando diretrizes de compilação).
+  1542    Se o segmento inicial deste percorredor não for "para",
+  1543      Apresente uma mensagem de erro contendo
+  1544:         "Código de Erro #033. Erro. Esperado 'para'. Encontrado '"
+  1545        junto com o segmento inicial deste percorredor
+  1546        seguido de "'." junto com o texto CRLF e o percorredor;
+  1547      Retorne.
+
+  1557      Retorne. \ *** usado para nomes alternativos de rotinas
+  1558    Se o segmento inicial deste percorredor não for o sinal de dois pontos,
+  1559      Apresente a mensagem de erro contendo
+  1560:         "Código de Erro #034. Erro de sintaxe no cabeçalho de rotina. ':' ausente ou mal posicionado"
+  1561        e o endereço local desta rotina;
+  1562      Retorne.
+  1563    Mova o percorredor (usando diretrizes de compilação).
+
+  1601    Mova o percorredor (usando diretrizes de compilação).
+  1602    Se o segmento inicial deste percorredor não for o início de alguma rotina,
+  1603      Apresente uma mensagem de erro contendo
+  1604:         "Código de Erro #035. Erro de sintaxe. Verifique se existe um 'para' após o ';'." e o percorredor original;
+  1605      Retorne.
+  1606    Atribua o caractere inicial deste segmento inicial deste percorredor original ao caractere inicial destas instruções desta rotina.
+  1607    Atribua o caractere final deste segmento inicial deste percorredor original ao caractere final destas instruções desta rotina.
+
+  1618      Atribua o caractere final deste segmento inicial deste percorredor ao caractere final destas instruções.
+  1619      Se o segmento inicial deste percorredor for o sinal de dois pontos,
+  1620        Apresente uma mensagem de erro contendo
+  1621:         "Código de Erro #036. Mova o ':' para o final do cabeçalho desta rotina." junto com o texto CRLF e o percorredor;
+  1622        Retorne.
+  1623      Se o segmento inicial deste percorredor não for o ponto final,
+  1624        Mova o percorredor (usando diretrizes de compilação);
+
+Código-Fonte\04 - Identificação de tipos.pop:
+  243    Encontre o tipo base deste tipo usando o nome do tipo primitivo deste tipo e o catálogo de tipos.
+  244    Se o tipo base deste tipo for inexistente,
+  245      Apresente uma mensagem de erro contendo
+  246:         "Código de Erro #037. O identificador '" junto com o nome do tipo primitivo deste tipo
+  247        seguido de "' corresponde a um tipo base inválido." junto com o texto CRLF e o endereço local deste tipo;
+  248      Retorne.
+  249    Ative o sinalizador de recursividade deste tipo.
+  250    Se o sinalizador de recursividade deste tipo base deste tipo estiver ativo,
+  251      Apresente a mensagem de erro contendo
+  252:         "Código de Erro #038. Definição recursiva encontrada no tipo '" junto com o nome do tipo primitivo deste tipo
+  253        seguido de "'." junto com o texto CRLF e o endereço local deste tipo;
+  254      Retorne.
+  255    Destrinche o tipo base deste tipo (tipos de dados primitivos). \ RECURSÃO
+
+  296    Se existir algum problema de compilação, retorne.
+  297    Se o tipo não puder ser reduzido para "ponteiro",
+  298      Apresente uma mensagem de erro contendo
+  299:         "Código de Erro #039. A expressão 'Aponte para' só pode ser utilizada em variáveis do tipo ponteiro."
+  300        junto com o texto CRLF e o endereço local deste tipo;
+  301      Retorne.
+  302  
+
+  304    Se existir algum problema de compilação, retorne.
+  305    Se o tipo não puder ser reduzido para "estrutura",
+  306      Apresente uma mensagem de erro contendo
+  307:         "Código de Erro #040. A palavra-chave 'com' deve ser utilizada apenas em estruturas e listas."
+  308        junto com o texto CRLF e o endereço local deste tipo;
+  309      Retorne.
+  310  
+
+  312    Se existir algum problema de compilação, retorne.
+  313    Se o tipo não puder ser reduzido para "número",
+  314      Apresente uma mensagem de erro contendo
+  315:         "Código de Erro #041. Proporções e escalas de medida só devem ser utilizadas em tipos de dados numéricos."
+  316        junto com o texto CRLF e o endereço local deste tipo;
+  317      Retorne.
+  318  
+
+  325    Encontre o tipo do conteúdo deste tipo usando o nome do conteúdo deste tipo e o catálogo de tipos. \?
+  326    Se o tipo do conteúdo deste tipo for inexistente,
+  327      Apresente uma mensagem de erro contendo
+  328:         "Código de Erro #042. Não foi possível determinar o tipo do conteúdo apontado por este ponteiro."
+  329        junto com o texto CRLF e o endereço local deste tipo;
+  330      Retorne.
+  331  
+
+  340      Se o campo for inexistente, pare.
+  341      Se o campo estiver duplicada nos campos deste tipo,
+  342      Apresente uma mensagem de erro contendo
+  343:         "Código de Erro #043. O campo '" junto com o nome deste campo
+  344        seguido de "' já foi definido anteriormente na estrutura '"
+  345        junto com o nome deste tipo junto com "'." junto com o texto CRLF
+  346        e o endereço local deste campo;
+
+  349      Se existir algum problema de compilação, retorne.
+  350      Se o sinalizador de recursividade deste tipo deste campo estiver ativo,
+  351      Apresente a mensagem de erro contendo
+  352:         "Código de Erro #044. Encontrada uma definição recursiva no campo '"
+  353        junto com o nome deste tipo deste campo seguido de "' da estrutura '"
+  354        junto com o nome deste tipo junto com "'." junto com o texto CRLF
+  355        e o endereço local deste campo;
+
+  358      Se o sinalizador de referência deste campo não estiver ativo, reitere.
+  359      Se o tipo deste campo não puder ser reduzido para "ponteiro",
+  360        Apresente a mensagem de erro contendo
+  361:         "Código de Erro #045. O campo '"
+  362          junto com o nome deste campo
+  363          seguido de "' não é do tipo ponteiro" e o endereço local deste campo;
+  364        Retorne.
+
+  410      Limpe o apelido deste campo. \ poderia encurtar para "Limpe-o" ou "limpe ele" "it"
+  411    Se o nome deste campo não for algum nome de campo válido,
+  412      Apresente uma mensagem de erro contendo
+  413:         "Código de Erro #046. O identificador '" junto com o nome deste campo seguido de
+  414        "' corresponde a um nome de campo inválido." junto com o texto CRLF e o endereço local deste campo;
+  415      Retorne.
+  416  
+
+Código-Fonte\05 - Identificação de variáveis globais.pop:
+   22      Destrinche a variável global (compilação do corpo).
+   23    Se o nome do tipo desta variável global estiver em branco,
+   24      Apresente uma mensagem de erro contendo
+   25:         "Código de Erro #047. A variável global '" junto com o nome desta variável global
+   26        seguido de "' possui um tipo inválido." e o endereço local desta variável global;
+   27      Retorne.
+   28    Destrinche a variável global tal como uma variável.
+
+   34    Mova o percorredor (usando diretrizes de compilação).
+   35    Se o segmento inicial deste percorredor não for algum valor literal,
+   36      Apresente uma mensagem de erro contendo
+   37:         "Código de Erro #048. Erro de tipo. O tipo: '" junto com o segmento inicial deste percorredor
+   38        seguido de "' deve possuir um valor literal." junto com o texto CRLF e o percorredor;
+   39      Retorne.
+   40    Compile um valor literal usando o percorredor.
+   41    Se existir algum problema de compilação, retorne.
+   42    Se o segmento inicial deste percorredor não estiver em branco,
+   43      Apresente a mensagem de erro contendo
+   44:         "Código de Erro #049. Esperado '.' após a declaração de uma variável global."\ ao invés de "
+   45        [junto com o segmento inicial deste percorredor ] junto com o texto CRLF e o percorredor;
+   46      Retorne.
+   47    Se o nome do tipo desta variável global estiver em branco,
+
+   72      Retorne.
+   73    \Se o segmento inicial deste percorredor não for nada disso,
+   74      Apresente uma mensagem de erro contendo
+   75:         "Código de Erro #050. O valor literal '" \ Erro interno
+   76        junto com o segmento inicial deste percorredor seguido de
+   77        "' não pode ser compilado." junto com o texto CRLF e o percorredor.
+   78  
+
+  111      Retorne.
+  112    \Se o tipo desta variável for inexistente,
+  113      Apresente uma mensagem de erro contendo
+  114:         "Código de Erro #051. Não foi possível determinar o tipo da variável '"
+  115        junto com o nome desta variável seguido de "'." junto com o texto CRLF e o endereço local desta variável.
+  116  
+  117  Rotina para que se destrinche uma variável (usando o nome do tipo declarado):
+  118    Encontre o tipo desta variável usando o nome do tipo desta variável e o catálogo de tipos.
+  119    Se o tipo desta variável for inexistente,
+  120      Apresente uma mensagem de erro contendo
+  121:         "Código de Erro #052. Não foi possível determinar o tipo da variável '"
+  122        junto com o nome do tipo desta variável seguido de "'." e o endereço local desta variável;
+  123      Retorne.
+  124  
+
+  169    Encontre um tipo usando o nome e o catálogo de tipos.
+  170    Se o tipo for inexistente,
+  171      Apresente uma mensagem de erro contendo
+  172:         "Código de Erro #053. O identificador '" junto com o nome seguido de
+  173        "' faz referência a unidade de medida inexistente." e o endereço local deste valor literal;
+  174      Retorne.
+  175    Se o tipo não puder ser reduzido para "número",
+  176      Apresente a mensagem de erro contendo
+  177:         "Código de Erro #054. O identificador '" junto com o nome seguido de
+  178        "' não corresponde um tipo numérico válido." e o endereço local deste valor literal;
+  179      Retorne.
+  180    Atribua a razão de escala deste tipo para uma proporção denominada proporção fixa.
+
+  185    Reduza a proporção fixa.
+  186    Se o denominador desta proporção fixa for 0,
+  187      Apresente a mensagem de erro contendo
+  188:         "Código de Erro #055. Proporção com denominador igual a 0. Unidade de medida inválida."
+  189        [junto com o nome deste tipo seguido de "'."] e o endereço local deste valor literal.
+  190    Atribua o numerador deste proporção fixa dividido pelo denominador desta proporção fixa para um número.
+  191    Atribua o nome deste tipo ao nome do tipo deste valor literal.
+
+  229    Se o valor literal for inexistente, retorne.
+  230    Se o nome deste valor literal estiver no catálogo de variáveis hexadecimais,
+  231      Apresente uma mensagem de erro contendo
+  232:         "Código de Erro #056. Esta variável já foi inicializada anteriormente." \ Erro interno
+  233        [junto com o nome deste valor literal]
+  234        e o endereço local deste valor literal;
+  235      Retorne.
+
+Código-Fonte\06 - Compilação dos cabeçalhos de rotina.pop:
+   46    Mova o percorredor (usando diretrizes de compilação).
+   47    Se o segmento inicial deste percorredor não for algum comando condicional,
+   48      Apresente uma mensagem de erro contendo
+   49:         "Código de Erro #057. Esperado encontrar 'para que se determine se'. Encontrado '"
+   50        junto com o segmento inicial deste percorredor junto com o texto CRLF e o percorredor;
+   51      Retorne.
+   52    Mova o percorredor (usando diretrizes de compilação).
+
+   54    Compile as unidades semânticas desta rotina e os parâmetros desta rotina usando o percorredor.
+   55    Se algumas dentre as unidades semânticas desta rotina forem advérbios de negação,
+   56      Apresente a mensagem de erro contendo
+   57:         "Código de Erro #058. É proibido utilizar o identificador 'não' em cabeçalhos de funções booleanas." junto com o texto CRLF e o percorredor;
+   58      Retorne.
+   59    Converta as unidades semânticas desta rotina para a representação interna da rotina desta rotina.
+   60    Se a representação interna da rotina desta rotina estiver no catálogo geral de rotinas,
+   61      Apresente a mensagem de erro contendo
+   62:         "Código de Erro #059. A rotina para que se ''" junto com a representação interna da rotina desta rotina
+   63      seguido de "' já havia sido definida anteriormente." e o endereço local desta rotina;
+   64      Retorne.
+   65    Catalogue a rotina usando as unidades semânticas desta rotina e o catálogo geral de rotinas.
+
+   83      Reitere.
+   84    \Se o percorredor estiver sobre uma rotina não definida,
+   85      Apresente uma mensagem de erro contendo
+   86:         "Código de Erro #060. A rotina 'para que se '" junto com o segmento inicial deste percorredor
+   87        seguido de "' não foi localizada." junto com o texto CRLF e o percorredor.
+   88  
+   89  Rotina para que se compile umas unidades semânticas e uns parâmetros usando um percorredor (artigo definido):
+
+  270    Destrinche o parâmetro.
+  271    Se o parâmetro estiver duplicada nos parâmetros,
+  272      Apresente uma mensagem de erro contendo
+  273:         "Código de Erro #061. O identificador '" junto com o nome deste parâmetro seguido de
+  274        "' já foi declarado como parâmetro anteriormente nesta rotina." e o endereço local deste parâmetro;
+  275      Retorne.
+  276    Adicione uma unidade semântica para as unidades semânticas usando o tipo deste parâmetro.
+
+  427    Adicione uma segunda unidade semântica para as unidades semânticas desta rotina usando "'s " junto com o nome.
+  428    Se o segmento inicial deste percorredor não for alguma preposição de atribuição,
+  429      Apresente uma mensagem de erro contendo
+  430:         "Código de Erro #062. Esperado: 'para'. Encontrado: '"
+  431        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  432      Retorne.
+  433    Adicione uma terceira unidade semântica para as unidades semânticas desta rotina usando "para".
+  434    Converta as unidades semânticas desta rotina para uma representação interna da rotina.
+  435    Se a representação interna da rotina estiver no catálogo geral de rotinas,
+  436      Apresente a mensagem de erro contendo
+  437:         "Código de Erro #063. A 'rotina para que se " junto com a representação interna da rotina
+  438        seguido de "' já foi definida anteriormente." e o endereço local desta rotina;
+  439      Retorne.
+  440    Catalogue a rotina usando as unidades semânticas desta rotina e o catálogo geral de rotinas.
+  441    Mova o percorredor (usando diretrizes de compilação).
+  442    Se o segmento inicial deste percorredor não for algum artigo indefinido,
+  443      Apresente a mensagem de erro contendo
+  444:         "Código de Erro #064. Erro. Esperado encontrar um artigo indefinido. Encontrado: '"
+  445        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  446      Retorne.
+  447    Compile as unidades semânticas desta rotina e o parâmetros desta rotina usando o percorredor (artigo indefinido).
+  448    Se o segmento inicial deste percorredor não estiver em branco,
+  449      Apresente a mensagem de erro contendo
+  450:         "Código de Erro #065. O compilador detectou instruções inválidas no final desta rotina."
+  451        [junto com o segmento inicial deste percorredor seguido de "'." junto com] junto com o texto CRLF e o percorredor;
+  452      Retorne.
+  453    Converta as unidades semânticas desta rotina para a representação interna da rotina desta rotina.
+
+  483      Compile as unidades semânticas desta rotina e os parâmetros desta rotina usando o percorredor (artigo definido).
+  484    Se o segmento inicial deste percorredor não for algum possessivo inglês,
+  485      Apresente uma mensagem de erro contendo
+  486:         "Código de Erro #066. Funções de atribuição requerem a utilização de um apóstro seguido de um s ['s]" junto com o texto CRLF e o percorredor;
+  487      Retorne.
+  488    Mova o percorredor (usando diretrizes de compilação).
+  489    Examine um nome usando o percorredor.
+  490    Adicione uma segunda unidade semântica para as unidades semânticas desta rotina usando "'s " junto com o nome.
+  491    Se o segmento inicial deste percorredor não for "para",
+  492      Apresente a mensagem de erro contendo
+  493:         "Código de Erro #067. Esperado 'para' após o identificador. Encontrado '"
+  494        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  495      Retorne. \ not translated - no possessives em Spanish
+  496    Adicione uma terceira unidade semântica para as unidades semânticas desta rotina usando "para".
+  497    Converta as unidades semânticas desta rotina para uma representação interna da rotina.
+  498    Se a representação interna da rotina estiver no catálogo geral de rotinas,
+  499      Apresente a mensagem de erro contendo
+  500:         "Código de Erro #068. A rotina para que se '" junto com a representação interna da rotina
+  501        seguido de "' já foi definida anteriormente." e o endereço local desta rotina;
+  502      Retorne.
+  503    Catalogue a rotina usando as unidades semânticas desta rotina e o catálogo geral de rotinas.
+  504    Mova o percorredor (usando diretrizes de compilação).
+  505    Se o segmento inicial deste percorredor não for algum artigo indefinido,
+  506      Apresente a mensagem de erro contendo
+  507:         "Código de Erro #069. Esperava encontrar um artigo indefinido. Encontrado '"
+  508        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  509      Retorne.
+  510    Compile as unidades semânticas desta rotina e os parâmetros desta rotina usando o percorredor (artigo indefinido).
+  511    Se o segmento inicial deste percorredor não estiver em branco,
+  512      Apresente a mensagem de erro contendo
+  513:         "Código de Erro #070. O compilador detectou instruções inválidas no final desta rotina." junto com o texto CRLF e o percorredor;
+  514      Retorne. \ not translated - no possessives em Spanish
+  515    Converta as unidades semânticas desta rotina para a representação interna da rotina desta rotina.
+  516    Catalogue a rotina usando as unidades semânticas desta rotina e o catálogo geral de rotinas. \ para utilizar com os employs
+
+  523    Converta as unidades semânticas desta rotina para a representação interna da rotina desta rotina.
+  524    Se a representação interna da rotina desta rotina estiver no catálogo geral de rotinas,
+  525      Apresente uma mensagem de erro contendo
+  526:         "Código de Erro #071. A 'rotina para que se '" junto com a representação interna da rotina desta rotina
+  527        seguido de "' já foi definida anteriormente." e o endereço local desta rotina;
+  528      Retorne.
+  529    Catalogue a rotina usando as unidades semânticas desta rotina e o catálogo geral de rotinas.
+
+  535    Converta as unidades semânticas desta rotina para a representação interna da rotina desta rotina.
+  536    Se a representação interna da rotina desta rotina estiver no catálogo geral de rotinas,
+  537      Apresente uma mensagem de erro contendo
+  538:         "Código de Erro #072. A 'rotina para que se '" junto com a representação interna da rotina desta rotina
+  539        seguido de "' já foi definida anteriormente." e o endereço local desta rotinas;
+  540      Retorne.
+  541    Catalogue a rotina usando as unidades semânticas desta rotina e o catálogo geral de rotinas.
+
+Código-Fonte\07 - Cálculo de tamanhos e deslocamentos.pop:
+  75      Encontre um segundo campo usando o novo nome deste campo e os campos deste tipo.
+  76      Se o segundo campo for inexistente,
+  77        Apresente uma mensagem de erro contendo 
+  78:         "Código de Erro #073. O campo '"
+  79          junto com o novo nome deste campo seguido de "' não pode ser localizado na estrutura '"
+  80          junto com o nome deste tipo seguido de "'." e o endereço local deste campo;
+  81        Retorne.
+
+Código-Fonte\08 - Gerenciamento de memória.pop:
+  157    Se existir algum problema de compilação, retorne.
+  158    Se o primeiro campo destes campos deste tipo for inexistente,
+  159      Apresente uma mensagem de erro contendo
+  160:         "Código de Erro #074. O identificador '" junto com o nome deste primeiro campo destes campos deste tipo
+  161        seguido de "' não é um campo válido nesta lista. Verifique se o campo foi corretamente definido anteriormente."
+  162        junto com o texto CRLF;
+  163      Retorne. \
+  164    Se o tipo deste primeiro campo destes campos deste tipo for inexistente,
+  165      Apresente a mensagem de erro contendo
+  166:         "Código de Erro #075. O identificador '" junto com o nome deste tipo deste primeiro campo destes campos deste tipo
+  167        seguido de "' não é um tipo válido para esta variável. Verifique se o campo foi corretamente definido anteriormente."
+  168        junto com o texto CRLF;
+  169      Retorne.
+
+Código-Fonte\09 - Identificação de rotinas.pop:
+  69      Atribua o ponteiro desta referência para uma rotina.
+  70      Se a rotina for inexistente,
+  71        Apresente uma mensagem de erro contendo
+  72:         "Código de Erro #076. A rotina não foi localizada no catálogo geral de rotinas"
+  73          junto com o texto CRLF; \ Erro interno
+  74        Retorne.
+  75      Copie as unidades semânticas desta rotina para umas unidades semânticas.
+
+Código-Fonte\10 - Rotinas pré e pós execução.pop:
+    18    Encontre uma rotina usando a string e o catálogo geral de rotinas.
+    19    Se a rotina for inexistente,
+    20      Apresente uma mensagem de erro contendo
+    21:         "Código de Erro #077. A rotina 'para que se " junto com a string
+    22        seguido de "' não foi encontrada no catálogo geral de rotinas" junto com o texto CRLF;
+    23      Retorne.
+    24    Compile o corpo relacionado com a rotina.
+
+    56    Atribua a próxima rotina desta rotina para um rotina alvo.
+    57    Se a rotina alvo for inexistente,
+    58      Apresente uma mensagem de erro contendo
+    59:         "Código de Erro #078. Não foi possível encontrar o cabeçalho alternativo desta rotina." junto com o texto CRLF e o percorredor;
+    60      Retorne.
+    61    Atribua a representação interna da rotina deste rotina alvo ao representação de emprego desta rotina.
+    62    Compile o corpo relacionado com a rotina alvo.
+
+    93      Retorne.
+    94    Se o segmento inicial deste percorredor não for o início de alguma declaração,
+    95      Apresente uma mensagem de erro contendo
+    96:         "Código de Erro #079. Esperado invocação de rotina. Encontrado: "
+    97      junto com o segmento inicial deste percorredor seguido de "." junto com o texto CRLF e o percorredor;
+    98      Retorne.
+    99    Compile a próxima instrução usando o percorredor (demais cláusulas).
+   100    Se o segmento inicial deste percorredor não for o ponto final,
+   101      Apresente a mensagem de erro contendo
+   102:         "Código de Erro #080. Invocação de rotina inexistente (ou uso de palavra-chave reservada) no segmento '"
+   103        junto com o segmento inicial deste percorredor junto com "'" junto com o texto CRLF e o percorredor;
+   104      Retorne.
+   105    Mova o percorredor (usando diretrizes de compilação).
+
+   117    Destrua as unidades semânticas.
+   118    Se a rotina for inexistente,
+   119      Apresente uma mensagem de erro contendo
+   120:         "Código de Erro #081. A rotina 'para que se determine se "
+   121        junto com a representação interna da rotina
+   122        seguido de "' não existe." junto com o texto CRLF e o percorredor;
+   123      Retorne.
+   124    Se o sinalizador de deliberação desta rotina não estiver ativo,
+   125      Apresente a mensagem de erro contendo
+   126:         "Código de Erro #082. Necessário utilizar um decisor." junto com o texto CRLF e o percorredor;
+   127        Retorne.
+   128    \ Se o segmento inicial deste percorredor não for a vírgula,
+   129      \apresente a mensagem de erro contendo
+
+   132        \Retorne.
+   133    Se o segmento inicial deste percorredor não for qualquer separador de comandos,
+   134      Apresente a mensagem de erro contendo
+   135:         "Código de Erro #083. Necessário incluir uma vírgula ao invés de: '"
+   136        junto com o segmento inicial deste percorredor
+   137        seguido de "'." junto com o texto CRLF e o percorredor;
+   138        Retorne.
+
+   149        Reitere.
+   150      Se o segmento inicial deste percorredor não for o ponto final,
+   151        Apresente a mensagem de erro contendo
+   152:         "Código de Erro #084. Necessário incluir um '.' ou ';' ao invés de: "
+   153          junto com o segmento inicial deste percorredor seguido de "." junto com o texto CRLF e o percorredor;
+   154      Retorne.
+   155    Mova o percorredor (usando diretrizes de compilação).
+
+   255      Compile o termo usando o percorredor (valor literal);
+   256      Retorne.
+   257    Apresente uma mensagem de erro contendo
+   258:         "Código de Erro #085. O Compilador esperava encontrar um termo. Encontrado: '"
+   259      junto com o segmento inicial deste percorredor seguido de "'."
+   260      junto com o texto CRLF e o percorredor.
+   261  
+
+   266    Se existir algum problema de compilação, retorne.
+   267    Se a variável deste novo termo for inexistente,
+   268      Apresente uma mensagem de erro contendo
+   269:         "Código de Erro #086. Comando 'inverta' inválido. A variável: "
+   270        junto com o frase deste novo termo seguido de "' não foi encontrada." junto com o texto CRLF e o percorredor;
+   271      Retorne.
+   272    Adicione uma variável intermediária usando
+
+   325    Destrua as unidades semânticas.
+   326    Se a rotina for inexistente,
+   327      Apresente uma mensagem de erro contendo
+   328:         "Código de Erro #087. A rotina 'para que se " junto com a representação interna da rotina
+   329        seguido de "' não foi encontrada." e o endereço local;
+   330      Retorne.
+   331    Adicione um terceiro fragmento usando a etiqueta de demanda interna e a rotina.
+
+   360      Ative um sinalizador.
+   361    Se a rotina for inexistente,
+   362      Apresente uma mensagem de erro contendo
+   363:         "Código de Erro #088. O tipo e o valor da variável variável global  não estão correspondendo." e
+   364        o endereço local desta variável;
+   365      Retorne.
+   366    Compile o corpo relacionado com a rotina.
+
+   464    Destrua as unidades semânticas.
+   465    Se a rotina for inexistente,
+   466      Apresente uma mensagem de erro contendo
+   467:         "Código de Erro #089. A rotina 'para que se " junto com a representação interna da rotina
+   468        seguido de "' ainda não foi definida." e o endereço local;
+   469      Retorne.
+   470    Adicione um segundo fragmento usando a etiqueta de demanda interna e a rotina.
+
+   475    Compile o termo usando o percorredor.
+   476    Se a variável deste termo for inexistente,
+   477      Apresente uma mensagem de erro contendo
+   478:         "Código de Erro #090. Comando '+' incorreto. A variável do termo '" junto com a frase deste termo
+   479        seguido de "' não foi localizada." junto com o texto CRLF e o percorredor;
+   480      Retorne.
+   481    Limpe a frase deste termo.
+
+   484    Se existir algum problema de compilação, retorne.
+   485    Se a rotina utilizada atualmente for inexistente,
+   486      Apresente uma mensagem de erro contendo
+   487:         "Código de Erro #091. Esta rotina é inexistente." junto com
+   488        "Não sei o que você está tentando fazer aqui." junto com o texto CRLF e o percorredor;
+   489      Retorne.
+   490    Mova o percorredor (usando diretrizes de compilação).
+
+   504    Mova o percorredor (usando diretrizes de compilação). \ após o indicador do possessivo reverso ("de")
+   505    Se o segmento inicial deste percorredor não for algum artigo,
+   506      Apresente uma mensagem de erro contendo
+   507:         "Código de Erro #092. O compilador esperava encontrar um artigo após o 'de'. Encontrado: '"
+   508        junto com o segmento inicial deste percorredor seguido de "'."
+   509        junto com o texto CRLF e o percorredor;
+   510      Retorne.
+
+   532    Encontre uma variável usando o nome da estrutura.
+   533    Se a variável for inexistente,
+   534      Apresente uma mensagem de erro contendo
+   535:         "Código de Erro #093. Não foi possível encontrar a estrutura: "
+   536        junto com o nome da estrutura seguido de "."
+   537        junto com o texto CRLF e o percorredor.
+   538    Atribua a variável à variável deste termo.
+
+   550    Destrinche a variável local.
+   551    Se a variável local estiver duplicada em os parâmetros desta rotina utilizada atualmente,
+   552      Apresente uma mensagem de erro contendo
+   553:         "Código de Erro #094. O termo: "junto com o nome desta variável local
+   554        seguido de "' já está sendo usado como parâmetro." e o endereço local desta variável local;
+   555      Retorne.
+   556    Se a variável local estiver duplicada em as variáveis locais desta rotina utilizada atualmente,
+   557      Apresente a mensagem de erro contendo
+   558:         "Código de Erro #095. O termo: " junto com o nome desta variável local seguido de
+   559        "' já está sendo usado coma variável local." e o endereço local desta variável local;
+   560      Retorne.
+   561    Elimine apelidos duplicados usando a variável local e o catálogo de apelidos desta rotina utilizada atualmente.
+
+   602    Se existir algum problema de compilação, retorne.
+   603    Se a rotina utilizada atualmente for inexistente,
+   604      Apresente uma mensagem de erro contendo
+   605:         "Código de Erro #096. Rotina não localizada. Não foi possível desempilhar o item da stack." junto com o texto CRLF e o percorredor;
+   606      Retorne.
+   607    Adicione uma variável local para as variáveis locais desta rotina utilizada atualmente usando
+   608      "variável local" e o caractere inicial deste segmento inicial deste percorredor.
+
+   615    Destrinche a variável local.
+   616    Se a variável local estiver duplicada nos parâmetros desta rotina utilizada atualmente,
+   617      Apresente a mensagem de erro contendo
+   618:         "Código de Erro #097. O parâmetro: " junto com o nome desta variável local
+   619        seguido de "' já está sendo usado como parâmetro." e o endereço local desta variável local;
+   620      Retorne.
+   621    Se a variável local estiver duplicada nas variáveis locais desta rotina utilizada atualmente,
+   622      Apresente a mensagem de erro contendo
+   623:         "Código de Erro #098. A variável local " junto com o nome desta variável local
+   624        seguido de "' já foi declarada nesta rotina. Utilize um nome de variável diferente."
+   625        e o endereço local desta variável local;
+   626      Retorne.
+
+   664    Se existir algum problema de compilação, retorne.
+   665    Se a variável deste termo for inexistente,
+   666      Apresente uma mensagem de erro contendo
+   667:         "Código de Erro #099. Comando magnitude inválido. A variável: "
+   668        junto com a frase deste termo seguido de "'não foi localizada." junto com o texto CRLF e o percorredor;
+   669      Retorne.
+   670    Adicione um valor literal para os valores literais usando o caractere inicial deste segmento inicial deste percorredor.
+
+   678    Se existir algum problema de compilação, retorne.
+   679    Se a variável deste termo for inexistente,
+   680      Apresente uma mensagem de erro contendo
+   681:         "Código de Erro #100. Palavra-chave 'conteúdo' detectada, mas o termo '"
+   682        junto com a frase deste termo seguido de "' não foi devidamente definido." junto com o texto CRLF e o percorredor;
+   683      Retorne.
+   684    Se o tipo deste termo não puder ser reduzido para "ponteiro",
+   685      Apresente a mensagem de erro contendo
+   686:         "Código de Erro #101. A palavra-chave 'conteúdo' só pode ser utilizada em ponteiros." junto com o texto CRLF e o percorredor;
+   687      Retorne.
+   688    Compile o termo usando o percorredor (cláusula de redirecionamento).
+   689  
+
+   691    Se existir algum problema de compilação, retorne.
+   692    Se a variável deste termo for inexistente,
+   693      Apresente uma mensagem de erro contendo
+   694:         "Código de Erro #102. Cláusula redirecionamento inválida. O termo '"
+   695        junto com a frase deste termo seguido de "' não foi encontrado." junto com o texto CRLF e o percorredor;
+   696      Retorne.
+   697    Se o tipo do conteúdo deste tipo deste termo for inexistente,
+   698      Apresente a mensagem de erro contendo
+   699:         "Código de Erro #103. O identificador '" junto com a frase deste termo seguido de
+   700        "' refere-se a um ponteiro que não possui um tipo de dado definido." junto com o texto CRLF junto com
+   701        "Certifique-se de que todos os ponteiros estejam associados a um tipo de dado válido antes de usá-los." junto com
+   702        "Verifique a linha que contém a implementação deste ponteiro e atribua um tipo de dado para o qual ele aponta." junto com o texto CRLF junto com
+   703        "Um ponteiro deve apontar para um tipo específico, como um número. Exemplo: " junto com o texto CRLF junto com o texto CRLF
+   704        junto com a frase deste termo junto com  " é um ponteiro [que aponta] PARA um <tipo de dado>."
+   705        junto com o texto CRLF  junto com o texto CRLF e o percorredor;
+   706      Retorne.
+
+   721  Rotina para que se compile um termo usando um percorredor (redirecionamentos de endereços - campos de estruturas):
+   722    Se a variável deste termo for inexistente,
+   723      Apresente uma mensagem de erro contendo
+   724:         "Código de Erro #104. O termo '" junto com a frase deste termo \ ALTERAÇÃO - TESTAR
+   725        seguido de "' não foi encontrado na estrutura." junto com o texto CRLF e o percorredor;
+   726      Retorne.
+   727    Atribua o nome deste tipo do conteúdo deste tipo deste termo ao nome do tipo deste termo.
+
+   734    Se existir algum problema de compilação, retorne.
+   735    Se a variável deste termo for inexistente,
+   736      Apresente uma mensagem de erro contendo
+   737:         "Código de Erro #105. palavra-chave 'endereçamento' detectada, mas a variável do termo: "
+   738        junto com a frase deste termo seguido de " não foi localizada." junto com o texto CRLF e o percorredor;
+   739      Retorne.
+   740    Adicione uma variável intermediária usando "ponteiro" e o caractere inicial deste segmento inicial deste percorredor.
+
+   772      Retorne.
+   773    Se a variável deste termo for inexistente,
+   774      Apresente uma mensagem de erro contendo
+   775:         "Código de Erro #106. A variável do termo '" junto com a frase deste termo
+   776        seguido de "' não foi localizada." junto com o texto CRLF e o percorredor;
+   777      Retorne.
+   778    Se o tipo puder ser reduzido para "ponteiro",
+   779      Atribua o tipo do conteúdo deste tipo ao tipo.
+   780    Se o tipo for inexistente,
+   781      Apresente a mensagem de erro contendo
+   782:         "Código de Erro #107. O tipo: "junto com o nome
+   783        seguido de "' não foi localizada na estrutura: "
+   784        junto com o nome deste tipo deste termo
+   785        seguido de "." junto com o texto CRLF e o percorredor;
+
+   789      Obtenha um campo desde os campos deste tipo.
+   790      Se o campo for inexistente,
+   791        Apresente a mensagem de erro contendo
+   792:         "Código de Erro #108. O campo '" junto com o nome
+   793          seguido de "' não foi localizado na estrutura '"
+   794          junto com o nome deste tipo deste termo
+   795          seguido de "'." junto com o texto CRLF e o percorredor;
+
+   892    Atribua o último parâmetro destes parâmetros desta rotina para um parâmetro.
+   893    Se o parâmetro for inexistente,
+   894      Apresente uma mensagem de erro contendo
+   895:         "Código de Erro #109. Parâmetro inexistente. " junto com o texto CRLF e o percorredor;
+   896      Retorne.
+   897    Se o tipo deste parâmetro for inexistente,
+   898      Apresente a mensagem de erro contendo
+   899:         "Código de Erro #110. Tipo de parâmetro inexistente. " junto com o texto CRLF e o percorredor;
+   900      Retorne.
+   901    Adicione uma variável intermediária usando o nome deste tipo deste parâmetro e o caractere inicial deste segmento inicial deste percorredor.
+   902    Adicione um fragmento usando a etiqueta de inserção de endereço [na stack] e a variável intermediária.
+
+   939    Se existir algum problema de compilação, retorne.
+   940    Se a variável deste termo for inexistente,
+   941      Apresente uma mensagem de erro contendo
+   942:         "Código de Erro #111. Comando 'como' inválido. Variável: "
+   943        junto com a frase deste termo seguido de "' inexistente." junto com o texto CRLF e o percorredor;
+   944      Retorne.
+   945    \ TODO: Refatorar as linha acima que estão repetidas em outros 19 lugares.
+   946    Mova o percorredor (usando diretrizes de compilação).
+   947    Se o segmento inicial deste percorredor não for algum artigo indefinido,
+   948      Apresente a mensagem de erro contendo
+   949:         "Código de Erro #112. Esperado Artigo indefinido após a palavra-chave 'como'. Encontrado: "
+   950        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+   951      Retorne.
+   952    Mova o percorredor (usando diretrizes de compilação).
+
+   954    Encontre um tipo usando o nome do tipo e o catálogo de tipos.
+   955    Se o tipo for inexistente,
+   956      Apresente a mensagem de erro contendo
+   957:         "Código de Erro #113. Tipo: '" junto com o nome do tipo
+   958        seguido de "' inválido." junto com o texto CRLF e o percorredor;
+   959      Retorne.
+   960    Adicione uma variável temporária de compilação usando o nome deste tipo e o caractere inicial deste segmento inicial deste percorredor.
+
+   966    Se existir algum problema de compilação, retorne.
+   967    Se a variável deste termo for inexistente,
+   968      Apresente uma mensagem de erro contendo
+   969:         "Código de Erro #114. Operador '/' detectado, mas o numerador do termo: "
+   970        junto com a frase deste termo seguido de " não foi localizada." junto com o texto CRLF e o percorredor;
+   971      Retorne.
+   972    Mova o percorredor (usando diretrizes de compilação).
+
+   974    Se existir algum problema de compilação, retorne.
+   975    Se a variável deste segundo termo for inexistente,
+   976      Apresente a mensagem de erro contendo
+   977:         "Código de Erro #115. Operador '/' detectado, mas o denominador do termo: "
+   978        junto com o frase deste segundo termo seguido de "' não foi localizado." junto com o texto CRLF e o percorredor;
+   979      Retorne.
+   980    Adicione uma variável intermediária usando "proporção" e o caractere inicial deste segmento inicial deste percorredor.
+
+  1012    Destrua as unidades semânticas.
+  1013    Se a rotina for inexistente,
+  1014      Apresente uma mensagem de erro contendo
+  1015:         "Código de Erro #116. A rotina para que se '" junto com a representação interna da rotina
+  1016        seguido de "' não pôde ser localizada." e o endereço de byte;
+  1017      Retorne.
+  1018    Adicione um quarto fragmento usando a etiqueta de demanda interna e a rotina.
+
+  1030    Mova o percorredor (usando diretrizes de compilação).
+  1031    Se o segmento inicial deste percorredor não for algum objeto indireto,
+  1032      Apresente uma mensagem de erro contendo
+  1033:         "Código de Erro #117. Você deve usar o termo 'dividido POR'." junto com o texto CRLF e o percorredor;
+  1034      Retorne.
+  1035    Se a variável desta expressão matemática for inexistente,
+  1036      Apresente a mensagem de erro contendo
+  1037:         "Código de Erro #118. Comando 'dividido por' inválido. Erro na variável ''"
+  1038        junto com a frase desta expressão matemática
+  1039        seguido de "'." junto com o texto CRLF e o percorredor;
+  1040      Retorne.
+
+  1043    Se existir algum problema de compilação, retorne.
+  1044    Se a variável deste termo for inexistente,
+  1045      Apresente a mensagem de erro contendo
+  1046:         "Código de Erro #119. Não é possível dividir por '"
+  1047        junto com a frase deste termo seguido de "'." junto com o texto CRLF e o percorredor;
+  1048      Retorne.
+  1049    Adicione uma variável intermediária usando
+
+  1077    Se existir algum problema de compilação, retorne.
+  1078    Se a variável desta expressão matemática for inexistente,
+  1079      Apresente uma mensagem de erro contendo
+  1080:         "Código de Erro #120. Não é possível subtrair de '"
+  1081        junto com a frase desta expressão matemática
+  1082        seguido de "'." junto com o texto CRLF e o percorredor;
+  1083      Retorne.
+
+  1086    Se existir algum problema de compilação, retorne.
+  1087    Se a variável deste termo for inexistente,
+  1088      Apresente a mensagem de erro contendo
+  1089:         "Código de Erro #121. Não é possível subtrair de '" junto com a frase deste termo
+  1090        seguido de "'." junto com o texto CRLF e o percorredor;
+  1091      Retorne.
+  1092    Adicione uma variável intermediária usando
+
+  1115    Se existir algum problema de compilação, retorne.
+  1116    Se a variável desta expressão matemática for inexistente,
+  1117      Apresente uma mensagem de erro contendo
+  1118:         "Código de Erro #122. Não é possível somar o '"
+  1119        junto com a frase desta expressão matemática
+  1120        seguido de "'." junto com o texto CRLF e o percorredor;
+  1121      Retorne.
+
+  1124    Se existir algum problema de compilação, retorne.
+  1125    Se a variável deste termo for inexistente,
+  1126      Apresente a mensagem de erro contendo
+  1127:         "Código de Erro #123. Não é possível adicionar o '"
+  1128        junto com a frase deste termo
+  1129        seguido de "'." junto com o texto CRLF e o percorredor;
+  1130      Retorne.
+
+  1153    Mova o percorredor (usando diretrizes de compilação).
+  1154    Se o segmento inicial deste percorredor não for alguma palavra de concatenação,
+  1155      Apresente uma mensagem de erro contendo
+  1156:         "Código de Erro #124. Necessário escrever 'junto DE/junto COM/etc'." e
+  1157        o percorredor;
+  1158      Retorne.
+  1159    Se a variável desta expressão matemática for inexistente,
+  1160      Apresente a mensagem de erro contendo
+  1161:         "Código de Erro #125. A variável da expressão matemática: "
+  1162        junto com a frase desta expressão matemática
+  1163        seguido de " é inválida." junto com o texto CRLF e o percorredor;
+  1164      Retorne.
+
+  1167    Se existir algum problema de compilação, retorne.
+  1168    Se a variável deste termo for inexistente,
+  1169      Apresente a mensagem de erro contendo
+  1170:         "Código de Erro #126. A variável do termo '" junto com a frase deste termo
+  1171        seguido de "' é inválida." junto com o texto CRLF e o percorredor;
+  1172      Retorne.
+  1173    Adicione uma variável intermediária usando
+
+  1225    Converta as unidades semânticas para uma representação interna da rotina.
+  1226    Destrua as unidades semânticas.
+  1227    Apresente uma mensagem de erro contendo
+  1228:         "Código de Erro #127. A rotina para que se " junto com
+  1229      a representação interna da rotina seguido de
+  1230      " ainda não foi definida." e o endereço local.
+  1231  
+
+  1233    \\ concatenação
+  1234    Se a variável deste termo for inexistente,
+  1235      Apresente uma mensagem de erro contendo
+  1236:         "Código de Erro #128. A variável do termo '" junto com
+  1237        a frase deste termo seguido de
+  1238        "' não pode ser encontrada." junto com o texto CRLF e o percorredor;
+  1239      Retorne.
+
+  1250    Se existir algum problema de compilação, retorne.
+  1251    Se a variável desta expressão matemática for inexistente,
+  1252      Apresente uma mensagem de erro contendo
+  1253:         "Código de Erro #129. Não é póssível multiplicar por '"
+  1254        junto com a frase desta expressão matemática
+  1255        seguido de "'." junto com o texto CRLF e o percorredor;
+  1256      Retorne.
+
+  1259    Se existir algum problema de compilação, retorne.
+  1260    Se a variável deste termo for inexistente,
+  1261      Apresente a mensagem de erro contendo
+  1262:         "Código de Erro #130. Não é póssível multiplicar por '"
+  1263        junto com a frase deste termo
+  1264        seguido de "'." junto com o texto CRLF e o percorredor;
+  1265      Retorne.
+
+  1291      Retorne.
+  1292    Se a variável desta expressão matemática for inexistente,
+  1293      Apresente a mensagem de erro contendo
+  1294:         "Código de Erro #129. Não é póssível multiplicar por '"
+  1295        junto com a frase desta expressão matemática
+  1296        seguido de "'." junto com o texto CRLF e o percorredor;
+  1297      Retorne.
+
+  1300    Se existir algum problema de compilação, retorne.
+  1301    Se a variável deste termo for inexistente,
+  1302      Apresente a mensagem de erro contendo
+  1303:         "Código de Erro #130. Não é póssível multiplicar por '"
+  1304        junto com a frase deste termo
+  1305        seguido de "'." junto com o texto CRLF e o percorredor;
+  1306      Retorne.
+
+  1402      Retorne.
+  1403    Se o segmento inicial deste percorredor for algum comando condicional,
+  1404      Apresente uma mensagem de erro contendo
+  1405:         "Código de Erro #131. O aninhamento de condicionais não é permitido." junto com o texto CRLF e o percorredor;
+  1406      Retorne.
+  1407    Se o segmento inicial deste percorredor for algum comando de proteção,
+  1408      Apresente a mensagem de erro contendo
+  1409:         "Código de Erro #132. A palavra-chave 'Preserve' não pode ser usada nesse tipo de comando." junto com o texto CRLF e o percorredor;
+  1410      Retorne.
+  1411    Se o segmento inicial deste percorredor for algum comando de percorrimento,
+  1412      Apresente a mensagem de erro contendo
+  1413:         "Código de Erro #133. Loops não são permitidos em expressões condicionais." junto com o texto CRLF e o percorredor;
+  1414      Retorne.
+  1415    \Se o segmento inicial deste percorredor for uma palavra-chave de reutilização de rotina,
+  1416      \Apresente a mensagem de erro contendo
+
+  1434  Rotina para que se compile a próxima instrução usando um percorredor (cláusula de retorno):
+  1435    Se o sinalizador de deliberação desta rotina utilizada atualmente estiver ativo,
+  1436      Apresente uma mensagem de erro contendo
+  1437:         "Código de Erro #135. Funções booleanas devem retornar 'sim' ou 'não'" junto com o texto CRLF e o percorredor;
+  1438      Retorne.
+  1439    Adicione um fragmento usando a etiqueta de retorno.
+  1440    Mova o percorredor (usando diretrizes de compilação).
+
+  1489    Mova o percorredor (usando diretrizes de compilação).
+  1490    Se o segmento inicial deste percorredor não for algum comando de deliberação literal,
+  1491      Apresente uma mensagem de erro contendo
+  1492:         "Código de Erro #136. Funções booleanas devem terminar com um 'sim' ou 'não'." junto com o texto CRLF e o percorredor;
+  1493      Retorne.
+  1494    Desative um sinalizador.
+  1495    Se o segmento inicial deste percorredor for algum decisor literal afirmativo,
+
+  1497    Mova o percorredor (usando diretrizes de compilação).
+  1498    Se o segmento inicial deste percorredor não for o ponto final,
+  1499      Apresente a mensagem de erro contendo
+  1500:         "Código de Erro #137. O compilador esperava encontrar um '.' Encontrado o termo: "
+  1501        junto com o segmento inicial deste percorredor seguido de "." junto com o texto CRLF e o percorredor;
+  1502      Retorne.
+  1503    Adicione um fragmento usando a etiqueta de carregamento de registrador EAX e o sinalizador.
+
+  1517    Destrua as unidades semânticas.
+  1518    Atribua a representação interna da rotina ao texto retornado.
+  1519    Apresente uma mensagem de erro contendo
+  1520:         "Código de Erro #138. A rotina para que se " junto com a representação interna da rotina
+  1521      seguido de " não foi localizada." junto com o texto CRLF e o percorredor.
+  1522  
+  1523  Função para que se determine se uma string é algum comando de deliberação literal:
+
+  1550    Mova o percorredor (usando diretrizes de compilação).
+  1551    Se o segmento inicial deste percorredor não for algum valor hexadecimal literal,
+  1552      Apresente uma mensagem de erro contendo
+  1553:         "Código de Erro #139. Encontrado '"junto com o segmento inicial deste percorredor
+  1554        seguido de "'. O compilador esperava encontrar um valor hexadecimal, por exemplo $DEADCODE ou &C0C0FEDE" junto com o texto CRLF e o percorredor;
+  1555      Retorne.
+  1556    Adicione um fragmento usando a etiqueta de decodificação.
+
+  1566    Se existir algum problema de compilação, retorne.
+  1567    Se a variável desta expressão matemática for inexistente,
+  1568      Apresente uma mensagem de erro contendo
+  1569:         "Código de Erro #140. Comando de empilhamento inválido devido a variável '"
+  1570      junto com a frase desta expressão matemática seguido de "' ser inexistente." junto com o texto CRLF e o percorredor;
+  1571      Retorne.
+  1572    Se o tipo desta expressão matemática não for valor empilhável,
+  1573      Apresente a mensagem de erro contendo
+  1574:         "Código de Erro #141. Valores do tipo: " junto com o nome deste tipo desta expressão matemática
+  1575        seguido de "' não podem ser empilhados." junto com o texto CRLF e o percorredor;
+  1576      Retorne.
+  1577    Adicione um fragmento usando a etiqueta de inserção de valor [na stack] e a variável desta expressão matemática.
+
+  1606    Mova o percorredor (usando diretrizes de compilação).
+  1607    Se o segmento inicial deste percorredor não for algum string literal,
+  1608      Apresente uma mensagem de erro contendo
+  1609:         "Código de Erro #142. Nomes de bibliotecas dinâmicas devem ser escritos entre aspas. Encontrado: "
+  1610        junto com o segmento inicial deste percorredor seguido de "." junto com o texto CRLF e o percorredor;
+  1611      Retorne.
+  1612    Atribua o segmento inicial deste percorredor para uma segunda string.
+
+  1623    Se o termo estiver vazio, retorne.
+  1624    Se a variável deste termo for inexistente,
+  1625      Apresente a mensagem de erro contendo
+  1626:         "Código de Erro #143. A variável do termo '" junto com a frase deste termo
+  1627        seguido de "' não pode ser localizada." junto com o texto CRLF e o percorredor;
+  1628      Retorne.
+  1629    Adicione um segundo fragmento usando a etiqueta de obtenção do registrador EAX e a variável deste termo.
+
+  1681    Se existir algum problema de compilação, retorne.
+  1682    Se a variável desta expressão matemática for inexistente,
+  1683      Apresente uma mensagem de erro contendo
+  1684:         "Código de Erro #144. A variável da expressão matemática '"
+  1685        junto com a frase desta expressão matemática
+  1686        seguido de "' é inexistente." junto com o texto CRLF e o percorredor;
+  1687      Retorne.
+  1688    Se o tipo desta expressão matemática não for valor empilhável,
+  1689      Apresente a mensagem de erro contendo
+  1690:         "Código de Erro #145. O tipo '" junto com o nome deste tipo desta expressão matemática
+  1691        seguido de "' da expressão matemática não é um valor empilhável." junto com o texto CRLF e o percorredor;
+  1692      Retorne.
+  1693    Se o segmento inicial deste percorredor for algum operador de continuidade,
+
+  1710    Se existir algum problema de compilação, retorne.
+  1711    Se a variável deste termo for inexistente,
+  1712      Apresente uma mensagem de erro contendo
+  1713:         "Código de Erro #146. O termo da variável: '" junto com a frase deste termo
+  1714        seguido de "'. aparenta estar vazio." junto com o texto CRLF e o percorredor;
+  1715      Retorne.
+  1716    Se o tipo deste termo não for valor empilhável,
+  1717      Apresente a mensagem de erro contendo
+  1718:         "Código de Erro #147. Uma varíavel de 1, 2, ou 4 bytes é necessária na cláusula de devolução."
+  1719        junto com o texto CRLF e o percorredor.
+  1720  
+  1721  Rotina para que se adicione um fragmento usando uma etiqueta e uma função:
+
+  1731    Se existir algum problema de compilação, retorne.
+  1732    Se a variável desta expressão matemática for inexistente,
+  1733      Apresente uma mensagem de erro contendo
+  1734:         "Código de Erro #148. A variável da expressão matemática'"
+  1735        junto com a frase desta expressão matemática
+  1736        seguido de "' não pode ser localizada." junto com o texto CRLF e o percorredor;
+  1737      Retorne.
+  1738    Se o tipo desta expressão matemática não puder ser reduzido para "ponteiro",
+  1739      Apresente a mensagem de erro contendo
+  1740:         "Código de Erro #149. Comando 'Processe' exige o tipo ponteiro." junto com o texto CRLF e o percorredor;
+  1741      Retorne.
+  1742    Se o segmento inicial deste percorredor for "com",
+  1743      Compile a próxima instrução usando o percorredor (palavra-chave 'processe' - cláusula com).
+
+  1749    Se o termo estiver vazio, retorne.
+  1750    Se a variável deste termo for inexistente,
+  1751      Apresente a mensagem de erro contendo
+  1752:         "Código de Erro #150. A variável do termo '"
+  1753        junto com a frase deste termo
+  1754        seguido de "' é inexistente." junto com o texto CRLF e o percorredor;
+  1755      Retorne.
+
+  1767    Se existir algum problema de compilação, retorne.
+  1768    Se a variável deste termo for inexistente,
+  1769      Apresente uma mensagem de erro contendo
+  1770:         "Código de Erro #151. A variável '" junto com a frase deste termo
+  1771        seguido de "' deste termo não pode ser encontrada." junto com o texto CRLF e o percorredor;
+  1772      Retorne.
+  1773    Se a categoria deste termo for "valor literal",
+  1774      Apresente a mensagem de erro contendo
+  1775:         "Código de Erro #152. Identificado valor literal na categoria deste termo."
+  1776        junto com o texto CRLF e o percorredor.
+  1777    Se a quantidade de caracteres deste tipo deste termo não for 4,
+  1778      Apresente a mensagem de erro contendo
+  1779:         "Código de Erro #153. Variável de tamanho diferente de 32 bits."
+  1780        junto com o texto CRLF e o percorredor.
+  1781    Se o segmento inicial deste percorredor não for "para",
+  1782      Apresente a mensagem de erro contendo
+  1783:         "Código de Erro #154. A palavra-chave 'para é necessária após o comando 'aponte'. Termo encontrado: "
+  1784        junto com o segmento inicial deste percorredor seguido de "." junto com o texto CRLF e o percorredor;
+  1785      Retorne.
+  1786    Mova o percorredor (usando diretrizes de compilação).
+
+  1788    \Mova o percorredor (usando diretrizes de compilação). \ artigo definido
+  1789    Se o segmento inicial deste percorredor não for "rotina",
+  1790      Apresente a mensagem de erro contendo
+  1791:         "Código de Erro #155. A sintaxe do comando é 'Aponte para a rotina'. Encontrado termo: "
+  1792        junto com o segmento inicial deste percorredor seguido de "." junto com o texto CRLF e o percorredor;
+  1793      Retorne.
+  1794    Mova o percorredor (usando diretrizes de compilação).
+
+  1798    Encontre uma rotina usando a representação interna da rotina e o catálogo geral de rotinas.
+  1799    Se a rotina for inexistente,
+  1800      Apresente a mensagem de erro contendo
+  1801:         "Código de Erro #156. A rotina para que se " junto com a representação interna da rotina
+  1802        seguido de " é inexistente." junto com o texto CRLF e o percorredor;
+  1803      Retorne.
+  1804    Adicione um fragmento usando a etiqueta de endereço de rotina e a rotina.
+
+  1826        Compile a referência da rotina usando o percorredor (string de unidade semântica);
+  1827        Reitere.
+  1828      Apresente uma mensagem de erro contendo
+  1829:         "Código de Erro #157. O termo '" junto com o segmento inicial deste percorredor
+  1830        seguido de "' não é válido neste tipo de comando."
+  1831        junto com o texto CRLF e o percorredor.
+  1832    [Reitere.]
+
+  1843      Compile a referência da rotina usando o percorredor (artigo definido).
+  1844    Se o segmento inicial deste percorredor não for algum possessivo inglês,
+  1845      Apresente uma mensagem de erro contendo
+  1846:         "Código de Erro #158. O compilador esperava encontrar um 's. Encontrado: '"
+  1847        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1848      Retorne.
+  1849    Mova o percorredor (usando diretrizes de compilação).
+
+  1851    Adicione uma segunda unidade semântica para a referência da rotina usando "'s " junto com o nome.
+  1852    Se o segmento inicial deste percorredor não for "para",
+  1853      Apresente a mensagem de erro contendo
+  1854:         "Código de Erro #159. O compilador esperava encontrar a palavra 'para'. Encontrado: '"
+  1855        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1856      Retorne.
+  1857    Adicione uma terceira unidade semântica para a referência da rotina usando "para".
+  1858    Mova o percorredor (usando diretrizes de compilação).
+  1859    Se o segmento inicial deste percorredor não for algum artigo indefinido,
+  1860      Apresente a mensagem de erro contendo
+  1861:         "Código de Erro #160. O compilador esperava encontrar um artigo indefinido. Encontrado: '"
+  1862        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1863      Retorne.
+  1864    Compile a referência da rotina usando o percorredor (artigo indefinido).
+
+  1870    Encontre um tipo e um apelido usando o nome.
+  1871    Se o tipo for inexistente,
+  1872      Apresente uma mensagem de erro contendo
+  1873:         "Código de Erro #161. O comando '" junto com o nome seguido de
+  1874        "' não é um comando de reutilização válido." junto com o texto CRLF e o percorredor;
+  1875      Retorne.
+  1876    Adicione uma unidade semântica para a referência da rotina usando o tipo.
+
+  1886    Mova o percorredor (usando diretrizes de compilação).
+  1887    Se o segmento inicial deste percorredor não for algum comando condicional,
+  1888      Apresente uma mensagem de erro contendo
+  1889:         "Código de Erro #162. Esperava encontrar: 'Para que se determine SE xxxx'. Encontrado: 'Para que se determine '"
+  1890        junto com o segmento inicial deste percorredor seguido de "' '." junto com o texto CRLF e o percorredor;
+  1891      Retorne.
+  1892    Mova o percorredor (usando diretrizes de compilação).
+
+  1902    Mova o percorredor (usando diretrizes de compilação).
+  1903    Se o segmento inicial deste percorredor não for o ponto final,
+  1904      Apresente uma mensagem de erro contendo
+  1905:         "Código de Erro #163. Necessário incluir um '.' após comandos em blocos de repetição." junto com o texto CRLF e o percorredor;
+  1906      Retorne.
+  1907    Mova o percorredor (usando diretrizes de compilação).
+  1908  
+
+  1920    Se existir algum problema de compilação, retorne.
+  1921    Se a variável deste termo for inexistente,
+  1922      Apresente uma mensagem de erro contendo
+  1923:         "Código de Erro #164. Comando 'Isole', Inválido. A variável '"
+  1924        junto com a frase deste termo
+  1925        [seguido de "do termo '" junto com o termo]
+  1926        seguido de "' está vazia. " junto com o texto CRLF e o percorredor;
+  1927      Retorne.
+  1928    Se a categoria deste termo não for "parâmetro",
+  1929      Apresente a mensagem de erro contendo
+  1930:         "Código de Erro #165. Apenas parâmetros podem ser isolados." junto com o texto CRLF e o percorredor;
+  1931      Retorne.
+  1932    Adicione uma variável local para as variáveis locais desta rotina utilizada atualmente usando "variável local" e o caractere inicial deste segmento inicial deste percorredor.
+  1933    Atribua o nome deste termo ao nome desta variável local.
+
+  1942    Adicione fragmentos diversos usando "Atribua" e a variável deste termo e "para" e a variável local e o caractere inicial deste segmento inicial deste percorredor.
+  1943    Se o segmento inicial deste percorredor não for o ponto final,
+  1944      Apresente a mensagem de erro contendo 
+  1945:         "Código de Erro #166. Necessário incluir um '.' ao fim do comando" junto com o texto CRLF e o percorredor;
+  1946      Retorne.
+  1947    Mova o percorredor (usando diretrizes de compilação).
+  1948  
+
+  1977      Encontre uma segunda rotina usando "~Finalize" e o tipo desta variável.
+  1978      Se a segunda rotina for inexistente,
+  1979        Apresente uma mensagem de erro contendo
+  1980:         "Código de Erro #167. A 'rotina para que se finalize um " junto com o tipo desta variável
+  1981          seguido de "' não foi encontrada no catálogo geral de rotinas." junto com o texto CRLF;
+  1982        Retorne.
+  1983      Adicione um terceiro fragmento usando a etiqueta de demanda interna e a segunda rotina.
+
+  1994    Destrua a referência da rotina.
+  1995    Se o segmento inicial deste percorredor não for ".",
+  1996      Apresente uma mensagem de erro contendo
+  1997:         "Código de Erro #168. O comando 'Empregue' deve terminar com um '.' ao invés de '"
+  1998        junto com o segmento inicial deste percorredor seguido de "'." junto com o texto CRLF e o percorredor;
+  1999      Retorne.
+  2000    Mova o percorredor (usando diretrizes de compilação).
+  2001    Se o segmento inicial deste percorredor não estiver em branco,
+  2002      Apresente a mensagem de erro contendo
+  2003:         "Código de Erro #169. Permitido apenas uma cláusula de reutilização dentro de cada rotina" junto com o texto CRLF e o percorredor;
+  2004      Retorne.
+  2005    Encontre uma segunda rotina usando o representação de emprego desta rotina e o catálogo geral de rotinas.
+  2006    Se a segunda rotina for inexistente,
+  2007      Apresente a mensagem de erro contendo
+  2008:         "Código de Erro #170. A rotina para que se '" junto com a representação de emprego desta rotina
+  2009        seguido de "' não foi encontrada." e o endereço local desta rotina;
+  2010      Retorne.
+  2011    Compile o corpo relacionado com a segunda rotina.
+
+Código-Fonte\13 - Endereçamento de itens.pop:
+  199    Adicione 6 para o endereço.
+  200    Se a variável deste fragmento for inexistente,
+  201      Apresente uma mensagem de erro contendo
+  202:         "Código de Erro #171. A variável '" junto com o nome desta variável deste fragmento
+  203        seguido de "' não foi devidamente inicializada. Certifique-se de atribuir um valor antes do uso." junto com o texto CRLF;
+  204      Retorne.
+  205    Se o tipo desta variável deste fragmento for inexistente,
+  206      Apresente a mensagem de erro contendo
+  207:         "Código de Erro #172. O tipo '" junto com o nome deste tipo desta variável deste fragmento
+  208         seguido de "da variável '" junto com o nome desta variável deste fragmento seguido de
+  209        "' não foi implementado.  Verifique se ele foi definido corretamente." junto com o texto CRLF;
+  210      Retorne.
+
+  219      Adicione 4 para o endereço;
+  220      Retorne.
+  221    Apresente a mensagem de erro contendo
+  222:         "Código de Erro #173.  O tipo '" junto com o nome deste tipo desta variável deste fragmento
+  223      seguido de "' possui um tamanho inválido para a pilha. Apenas tipos de 8, 16 ou 32 bits são permitidos." junto com o texto CRLF.
+  224  
+  225  Rotina para que se enderece um fragmento usando um endereço (registrador EAX):
+  226    Adicione 6 para o endereço.
+  227    Se a variável deste fragmento for inexistente,
+  228      Apresente uma mensagem de erro contendo
+  229:         "Código de Erro #174. A variável '" junto com o nome desta variável deste fragmento seguido de
+  230        "' não foi inicializada corretamente. Certifique-se de atribuir um valor antes do uso." junto com o texto CRLF;
+  231      Retorne.
+  232    Se o tipo desta variável deste fragmento for inexistente,
+  233      Apresente a mensagem de erro contendo
+  234:         "Código de Erro #175. O tipo '" junto com o nome deste tipo desta variável deste fragmento
+  235        seguido de "da variável '" junto com o nome desta variável deste fragmento
+  236        seguido de "' não foi implementado.  Verifique se ele foi definido corretamente." junto com o texto CRLF;
+  237      Retorne.
+
+  246      Adicione 2 para o endereço;
+  247      Retorne.
+  248    Apresente a mensagem de erro contendo
+  249:         "Código de Erro #176. O tipo '"
+  250      junto com o nome deste tipo desta variável deste fragmento seguido de
+  251      "' possui um tamanho inválido. Apenas tipos de 8, 16 ou 32 bits são permitidos.".
+
+Código-Fonte\14 - Transmutação.pop:
+  118    \ Se a variável não se encaixar em nenhuma dessas categorias é porque ela é um parâmetro
+  119    Se a categoria desta variável não for "parâmetro",
+  120      Apresente uma mensagem de erro contendo
+  121:         "Código de Erro #177. A categoria da variável '" junto com o nome desta variável
+  122        seguido de "' é diferente de 'parâmetro'." junto com o texto CRLF;
+  123      Retorne.
+  124    \ Se a categoria desta variável for "parâmetro",
+
+  142    Encontre uma segunda rotina usando o representação de emprego desta rotina e o catálogo geral de rotinas.
+  143    Se a segunda rotina for inexistente,
+  144      Apresente uma mensagem de erro contendo
+  145:         "Código de Erro #178. A 'Rotina para que se " junto com a representação de emprego desta rotina
+  146        seguido de "' não foi encontrada. (Esta rotina foi invocada utilizando palavra-chave 'Empregue')."
+  147        junto com o texto CRLF e o endereço local desta rotina;
+  148      Retorne.
+  149    Se o endereço desta segunda rotina for -1,
+  150      Apresente a mensagem de erro contendo
+  151:         "Código de Erro #179. A palavra-chave 'Empregue' está fazendo uma referência recursiva. "
+  152         junto com o texto CRLF e o endereço local desta rotina;
+  153      Retorne.
+  154    Obtenha o endereço usando a segunda rotina.
+
+  168  Rotina para que se transforme um fragmento em código hexadecimal (increment):
+  169    Se a variável deste fragmento for inexistente,
+  170      Apresente uma mensagem de erro contendo
+  171:         "Código de Erro #180. A variável '" junto com o nome desta variável deste fragmento \ Erro interno
+  172        seguido de "' deste fragmento não foi encontrada." junto com o texto CRLF;
+  173      Retorne.
+  174    Se a categoria desta variável deste fragmento não for "variável temporária de compilação",
+  175      Apresente a mensagem de erro contendo
+  176:         "Código de Erro #181. A categoria da variável '" junto com o nome desta variável deste fragmento \ Erro interno
+  177        seguido de "' não corresponde 'variável temporária de compilação'. Categoria detectada: '"
+  178        junto com a categoria desta variável deste fragmento seguido de "'." junto com o texto CRLF;
+  179      Retorne.
+
+  203    Encontre um segundo fragmento usando o fragmento e a etiqueta delimitadora de bloco condicional.
+  204    Se o segundo fragmento for inexistente,
+  205      Apresente uma mensagem de erro contendo
+  206:         "Código de Erro #182. A variável '"  junto com o nome desta variável deste segundo fragmento
+  207        junto com "' deste fragmento não foi localizada" junto com o texto CRLF; \ Erro interno
+  208      Retorne.
+  209    Acrescente $83F800 para o código deste fragmento. \ cmp eax,0
+
+  234    Encontre um segundo fragmento usando o fragmento e a etiqueta de finalização.
+  235    Se o segundo fragmento for inexistente,
+  236      Apresente uma mensagem de erro contendo
+  237:         "Código de Erro #183. A variável '"  junto com o nome desta variável deste segundo fragmento
+  238        junto com "' deste fragmento não foi localizada" junto com o texto CRLF; \ Erro interno
+  239      Retorne.
+  240    Acrescente $E9 e o endereço deste segundo fragmento para o fragmento.
+
+  244    Encontre um segundo fragmento usando o fragmento e a etiqueta de laço (regressivamente).
+  245    Se o segundo fragmento for inexistente,
+  246      Apresente uma mensagem de erro contendo
+  247:         "Código de Erro #184. A variável '"  junto com o nome desta variável deste segundo fragmento
+  248        junto com "' deste fragmento não foi localizada" junto com o texto CRLF; \ Erro interno
+  249      Retorne.
+  250    Acrescente $E9 e o endereço deste segundo fragmento para o fragmento.
+
+  268      a etiqueta (regressivamente).
+  269    Se o terceiro fragmento for inexistente,
+  270      Apresente uma mensagem de erro contendo
+  271:         "Código de Erro #185. A variável '"  junto com o nome desta variável deste terceiro fragmento
+  272        junto com "' deste fragmento não foi localizada" junto com o texto CRLF; \ Erro interno
+  273      Retorne.
+  274    Se o próximo fragmento deste terceiro fragmento for inexistente,
+  275      Apresente a mensagem de erro contendo
+  276:         "Código de Erro #186. A variável '"  junto com o nome desta variável deste terceiro fragmento
+  277        junto com "' deste fragmento não foi localizada" junto com o texto CRLF; \ Erro interno
+  278      Retorne.
+  279    Acrescente $E9 [JMP rel32] e o endereço deste próximo fragmento deste terceiro fragmento para o fragmento.
+
+  314    \ Salva o endereço em edx
+  315    Se a variável deste fragmento for inexistente,
+  316      Apresente uma mensagem de erro contendo
+  317:         "Código de Erro #187. A variável '"  junto com o nome desta variável deste fragmento
+  318        junto com "' deste fragmento não foi localizada" junto com o texto CRLF; \ Erro interno
+  319      Retorne.
+  320    Se o tipo desta variável deste fragmento for inexistente,
+  321      Apresente a mensagem de erro contendo
+  322:         "Código de Erro #188. O tipo '" junto com o nome deste tipo desta variável deste fragmento
+  323        seguido de "' da variável '" junto com o nome desta variável deste fragmento
+  324        seguido de "' deste fragmento não foi encontrado." junto com o texto CRLF;
+  325      Retorne.
+
+  337      \ push edx
+  338    \Se a quantidade de caracteres for outra, então…
+  339      Apresente a mensagem de erro contendo
+  340:         "Código de Erro #189. Tamanho do fragmento inválido" junto com o texto CRLF. \ Erro interno
+  341  
+  342  Rotina para que se transforme um fragmento em código hexadecimal (Demanda Externa):
+  343    Acrescente $FF15 [call] e o endereço desta função deste fragmento para o código deste fragmento.
+
+  383    \ atribui o endereço para o registrador edx
+  384    Se a variável deste fragmento for inexistente,
+  385      Apresente uma mensagem de erro contendo
+  386:         "Código de Erro #190. A variável '" junto com o nome desta variável deste fragmento  \ Erro interno
+  387        seguido de "' não foi encontrada." junto com o texto CRLF;
+  388      Retorne.
+  389    Se o tipo desta variável deste fragmento for inexistente,
+  390      Apresente a mensagem de erro contendo
+  391:         "Código de Erro #191. O tipo '" junto com o nome deste tipo desta variável deste fragmento  \ Erro interno
+  392        seguido de "' da variável '" junto com o nome desta variável deste fragmento
+  393        seguido de "' não foi encontrado." junto com o texto CRLF;
+  394      Retorne.
+
+  407      Retorne.
+  408    [Se a quantidade de caracteres não for 1, 2 ou 4]
+  409      Apresente a mensagem de erro contendo
+  410:         "Código de Erro #192. O tipo '" junto com o tipo desta variável deste fragmento \ Erro interno
+  411        seguido de "deste fragmento possui um tamanho inválido".
+  412  
+  413  Rotina para que se transforme um fragmento em código hexadecimal (Demanda Indireta):
+
+  419    \ atribui o endereço para o registrador edx
+  420    Se a rotina deste fragmento for inexistente,
+  421      Apresente uma mensagem de erro contendo
+  422:         "Código de Erro #193. Rotina não encontrada."
+  423        junto com o texto CRLF; \ Erro interno
+  424      Retorne.
+  425    Obtenha um endereço usando a rotina deste fragmento.
+
+Código-Fonte\15 - Vinculação.pop:
+  65      o catálogo geral de rotinas. \ AddressOfEntryPointInMemory
+  66    Se a rotina for inexistente,
+  67      Apresente uma mensagem de erro contendo
+  68:         "Código de Erro #194. A rotina de inicialização do cabeçalho PE não foi encontrada no catálogo geral de rotinas."
+  69        junto com o texto CRLF;   \ Erro interno
+  70      Retorne.
+  71    Atribua o endereço desta rotina menos o image base ao AddressOfEntryPointInMemory deste Cabeçalho PE.
