@@ -1,4 +1,4 @@
-6# Português Puro
+# Português Puro
 
 Uma linguagem de programação em português brasileiro, projetada para ser natural, expressiva e acessível.
 
@@ -114,11 +114,6 @@ Rotina para que se calcule a distância entre dois pontos:
 - **[POP-LSP](https://github.com/elenderg/POP-LSP)**: Implementação de LSP de `Português Puro`
 
 ### Projetos Relacionados em Outras Línguas
-- **[CEL](https://github.com/elenderg/CEL)**: Compilador em Español Llano
-- **[SAL-PAL](https://github.com/elenderg/SAL-PAL)**: Spanish Assembly Language - Plain Assembly Language
-- **[CAL](https://github.com/elenderg/CAL)**: Compilador para Español Llano
-- **[Plain English Extension](https://github.com/elenderg/Plain-English-Extension-for-VS-Code)**: Extensão VS Code para Plain English
-- **[Plain English Compiler](https://github.com/elenderg/Plain-English-Compiler)**: Compilador em Plain English
 
 - **[CAL](https://github.com/elenderg/CAL)**: IDE escrita em Plain English
 - **[Plain English Compiler](https://github.com/elenderg/Plain-English-Compiler)**: Compilador escrito em em Plain English
