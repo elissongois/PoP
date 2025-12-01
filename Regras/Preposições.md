@@ -180,15 +180,7 @@ Preposições essenciais que conectam termos.
 
 | Contração | Formação   | Uso               |
 |-----------|------------|-------------------|
-| `parde`   | para + de  | Contração interna |
-| `d'`      | de + vogal | Elisão poética    |
 | `acordo`  | de acordo  | `de acordo com`   |
-
-### 16. Preposições em Inglês (Legado)
-
-| Preposição | Significado | Observação                  |
-|------------|-------------|-----------------------------|
-| `after`    | Depois      | Manter para compatibilidade |
 
 ---
 

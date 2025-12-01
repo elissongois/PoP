@@ -14,10 +14,10 @@ Esta lista reúne as melhorias e correções necessárias para os arquivos de gr
 - [ ] **Consistência na nomenclatura da interface** – `ComandoRetorno` (pop) vs `ComandoDeRetorno` (PortuguesPuro) e `ComandoPare` vs `ComandoDeParada`. Alinhe os nomes ou forneça aliases para evitar definições de regras duplicadas.
 - [ ] **Divergência na sintaxe dos comandos** – `pop.langium` usa `ComandoAtribuicao` com as preposições `para`, `a`, `ao`. `PortuguesPuro` restringe-se a `para`/`em`. Estenda `PortuguesPuro` para aceitar todas as preposições usadas nos exemplos.
 - [ ] **Variantes de comando ausentes** – `Acrescente` / `Anteponha` (comandos de concatenação) existem na documentação das regras, mas estão ausentes em `PortuguesPuro.langium`. Adicione os equivalentes `ComandoAcrescentar` e `ComandoAntepor`.
-- [ ] **Entradas duplicadas de `ArtigoDefinido`** – `PortuguesPuro.langium` repete a mesma linha (linhas 248-251). Remova a duplicata para manter a gramática limpa.
+- [x] **Entradas duplicadas de `ArtigoDefinido`** – `PortuguesPuro.langium` repete a mesma linha (linhas 248-251). Remova a duplicata para manter a gramática limpa.
 - [ ] **Sintaxe de declaração de variáveis** – `DeclaracaoGlobal` em `PortuguesPuro` permite duas formas alternativas com `|`. Certifique-se de que ambas as formas sejam refletidas no analisador sintático e que os exemplos na pasta Algoritmos usem a sintaxe suportada.
-- [ ] **Insensibilidade a maiúsculas e minúsculas** – As gramáticas atualmente dependem de strings literais. Adicione uma regra ou transformador do analisador léxico para tornar todas as palavras-chave insensíveis a maiúsculas e minúsculas, conforme a documentação da regra.
-- [ ] **Tratamento de literais para `texto CRLF`** – Vários arquivos `.pop` concatenam `texto CRLF`. Defina uma regra terminal ou auxiliar para reconhecer `texto CRLF` como um literal de string com tratamento de quebra de linha.
+- [x] **Insensibilidade a maiúsculas e minúsculas** – As gramáticas atualmente dependem de strings literais. Adicione uma regra ou transformador do analisador léxico para tornar todas as palavras-chave insensíveis a maiúsculas e minúsculas, conforme a documentação da regra.
+- [-] **Tratamento de literais para `texto CRLF`** – Vários arquivos `.pop` concatenam `texto CRLF`. Defina uma regra terminal ou auxiliar para reconhecer `texto CRLF` como um literal de string com tratamento de quebra de linha.
 - [ ] **Variações de PreposicaoAtribuicao** – A documentação da regra lista muitas preposições (`para`, `ao`, `à`, `às`, `em`, `na`, `no`, etc.). Estenda `PreposicaoAtribuicao` em ambas as gramáticas para incluir a lista completa.
 
 ---

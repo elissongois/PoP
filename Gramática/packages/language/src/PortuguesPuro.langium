@@ -247,7 +247,6 @@ Instrucao:
 
 ArtigoDefinido returns string:
     'o' | 'os' | 'a' | 'as' | 
-    'o' | 'os' | 'a' | 'as' | 
     'este' | 'esta' | 'estes' | 'estas';
 
 ArtigoIndefinido returns string:
