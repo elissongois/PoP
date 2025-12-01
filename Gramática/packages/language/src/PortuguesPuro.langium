@@ -1,28 +1,13 @@
 grammar PortuguesPuro
 
-interface ComandoRetorno {
+interface ComandoDeRetorno {
     comando: string;
     valor?: Expressao;
 }
 
-interface ComandoPare {
+interface ComandoDeParada {
     comando: string;
 }
-
-interface ComandoReitere {
-    comando: string;
-}
-
-interface Instrucao {
-    subInstrucoes: SubInstrucao[];
-}
-
-interface InstrucaoCondicional {
-    subInstrucoes: SubInstrucaoCondicional[];
-}
-
-type SubInstrucao = Comando | Controle | Laco | DeclaracaoLocal;
-type SubInstrucaoCondicional = SubInstrucao | ComandoReitere;
 
 entry Programa:
     (elementos+=Elemento)*;
@@ -36,7 +21,7 @@ Elemento:
 
 Expressao:
     Termo (
-        (operador+=OperadorBinario direita+=Termo) |
+        (operador+=OperadorBinario direita+=Termo) | // Exemplo:  
         (casting+=OperadorCasting artigo+=ArtigoIndefinido? tipo+=ID+)
     )*;
 
@@ -45,8 +30,8 @@ OperadorBinario returns string:
 
 OperadorAritmetico returns string:
     'mais' | 'menos' | 'vezes' | 
-    'multiplicado' ('por')? | 
-    'dividido' ('por'|'pelo'|'pela')?;
+    'multiplicado' ('por'|'pelo'|'pela'|'pelos'|'pelas') | 
+    'dividido' ('por'|'pelo'|'pela'|'pelos'|'pelas');
 
 OperadorLogico returns string:
     'e' | 'ou' | 'nem' | 'não';
@@ -54,8 +39,7 @@ OperadorLogico returns string:
 OperadorComparacao returns string:
     'igual' 'a' | 'diferente' 'de' | 
     'maior' ('que'|'do' 'que') | 'menor' ('que'|'do' 'que') |
-    'é' | 'são' | 'estiver' | 'for' | 'não' 'for' |
-    'começar' 'com' | 'terminar' 'com' | 'contém';
+    'é' | 'são' | 'for' | 'forem';
 
 OperadorConcatenacao returns string:
     'junto' 'com' | 'juntamente' 'com' |
@@ -64,69 +48,66 @@ OperadorConcatenacao returns string:
     'com';
 
 OperadorCasting returns string:
-    'like' | 'as' | 'tal' ('como'|'qual');
+   'tal' ('como'|'qual');
 
 Termo:
-    LiteralNumero | LiteralString | LiteralFracao | LiteralHex | LiteralBooleano | LiteralEspecial | VarRef | AcessoMembro;
+    NumeroLiteral | StringLiteral | FracaoLiteral | HexaLiteral | BollianoLiteral | PonteiroLiteral | Identificador | AcessoMembro;
 
-LiteralNumero:
+NumeroLiteral:
     sinal=('-')? value=INT;
 
-LiteralHex:
+HexaLiteral:
     value=HEX;
 
-LiteralString:
+StringLiteral:
     value=STRING;
 
-LiteralFracao:
-    numerador=INT '/' denominador=INT;
+FracaoLiteral:
+    numerador=NumeroLiteral '/' denominador=INT;
 
-LiteralBooleano:
+BollianoLiteral:
     value=('sim'|'não');
 
-LiteralEspecial:
-    value='inexistente' | value=EmBranco | value=NenhumDesses;
+PonteiroLiteral:
+    value='inexistente';
 
-EmBranco returns string:
-    'em' 'branco';
-
-NenhumDesses returns string:
-    'nenhum' 'desses';
-
-VarRef:
-    artigo=ArtigoDefinido? ref=NomeComposto;
+Identificador:
+    ref=ID;
 
 // Acesso a membro: "o campo X deste registro"
 AcessoMembro:
-    artigo=ArtigoDefinido? campo=NomeComposto possessivo=Possessivo registro=NomeComposto;
+    artigo=ArtigoDefinido? campo=ID possessivo=Possessivo registro=[Identificador:ID];
 
 Possessivo returns string:
     'deste' | 'desta' | 'destes' | 'destas';
+
+
 Relativo returns string:
     'desse' | 'dessa' | 'desses' | 'dessas' |
-    'daquele' | 'daquela' | 'daqueles' | 'daquelas';
+    'daquele' | 'daquela' | 'daqueles' | 'daquelas' 
+    ;
 
 // ============================================================================
 // DECLARAÇÃO DE TIPOS
 // ============================================================================
 
 DeclaracaoTipo:
-    artigo=ArtigoIndefinido nome=NomeComposto verbo=VerboSer definicao=DefinicaoTipo '.';
+    artigo=ArtigoIndefinido nome+=ID+ verbo=VerboSer definicao=DefinicaoTipo '.';
 
 DefinicaoTipo:
-    DefinicaoBaseEstruturado | DefinicaoPonteiro | TipoEscalar | TipoBase;
+    DefinicaoEstrutura  | DefinicaoPonteiro | TipoEscalar | TipoBase;
 
 // Estrutura: "uma estrutura com N bytes" ou "uma estrutura com campos"
-DefinicaoBaseEstruturado:
-    TipoBase 'com' (tamanho=Expressao 'bytes' | campos+=CampoEstrutura (separador+=SeparadorCampo campos+=CampoEstrutura)*);
+DefinicaoEstrutura:
+    'uma' Identificador 'com' (tamanho=Expressao 'bytes' | campos+=CampoEstrutura (separador+=SeparadorCampo campos+=CampoEstrutura)*);
 
 // Ponteiro: "um ponteiro" ou "um ponteiro para tipo"
 DefinicaoPonteiro:
-    'um' 'ponteiro' /*que aponta*/ 'para' TipoBase;
+    'um' 'ponteiro'  'para' tipo+=ID+;
 
 // Campo de estrutura/lista
 CampoEstrutura:
-    artigo=ArtigoIndefinido tipo+=ID+ ('denominada' | 'denominado') nome=NomeComposto referencia?='(referência)'? ('sob' campoBase+=ID+)?;
+    artigo=ArtigoIndefinido tipo+=ID+ ('denominado' nome+=ID+)? referencia?='(referência)'? ('sob' campoBase+=ID+)?;
 
 // Separador de campos: e, ou, vírgula
 SeparadorCampo returns string:
@@ -140,113 +121,97 @@ TipoEscalar:
 TipoBase:
     artigo=ArtigoIndefinido tipo+=ID+;
 
-
 // ============================================================================
 // DECLARAÇÃO DE VARIÁVEIS GLOBAIS
 // ============================================================================
 
 DeclaracaoGlobal:
-    artigo=ArtigoDefinido nome=NomeComposto abreviacao?=Abreviacao? 
+    artigo=ArtigoDefinido nome+=ID+
     verbo=VerboSer 
     tipo=TipoVariavel 
-    (('igual' | 'iguais') 'a' valor=Expressao)? 
-    '.';
+    ('igual' 'a' valor=Termo)? 
+    '.'
+    |
+    artigo=ArtigoDefinido nome+=ID+
+    verbo=VerboSer 
+    valor=Termo
+    '.'
+    ;
 
 TipoVariavel:
     artigo=ArtigoIndefinido tipo+=ID+;
 
-Abreviacao:
-    '[' conteudo+=(ID|Preposicao)+ ']';
+Observacao:
+    '[' conteudo=ID ']';
 
 // ============================================================================
 // DECLARAÇÃO DE VARIÁVEIS LOCAIS
 // ============================================================================
+
+// Variáveis locais podem ser declaradas de duas formas:
+// 1. Com inicialização: Atribua <valor> para <artigo> <tipo> [denominado <nome>]
+// 2. Sem inicialização: <Verbo> <artigo> <tipo> [denominado <nome>]
 
 DeclaracaoLocal:
     DeclaracaoLocalComInicializacao | DeclaracaoLocalSemInicializacao;
 
 // Declaração com inicialização (usa Atribua)
 DeclaracaoLocalComInicializacao:
-    ('Atribua') valor=Expressao preposicao=PreposicaoAtribuicao 
+    //'Atribua' 
+    valor=Expressao preposicao=PreposicaoAtribuicao 
     artigo=ArtigoIndefinido tipo+=ID+ 
-    (denominacao?='denominado' nome=NomeComposto)? 
+    (denominacao?='denominado' nome+=ID+)? 
     ;
 
 // Declaração sem inicialização (usa verbos imperativos genéricos)
+// Exemplos: Ative, Limpe, Esvazie, Pinte, Imprima, Desenhe, etc.
 DeclaracaoLocalSemInicializacao:
-    verbo=VerboImperativo 
+    //verbo=VerboImperativo 
     artigo=ArtigoIndefinido tipo+=ID+ 
-    (denominacao?='denominado' nome=NomeComposto)? 
+    (denominacao?='denominado' nome+=ID+)? 
     ;
 
+// Verbo imperativo genérico - aceita qualquer identificador que termine em vogal + 'e'
+// Isso permite verbos como: Ative, Limpe, Esvazie, Pinte, Imprima, Desenhe, etc.
 VerboImperativo returns string:
     ID;
 
 PreposicaoAtribuicao returns string:
-    'para' | 'em';
+    'para' | 'ao' | 'à' | 'às' | 'em' | 'na' | 'no' | 'nas' | 'nos' | 'neste' | 'nesta' | 'nestes' | 'nestas';
 
 // ============================================================================
 // ROTINAS
 // ============================================================================
 
-Rotina:
-    'Rotina' 'para' 'que' 'se' nome+=(ID|ArtigoDefinido)+ (':' | ';') (corpo=Bloco)?;
+Rotina: // 'Rotina' é opcional para permitir declarações mais curtas
+    'Rotina'? 'para' 'que' 'se' nome+=ID+ (':' | ';') (corpo=Bloco)?;
 
 // ============================================================================
 // COMANDOS
 // ============================================================================
 
 Comando:
-    ComandoAtribuicao | ComandoES | ComandoLeitura | ComandoAritmetico | ComandoRetorno | ComandoPare | ComandoProcessar | ComandoChamada | ComandoDefinicao | ComandoGenerico;
+    ComandoAtribuicao |  ComandoRetorno | ComandoPare | InvocacaoExterna | ComandoDeEmprego;
 
 ComandoAtribuicao:
-    ('Atribua') valor=Expressao (preposicao='para'|preposicao='a'|preposicao='ao') alvo=AcessoVariavel;
+    'Atribua' valor=Expressao (preposicao='para'|preposicao='a'|preposicao='ao') alvo=AcessoVariavel '.';
 
-ComandoES:
-    ('Escreva') (com_sublinhado?='com' 'sublinhado')? (em_vermelho?='em' 'vermelho')? expressao=Expressao 'para' ('StdOut');
 
-ComandoLeitura:
-    ('Leia') (expressao=Expressao | (artigo=ArtigoIndefinido tipo+=ID+ ('denominada'|'denominado') nome=NomeComposto)) ('desde' | 'de') (artigo_origem+=ArtigoDefinido)? origem=('StdIn');
+ComandoRetorno returns ComandoDeRetorno:
+    comando='Retorne' (valor=Expressao)? '.';
 
-ComandoDefinicao:
-    'Defina' valor=LiteralString 'como' 'o' 'tipo' 'da' 'aplicação';
+ComandoPare returns ComandoDeParada:
+    comando='Pare' '.';
 
-ComandoAritmetico:
-    (operacao='Adicione' | operacao='Subtraia' | operacao='Multiplique' | operacao='Divida') 
-    valor=Expressao 
-    ((preposicao='para' | preposicao='pelo' | preposicao='por' | preposicao='de') 
-    alvo=AcessoVariavel)?;
+InvocacaoExterna:
+    'Processe' biblioteca=STRING funcao=STRING ('com' (argumentos+=Expressao)*)? '.';
 
-ComandoRetorno returns ComandoRetorno:
-    comando=('Retorne') (valor=Expressao)?;
-
-ComandoPare returns ComandoPare:
-    comando=('Pare');
-
-ComandoReitere returns ComandoReitere:
-    comando=('Reitere');
-
-ComandoProcessar:
-    'Processe' biblioteca=STRING funcao=STRING ('com' (argumentos+=Expressao)*)?;
-
-ComandoChamada:
-    'Chame' rotina=[Rotina:ID] ('com' (argumentos+=Expressao)*)?;
-
-ComandoGenerico:
-    verbo=ID (tokens+=PalavraGenerica)*;
-
-PalavraGenerica returns string:
-    ID | ArtigoDefinido | ArtigoIndefinido | PreposicaoSemA | ContracaoDeDefinido | ContracaoEmDefinido;
-
-NomeComposto returns string:
-    (ID | PreposicaoDeNome)+;
-
-PreposicaoDeNome returns string:
-    'de' | 'em' | 'com';
+ComandoDeEmprego:
+    'Empregue' rotina=[Rotina:ID] ('com' (argumentos+=Expressao)*)? '.';
 
 // Acesso a variável ou campo para atribuição
 AcessoVariavel:
-    VarRef | AcessoMembro;
+    Identificador | AcessoMembro;
 
 // ============================================================================
 // ESTRUTURAS DE CONTROLE
@@ -256,28 +221,19 @@ Controle:
     Condicional | Laco;
 
 Condicional:
-    ('se') (negacao?='não')? condicao=Expressao (',' | 'então') corpo=InstrucaoCondicional;
+    'Se' condicao=Expressao ',' corpo=BlocoCondicional;
 
 Laco:
-    ('Itere') '.' (corpo=Bloco)? ('Reitere') '.';
+    ('Itere' '.')? (corpo=Bloco)? 'Reitere' '.';
 
-// Bloco genérico (para Rotina e Laco) - NÃO permite Reitere como comando
+BlocoCondicional:
+    (instrucoes+=Instrucao)* '.';
+
 Bloco:
     (instrucoes+=Instrucao)+;
 
-Instrucao returns Instrucao:
-    {Instrucao} subInstrucoes+=SubInstrucao (';' subInstrucoes+=SubInstrucao)* ('.'|';');
-
-SubInstrucao returns SubInstrucao:
-    Controle | DeclaracaoLocal | Comando;
-
-// Bloco condicional (para Se) - Permite Reitere como comando
-InstrucaoCondicional returns InstrucaoCondicional:
-    {InstrucaoCondicional} subInstrucoes+=SubInstrucaoCondicional (';' subInstrucoes+=SubInstrucaoCondicional)* ('.'|';');
-
-SubInstrucaoCondicional returns SubInstrucaoCondicional:
-    ComandoReitere | SubInstrucao;
-
+Instrucao:
+    Comando | Controle | Laco | DeclaracaoLocal;
 
 // NOTA: Case-insensitive será implementado futuramente através de uma das seguintes estratégias:
 // 1. Normalização no lexer/scanner antes do parsing
@@ -290,7 +246,8 @@ SubInstrucaoCondicional returns SubInstrucaoCondicional:
 // ============================================================================
 
 ArtigoDefinido returns string:
-    'o' | 'os' | 'a' | 'as' |
+    'o' | 'os' | 'a' | 'as' | 
+    'o' | 'os' | 'a' | 'as' | 
     'este' | 'esta' | 'estes' | 'estas';
 
 ArtigoIndefinido returns string:
@@ -323,12 +280,12 @@ ContracaoEmDemonstrativo returns string:
     'naquele' | 'naquela' | 'naqueles' | 'naquelas';
 
 // Pronomes
-PronomePossessivo returns string:
-    'meu' | 'minha' | 'meus' | 'minhas' |
-    'teu' | 'tua' | 'teus' | 'tuas' |
-    'seu' | 'sua' | 'seus' | 'suas' |
-    'nosso' | 'nossa' | 'nossos' | 'nossas' |
-    'vosso' | 'vossa' | 'vossos' | 'vossas';
+// PronomePossessivo returns string:
+//     'meu' | 'minha' | 'meus' | 'minhas' |
+//     'teu' | 'tua' | 'teus' | 'tuas' |
+//     'seu' | 'sua' | 'seus' | 'suas' |
+//     'nosso' | 'nossa' | 'nossos' | 'nossas' |
+//     'vosso' | 'vossa' | 'vossos' | 'vossas';
 
 PronomeRelativo returns string:
     'que' | 'qual' | 'quais' |
@@ -350,11 +307,8 @@ Separador returns string:
 
 // Preposições (principais - lista completa seria muito extensa)
 Preposicao returns string:
-    PreposicaoSemA | 'a';
-
-PreposicaoSemA returns string:
     // Conectivas
-    'de' | 'para' | 'em' | 'com' | 'por' |
+    'a' | 'para' | 'em' | 'com' | 'por' |
     // Posição
     'acima' | 'abaixo' | 'sob' | 'debaixo' | 'sobre' | 
     'entre' | 'dentre' | 'perto' | 'próximo' |
@@ -386,12 +340,15 @@ PreposicaoSemA returns string:
     // Início
     'começando' | 'iniciando' |
     // Pronominais
-    'cujo' | 'cuja' | 'cujos' | 'cujas'
+    'cujo' | 'cuja' | 'cujos' | 'cujas' 
     ;
 
 // ============================================================================
 // VERBOS
 // ============================================================================
+
+Verbos returns string:
+    VerboSer | VerboEstar | VerboTer | VerboHaver | VerboConter | VerboPossuir | VerboPoder | VerboDever | VerboExistir | VerboCaber | VerboComecar | VerboTerminar | OutrosVerbos;
 
 VerboSer returns string:
     'é' | 'são' | 'for' | 'forem' | 'foi' | 'foram' | 
@@ -440,11 +397,11 @@ OutrosVerbos returns string:
 // ============================================================================
 
 // Espaços em branco e comentários
-hidden terminal WS: /\s+/;
+hidden terminal ESPACO: /\s+/;
 // Comentário de linha (uma ou mais barras invertidas)
-hidden terminal SL_COMMENT: /\\+[^\r\n]*/;
+hidden terminal COMENTARIO: /\\+[^\r\n]*/;
 // Comentário inline (entre colchetes)
-hidden terminal ML_COMMENT: /\[[^\]]*\]/;
+hidden terminal OBSERVACAO: /\[[^\]]*\]/;
 
 // Identificador genérico (para abreviações e outros usos)
 terminal ID: 

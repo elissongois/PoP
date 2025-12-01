@@ -10,17 +10,17 @@ Português Puro é uma linguagem de programação imperativa que utiliza sintaxe
 
 - **Sintaxe Natural**: Código que se lê como português escrito
 - **Tipagem Forte**: Sistema de tipos robusto com estruturas, listas e ponteiros
-- **Expressões Naturais**: Operadores em português (`mais`, `menos`, `vezes`, `dividido por`)
+- **Expressões Naturais**: Operadores em português (`mais`, `menos`, `vezes`, `multiplicado por`, `dividido por`)
 - **Controle de Fluxo Intuitivo**: Estruturas condicionais e de repetição em linguagem natural
 - **Extensível**: Suporte para bibliotecas externas e chamadas de sistema
 
 ## 🗂️ Estrutura do Repositório
 
-```
+```tree
 PoP/
 ├── Regras/                    # Documentação completa das regras da linguagem
 ├── Gramática/                 # Gramática Langium e ferramentas LSP
-├── Implementações/            # Código-fonte de exemplo em Português Puro
+├── Implementações/            # Código-fonte de exemplo em `Português Puro`
 ├── Bibliotecas/               # Bibliotecas adicionais (em desenvolvimento)
 ├── IDE/                       # Código-fonte da IDE (em desenvolvimento)
 ├── Binários/                  # Compilador e executáveis (em desenvolvimento)
@@ -40,7 +40,7 @@ PoP/
 
 ### Instalação da Gramática Langium
 
-```bash
+```cmd
 cd Gramática
 npm install
 npm run build
@@ -52,9 +52,9 @@ A extensão VS Code com suporte LSP está em desenvolvimento na pasta `Gramátic
 
 ## 📚 Documentação
 
-A documentação completa das regras da linguagem está disponível em [`Regras/`](./Regras/):
+A documentação completa das regras da linguagem está disponível em [Regras/](./Regras/):
 
-- **[Índice de Elementos Léxicos](./Regras/Índice%20de%20Elementos%20Léxicos.md)**: Visão geral de todos os elementos da linguagem
+- **[Índice de Elementos Léxicos](<>./Regras/Índice de Elementos Léxicos.md>)**: Visão geral de todos os elementos da linguagem
 - **[Símbolos](./Regras/Símbolos.md)**: Caracteres permitidos, reservados e especiais
 - **[Tipos](./Regras/Tipos.md)**: Sistema de tipos, estruturas, listas e conversões
 - **[Expressões](./Regras/Expressões.md)**: Operadores e avaliação de expressões
@@ -65,18 +65,19 @@ A documentação completa das regras da linguagem está disponível em [`Regras/
 
 ```portugues-puro
 \\ Declaração de tipo
-Um Ponto é uma estrutura com um número denominado X e um número denominado Y.
+Um Ponto Cartesiano é um par de números com um número denominado X e um número denominado Y.
 
 \\ Declaração de variável global
-O Origem é um Ponto igual a 0.
+O x é um número igual a 0.
+O y é um número igual a 0.
 
 \\ Rotina
 Rotina para que se calcule a distância entre dois pontos:
     Atribua o X deste primeiro ponto menos o X deste segundo ponto para um número denominado deltaX.
     Atribua o Y deste primeiro ponto menos o Y deste segundo ponto para um número denominado deltaY.
-    
+
     Atribua deltaX vezes deltaX mais deltaY vezes deltaY para um número denominado somaQuadrados.
-    
+
     \\ Retorna a raiz quadrada
     Retorne a raiz quadrada de somaQuadrados.
 ```
@@ -90,31 +91,34 @@ Rotina para que se calcule a distância entre dois pontos:
 ## 🔗 Links Externos
 
 ### Documentação
+
 - **[GitBook - Documentação Oficial](https://portugues-puro.gitbook.io/documentacao)**: Documentação completa e organizada
 - **[Documentação no GitHub](https://github.com/elenderg/Documentacao-Portugues-Puro)**: Repositório da documentação
 
-### Rosetta Code
-- **[Categoria Português Puro](https://rosettacode.org/wiki/Category:Portugu%C3%AAs_Puro)**: Todos os exemplos na linguagem
-- **[Página da Linguagem](https://rosettacode.org/wiki/Portugu%C3%AAs_Puro)**: Descrição e informações
-- **[PAL-1000](https://rosettacode.org/wiki/PAL-1000)**: Versão anterior da linguagem
-- **[Compilador em Português Puro](https://rosettacode.org/wiki/Compilador_em_Portugu%C3%AAs_Puro)**: Implementação do compilador
+### Wiki RosettaCode
+
+- **[Categoria Português Puro](https://rosettacode.org/wiki/Category:Portugu%C3%AAs_Puro)**: Página wiki da categoria, onde serão listados os exemplos algoritmos escritos em Português Puro e referenciados demais páginas
+- **[Wiki da Linguagem](https://rosettacode.org/wiki/Portugu%C3%AAs_Puro)**: Página wiki da linguagem em inglês
+- **[Wiki da IDE PAL-1000](https://rosettacode.org/wiki/PAL-1000)**: Página wiki da IDE escrita em Português Puro
+- **[Wiki do Compilador](https://rosettacode.org/wiki/Compilador_em_Portugu%C3%AAs_Puro)**: Página wiki com detalhes de implementação do compilador
 
 ## 📦 Repositórios Relacionados
 
-### Português Puro
-- **[Compilador Principal](https://github.com/elenderg/Portugues-Puro)**: Implementação do compilador
-- **[PAL-1000](https://github.com/elenderg/PAL-1000/)**: Versão anterior da linguagem
-- **[Extensão VS Code](https://github.com/elenderg/Extensao-Portugues-Puro-VS-Code)**: Realce de sintaxe
-- **[Servidor de Linguagem](https://github.com/elenderg/Servidor-de-Linguagem)**: LSP para Português Puro
-- **[POP-LSP](https://github.com/elenderg/POP-LSP)**: Language Server Protocol
+### em Português Puro
+
+- **[Compilador CLI](https://github.com/elenderg/Portugues-Puro)**: Compilador para CLI escrito em `Português Puro`
+- **[PAL-1000](https://github.com/elenderg/PAL-1000/)**: IDE escrita em `Português Puro`
+- **[CEL](https://github.com/elenderg/CEL)**: Versão anterior do PAL-1000
+- **[Extensão VS Code](https://github.com/elenderg/Extensao-Portugues-Puro-VS-Code)**: Extensão de realce de sintaxe `Português Puro` para VS Code
+- **[Servidor de Linguagem](https://github.com/elenderg/Servidor-de-Linguagem)**: LSP (Language Server Protocol) para `Português Puro`
+- **[POP-LSP](https://github.com/elenderg/POP-LSP)**: Implementação de LSP de `Português Puro`
 
 ### Projetos Relacionados em Outras Línguas
-- **[CEL](https://github.com/elenderg/CEL)**: Compilador em Español Llano
-- **[SAL-PAL](https://github.com/elenderg/SAL-PAL)**: Spanish Assembly Language - Plain Assembly Language
-- **[CAL](https://github.com/elenderg/CAL)**: Compilador para Español Llano
-- **[Plain English Extension](https://github.com/elenderg/Plain-English-Extension-for-VS-Code)**: Extensão VS Code para Plain English
-- **[Plain English Compiler](https://github.com/elenderg/Plain-English-Compiler)**: Compilador em Plain English
 
+- **[CAL](https://github.com/elenderg/CAL)**: IDE escrita em Plain English
+- **[Plain English Compiler](https://github.com/elenderg/Plain-English-Compiler)**: Compilador escrito em em Plain English
+- **[Plain English Syntax Highlighter](https://github.com/elenderg/Plain-English-Extension-for-VS-Code)**: Extensão de realce de sintaxe Plain English para VS Code
+- **[SAL-PAL](https://github.com/elenderg/SAL-PAL)**: Projeto de conversão do `SAL` para o `PAL`
 
 ## 🤝 Contribuindo
 
@@ -130,17 +134,18 @@ Contribuições são bem-vindas! Este projeto está em desenvolvimento ativo. Á
 
 ## 📄 Licença
 
-*A definir*
+Sem licença
 
 ## 👤 Autor
 
-**Elender Góis Gallas e Élisson Góis Gallas**
+**Elender Góis Gallas** e **Élisson Góis Gallas**
 
 ## 🎯 Status do Projeto
 
-**Em Desenvolvimento Ativo**
+Em Desenvolvimento Ativo
 
 ### Componentes Concluídos
+
 - ✅ Documentação das regras da linguagem
 - ✅ Gramática Langium básica
 - ✅ Definição de tipos e estruturas
@@ -157,9 +162,15 @@ Contribuições são bem-vindas! Este projeto está em desenvolvimento ativo. Á
 - ✅ Página no Rosetta Code
 
 ### Em Desenvolvimento
-- 🚧 Extensão VS Code com LSP
+
+- 🚧 Extensão de servidor de linguagem de `Português Puro` para VS Code com:
+  - [x] Gramática inicial em langium funcionando
+  - [ ] Expansão da gramática
+  - [ ] Implementação do servidor de linguagem
+  - [ ] Implementação da extensão
 
 ### Planejado
+
 - 📋 Exemplos no Rosetta Code
 
 ---

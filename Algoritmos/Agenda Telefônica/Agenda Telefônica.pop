@@ -11,27 +11,27 @@ Rotina para que se execute o programa:
   Escreva 
     "Este programa permite que você gerencie sua agenda de contatos de forma simples e rápida diretamente pelo terminal." junto com o texto CRLF junto com 
     "Digite um dos comandos abaixo para interagir com a agenda:"  junto com o texto CRLF para Stdout.
-    Escreva com sublinhado "Adicionar" para Stdout.
-    Escreva "   -> " para Stdout.
-    Escreva "Insere um novo contato." junto com o texto CRLF para Stdout.
-    Escreva com sublinhado "Alterar" para Stdout.
-    Escreva "     -> " para Stdout.
-    Escreva "Modifica os dados de um contato existente." junto com o texto CRLF para Stdout.
-    Escreva com sublinhado "Ajuda" para Stdout.
-    Escreva "       -> " para Stdout.
-    Escreva "Mostra a lista de comandos e instruções." junto com o texto CRLF para Stdout.
-    Escreva com sublinhado "Excluir" para Stdout.
-    Escreva "     -> " para Stdout.
-    Escreva "Remove um contato da agenda." junto com o texto CRLF para Stdout.
-    Escreva com sublinhado "Encontrar" para Stdout.
-    Escreva "   -> " para Stdout.
-    Escreva "Busca contatos pelo nome ou telefone." junto com o texto CRLF para Stdout.
-    Escreva com sublinhado "Listar" para Stdout.
-    Escreva "      -> " para Stdout.
-    Escreva "Exibe todos os contatos cadastrados." junto com o texto CRLF para Stdout.
-    Escreva com sublinhado "Sair" para Stdout.
-    Escreva "        -> " para Stdout.
-    Escreva "Encerra o programa." junto com o texto CRLF para StdOut.
+  Escreva com sublinhado "Adicionar" para Stdout.
+  Escreva "   -> " para Stdout.
+  Escreva "Insere um novo contato." junto com o texto CRLF para Stdout.
+  Escreva com sublinhado "Alterar" para Stdout.
+  Escreva "     -> " para Stdout.
+  Escreva "Modifica os dados de um contato existente." junto com o texto CRLF para Stdout.
+  Escreva com sublinhado "Ajuda" para Stdout.
+  Escreva "       -> " para Stdout.
+  Escreva "Mostra a lista de comandos e instruções." junto com o texto CRLF para Stdout.
+  Escreva com sublinhado "Excluir" para Stdout.
+  Escreva "     -> " para Stdout.
+  Escreva "Remove um contato da agenda." junto com o texto CRLF para Stdout.
+  Escreva com sublinhado "Encontrar" para Stdout.
+  Escreva "   -> " para Stdout.
+  Escreva "Busca contatos pelo nome ou telefone." junto com o texto CRLF para Stdout.
+  Escreva com sublinhado "Listar" para Stdout.
+  Escreva "      -> " para Stdout.
+  Escreva "Exibe todos os contatos cadastrados." junto com o texto CRLF para Stdout.
+  Escreva com sublinhado "Sair" para Stdout.
+  Escreva "        -> " para Stdout.
+  Escreva "Encerra o programa." junto com o texto CRLF para StdOut.
   Escreva o texto CRLF junto com "Digite um comando: " para StdOut.
   Itere.
     Escreva o texto CRLF junto com " > " para StdOut.

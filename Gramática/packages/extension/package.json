@@ -32,7 +32,7 @@
             }
         ]
     },
-    "myactivationEvents": [
+    "activationEvents": [
         "onLanguage:pop"
     ],
     "main": "./out/extension/main.cjs",

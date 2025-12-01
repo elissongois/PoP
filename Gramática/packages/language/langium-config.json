@@ -4,6 +4,7 @@
         {
             "id": "pop",
             "grammar": "src/pop.langium",
+            "caseInsensitive": true,
             "fileExtensions": [
                 "pop"
             ],

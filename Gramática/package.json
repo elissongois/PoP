@@ -3,6 +3,10 @@
     "description": "Base workspace package",
     "version": "0.0.1",
     "type": "module",
+    "engines": {
+        "vscode": "^1.67.0",
+        "node": ">=18.0.0"
+    },
     "private": true,
     "scripts": {
         "clean": "npm run clean --workspaces",
