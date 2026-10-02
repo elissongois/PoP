@@ -6,7 +6,7 @@
   - [10 - Rotinas pré e pós execução.pop](#10---rotinas-pré-e-pós-execuçãopop)
   - [16 - Etapa Final.pop](#16---etapa-finalpop)
 
-## [02 - Carregamento do código fonte.pop](<..\Código-Fonte\02 - Carregamento do código fonte.pop> "02 - Carregamento do código fonte.pop")
+## [02 - Carregamento do código fonte.pop](<../Código-Fonte/02 - Carregamento do código fonte.pop> "02 - Carregamento do código fonte.pop")
 
 ```pop
 [77]  Função para que se determine se um byte é um byte ignorável:
@@ -69,7 +69,7 @@
 [381]    Diga não.
 ```
 
-## [03 - Validação do código fonte.pop](<..\Código-Fonte\03 - Validação do código fonte.pop> "03 - Validação do código fonte.pop")
+## [03 - Validação do código fonte.pop](<../Código-Fonte/03 - Validação do código fonte.pop> "03 - Validação do código fonte.pop")
 
 ```pop
 [155]  Função para que se determine se uma string é o início de algum tipo:
@@ -594,7 +594,8 @@
 [1627]    Se a string for algum artigo definido, diga sim.
 [1628]    Diga não.
 
-[05 - Identificação de variáveis globais.pop](<..\Código-Fonte\05 - Identificação de variáveis globais.pop> "05 - Identificação de variáveis # globais.pop")
+## [05 - Identificação de variáveis globais.pop](<../Código-Fonte/05 - Identificação de variáveis globais.pop> "05 - Identificação de variáveis globais.pop")
+
 [140]  Função para que se determine se um percorredor está acompanhado por alguma unidade de medida:
 [141]    Preserve o percorredor.
 [142]    Mova o percorredor (usando diretrizes de compilação).
@@ -619,7 +620,7 @@
 [161]    Se a string for algum valor literal, diga sim.
 [162]    Diga não.
 
-[06 - Compilação dos cabeçalhos de rotina.pop](<..\Código-Fonte\06 - Compilação dos cabeçalhos de rotina.pop> "06 - Compilação dos cabeçalhos de # rotina.pop")
+## [06 - Compilação dos cabeçalhos de rotina.pop](<../Código-Fonte/06 - Compilação dos cabeçalhos de rotina.pop> "06 - Compilação dos cabeçalhos de # rotina.pop")
 [38]  Função para que se determine se uma string é algum comando de deliberação:
 [39]    \Se a string for "decida", diga sim.
 [40]    Se a string for "determine", diga sim.
@@ -690,7 +691,7 @@
 
 ```
 
-## [10 - Rotinas pré e pós execução.pop](<..\Código-Fonte\10 - Rotinas pré e pós execução.pop> "10 - Rotinas pré e pós execução.pop")
+## [10 - Rotinas pré e pós execução.pop](<../Código-Fonte/10 - Rotinas pré e pós execução.pop> "10 - Rotinas pré e pós execução.pop")
 
 ```pop
 [565]  Função para que se determine se uma string é o início de alguma variável:
@@ -834,7 +835,7 @@
 [1965]    Diga sim.
 ```
 
-## [16 - Etapa Final.pop](<..\Código-Fonte\16 - Etapa Final.pop> "16 - Etapa Final.pop")
+## [16 - Etapa Final.pop](<../Código-Fonte/16 - Etapa Final.pop> "16 - Etapa Final.pop")
 
 ```pop
 [440]  Função para que se determine se uma string é algum decisor literal negativo:

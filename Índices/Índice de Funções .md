@@ -1,5 +1,5 @@
 [Índice de Cabeçalhos de Funções da Biblioteca Padrão]
-[Funções](..\Implementações\Funções.pop "Funções")
+[Funções](../Implementações/Funções.pop "Funções")
 [Linha     n°][Cabeçalho da Função]
 [Linha      2] Função para que se determine se um byte é um segundo byte:
 [Linha     11] Função para que se determine se um byte é maior que um segundo byte;

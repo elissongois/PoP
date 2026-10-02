@@ -13,19 +13,19 @@ Comentários em Português Puro são **anotações** que servem para:
 
 ## Tipos de Comentários
 
-### 1. Comentários de Linha
+### 1. Comentários
 ### 2. Comentários Em Linha (Observações)
 
 ---
 
-## 1. Comentários de Linha
+## 1. Comentários
 
 ### Sintaxe
 
-Comentários de linha usam **barra invertida** `\`:
+Comentários usam **barra invertida** `\`:
 
 ```pop
-\ Isto é um comentário de linha
+\ Isto é um comentário
 ```
 
 ### Características
@@ -34,8 +34,8 @@ Comentários de linha usam **barra invertida** `\`:
 - **Escopo**: Da barra invertida até o **fim da linha**
 - **Efeito**: Todo texto após `\` é ignorado pelo compilador
 - **Uso**: Comentários longos, desabilitar código, notas técnicas
-- **Estilo**: Usar `\\` (dupla) é comum para dar **mais destaque** ao comentário
-- **Delimitador de fim**: `\` (quebra de linha `CRLF`)
+- **Estilo**: Usar `\\` (dupla) é comum para dar **mais destaque** ao comentário. A extensão de realce destaca mais comentários de duas barras.
+- **Delimitador de fim**: `CRLF` (quebra de linha `CRLF`)
 
 ---
 
@@ -211,7 +211,7 @@ Um número (unsigned) denominado contador.
 
 O compilador possui rotinas específicas para processar comentários:
 
-#### 1. Ignorar Comentários de Linha
+#### 1. Ignorar Comentários
 
 ```pop
 Rotina para que se mova um percorredor (ignorando os comentários):
@@ -278,7 +278,7 @@ Rotina para que se mova um percorredor retornando uma string de erro (validaçã
 
 ## Observações Importantes
 
-1. **Comentários de Linha**: Usam `\` (uma barra invertida, ou `\\` para destaque)
+1. **Comentários**: Usam `\` (uma barra invertida, ou `\\` para destaque)
 2. **Comentários em linha**: Usam `[]` (colchetes), também chamados de **"observações"** no código-fonte
 3. **Ignorados**: Ambos são completamente ignorados pelo compilador
 4. **Balanceamento**: Colchetes devem estar balanceados
@@ -299,23 +299,23 @@ Rotina para que se mova um percorredor retornando uma string de erro (validaçã
 // COMENTÁRIOS
 // ============================================================================
 
-// Comentário de Linha (aceita uma ou mais barras)
-ComentarioLinha:
+// Comentário (aceita uma ou mais barras)
+Comentario:
     /\\+/ conteudo=/[^\r\n]*/;
 
 // Comentário em linha (Colchetes)
-Comentarioem linha:
+Comentarioemlinha:
     '[' conteudo=/[^\]]+/ ']';
 
 // Uso em Definições
 CampoComComentario:
-    tipo=Tipo comentario=Comentarioem linha? 'denominado' nome=ID comentario2=Comentarioem linha?;
+    tipo=Tipo comentario=ComentarioEmLinha? 'denominado' nome=ID comentario2=ComentarioEmLinha?;
 
 // Terminal para ignorar comentários
 hidden terminal COMMENT_LINE:
     /\\+/ !('\r' | '\n')*;
 
-hidden terminal COMMENT_em linha:
+hidden terminal COMMENT_emlinha:
     '[' (!']')* ']';
 ```
 
@@ -456,7 +456,7 @@ Um fragmento é uma lista com
 | Aspecto        | Português Puro     | C/C++        | Python        | Java         |
 |----------------|--------------------|--------------|---------------|--------------|
 | Linha única    | `\`                | `//`         | `#`           | `//`         |
-| Multilinha     | `\\` em cada linha | `/* ... */`  | `""" ... """` | `/* ... */`  |
+| Multilinha     | `\` em cada linha | `/* ... */`  | `""" ... """` | `/* ... */`  |
 | em linha       | `[...]`            | Não tem      | Não tem       | Não tem      |
 | Documentação   | `\\` + `[]`        | `/** ... */` | `""" ... """` | `/** ... */` |
 | Balanceamento  | Sim (colchetes)    | Sim (bloco)  | Não           | Sim (bloco)  |
@@ -590,14 +590,14 @@ A etiqueta de demanda interna é uma etiqueta igual a 4.
 - **Efeito na compilação**: Nenhum (sempre ignorados)
 - **Validação**: Balanceamento de colchetes (códigos de erro #005 e #006)
 - **Aninhamento**: Suportado através de lógica de balanceamento
-- **Multilinha**: `\` em cada linha (observações param em quebra de linha)
+- **Multilinha**: `\` em cada linha (comentários sempre terminam na quebra de linha)
 - **Uso mais comum**: Documentação de APIs e estruturas complexas
 
 ---
 
 ## Resumo
 
-### Comentários de Linha `\`
+### Comentários `\`
 
 - **Função**: Comentários longos, desabilitar código
 - **Escopo**: Até o fim da linha

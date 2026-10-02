@@ -3,14 +3,14 @@
 
 196 resultados - 13 arquivos
 
-Código-Fonte\00 - Etapa Inicial.pop:
+Código-Fonte/00 - Etapa Inicial.pop:
    486:         "Código de Erro #001. Erro ao definir o CodePage do Console para STDOUT." junto com o texto CRLF para STDOUT.
    506:         "Código de Erro #002. O diretório '" junto com a string seguido de "' não foi encontrado." junto com o texto CRLF para StdOut;
 
-Código-Fonte\02 - Carregamento do código fonte.pop:
+Código-Fonte/02 - Carregamento do código fonte.pop:
     54:         "Código de Erro #003. Não foi possível carregar o arquivo '"
 
-Código-Fonte\03 - Validação do código fonte.pop:
+Código-Fonte/03 - Validação do código fonte.pop:
     39:         "Código de Erro #004. O compilador não reconhece a sintaxe '"
     80:         "Código de Erro #005. Observações devem terminar com um colchete direito ']'." para a string de erro;
     84:         "Código de Erro #006. Observações precisam iniciar com um colchete esquerdo '['." para a string de erro;
@@ -45,7 +45,7 @@ Código-Fonte\03 - Validação do código fonte.pop:
   1604:         "Código de Erro #035. Erro de sintaxe. Verifique se existe um 'para' após o ';'." e o percorredor original;
   1621:         "Código de Erro #036. Mova o ':' para o final do cabeçalho desta rotina." junto com o texto CRLF e o percorredor;
 
-Código-Fonte\04 - Identificação de tipos.pop:
+Código-Fonte/04 - Identificação de tipos.pop:
    246:         "Código de Erro #037. O identificador '" junto com o nome do tipo primitivo deste tipo
    252:         "Código de Erro #038. Definição recursiva encontrada no tipo '" junto com o nome do tipo primitivo deste tipo
    299:         "Código de Erro #039. A expressão 'Aponte para' só pode ser utilizada em variáveis do tipo ponteiro."
@@ -57,7 +57,7 @@ Código-Fonte\04 - Identificação de tipos.pop:
    361:         "Código de Erro #045. O campo '"
    413:         "Código de Erro #046. O identificador '" junto com o nome deste campo seguido de
 
-Código-Fonte\05 - Identificação de variáveis globais.pop:
+Código-Fonte/05 - Identificação de variáveis globais.pop:
     25:         "Código de Erro #047. A variável global '" junto com o nome desta variável global
     37:         "Código de Erro #048. Erro de tipo. O tipo: '" junto com o segmento inicial deste percorredor
     44:         "Código de Erro #049. Esperado '.' após a declaração de uma variável global."\ ao invés de "
@@ -69,7 +69,7 @@ Código-Fonte\05 - Identificação de variáveis globais.pop:
    188:         "Código de Erro #055. Proporção com denominador igual a 0. Unidade de medida inválida."
    232:         "Código de Erro #056. Esta variável já foi inicializada anteriormente." \ Erro interno
 
-Código-Fonte\06 - Compilação dos cabeçalhos de rotina.pop:
+Código-Fonte/06 - Compilação dos cabeçalhos de rotina.pop:
     49:         "Código de Erro #057. Esperado encontrar 'para que se determine se'. Encontrado '"
     57:         "Código de Erro #058. É proibido utilizar o identificador 'não' em cabeçalhos de funções booleanas." junto com o texto CRLF e o percorredor;
     62:         "Código de Erro #059. A rotina para que se ''" junto com a representação interna da rotina desta rotina
@@ -87,17 +87,17 @@ Código-Fonte\06 - Compilação dos cabeçalhos de rotina.pop:
    526:         "Código de Erro #071. A 'rotina para que se '" junto com a representação interna da rotina desta rotina
    538:         "Código de Erro #072. A 'rotina para que se '" junto com a representação interna da rotina desta rotina
 
-Código-Fonte\07 - Cálculo de tamanhos e deslocamentos.pop:
+Código-Fonte/07 - Cálculo de tamanhos e deslocamentos.pop:
     78:         "Código de Erro #073. O campo '"
 
-Código-Fonte\08 - Gerenciamento de memória.pop:
+Código-Fonte/08 - Gerenciamento de memória.pop:
    160:         "Código de Erro #074. O identificador '" junto com o nome deste primeiro campo destes campos deste tipo
    166:         "Código de Erro #075. O identificador '" junto com o nome deste tipo deste primeiro campo destes campos deste tipo
 
-Código-Fonte\09 - Identificação de rotinas.pop:
+Código-Fonte/09 - Identificação de rotinas.pop:
     72:         "Código de Erro #076. A rotina não foi localizada no catálogo geral de rotinas"
 
-Código-Fonte\10 - Rotinas pré e pós execução.pop:
+Código-Fonte/10 - Rotinas pré e pós execução.pop:
     21:         "Código de Erro #077. A rotina 'para que se " junto com a string
     59:         "Código de Erro #078. Não foi possível encontrar o cabeçalho alternativo desta rotina." junto com o texto CRLF e o percorredor;
     96:         "Código de Erro #079. Esperado invocação de rotina. Encontrado: "
@@ -195,7 +195,7 @@ Código-Fonte\10 - Rotinas pré e pós execução.pop:
   2003:         "Código de Erro #169. Permitido apenas uma cláusula de reutilização dentro de cada rotina" junto com o texto CRLF e o percorredor;
   2008:         "Código de Erro #170. A rotina para que se '" junto com a representação de emprego desta rotina
 
-Código-Fonte\13 - Endereçamento de itens.pop:
+Código-Fonte/13 - Endereçamento de itens.pop:
    202:         "Código de Erro #171. A variável '" junto com o nome desta variável deste fragmento
    207:         "Código de Erro #172. O tipo '" junto com o nome deste tipo desta variável deste fragmento
    222:         "Código de Erro #173.  O tipo '" junto com o nome deste tipo desta variável deste fragmento
@@ -203,7 +203,7 @@ Código-Fonte\13 - Endereçamento de itens.pop:
    234:         "Código de Erro #175. O tipo '" junto com o nome deste tipo desta variável deste fragmento
    249:         "Código de Erro #176. O tipo '"
 
-Código-Fonte\14 - Transmutação.pop:
+Código-Fonte/14 - Transmutação.pop:
    121:         "Código de Erro #177. A categoria da variável '" junto com o nome desta variável
    145:         "Código de Erro #178. A 'Rotina para que se " junto com a representação de emprego desta rotina
    151:         "Código de Erro #179. A palavra-chave 'Empregue' está fazendo uma referência recursiva. "
@@ -222,5 +222,5 @@ Código-Fonte\14 - Transmutação.pop:
    410:         "Código de Erro #192. O tipo '" junto com o tipo desta variável deste fragmento \ Erro interno
    422:         "Código de Erro #193. Rotina não encontrada."
 
-Código-Fonte\15 - Vinculação.pop:
+Código-Fonte/15 - Vinculação.pop:
     68:         "Código de Erro #194. A rotina de inicialização do cabeçalho PE não foi encontrada no catálogo geral de rotinas."

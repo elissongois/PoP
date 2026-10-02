@@ -1,5 +1,5 @@
 [Índice de Cabeçalhos de Rotinas da Biblioteca Padrão]
-[Rotinas](..\Implementações\Rotinas.pop "Rotinas")
+[Rotinas](../Implementações/Rotinas.pop "Rotinas")
 [Linha      #][Cabeçalho da Rotina]
 [Linha      2] Rotina para que se recue uma caixa uns twips; \DESLOCA PRA DIREITA e PRA BAIXO
 [Linha      3] Rotina para que se recue uma caixa usando uns twips: \ outdent
