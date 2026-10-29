@@ -1,0 +1,179 @@
+[TIPOS DE DADOS]
+Um par de números é uma estrutura com
+  Um número denominado número X e
+  Um número denominado número Y.
+
+Uma localização é um par de números com
+  Uma coordenada denominada coordenada X [left] e
+  Uma coordenada denominada coordenada Y. [top]\ e
+
+Um posicionamento é um par de números com
+  Um número de coluna e \\Sugestão: "um número da coluna"
+  Um número da linha.
+
+Uma caixa é uma estrutura com
+  Uma coordenada denominada coordenada X1, [left]
+  Uma coordenada denominada coordenada Y1, [top]
+  Uma coordenada denominada coordenada X2, [right]
+  Uma coordenada denominada coordenada Y2, [bottom]
+  Uma localização denominada canto superior esquerdo sob a coordenada X1, [left-top]
+  Uma localização denominada canto inferior direito sob a coordenada X2, [right-bottom]
+  Uma localização denominada canto esquerdo superior sob a coordenada X1, [top-left]
+  Uma localização denominada canto direito inferior sob a coordenada X2. [bottom-right]
+
+Uma caixa arredondada é uma caixa com
+  Uma coordenada denominada coordenada X1,
+  Uma coordenada denominada coordenada Y1,
+  Uma coordenada denominada coordenada X2,
+  Uma coordenada denominada coordenada Y2,
+  Uma localização denominada canto superior esquerdo sob a coordenada X1 ,
+  Uma localização denominada canto inferior direito sob a coordenada X2, e
+  Um raio.
+
+Um vértice é uma lista com
+  Uma coordenada X,
+  Uma coordenada Y,
+  Uma localização sob a coordenada X.
+
+Um polígono é uma lista com uns vértices.
+
+Umas rotinas da função AddrInfo são uma estrutura com
+  Um ponteiro da função GetAddrInfo, \ Documentação: -> https://learn.microsoft.com/pt-br/windows/win32/api/ws2tcpip/nf-ws2tcpip-getaddrinfo
+  Um ponteiro da função FreeAddrInfo. \ Documentação: -> https://learn.microsoft.com/pt-br/windows/win32/api/ws2tcpip/nf-ws2tcpip-freeaddrinfo
+
+Um marcador pdf é uma lista com
+  Um objeto pdf (referência),
+  Um título de índice remissivo,
+  Uma altura da página,
+  Um número denominado destinação.
+
+[VARIÁVEIS GLOBAIS]
+
+A quantidade de twips/pixel é [composta de] uns twips.
+O ppi [quantidade de pixels por polegada] é [composta de] uns twips.
+
+A direita é uma fração igual a 1/4.
+O lado direito é uma fração igual a 1/4.
+A esquerda é uma fração igual a -1/4.
+O lado esquerdo é uma fração igual a -1/4.
+O menor número é -2147483648. \ número de 4 bytes/32 bits
+O tamanho do quadrado é [igual a] uns twips.
+\Os campos de textos são uns campos de texto.
+A stack é [composta de] uns elementos das stacks.
+A contagem total é um número igual a 0.
+
+O sinalizador de ignição é um sinalizador igual a 1.
+O sinal de desligamento é um sinalizador igual a 0.
+
+A Bíblia é uma lista com uns versículos.
+As alternativas são umas alternativas.
+O contexto é um contexto.
+A pilha de contextos é [composta de] uns contextos.
+O nome do provedor criptográfico é uma string.
+O console é um console.
+
+O contexto do dispositivo atual é um canvas.
+
+O evento atual é um evento.
+A fonte padrão é uma fonte.
+
+O servidor SMTP padrão é uma string igual a "localhost".
+
+
+[ROTINAS]
+
+Rotina para que se execute o programa:
+  Inicialize os componentes.
+  Crie a torreta.
+  Crie as bolas.
+  Itere.
+    Se a tecla Esc estiver sendo pressionada, pare.
+    Se o sinalizador de fim de jogo estiver ativo, pare.
+    Mova as bolas.
+    Se a seta pra direita estiver sendo pressionada,
+      Adicione 10 pontos osmosianos para a direção desta torreta.
+    Se a seta pra esquerda estiver sendo pressionada,
+      Subtraia 10 pontos osmosianos desde a direção desta torreta.
+    Se a barra de espaço estiver sendo pressionada,
+      Atire.
+    Exiba tudo. \ acho que tem outro nome
+  Reitere.
+  Aguarde a tecla Esc.
+  Destrua as bolas.
+  Destrua a torreta.
+  Feche o programa.
+
+Rotina para que se acrescente uma string para um objeto pdf:
+  \ Adiciona o CRLF ao final da string
+  Acrescente a string para o data trecho deste objeto pdf.
+  Acrescente o texto CRLF para o data trecho deste objeto pdf.
+
+Rotina para que se acrescente uma string para um objeto pdf sem passar pra próxima linha:
+  Acrescente a string para o data trecho deste objeto pdf.
+
+Rotina para que se adicione um objeto pdf usando um categoria:
+  Crie o objeto pdf usando a categoria.
+  Acrescente o objeto pdf para os objetos deste pdf state.
+  Adicione 1 para o número do objeto deste pdf state.
+  Atribua o número do objeto deste pdf state ao número deste objeto pdf.
+
+Rotina para que se finalize a gravação dos dados de uma folha;
+Rotina para que se salve as alterações pendentes em uma folha;
+Rotina para que se end uma folha:
+  Se o sinalizador de documentos deste pdf state estiver ativo,
+    End a folha (modo pdf);
+    Retorne.
+  Processe "gdi32.dll" "EndPage" com
+  \ Notifica o dispositivo que o aplicativo terminou a gravação em uma página.
+  \ Documentação: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-endpage
+    A área de impressão. [hdc]
+  Atribua o contexto de dispositivo de memória ao contexto do dispositivo atual.
+  Atribua o quantidade armazenada de twips/pixel à quantidade de twips/pixel .
+
+[FUNÇÕES]
+
+Função para que se determine se uma string possui conteúdo dentro dela;
+Função para que se determine se uma string contém algum texto;
+Função para que se determine se uma string contém texto;
+Função para que se determine se uma string está definida;
+Função para que se determine se há conteúdo dentro de uma string;
+Função para que se determine se uma string está preenchida:
+  Se a string estiver em branco, diga não.
+  Diga sim.
+
+Função para que se determine se uma string está em branco:
+  \ A função começa presumindo veracidade
+  Decodifique $B801000000. \ mov eax, 1
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ a string
+    \ Se o caractere inicial for 0, retorna
+  Decodifique $833B00. \ cmp [ebx],0
+  Decodifique $0F8410000000. \ je end
+  \ Se o caractere final for menor do que o inicial, retorna
+  Decodifique $8B5304. \ mov edx,[ebx+4] \ caractere final
+  Decodifique $3B13. \ cmp edx,[ebx]
+  Decodifique $0F8C05000000. \ jl end
+  \ Retorna falso.
+  Decodifique $B800000000. \ mov eax,0
+  \ FIM:
+
+Função para que se determine se uma caixa é uma segunda caixa:
+  Se a coordenada X1 desta caixa não for a coordenada X1 desta segunda caixa, diga não.
+  Se a coordenada Y1 desta caixa não for a coordenada Y1 desta segunda caixa, diga não.
+  Se a coordenada X2 desta caixa não for a coordenada X2 desta segunda caixa, diga não.
+  Se a coordenada Y2 desta caixa não for a coordenada Y2 desta segunda caixa, diga não.
+  Diga sim.
+
+Função para que se determine se uma caixa está em uma segunda caixa;
+Função para que se determine se uma caixa está dentro de uma segunda caixa:
+  Se a coordenada X1 desta caixa for menor do que a coordenada X1 desta segunda caixa, diga não.
+  Se a coordenada Y1 desta caixa for menor do que a coordenada Y1 desta segunda caixa, diga não.
+  Se a coordenada X2 desta caixa for maior do que a coordenada X2 desta segunda caixa, diga não.
+  Se a coordenada Y2 desta caixa for maior do que a coordenada Y2 desta segunda caixa, diga não.
+  Diga sim.
+
+Função para que se determine se uma caixa está tocando uma segunda caixa:
+  Se a coordenada X2 desta segunda caixa for menor do que a coordenada X1 desta caixa, diga não.
+  Se a coordenada Y2 desta segunda caixa for menor do que a coordenada Y1 desta caixa, diga não.
+  Se a coordenada X1 desta segunda caixa for maior do que a coordenada X2 desta caixa, diga não.
+  Se a coordenada Y1 desta segunda caixa for maior do que a coordenada Y2 desta caixa, diga não.
+  Diga sim.

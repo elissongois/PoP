@@ -264,7 +264,7 @@ Um atributo de arquivo é um número.
 Um alinhamento é uma string [centro, esquerda ou direita].
 Uma quantia é um número.
 Uma âncora é um posicionamento.
-Uma máscara de conjunção lógica é uma mask.
+Uma máscara de conjunção lógica é uma máscara.
 Um ângulo é [composto de] uns graus. [cujos valores variam ente 0 e 3599]
 Um status de erro é um número.
 Um bipe é um número.
@@ -467,7 +467,7 @@ Uma linha reta é uma estrutura com \ linha, traço, risco, traçado, listra
   Uma localização final.
 
 Um margem é um número.
-Um mask é um texto hexadecimal.
+Uma máscara é um texto hexadecimal.
 Um offset é um número.
 Um deslocamento de coordenadas é um par de números.
 Uma operação é uma string.
@@ -1407,4 +1407,4 @@ Uma cifra binária é um byte. \ somente são válidos os 4 bits de ordem inferi
 Uma cifra hexadecimal é uma string. \ Exemplo: $0010A0… O cifrão serve para indicar ao compilador que se trata de um valor hexadecimal.
  \Em outras linguagens costuma-se usar um # (como no css #a1b2e3; ou um 0x, por exemplo 0xA1B2FF…
 
-Uma máscara de disjunção exclusiva é uma mask.
+Uma máscara de disjunção exclusiva é uma máscara.

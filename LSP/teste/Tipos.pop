@@ -1,0 +1,58 @@
+\ TIPOS
+
+Uma word é uma estrutura com
+  Um byte denominado byte inicial [high byte] e
+  Um byte denominado byte final [low byte].
+
+Uma word de ordem inferior é uma word.
+Uma word de ordem superior é uma word.
+
+Um número é uma estrutura com
+  Um byte denominado primeiro byte,
+  Um byte denominado segundo byte,
+  Um byte denominado terceiro byte,
+  Um byte denominado quarto byte, \ 4 bytes = 32 bits
+  Uma word de ordem inferior sob o primeiro byte,
+  Uma word de ordem superior sob o terceiro byte. \ A word de ordem superior vem depois devido à extremidade (ordenação) dos processadores x86
+
+Um sinalizador é uma estrutura com 4 bytes.
+
+Um ponteiro é uma estrutura com 4 bytes. \ 32 bits
+
+Uma lista é um ponteiro [que aponta] para uma lista estruturada.
+
+Uma lista estruturada é uma estrutura com
+  Uma lista denominada lista posterior e
+  Uma lista denominada lista anterior.
+
+Um twip é um número. 
+Um raio é [composto de] uns twips.
+Uma coordenada é [composta de] uns twips.
+
+Um par de números é uma estrutura com
+  Um número denominado número X e
+  Um número denominado número Y.
+
+Uma localização é um par de números com
+  Uma coordenada denominada coordenada X [left] e
+  Uma coordenada denominada coordenada Y. [top]\ e
+
+Uma matiz é [composta de] uns graus. [que vão desde o número 0 até o número 3599]
+Uma tonalidade é [composta de] uns graus. [que vão desde o número 0 até o número 3599]
+Uma saturação é um número [cujos valores vão de 0 até 1000].
+Uma luminosidade é um número. [que vai desde o número 0 até o número 1000]
+Um brilho é uma luminosidade.
+
+Uma cor é uma estrutura com
+  Uma matiz, 
+  Uma tonalidade sob a matiz,
+  Uma saturação,
+  Uma luminosidade,
+  Um brilho sob a luminosidade.
+
+Um deslocamento vertical é um número.
+Um deslocamento horizontal é um número.
+
+Um ponto osmosiano é um número. \cujos valores vão desde 1 até 3840;  servem para dividir um ciírculo.
+
+Uma orientação é [composta de] uns pontos osmosianos.

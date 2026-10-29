@@ -1,0 +1,48 @@
+[Basteroids]
+
+\ TIPOS
+
+Uma bola é uma lista com 
+  Um raio, 
+  Uma cor, 
+  Um deslocamento vertical denominado ascensão, 
+  Um deslocamento horizontal denominado corrida, 
+  Uma localização e 
+  Um sinalizador denominado sinalizador de visibilidade.
+
+Uma torreta é uma lista com 
+  Um raio, 
+  Uma localização e 
+  Uma orientação denominada direção.
+
+
+\ VARIÁVEIS GLOBAIS
+
+As bolas são umas bolas.
+A contagem de bolas é um número igual a 10.
+O sinalizador de fim de jogo é um sinalizador.
+A torreta é uma torreta.
+
+\ ROTINA PRINCIPAL
+
+Rotina para que se execute o programa:
+  Inicialize os componentes.
+  Crie a torreta.
+  Crie as bolas.
+  Itere.
+    Se a tecla Esc estiver sendo pressionada, pare.
+    Se o sinalizador de fim de jogo estiver ativo, pare.
+    Mova as bolas.
+    Se a seta pra direita estiver sendo pressionada, 
+      Adicione 10 pontos osmosianos para a direção desta torreta.
+    Se a seta pra esquerda estiver sendo pressionada, 
+      Subtraia 10 pontos osmosianos desde a direção desta torreta.
+    Se a barra de espaço estiver sendo pressionada, 
+      Atire.
+    Exiba tudo. \ acho que tem outro nome
+  Reitere.
+  Aguarde a tecla Esc.
+  Destrua as bolas.
+  Destrua a torreta.
+  Feche o programa.
+
