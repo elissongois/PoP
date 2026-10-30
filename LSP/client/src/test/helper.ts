@@ -39,6 +39,7 @@ export const getDocUri = (p: string) => {
 };
 
 export async function setTestContent(content: string): Promise<boolean> {
+	editor = await vscode.window.showTextDocument(doc);
 	const all = new vscode.Range(
 		doc.positionAt(0),
 		doc.positionAt(doc.getText().length)

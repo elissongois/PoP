@@ -14,7 +14,7 @@ Comentários em Português Puro são **anotações** que servem para:
 ## Tipos de Comentários
 
 ### 1. Comentários
-### 2. Comentários Em Linha (Observações)
+### 2. Observações
 
 ---
 
@@ -101,11 +101,11 @@ Rotina para que se calcule resultado:
 
 ---
 
-## 2. Comentários Em Linha (Observações)
+## 2. Observações
 
 ### Sintaxe
 
-Comentários em linha usam **colchetes** `[]`:
+Observações usam **colchetes** `[]`:
 
 ```pop
 Um número [comentário em linha] denominado contador.
@@ -165,7 +165,7 @@ Um ângulo é uma fração [em radianos].
 
 ### Combinando Comentários
 
-É possível combinar comentários em linha `[]` com comentários de linha `\\`:
+É possível combinar Observações `[]` com comentários de linha `\\`:
 
 ```pop
 Um Cabeçalho PE é uma estrutura com
@@ -190,9 +190,9 @@ Um Cabeçalho PE é uma estrutura com
 Um número [em pixels] denominado largura.
 ```
 
-### Qualificadores `()`
+### Referenciadores `()`
 
-- **Função**: Marcar referências ou documentar
+- **Função**: Marcar referências
 - **Efeito**: `(referência)` afeta compilação
 - **Uso**: Ponteiros, documentação semântica
 
@@ -203,9 +203,9 @@ Um número (unsigned) denominado contador.
 
 ---
 
-## Validação de Comentários em Linha
+## Validação de Observações
 
-> **Nota**: No código-fonte do compilador, comentários em linha `[]` são referidos como **"observações"**.
+> **Nota**: No código-fonte do compilador, Observações `[]` são referidos como **"observações"**.
 
 ### Rotinas de Processamento
 
@@ -221,7 +221,7 @@ Rotina para que se mova um percorredor (ignorando os comentários):
     Se o conteúdo deste caractere inicial deste segmento final deste percorredor não for o retorno de carro, reitere.
 ```
 
-#### 2. Ignorar Observações (Comentários em Linha)
+#### 2. Ignorar Observações (Observações)
 
 ```pop
 \\ Essa rotina é chamada quando o percorredor encontra um colchete esquerdo ou direito
@@ -279,7 +279,7 @@ Rotina para que se mova um percorredor retornando uma string de erro (validaçã
 ## Observações Importantes
 
 1. **Comentários**: Usam `\` (uma barra invertida, ou `\\` para destaque)
-2. **Comentários em linha**: Usam `[]` (colchetes), também chamados de **"observações"** no código-fonte
+2. **Observações**: Usam `[]` (colchetes), também chamados de **"observações"** no código-fonte
 3. **Ignorados**: Ambos são completamente ignorados pelo compilador
 4. **Balanceamento**: Colchetes devem estar balanceados
 5. **Aninhamento**: Suportado através de lógica de balanceamento de colchetes
@@ -291,34 +291,6 @@ Rotina para que se mova um percorredor retornando uma string de erro (validaçã
 11. **Manutenção**: Atualizar comentários quando código mudar
 
 ---
-
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// COMENTÁRIOS
-// ============================================================================
-
-// Comentário (aceita uma ou mais barras)
-Comentario:
-    /\\+/ conteudo=/[^\r\n]*/;
-
-// Comentário em linha (Colchetes)
-Comentarioemlinha:
-    '[' conteudo=/[^\]]+/ ']';
-
-// Uso em Definições
-CampoComComentario:
-    tipo=Tipo comentario=ComentarioEmLinha? 'denominado' nome=ID comentario2=ComentarioEmLinha?;
-
-// Terminal para ignorar comentários
-hidden terminal COMMENT_LINE:
-    /\\+/ !('\r' | '\n')*;
-
-hidden terminal COMMENT_emlinha:
-    '[' (!']')* ']';
-```
-
 ---
 
 ## Boas Práticas
@@ -586,7 +558,7 @@ A etiqueta de demanda interna é uma etiqueta igual a 4.
 - **Tipos de comentários**: 2 (linha e em linha)
 - **Delimitador de linha**: `\` (ou `\\` para destaque)
 - **Delimitadores em linha**: `[` e `]`
-- **Nome no código-fonte**: "Observações" (para comentários em linha)
+- **Nome no código-fonte**: "Observações" (para Observações)
 - **Efeito na compilação**: Nenhum (sempre ignorados)
 - **Validação**: Balanceamento de colchetes (códigos de erro #005 e #006)
 - **Aninhamento**: Suportado através de lógica de balanceamento
@@ -603,7 +575,7 @@ A etiqueta de demanda interna é uma etiqueta igual a 4.
 - **Escopo**: Até o fim da linha
 - **Uso**: Documentação, notas técnicas, URLs
 
-### Comentários em linha `[]`
+### Observações `[]`
 
 - **Função**: Anotações curtas, aliases
 - **Escopo**: Entre colchetes

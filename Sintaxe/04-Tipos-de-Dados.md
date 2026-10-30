@@ -305,3 +305,59 @@ UniãoDeDados:
 ---
 
 > **Próximo**: [Valores Literais](05-Valores-Literais.md)
+
+User: Agora vamos introduzir mais um recurso da linguagem: campos com nome inferido a partir do tipo.
+Tomemos a estrutura abaixo como exemplo:
+```
+Uma pessoa é uma estrutura com
+  Uma string denominada nome e
+  Um número denominado idade.
+```
+Caso o programador não queira nomear explicitamente um ou mais campos da estrutura, ele pode omitir o nome, conforme código abaixo:
+```
+Uma pessoa é uma estrutura com
+  Uma string e
+  Um número.
+```
+Ao catalogar os campos da estrutura, o campo deve receber o mesmo nome do seu tipo, isto é, seria como se o programador tivesse feito o seguinte:
+```
+Uma pessoa é uma estrutura com
+  Uma string denominada string e
+  Um número denominado número.
+```
+Porém esse recurso apresenta um desafio. 
+Cada campo dentro de uma estrutura deve ter um nome único. 
+O código abaixo falha exatamente por esse motivo (uma mensagem de erro deve ser exibida na seção de diagnósticos para informar ao programador que existem campos com nomes iguais).
+```
+Um número é uma estrutura com
+  Um byte,
+  Um byte,
+  Um byte,
+  Um byte.
+```
+Por conta disso vamos precisar de mais um recurso da linguagem: "apelidos" para cada tipo. Por exemplo, em vez de escrevermos:
+```
+Um número é uma estrutura com
+  Um byte denominado primeiro byte,
+  Um byte denominado segundo byte,
+  Um byte denominado terceiro byte,
+  Um byte denominado quarto byte.
+```
+podemos escrever simplesmente:
+```
+Um número é uma estrutura com
+  Um primeiro byte,
+  Um segundo byte,
+  Um terceiro byte,
+  Um quarto byte.
+```
+Perceba que "primeiro byte", "segundo byte", "terceiro byte" e "quarto byte" não possuem tipos base distintos. 
+Neste exemplo o compilador irá catalogar corretamente o tipo base de cada campo como sendo o tipo "byte" (o tipo base vai variar de acordo com o apelido). 
+Apenas o nome do campo é que precisa ser único, para evitar campos com nomes iguais. 
+Para que o tipo base seja catalogado corretamente o compilador deve fazer, de forma recursiva, a eliminação dos termos mais à esquerda de cada nome até encontrar o nome do tipo que corresponda. Caso o tipo base não seja encontrado, uma mensagem de erro deve ser exibida na seção de diagnósticos.
+Exemplo, digamos que o compilador se depare com o apelido "word de ordem inferior" em um campo. 
+A sequência de tentativas de identificação do tipo base é:
+"word de ordem inferior" -> "de ordem inferior" -> "ordem inferior" -> "inferior"
+Observação: Neste exemplo, mesmo que a palava "word" corresponda ao nome de um tipo, ela não deve ser identificada como o tipo base do campo. Este comportamento é intencional.
+O objetivo é permitir que apelidos como "primeiro byte" sejam adequadamente identificados com o tipo base "byte".
+

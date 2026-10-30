@@ -193,7 +193,6 @@ obtendo o ponteiro.
 | Comando   | Função                  | Exemplo               |
 |-----------|-------------------------|-----------------------|
 | `Se`      | Condicional             | `Se X for Y, ...`     |
-| `quando`  | Sinônimo de `Se`        | `quando X for Y, ...` |
 | `Itere`   | Início de laço          | `Itere. ... Reitere.` |
 | `Reitere` | Volta ao início do laço | `Reitere.`            |
 | `Pare`    | Sai do laço             | `Se condição, pare.`  |
@@ -294,69 +293,6 @@ Função para que se determine se X é Y:
 \\ Sem açúcar sintático (também válido)
 Para que se processe dados:
   \\ Código...
-```
-
----
-
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// PALAVRAS-CHAVE
-// ============================================================================
-
-// Designação
-PalavraChaveDesignacao:
-    'denominado' | 'denominada' | 'denominados' | 'denominadas' |
-    'chamado' | 'chamada' | 'chamados' | 'chamadas';
-
-// Complementação
-PalavraChaveComplementacao:
-    'com' | 'contendo';
-
-// Referenciamento
-PalavraChaveReferenciamento:
-    '(referência)';
-
-// Devolução
-PalavraChaveDevolucao:
-    'retornando' | 'recebendo' | 'obtendo';
-
-// Comandos de Controle
-ComandoCondicional:
-    'Se' | 'quando';
-
-ComandoLaco:
-    'Itere' | 'Reitere' | 'Pare';
-
-ComandoRetorno:
-    'Retorne';
-
-ComandoDeliberacao:
-    'determine';
-
-ComandoResposta:
-    'Diga' ('sim' | 'não');
-
-// Gerenciamento de Memória
-ComandoProtecao:
-    'Preserve' | 'isole' | 'conserve';
-
-// Chamadas Externas
-ChamadaExterna:
-    'Processe' | 'invoque';
-
-// Ponteiros
-ComandoPonteiro:
-    'aponte' | 'direcione' | 'redirecione';
-
-// Operadores Especiais
-OperadorEspecial:
-    'magnitude' | 'conteúdo' | 'endereçamento' | 'empregue';
-
-// Açúcar Sintático
-AcucarSintatico:
-    'Rotina' | 'Função' | 'Procedimento';
 ```
 
 ---

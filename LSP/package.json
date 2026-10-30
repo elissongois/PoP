@@ -34,6 +34,19 @@
 				]
 			}
 		],
+		"grammars": [
+			{
+				"language": "portugues-puro",
+				"scopeName": "source.portugues-puro",
+				"path": "./client/syntaxes/pop.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "portugues-puro",
+				"path": "./client/snippets/portugues-puro.code-snippets"
+			}
+		],
 		"configurationDefaults": {
 			"[portugues-puro]": {
 				"files.encoding": "windows1252"

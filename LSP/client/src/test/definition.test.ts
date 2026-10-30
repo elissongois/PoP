@@ -108,7 +108,7 @@ suite('Português Puro definitions', () => {
   test('Finds definitions and implementations in unopened sibling POP files', async () => {
     const algorithmUri = vscode.Uri.file(path.resolve(
       __dirname,
-      '../../../../Algoritmos/Basteroides/Basteroides.pop'
+      '../../../teste/Basteroids.pop'
     ));
     await activate(algorithmUri);
 
@@ -122,9 +122,9 @@ suite('Português Puro definitions', () => {
     );
     assert.ok(typeDefinitions);
     assert.equal(typeDefinitions.length, 1);
-    assert.ok(typeDefinitions[0].uri.fsPath.endsWith('Biblioteca padrão.pop'));
+    assert.ok(typeDefinitions[0].uri.fsPath.endsWith('Tipos.pop'));
 
-    const routineCallOffset = text.indexOf('Inicialize os componentes') + 3;
+    const routineCallOffset = text.indexOf('Crie as bolas') + 3;
     const definitions = await vscode.commands.executeCommand<vscode.Location[]>(
       'vscode.executeDefinitionProvider',
       algorithmUri,
@@ -139,9 +139,72 @@ suite('Português Puro definitions', () => {
     assert.ok(implementations);
     assert.equal(definitions.length, 1);
     assert.equal(implementations.length, 1);
-    assert.ok(definitions[0].uri.fsPath.endsWith('Biblioteca padrão.pop'));
+    assert.ok(definitions[0].uri.fsPath.endsWith('Rotinas.pop'));
     assert.equal(implementations[0].uri.toString(), definitions[0].uri.toString());
     assert.deepEqual(implementations[0].range, definitions[0].range);
+  });
+
+  test('Provides keyword and symbol completions, keyword and routine hovers, grammar and snippets', async () => {
+    await activate(docUri);
+    await setTestContent([
+      'Um tipo próprio é um byte.',
+      'O valor de teste é um tipo próprio.',
+      'Rotina para que se faça algo (com opção);',
+      'Rotina para que se execute algo:',
+      '  Retorne.',
+      'Rotina para que se use:'
+    ].join('\n'));
+
+    const document = await vscode.workspace.openTextDocument(docUri);
+    const text = document.getText();
+    const completions = await vscode.commands.executeCommand<vscode.CompletionList>(
+      'vscode.executeCompletionItemProvider',
+      docUri,
+      document.positionAt(text.length)
+    );
+    const completionLabels = completions.items.map(item => item.label);
+    assert.ok(completionLabels.includes('Itere'));
+    assert.ok(completionLabels.includes('tipo próprio'));
+    assert.ok(completionLabels.includes('valor de teste'));
+    assert.ok(completionLabels.includes('faça algo (com opção)'));
+    assert.ok(!completionLabels.includes('Caso contrário'));
+
+    await setTestContent(`${text}\n  Itere.`);
+    const updatedDocument = await vscode.workspace.openTextDocument(docUri);
+    const updatedText = updatedDocument.getText();
+    const keywordOffset = updatedText.lastIndexOf('Itere');
+    const hoverResults = await vscode.commands.executeCommand<vscode.Hover[]>(
+      'vscode.executeHoverProvider',
+      docUri,
+      updatedDocument.positionAt(keywordOffset)
+    );
+    assert.ok(hoverResults?.length);
+    const hoverContent = Array.isArray(hoverResults[0].contents)
+      ? hoverResults[0].contents
+      : [hoverResults[0].contents];
+    assert.ok(hoverContent.some(content =>
+      typeof content !== 'string' && 'value' in content && content.value.includes('Início de laço')
+    ));
+
+    const routineOffset = updatedText.indexOf('faça algo') + 2;
+    const routineHovers = await vscode.commands.executeCommand<vscode.Hover[]>(
+      'vscode.executeHoverProvider',
+      docUri,
+      updatedDocument.positionAt(routineOffset)
+    );
+    assert.ok(routineHovers?.length);
+    const routineHoverContent = Array.isArray(routineHovers[0].contents)
+      ? routineHovers[0].contents
+      : [routineHovers[0].contents];
+    assert.ok(routineHoverContent.some(content =>
+      typeof content !== 'string' && 'value' in content && content.value.includes('Nomes alternativos')
+    ));
+
+    const extension = vscode.extensions.getExtension('portugues-puro.portugues-puro-lsp');
+    assert.ok(extension);
+    const contributions = extension.packageJSON.contributes;
+    assert.equal(contributions.grammars[0].scopeName, 'source.portugues-puro');
+    assert.equal(contributions.snippets[0].language, 'portugues-puro');
   });
 
   test('Searches sibling files but ignores parent folders and subdirectories', async () => {

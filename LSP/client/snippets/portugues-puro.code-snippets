@@ -1,0 +1,50 @@
+{
+	"Declaração de rotina": {
+		"prefix": "rotina",
+		"body": [
+			"Rotina para que se ${1:nome da rotina}:",
+			"  $0"
+		],
+		"description": "Declara uma rotina em Português Puro"
+	},
+	"Declaração de função deliberativa": {
+		"prefix": "funcao",
+		"body": [
+			"Função para que se determine se ${1:condição}:",
+			"  Se ${2:condição}, diga sim.",
+			"  Diga não."
+		],
+		"description": "Declara uma função que retorna sim ou não"
+	},
+	"Tipo estrutura": {
+		"prefix": "estrutura",
+		"body": [
+			"Uma ${1:nome do tipo} é uma estrutura com",
+			"  ${2:um número denominado campo}."
+		],
+		"description": "Declara um tipo estrutura com um campo"
+	},
+	"Variável global": {
+		"prefix": "global",
+		"body": [
+			"O ${1:nome da variável} é um ${2:tipo}${3: igual a ${4:valor}}."
+		],
+		"description": "Declara uma variável global"
+	},
+	"Variável local": {
+		"prefix": "local",
+		"body": [
+			"Atribua ${1:valor} para um ${2:tipo} denominado ${3:nome}."
+		],
+		"description": "Declara e inicializa uma variável local"
+	},
+	"Laço": {
+		"prefix": "itere",
+		"body": [
+			"Itere.",
+			"  $0",
+			"Reitere."
+		],
+		"description": "Cria um laço Itere/Reitere"
+	}
+}

@@ -6,6 +6,15 @@ Português Puro source files.
 
 ## Functionality
 
+- Syntax highlighting for comments, strings, literals, keywords, articles,
+  conjunctions, routine/function headers, parenthetical qualifiers, and header
+  separators used by alternate routine/function names.
+- Hover documentation for language keywords, types, variables, and routine
+  declarations, including their parameters and alternate names.
+- Completion suggestions for language keywords and symbols declared in
+  same-folder `.pop` files.
+- Snippets for routines, deliberative functions, structures, global/local
+  variables, and `Itere`/`Reitere` loops.
 - Go to Definition for declared types, global variables, routines, and
   functions, including identifiers with multiple words or line breaks.
 - Go to Type Definition for declared types and typed global/local variables.

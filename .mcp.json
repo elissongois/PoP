@@ -1,0 +1,8 @@
+{
+	"mcpServers": {
+		"Documentação": {
+			"type": "http",
+			"url": "https://portugues-puro.gitbook.io/documentacao/~gitbook/mcp"
+		}
+	}
+}

@@ -1,0 +1,113 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Português Puro",
+	"scopeName": "source.portugues-puro",
+	"patterns": [
+		{ "include": "#line-comment" },
+		{ "include": "#block-comment" },
+		{ "include": "#string" },
+		{ "include": "#routine-header" },
+		{ "include": "#number" },
+		{ "include": "#boolean" },
+		{ "include": "#keywords" },
+		{ "include": "#articles" },
+		{ "include": "#conjunctions" },
+		{ "include": "#prepositions" },
+		{ "include": "#punctuation" }
+	],
+	"repository": {
+		"line-comment": {
+			"begin": "\\\\",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.comment.portugues-puro" }
+			},
+			"end": "(?=$)",
+			"name": "comment.line.portugues-puro"
+		},
+		"block-comment": {
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.comment.begin.portugues-puro" }
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.comment.end.portugues-puro" }
+			},
+			"name": "comment.block.portugues-puro",
+			"patterns": [
+				{ "include": "#block-comment" }
+			]
+		},
+		"string": {
+			"name": "string.quoted.double.portugues-puro",
+			"begin": "\"",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.string.begin.portugues-puro" }
+			},
+			"end": "\"(?!\")|(?=\"\"\\s*(?:\\.|$))",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.string.end.portugues-puro" }
+			},
+			"patterns": [
+				{
+					"match": "\"\"",
+					"name": "constant.character.escape.portugues-puro"
+				}
+			]
+		},
+		"routine-header": {
+			"begin": "(?i)^[ \\t]*(?:(rotina|função)[ \\t]+)?(para)[ \\t]+(que)[ \\t]+(se)(?:[ \\t]+(determine)[ \\t]+(se))?",
+			"beginCaptures": {
+				"1": { "name": "storage.type.function.portugues-puro" },
+				"2": { "name": "keyword.control.portugues-puro" },
+				"3": { "name": "keyword.control.portugues-puro" },
+				"4": { "name": "keyword.control.portugues-puro" },
+				"5": { "name": "keyword.control.portugues-puro" },
+				"6": { "name": "keyword.control.portugues-puro" }
+			},
+			"end": "([:;])",
+			"endCaptures": {
+				"1": { "name": "punctuation.separator.portugues-puro" }
+			},
+			"name": "meta.function.definition.portugues-puro",
+			"patterns": [
+				{
+					"match": "\\([^()\\r\\n]*\\)",
+					"name": "entity.name.function.qualifier.portugues-puro"
+				},
+				{
+					"match": "(?i)\\b(?:um|uma|uns|umas)\\b",
+					"name": "storage.type.parameter.portugues-puro"
+				}
+			]
+		},
+		"number": {
+			"match": "(?i)(?<![\\p{L}\\p{N}_])(?:\\$[0-9a-f]+|[+-]?\\d+(?:\\+\\d+)?(?:/\\d+)?)(?![\\p{L}\\p{N}_])",
+			"name": "constant.numeric.portugues-puro"
+		},
+		"boolean": {
+			"match": "(?i)\\b(?:sim|não)\\b",
+			"name": "constant.language.boolean.portugues-puro"
+		},
+		"keywords": {
+			"match": "(?i)\\b(?:se|retorne|diga|itere|reitere|pare|continue|preserve|original|atribua|aloque|memória|escreva|decodifique|processe|retornando|recebendo|obtendo|denominado|denominada|denominados|denominadas|chamado|chamada|chamados|chamadas|com|contendo|referência|igual|iguais|a|é|são)\\b",
+			"name": "keyword.control.portugues-puro"
+		},
+		"articles": {
+			"match": "(?i)\\b(?:o|os|a|as|um|uma|uns|umas|este|esta|estes|estas|esse|essa|esses|essas|aquele|aquela|aqueles|aquelas|certo|certa|certos|certas|determinado|determinada|determinados|determinadas)\\b",
+			"name": "keyword.other.article.portugues-puro"
+		},
+		"conjunctions": {
+			"match": "(?i)\\b(?:e|ou|nem)\\b",
+			"name": "keyword.operator.logical.portugues-puro"
+		},
+		"prepositions": {
+			"match": "(?i)\\b(?:para|por|em|de|desde|com|contendo|dado|dada|usando|sob|sobre|entre|sem|até|ao|à|aos|às|no|na|nos|nas|dum|duma|duns|dumas)\\b",
+			"name": "keyword.other.preposition.portugues-puro"
+		},
+		"punctuation": {
+			"match": "[.,:;]",
+			"name": "punctuation.separator.portugues-puro"
+		}
+	}
+}

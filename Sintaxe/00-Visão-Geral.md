@@ -44,7 +44,6 @@ Todo programa em Português Puro deve conter:
 
 - **Nomes descritivos**: Português Puro incentiva nomes longos e descritivos em linguagem natural
 - **Case-insensitive**: `Variavel`, `variavel`, `VARIAVEL` são equivalentes
-- **Acentos ignorados**: `número`, `numero`, `núméro` são equivalentes
 - **Indentação livre**: Use para legibilidade, não é obrigatória
 
 ---
@@ -53,7 +52,7 @@ Todo programa em Português Puro deve conter:
 
 | Arquivo | Conteúdo |
 |---------|----------|
-| [01-Comentários.md](01-Comentários.md) | Comentários de linha e em linha |
+| [01-Comentários.md](01-Comentários.md) | Observações, Comentários de linha e multilinha |
 | [02-Variáveis-Globais.md](02-Variáveis-Globais.md) | Declaração e inicialização de variáveis globais |
 | [03-Variáveis-Locais.md](03-Variáveis-Locais.md) | Declaração e uso de variáveis locais |
 | [04-Tipos-de-Dados.md](04-Tipos-de-Dados.md) | Tipos primitivos, derivados, estruturas, listas |

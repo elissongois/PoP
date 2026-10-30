@@ -8,18 +8,44 @@ Variáveis locais são declaradas **dentro de rotinas** e são acessíveis apena
 
 ## Sintaxe
 
-### Forma com Inferência de Tipo (mais comum)
+### Forma com Nome Explícito
+```pop
+\ <Instrução> <valor> para <artigo indefinido> <tipo> denominado <nome>.
+Rotina para que se demonstre como declarar variáveis locais:
+   Faça algo com um número denominado quantidade. \ Variável local `quantidade` de tipo `número` declarada 
+   Limpe uma string denominada nome. \ Variável local `nome` de tipo `string` declarada 
 ```
-Atribua <valor> para <artigo indefinido> <nome-com-tipo>.
+
+### Nomeando a variável local a partir do nome de um Tipo declarado
+```pop
+\ <Instrução> <valor> para <artigo indefinido> <tipo>.
+Rotina para que se demonstre como declarar variáveis locais:
+   Faça algo com um número. \ Cria uma variável local do tipo `número` denominada `número`
+   Limpe uma string. \ Cria uma variável local do tipo `string` denominada `string`
+   
+
+
+```
+
+### Derivando o nome da variável local a partir do nome de um Tipo declarado
+```pop
+\ Instrução <valor> para <artigo indefinido> <identificador> <tipo>.
+  Crie um segundo contador.
+\ Cria uma variável local do tipo `contador` denominada `segundo contador`
 ```
 
 ### Forma com Nome Explícito
-```
-Atribua <valor> para <artigo indefinido> <tipo> denominado <nome>.
+```pop
+\ Instrução <valor> para <artigo indefinido> <tipo> denominado <nome>.
+  
+  Atribua 0 para um contador.
+\ Cria uma variável local do tipo `contador` denominada `contador`, e a inicializa com o valor 0
+  Atribua 0 para um contador denominado contador.
+\ Cria uma variável local do tipo `contador` denominada `contador`, e a inicializa com o valor 0
 ```
 
 ### Forma com Alocação de Memória (para tipos complexos)
-```
+```pop
 Aloque memória para <artigo indefinido> <tipo>.
 ```
 
@@ -37,6 +63,12 @@ Aloque memória para <artigo indefinido> <tipo>.
 > **Nota**: Pronomes demonstrativos abrangentes (`esse`, `essa`, `aquele`, `aquela`, `certos`, `certas`, `determinado`, `determinada`, etc.) também funcionam como artigos indefinidos.
 
 ---
+
+## Nome da variável local herdado do tipo
+
+
+
+
 
 ## Tipos Inferíveis (por palavra-chave no nome)
 
@@ -58,7 +90,7 @@ Aloque memória para <artigo indefinido> <tipo>.
 
 ### Inferência de Tipo (nome contém o tipo)
 
-```pop
+```poppop
 \ O tipo 'número' é inferido da palavra "número"
 Atribua 10 para um número.
 
@@ -74,7 +106,7 @@ Atribua sim para um sinalizador.
 
 ### Nome Explícito (com `denominado`)
 
-```pop
+```poppop
 Atribua 18 para um número denominado idade.
 Atribua "Maria" para uma string denominada nome.
 Atribua 3/4 para uma fração denominada proporção.
@@ -82,7 +114,7 @@ Atribua 3/4 para uma fração denominada proporção.
 
 ### Alocação de Memória (estruturas, listas)
 
-```pop
+```poppop
 \ Para estruturas
 Aloque memória para uma pessoa.
 Atribua "João" para o nome desta pessoa.
@@ -94,7 +126,7 @@ Acrescente o contato na agenda telefônica.
 
 ### Uso Posterior (após declaração, use artigo definido)
 
-```pop
+```poppop
 \ Declaração
 Atribua 10 para um contador.
 
@@ -105,7 +137,7 @@ Se o contador for maior do que 10, pare.
 
 ### Variáveis em Laços (persistem após o laço)
 
-```pop
+```poppop
 Atribua 1 para um contador.
 Itere.
   Adicione 1 para o contador.
@@ -116,7 +148,7 @@ Reitere.
 
 ### Declaração em Expressão Condicional
 
-```pop
+```poppop
 Itere.
   Se um número for maior que 10, pare.  \ Declara 'número' aqui
   Adicione 1 ao número.
@@ -125,7 +157,7 @@ Reitere.
 
 ### Variáveis com Tipos Complexos
 
-```pop
+```poppop
 \ Declaração de uma estrutura local
 Aloque memória para uma pessoa.
 Atribua "João Silva" para o nome desta pessoa.
@@ -179,7 +211,7 @@ Reitere.
 
 ## Mapeamento para Langium
 
-```langium
+```poplangium
 DeclaracaoLocal:
     comando=ComandoDeclaracao valor=Expressao preposicao=('para'|'em') 
     artigo=ArtigoIndefinido tipo=TipoOuNome 

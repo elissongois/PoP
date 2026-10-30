@@ -121,7 +121,7 @@ Um vértice é um ponto 3D com
 \ Hierarquia: vértice → ponto 3D → ponto → estrutura (primitivo)
 ```
 
-**Observação:** No segundo nível, `localização` **herda** os campos de `par de números` e pode adicionar novos campos ou redefinir os existentes.
+**Observação:** No segundo nível, `localização` **herda** os campos de `par de números` e pode adicionar novos campos.
 
 ---
 
@@ -177,7 +177,7 @@ Uma word big-endian unsigned é uma estrutura com 2 bytes.
 260 bytes denominados cFileName,
 ```
 
-### Qualificadores de Tipo
+### Observações de Tipo
 
 Informações opcionais entre colchetes após o tipo (ignoradas pelo compilador, servem para documentação):
 
@@ -431,7 +431,7 @@ Um número é uma estrutura com
   Uma word de ordem superior sob o terceiro byte. \ A word de ordem superior vem depois devido à extremidade (ordenação) dos processadores x86
 ```
 
-### Estrutura com Qualificadores e Comentários
+### Estrutura com Observações e Comentários
 
 ```pop
 Uma caixa é uma estrutura com
@@ -529,7 +529,7 @@ Um tipo é uma lista com
 
 1. **Referências**: Campos podem ter `(referência)` para indicar ponteiros.
 2. **Comentários inline**: Podem aparecer após campos entre `[...]` para documentação, restrições ou notas técnicas.
-3. **Qualificadores opcionais**: Informações entre colchetes após tipos (ex: `[unsigned]`, `[que aponta]`) são ignoradas pelo compilador.
+3. **Observações opcionais**: Informações entre colchetes após tipos (ex: `[unsigned]`, `[que aponta]`) são ignoradas pelo compilador.
 4. **Sintaxe opcional para escalares**: `[composto de]` ou `[composta de]` pode ser usado para legibilidade em tipos escalares.
 5. **Campos numéricos**: `N bytes` (sem nome) para padding, `N bytes denominados nome` para arrays.
 6. **Uso automático**: Uma vez definido `Um contato`, pode-se usar `uns contatos` automaticamente.

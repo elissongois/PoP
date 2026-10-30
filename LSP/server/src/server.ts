@@ -9,8 +9,12 @@ import {
 	createConnection,
 	Diagnostic,
 	DiagnosticSeverity,
+	CompletionItem,
+	CompletionItemKind,
+	Hover,
 	InitializeResult,
 	Location,
+	MarkupKind,
 	ProposedFeatures,
 	TextDocumentPositionParams,
 	TextDocumentSyncKind,
@@ -26,6 +30,7 @@ import {
 	parseTypeDeclarations,
 	TypeSymbolTable
 } from './typeParser';
+import { createKeywordCompletions, languageKeywords } from './editorFeatures';
 
 const connection = createConnection(ProposedFeatures.all);
 const documents = new TextDocuments(TextDocument);
@@ -42,7 +47,9 @@ connection.onInitialize((): InitializeResult => ({
 		textDocumentSync: TextDocumentSyncKind.Incremental,
 		definitionProvider: true,
 		typeDefinitionProvider: true,
-		implementationProvider: true
+		implementationProvider: true,
+		completionProvider: { triggerCharacters: [' '] },
+		hoverProvider: true
 	}
 }));
 
@@ -190,6 +197,104 @@ connection.onImplementation(async (params: TextDocumentPositionParams) => {
 		parsedDocument,
 		indexedDocuments
 	);
+});
+
+connection.onCompletion(async params => {
+	const document = documents.get(params.textDocument.uri);
+	if (!document) {
+		return [];
+	}
+	const indexedDocuments = await getSiblingDocuments(document);
+	const items = createKeywordCompletions();
+	const seen = new Set(items.map(item => item.label.toLocaleLowerCase('pt-BR')));
+
+	for (const candidate of indexedDocuments) {
+		const symbols: CompletionItem[] = [
+			...candidate.parsed.declarations.map(declaration => ({
+				label: declaration.name.name,
+				kind: CompletionItemKind.Class,
+				detail: 'Tipo Português Puro'
+			})),
+			...candidate.parsed.globalVariables.map(declaration => ({
+				label: declaration.name.name,
+				kind: CompletionItemKind.Variable,
+				detail: declaration.type?.name ?? declaration.inferredTypeName ?? 'Variável global'
+			})),
+			...candidate.parsed.routines.flatMap(routine => [
+				{
+					label: routine.name.name,
+					kind: CompletionItemKind.Function,
+					detail: routine.isBooleanFunction ? 'Função deliberativa' : 'Rotina'
+				},
+				...routine.alternateNames.map(alternate => ({
+					label: alternate.name,
+					kind: CompletionItemKind.Function,
+					detail: `Nome alternativo de ${routine.name.name}`
+				}))
+			])
+		];
+
+		for (const item of symbols) {
+			const key = item.label.toLocaleLowerCase('pt-BR');
+			if (seen.has(key)) {
+				continue;
+			}
+			seen.add(key);
+			items.push(item);
+		}
+	}
+
+	return items;
+});
+
+connection.onHover(async params => {
+	const document = documents.get(params.textDocument.uri);
+	if (!document) {
+		return null;
+	}
+	const offset = document.offsetAt(params.position);
+	const indexedDocuments = await getSiblingDocuments(document);
+	const parsedDocument = indexedDocuments.find(candidate =>
+		candidate.document.uri === document.uri
+	)?.parsed;
+	const keyword = findKeywordAtOffset(document.getText(), offset);
+	if (keyword) {
+		return {
+			contents: {
+				kind: MarkupKind.Markdown,
+				value: `**${keyword.label}** — ${keyword.detail}\n\n${keyword.documentation}`
+			}
+		} satisfies Hover;
+	}
+
+	const symbol = findNamedSymbolAtOffset(document, offset, indexedDocuments);
+	if (symbol) {
+		const type = symbol.typeName ? `\n\nTipo: \`${symbol.typeName}\`` : '';
+		return {
+			contents: {
+				kind: MarkupKind.Markdown,
+				value: `**${symbol.name}** — ${symbol.kind === 'type' ? 'Tipo' : 'Variável'} Português Puro${type}`
+			}
+		} satisfies Hover;
+	}
+
+	const routine = parsedDocument?.routines.find(declaration =>
+		[declaration.name, ...declaration.alternateNames].some(name =>
+			offset >= name.range.start && offset <= name.range.end
+		)
+	) ?? (parsedDocument && findRoutineDeclarationAtOffset(parsedDocument, offset));
+	if (routine) {
+		const parameters = routine.parameters.map(parameter =>
+			`\`${parameter.type.name} ${parameter.name.name}\``
+		).join(', ');
+		return {
+			contents: {
+				kind: MarkupKind.Markdown,
+				value: `**${routine.name.name}** — ${routine.isBooleanFunction ? 'Função deliberativa' : 'Rotina'}${parameters ? `\n\nParâmetros: ${parameters}` : ''}${routine.alternateNames.length ? `\n\nNomes alternativos: ${routine.alternateNames.map(name => `\`${name.name}\``).join(', ')}` : ''}`
+			}
+		} satisfies Hover;
+	}
+	return null;
 });
 
 type NavigationKind = 'type' | 'variable';
@@ -447,6 +552,13 @@ function isIdentifierCharacter(character: string): boolean {
 
 function escapeRegExp(text: string): string {
 	return text.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+}
+
+function findKeywordAtOffset(source: string, offset: number) {
+	const matches = languageKeywords
+		.filter(keyword => !keyword.label.startsWith('(') && keyword.label !== ';')
+		.sort((first, second) => second.label.length - first.label.length);
+	return matches.find(keyword => containsIdentifierAtOffset(source, keyword.label, offset));
 }
 
 function createLocation(
