@@ -6,7 +6,8 @@
 import * as vscode from 'vscode';
 import * as assert from 'assert';
 import * as path from 'path';
-import { activate, getDocUri, setTestContent } from './helper';
+import { unlink, writeFile } from 'node:fs/promises';
+import { activate, getDocPath, getDocUri, setTestContent } from './helper';
 
 suite('Português Puro definitions', () => {
   const docUri = getDocUri('definition.pop');
@@ -36,6 +37,220 @@ suite('Português Puro definitions', () => {
     assert.ok(typeDefinition);
     assert.equal(typeDefinition.length, 1);
     assert.ok(document.lineAt(typeDefinition[0].range.start.line).text.includes('ponto osmosiano'));
+
+    const baseTypeDefinition = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeTypeDefinitionProvider',
+      typeUri,
+      document.positionAt(pluralReference)
+    );
+    assert.ok(baseTypeDefinition);
+    assert.equal(baseTypeDefinition.length, 1);
+    assert.ok(document.lineAt(baseTypeDefinition[0].range.start.line).text.includes('Um número é'));
+  });
+
+  test('Finds and renames a type declaration and its plural references', async () => {
+    await activate(docUri);
+    await setTestContent([
+      'Um número é uma estrutura.',
+      'Um ponto osmosiano é um número.',
+      'Uma orientação é uns pontos osmosianos.'
+    ].join('\n'));
+
+    const document = await vscode.workspace.openTextDocument(docUri);
+    const text = document.getText();
+    const position = document.positionAt(text.indexOf('ponto osmosiano') + 4);
+    const references = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeReferenceProvider',
+      docUri,
+      position,
+      { includeDeclaration: true }
+    );
+    assert.equal(references?.length, 2);
+
+    const rename = await vscode.commands.executeCommand<vscode.WorkspaceEdit>(
+      'vscode.executeDocumentRenameProvider',
+      docUri,
+      position,
+      'vetor'
+    );
+    const edits = rename?.get(docUri) ?? [];
+    assert.deepEqual(edits.map(edit => document.getText(edit.range)), [
+      'ponto osmosiano',
+      'pontos osmosianos'
+    ]);
+    assert.deepEqual(edits.map(edit => edit.newText), ['vetor', 'vetores']);
+  });
+
+  test('Finds and renames references across sibling files', async () => {
+    await activate(docUri);
+    await setTestContent([
+      'Um número é uma estrutura.',
+      'Um ponto osmosiano é um número.'
+    ].join('\n'));
+
+    const siblingPath = getDocPath('rename-sibling.pop');
+    const siblingUri = vscode.Uri.file(siblingPath);
+    await writeFile(
+      siblingPath,
+      Buffer.from('Uma orientação é uns pontos osmosianos.\n', 'latin1')
+    );
+    try {
+      const document = await vscode.workspace.openTextDocument(docUri);
+      const text = document.getText();
+      const position = document.positionAt(text.indexOf('ponto osmosiano') + 4);
+      const references = await vscode.commands.executeCommand<vscode.Location[]>(
+        'vscode.executeReferenceProvider',
+        docUri,
+        position,
+        { includeDeclaration: true }
+      );
+      assert.equal(references?.length, 2, JSON.stringify(references?.map(reference => ({
+        uri: reference.uri.toString(),
+        line: reference.range.start.line,
+        text: reference.uri.toString() === docUri.toString()
+          ? document.lineAt(reference.range.start.line).text
+          : 'sibling'
+      }))));
+      assert.ok(references?.some(reference => reference.uri.toString() === siblingUri.toString()));
+
+      const rename = await vscode.commands.executeCommand<vscode.WorkspaceEdit>(
+        'vscode.executeDocumentRenameProvider',
+        docUri,
+        position,
+        'vetor'
+      );
+      assert.equal(rename?.get(docUri)?.length, 1);
+      assert.deepEqual(
+        rename?.get(siblingUri)?.map(edit => edit.newText),
+        ['vetores']
+      );
+    } finally {
+      await unlink(siblingPath);
+    }
+  });
+
+  test('Finds and renames global variable references without matching comments or strings', async () => {
+    await activate(docUri);
+    await setTestContent([
+      'Um número é uma estrutura.',
+      'O valor é um número.',
+      'Rotina para que se use:',
+      '  Escreva o valor para StdOut.',
+      '  Escreva "valor" para StdOut. \\ valor'
+    ].join('\n'));
+
+    const document = await vscode.workspace.openTextDocument(docUri);
+    const text = document.getText();
+    const position = document.positionAt(text.indexOf('valor') + 2);
+    const references = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeReferenceProvider',
+      docUri,
+      position,
+      { includeDeclaration: true }
+    );
+    assert.equal(references?.length, 2);
+    assert.ok(references?.some(reference =>
+      document.lineAt(reference.range.start.line).text.includes('Escreva o valor')
+    ));
+
+    const rename = await vscode.commands.executeCommand<vscode.WorkspaceEdit>(
+      'vscode.executeDocumentRenameProvider',
+      docUri,
+      position,
+      'resultado'
+    );
+    const edits = rename?.get(docUri) ?? [];
+    assert.deepEqual(edits.map(edit => document.getText(edit.range)), ['valor', 'valor']);
+    assert.deepEqual(edits.map(edit => edit.newText), ['resultado', 'resultado']);
+  });
+
+  test('Finds and renames local variable and parameter references', async () => {
+    await activate(docUri);
+    await setTestContent([
+      'Um número é uma estrutura.',
+      'Rotina para que se use um número denominado contagem:',
+      '  Atribua 1 para a contagem.',
+      '  Escreva a contagem para StdOut.'
+    ].join('\n'));
+
+    const document = await vscode.workspace.openTextDocument(docUri);
+    const text = document.getText();
+    const position = document.positionAt(text.indexOf('contagem') + 3);
+    const references = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeReferenceProvider',
+      docUri,
+      position,
+      { includeDeclaration: true }
+    );
+    assert.equal(references?.length, 3);
+
+    const rename = await vscode.commands.executeCommand<vscode.WorkspaceEdit>(
+      'vscode.executeDocumentRenameProvider',
+      docUri,
+      position,
+      'total'
+    );
+    assert.equal(rename?.get(docUri)?.length, 3);
+  });
+
+  test('Finds and renames references to a routine alternate name', async () => {
+    await activate(docUri);
+    await setTestContent([
+      'Rotina para que se faça algo;',
+      'Rotina para que se execute algo:',
+      '  Retorne.',
+      'Rotina para que se use:',
+      '  Faça algo.'
+    ].join('\n'));
+
+    const document = await vscode.workspace.openTextDocument(docUri);
+    const text = document.getText();
+    const position = document.positionAt(text.lastIndexOf('Faça algo') + 2);
+    const references = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeReferenceProvider',
+      docUri,
+      position,
+      { includeDeclaration: true }
+    );
+    assert.equal(references?.length, 2);
+
+    const rename = await vscode.commands.executeCommand<vscode.WorkspaceEdit>(
+      'vscode.executeDocumentRenameProvider',
+      docUri,
+      position,
+      'realize algo'
+    );
+    const edits = rename?.get(docUri) ?? [];
+    assert.deepEqual(edits.map(edit => document.getText(edit.range)), ['faça algo', 'Faça algo']);
+    assert.deepEqual(edits.map(edit => edit.newText), ['realize algo', 'realize algo']);
+  });
+
+  test('Does not report unresolved calls when a qualified routine signature matches', async () => {
+    await activate(docUri);
+    const diagnosticsUpdated = new Promise<void>(resolve => {
+      const listener = vscode.languages.onDidChangeDiagnostics(event => {
+        if (event.uris.some(uri => uri.toString() === docUri.toString())) {
+          listener.dispose();
+          resolve();
+        }
+      });
+    });
+    await setTestContent([
+      'Uma caixa é uma estrutura.',
+      'Rotina para que se centralize uma caixa em uma segunda caixa (horizontalmente):',
+      '  Retorne.',
+      'Rotina para que se centralize uma caixa em uma segunda caixa (verticalmente):',
+      '  Retorne.',
+      'Rotina para que se execute:',
+      '  Centralize a caixa na segunda caixa (horizontalmente).',
+      '  Centralize a caixa na segunda caixa (verticalmente).'
+    ].join('\n'));
+    await diagnosticsUpdated;
+
+    const diagnostics = vscode.languages.getDiagnostics(docUri);
+    assert.equal(diagnostics.filter(diagnostic =>
+      diagnostic.message.includes('No compatible routine found for "Centralize a caixa na segunda caixa')
+    ).length, 0);
   });
 
   test('Resolves routine implementations by matching singular and plural parameters', async () => {
@@ -1400,7 +1615,7 @@ suite('Português Puro definitions', () => {
     }
   });
 
-  test('Emits a hint when a routine body contains no statements', async () => {
+  test('Allows an empty routine body without a diagnostic', async () => {
     await activate(docUri);
     const diagnosticsUpdated = new Promise<void>(resolve => {
       const listener = vscode.languages.onDidChangeDiagnostics(event => {
@@ -1414,9 +1629,7 @@ suite('Português Puro definitions', () => {
     await diagnosticsUpdated;
 
     const diagnostics = vscode.languages.getDiagnostics(docUri);
-    assert.equal(diagnostics.length, 1);
-    assert.equal(diagnostics[0].severity, vscode.DiagnosticSeverity.Hint);
-    assert.ok(diagnostics[0].message.includes('has no statements'));
+    assert.deepEqual(diagnostics, []);
   });
 
   test('Diagnoses equivalent alternate headers and hints on colon-terminated aliases', async () => {
@@ -1584,7 +1797,7 @@ suite('Português Puro definitions', () => {
     ).length, 3);
     assert.equal(diagnostics.filter(diagnostic =>
       diagnostic.message.includes('has no statements')
-    ).length, 1);
+    ).length, 0);
   });
 
   test('Rejects Diga in ordinary routines and routine names', async () => {

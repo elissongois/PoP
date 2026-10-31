@@ -1,27 +1,27 @@
-# Biblioteca Padr„o
+# Biblioteca Padr√£o
 
-A Biblioteca padr„o contÈm definiÁıes de tipos, vari·veis globais e rotinas de categorias diversas, tais como:
+A Biblioteca padr√£o cont√©m defini√ß√µes de tipos, vari√°veis globais e rotinas de categorias diversas, tais como:
 
 * [API Win 32](https://learn.microsoft.com/pt-br/windows/win32/api/)
-  * [Cores, Canetas e PincÈis](https://learn.microsoft.com/pt-br/windows/win32/gdi/creating-colored-pens-and-brushes)
+  * [Cores, Canetas e Pinc√©is](https://learn.microsoft.com/pt-br/windows/win32/gdi/creating-colored-pens-and-brushes)
   * [Console](https://learn.microsoft.com/pt-br/windows/console/console-reference)
   * [Contexto de Dispositivo](https://learn.microsoft.com/pt-br/windows/win32/gdi/device-contexts)
   * [Gerenciamento de Arquivos](https://learn.microsoft.com/pt-br/windows/win32/api/fileapi)
   * [Criptografia](https://learn.microsoft.com/pt-br/windows/win32/seccrypto/cryptography-functions)
-  * [Fontes Tipogr·ficas](https://learn.microsoft.com/pt-br/windows/win32/gdi/font-and-text-functions)
-  * [Interfaces Gr·ficas  - Windows GDI](https://learn.microsoft.com/pt-br/windows/win32/gdi/windows-gdi)
-  * [InteraÁ„o do Usu·rio](https://learn.microsoft.com/pt-br/windows/win32/user-interaction) (Eventos - clique, pressionamento de tecla, etc)
-  * [ManipulaÁ„o de Imagens](https://learn.microsoft.com/pt-br/windows/win32/gdi/bitmaps)
+  * [Fontes Tipogr√°ficas](https://learn.microsoft.com/pt-br/windows/win32/gdi/font-and-text-functions)
+  * [Interfaces Gr√°ficas  - Windows GDI](https://learn.microsoft.com/pt-br/windows/win32/gdi/windows-gdi)
+  * [Intera√ß√£o do Usu√°rio](https://learn.microsoft.com/pt-br/windows/win32/user-interaction) (Eventos - clique, pressionamento de tecla, etc)
+  * [Manipula√ß√£o de Imagens](https://learn.microsoft.com/pt-br/windows/win32/gdi/bitmaps)
   * [Protocolos de Rede e internet](https://learn.microsoft.com/pt-br/windows/win32/networking)
   * Terminal
-* [Gr·ficos de Tartaruga](https://pt.wikipedia.org/wiki/Gr%C3%A1ficos_tartaruga) (Turtle Graphics)
+* [Gr√°ficos de Tartaruga](https://pt.wikipedia.org/wiki/Gr%C3%A1ficos_tartaruga) (Turtle Graphics)
 * Arquivos PDF
 * E-mail
-* ManipulaÁ„o de Bits (conjunÁıes e disjunÁıes LÛgicas)
+* Manipula√ß√£o de Bits (conjun√ß√µes e disjun√ß√µes L√≥gicas)
 * Strings
-* OperaÁıes Matem·ticas
+* Opera√ß√µes Matem√°ticas
   * [Trigonometria Racional](https://pt.wikipedia.org/wiki/Trigonometria_racional)
 
 {% hint style="info" %}
-… necess·rio que o arquivo <mark style="color:blue;">`Biblioteca padr„o`</mark> esteja na mesma pasta do programa a ser compilado.&#x20;
+√â necess√°rio que o arquivo <mark style="color:blue;">`Biblioteca padr√£o`</mark> esteja na mesma pasta do programa a ser compilado.&#x20;
 {% endhint %}

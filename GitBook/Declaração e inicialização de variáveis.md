@@ -1,62 +1,62 @@
-# DeclaraÁ„o e inicializaÁ„o de vari·veis
+# Declara√ß√£o e inicializa√ß√£o de vari√°veis
 
-O escopo se refere ‡ visibilidade de uma vari·vel, ou seja, onde uma vari·vel pode ser usada dentro de um programa. Existem dois principais escopos em PortuguÍs Puro:
+O escopo se refere √† visibilidade de uma vari√°vel, ou seja, onde uma vari√°vel pode ser usada dentro de um programa. Existem dois principais escopos em Portugu√™s Puro:
 
-* **Escopo Global:** As vari·veis declaradas fora de qualquer rotina ou funÁ„o tÍm escopo global. Elas s„o visÌveis em todo o programa, ou seja, podem ser acessadas de qualquer lugar.
-* **Escopo Local:** As vari·veis declaradas dentro de uma rotina ou funÁ„o tÍm escopo local. Elas sÛ s„o visÌveis dentro dessa rotina ou funÁ„o.
+* **Escopo Global:** As vari√°veis declaradas fora de qualquer rotina ou fun√ß√£o t√™m escopo global. Elas s√£o vis√≠veis em todo o programa, ou seja, podem ser acessadas de qualquer lugar.
+* **Escopo Local:** As vari√°veis declaradas dentro de uma rotina ou fun√ß√£o t√™m escopo local. Elas s√≥ s√£o vis√≠veis dentro dessa rotina ou fun√ß√£o.
 
-## DeclaraÁ„o de Vari·veis Globais
+## Declara√ß√£o de Vari√°veis Globais
 
-Vari·veis globais s„o declaradas com os seguintes artigos definidos:
+Vari√°veis globais s√£o declaradas com os seguintes artigos definidos:
 
 * **O**
 * **Os**
 * **A**
 * **As**
 
-A sintaxe para declaraÁ„o de vari·veis È a seguinte:
+A sintaxe para declara√ß√£o de vari√°veis √© a seguinte:
 
-<mark style="color:blue;">**\<artigo definido>**</mark>**&#x20;**<mark style="color:purple;">**\<nome da vari·vel>**</mark>**&#x20;<È|s„o>&#x20;**<mark style="color:red;">**\<artigo indefinido>**</mark>**&#x20;**<mark style="color:green;">**\<tipo da vari·vel>**</mark><mark style="color:$info;">**<**</mark><mark style="color:$info;">ponto final></mark>
-
-Exemplos:
-
-```
-A cor do ambiente de trabalho È uma cor.
-A aba atual È uma aba.
-As aspas duplas s„o um caractere.
-```
-
-A sintaxe para declaraÁ„o de vari·veis seguido da inicializaÁ„o È a seguinte:
-
-<mark style="color:blue;">**\<artigo definido>**</mark>**&#x20;**<mark style="color:purple;">**\<vari·vel>**</mark>**&#x20;<È|s„o>&#x20;**<mark style="color:red;">**\<artigo indefinido>**</mark>**&#x20;**<mark style="color:green;">**\<tipo>**</mark>**\<igual a>&#x20;**<mark style="background-color:orange;">**\<valor literal>**</mark><mark style="color:$info;">**<**</mark><mark style="color:$info;">ponto final></mark>
+<mark style="color:blue;">**\<artigo definido>**</mark>**&#x20;**<mark style="color:purple;">**\<nome da vari√°vel>**</mark>**&#x20;<√©|s√£o>&#x20;**<mark style="color:red;">**\<artigo indefinido>**</mark>**&#x20;**<mark style="color:green;">**\<tipo da vari√°vel>**</mark><mark style="color:$info;">**<**</mark><mark style="color:$info;">ponto final></mark>
 
 Exemplos:
 
 ```
-A raiz de dois È uma fraÁ„o igual a 99/70.
-O n˙mero pi È uma fraÁ„o igual a 355/113.
-O servidor SMTP È uma string igual a "localhost".
-As aspas duplas s„o um byte igual a 34.
+A cor do ambiente de trabalho √© uma cor.
+A aba atual √© uma aba.
+As aspas duplas s√£o um caractere.
 ```
 
-## InicializaÁ„o de Vari·veis Locais
+A sintaxe para declara√ß√£o de vari√°veis seguido da inicializa√ß√£o √© a seguinte:
 
-Vari·veis locais podem ser declaradas e inicializadas dentro de rotinas e funÁıes. Para isto basta utilizar algum dos artigos indefinidos a seguir:
+<mark style="color:blue;">**\<artigo definido>**</mark>**&#x20;**<mark style="color:purple;">**\<vari√°vel>**</mark>**&#x20;<√©|s√£o>&#x20;**<mark style="color:red;">**\<artigo indefinido>**</mark>**&#x20;**<mark style="color:green;">**\<tipo>**</mark>**\<igual a>&#x20;**<mark style="background-color:orange;">**\<valor literal>**</mark><mark style="color:$info;">**<**</mark><mark style="color:$info;">ponto final></mark>
+
+Exemplos:
+
+```
+A raiz de dois √© uma fra√ß√£o igual a 99/70.
+O n√∫mero pi √© uma fra√ß√£o igual a 355/113.
+O servidor SMTP √© uma string igual a "localhost".
+As aspas duplas s√£o um byte igual a 34.
+```
+
+## Inicializa√ß√£o de Vari√°veis Locais
+
+Vari√°veis locais podem ser declaradas e inicializadas dentro de rotinas e fun√ß√µes. Para isto basta utilizar algum dos artigos indefinidos a seguir:
 
 * **um**
 * **uns**
 * **uma**
 * **umas**
 
-A sintaxe para declaraÁ„o de vari·veis locais È a seguinte:
+A sintaxe para declara√ß√£o de vari√°veis locais √© a seguinte:
 
-<mark style="color:red;">**\<artigo indefinido>**</mark>**&#x20;**<mark style="color:green;">**\<tipo>**</mark>**\<denominado>&#x20;**<mark style="background-color:orange;">**\<nome da vari·vel local>**</mark><mark style="color:$info;">**<**</mark><mark style="color:$info;">ponto final></mark>
+<mark style="color:red;">**\<artigo indefinido>**</mark>**&#x20;**<mark style="color:green;">**\<tipo>**</mark>**\<denominado>&#x20;**<mark style="background-color:orange;">**\<nome da vari√°vel local>**</mark><mark style="color:$info;">**<**</mark><mark style="color:$info;">ponto final></mark>
 
 Exemplos:
 
 ```
-Atribua 0 para um n˙mero denominado total.
-Atribua "Jo„o" para uma string denominada nome do usu·rio.
+Atribua 0 para um n√∫mero denominado total.
+Atribua "Jo√£o" para uma string denominada nome do usu√°rio.
 Ative um sinalizador denominado status.
 Atribua $DEADBEEF para uma cifra hexadecimal denominada exemplo.
 ```

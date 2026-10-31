@@ -1,41 +1,41 @@
-[Bem-vindo](<Bem-vindo.md>)
-[Biblioteca Padr„o](<Biblioteca Padr„o.md>)
-[CaracterÌsticas da linguagem](<CaracterÌsticas da linguagem.md>)
-[Coment·rios](<Coment·rios.md>)
-[DeclaraÁ„o e inicializaÁ„o de vari·veis](<DeclaraÁ„o e inicializaÁ„o de vari·veis.md>)
-    [Vari·veis locais n„o nomeadas](<Vari·veis locais n„o nomeadas.md>)
-[Tipos de dados](<Tipos de dados.md>)
-    [Valores numÈricos](<Valores numÈricos.md>)
-    [Estruturas e Uniıes de dados](<Estruturas e Uniıes de dados.md>)
-        [Acessando os valores dos campos de estruturas](<Acessando os valores dos campos de estruturas.md>)
-    [Strings e caracteres](<Strings e caracteres.md>)
-        [Subtextos](<Subtextos.md>)
-        [Percorredores](<Percorredores.md>)
-    [Listas duplamente vinculadas](<Listas duplamente vinculadas.md>)
-    [Convers„o de tipos](<Convers„o de tipos.md>)
-[LaÁos e Desvios condicionais](<LaÁos e Desvios condicionais.md>)
-    [Lidando com vazamentos de memÛria em laÁos](<Lidando com vazamentos de memÛria em laÁos.md>)
-[Operadores](<Operadores.md>)
-    [PrecedÍncia e Ordem de avaliaÁ„o de operadores](<PrecedÍncia e Ordem de avaliaÁ„o de operadores.md>)
-[Rotinas, Par‚metros e FunÁıes](<Rotinas, Par‚metros e FunÁıes.md>)
-[Trabalhando com Bibliotecas externas](<Trabalhando com Bibliotecas externas.md>)
-[Trabalhando com InstruÁıes Hexadecimais](<Trabalhando com InstruÁıes Hexadecimais.md>)
-[Callbacks](<Callbacks.md>)
-[Introduzindo as palavras-chave "Preserve" e "original"](<Introduzindo as palavras-chave "Preserve" e "original".md>)
-[Usando a preposiÁ„o "de"](<Usando a preposiÁ„o "de".md>)
-[Cores](<Cores.md>)
-[Gr·ficos de Tartaruga (<Turtle Graphics>)](<Gr·ficos de Tartaruga (<Turtle Graphics>).md>)
-[Algoritmos de Exemplo](<Algoritmos de Exemplo.md>)
-    [Ol· Mundo](<Ol· Mundo.md>)
-    [A + B](<A + B.md>)
-    [Agenda TelefÙnica](<Agenda TelefÙnica.md>)
-    [AnimaÁ„o de sprites](<AnimaÁ„o de sprites.md>)
-    [Fatorial](<Fatorial.md>)
-    [100 Portas](<100 Portas.md>)
-    [DÛ RÈ Mi F·](<DÛ RÈ Mi F·.md>)
-    [API Win32 - GdipImageRotateFlip](<API Win32 - GdipImageRotateFlip.md>)
-    [Pintando como Claude Monet](<Pintando como Claude Monet.md>)
-    [Exemplo de interface](<Exemplo de interface.md>)
-    [Evitando problemas de cintilaÁ„o (<Flickering>)](<Evitando problemas de cintilaÁ„o (<Flickering>).md>)
-    [Desenhando e pintando ret‚ngulos e caixas](<Desenhando e pintando ret‚ngulos e caixas.md>)
-    [Cofrinho Virtual](<Cofrinho Virtual.md>)
+[Bem-vindo](<Bem-vindo.md>) - [X]
+[Biblioteca Padr√£o](<Biblioteca Padr√£o.md>) - [X]
+[Caracter√≠sticas da linguagem](<Caracter√≠sticas da linguagem.md>) - [X]
+[Coment√°rios](<Coment√°rios.md>) - [X]
+[Declara√ß√£o e inicializa√ß√£o de vari√°veis](<Declara√ß√£o e inicializa√ß√£o de vari√°veis.md>) - [X]
+[Vari√°veis locais n√£o nomeadas](<Vari√°veis locais n√£o nomeadas.md>) - [X]
+[Tipos de dados](<Tipos de dados.md>) - [X]
+[Valores num√©ricos](<Valores num√©ricos.md>) - [X]
+[Estruturas e Uni√µes de dados](<Estruturas e Uni√µes de dados.md>) - [X]
+[Acessando os valores dos campos de estruturas](<Acessando os valores dos campos de estruturas.md>) - [X]
+[Strings e caracteres](<Strings e caracteres.md>) - [X]
+[Subtextos](<Subtextos.md>) - [X]
+[Percorredores](<Percorredores.md>) - [X]
+[Listas duplamente vinculadas](<Listas duplamente vinculadas.md>) - [X]
+[Convers√£o de tipos](<Convers√£o de tipos.md>) - [X]
+[La√ßos e Desvios condicionais](<La√ßos e Desvios condicionais.md>) - [X]
+[Lidando com vazamentos de mem√≥ria em la√ßos](<Lidando com vazamentos de mem√≥ria em la√ßos.md>) - [X]
+[Operadores](<Operadores.md>) - [X]
+[Preced√™ncia e Ordem de avalia√ß√£o de operadores](<Preced√™ncia e Ordem de avalia√ß√£o de operadores.md>) - [X]
+[Rotinas, Par√¢metros e Fun√ß√µes](<Rotinas, Par√¢metros e Fun√ß√µes.md>) - [X]
+[Trabalhando com Bibliotecas externas](<Trabalhando com Bibliotecas externas.md>) - [X]
+[Trabalhando com Instru√ß√µes Hexadecimais](<Trabalhando com Instru√ß√µes Hexadecimais.md>) - [X]
+[Callbacks](<Callbacks.md>) - [X]
+[Introduzindo as palavras-chave "Preserve" e "original"](<Introduzindo as palavras-chave "Preserve" e "original".md>) - [X]
+[Usando a preposi√ß√£o "de"](<Usando a preposi√ß√£o "de".md>) - [X]
+[Cores](<Cores.md>) - [X]
+[Gr√°ficos de Tartaruga (<Turtle Graphics>)](<Gr√°ficos de Tartaruga (<Turtle Graphics>).md>) - [X]
+[Algoritmos de Exemplo](<Algoritmos de Exemplo.md>) - [X]
+[Ol√° Mundo](<Ol√° Mundo.md>) - [X]
+[A + B](<A + B.md>) - [X]
+[Agenda Telef√¥nica](<Agenda Telef√¥nica.md>) - [X]
+[Anima√ß√£o de sprites](<Anima√ß√£o de sprites.md>) - [X]
+[Fatorial](<Fatorial.md>) - [X]
+[100 Portas](<100 Portas.md>) - [X]
+[D√≥ R√© Mi F√°](<D√≥ R√© Mi F√°.md>) - [X]
+[API Win32 - GdipImageRotateFlip](<API Win32 - GdipImageRotateFlip.md>) - [X]
+[Pintando como Claude Monet](<Pintando como Claude Monet.md>) - [X]
+[Exemplo de interface](<Exemplo de interface.md>) - [X]
+[Evitando problemas de cintila√ß√£o (<Flickering>)](<Evitando problemas de cintila√ß√£o (<Flickering>).md>) - [X]
+[Desenhando e pintando ret√¢ngulos e caixas](<Desenhando e pintando ret√¢ngulos e caixas.md>) - [X]
+[Cofrinho Virtual](<Cofrinho Virtual.md>) - [X]

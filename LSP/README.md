@@ -7,8 +7,8 @@ Português Puro source files.
 ## Functionality
 
 - Syntax highlighting for comments, strings, literals, keywords, articles,
-  conjunctions, routine/function headers, parenthetical qualifiers, and header
-  separators used by alternate routine/function names.
+  conjunctions, declared type names, routine/function headers, parenthetical
+  qualifiers, and header separators used by alternate routine/function names.
 - Hover documentation for language keywords, types, variables, and routine
   declarations, including their parameters and alternate names.
 - Completion suggestions for language keywords and symbols declared in
@@ -19,6 +19,10 @@ Português Puro source files.
   functions, including identifiers with multiple words or line breaks.
 - Go to Type Definition for declared types and typed global/local variables.
 - Go to Implementation for routine and function calls.
+- Find References and Rename for types, global/local variables, routines, and
+  routine alternate names. These features include references in sibling `.pop`
+  files; type renames preserve plural forms, and variable searches ignore
+  comments and strings.
 - Navigation searches `.pop` files beside the active file, including unopened
   siblings, but does not search parent folders or subdirectories. Sibling files
   are decoded as Windows-1252.
@@ -78,8 +82,9 @@ Português Puro source files.
 - Statements in routine bodies end with a period. Routine calls are resolved
   against declared names and aliases, matching calls without parameters first;
   definite or demonstrative articles in arguments can identify passed
-  parameters. Calls resolve to the matching routine definition, and an empty
-  routine body receives a hint diagnostic.
+  parameters. Calls resolve to the matching routine definition. Empty routine
+  bodies are valid and return implicitly; boolean functions still require a
+  valid `Diga sim.` or `Diga não.` statement.
 - The `Decodifique` instruction accepts a hexadecimal literal (for example,
   `Decodifique $8B8508000000.`). A diagnostic is reported when it is followed
   by another value or no value; routine names beginning with `Decodifique`

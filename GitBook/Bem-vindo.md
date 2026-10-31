@@ -1,53 +1,53 @@
 # Bem-vindo
 
-Este capítulo apresenta o Português Puro e discute alguns de seus conceitos fundamentais.
+Este capÃ­tulo apresenta o PortuguÃªs Puro e discute alguns de seus conceitos fundamentais.
 
-### O que você já deveria saber antes de seguir em frente? <a href="#o_que_voce_realmente_ja_deveria_saber" id="o_que_voce_realmente_ja_deveria_saber"></a>
+### O que vocÃª jÃ¡ deveria saber antes de seguir em frente? <a href="#o_que_voce_realmente_ja_deveria_saber" id="o_que_voce_realmente_ja_deveria_saber"></a>
 
-Este guia recomenda que você possua alguma experiência prévia em linguagens como C ou Pascal. Você poderá utilizar a linguagem de forma mais plena se tiver algum grau de conhecimento dos seguintes tópicos:
+Este guia recomenda que vocÃª possua alguma experiÃªncia prÃ©via em linguagens como C ou Pascal. VocÃª poderÃ¡ utilizar a linguagem de forma mais plena se tiver algum grau de conhecimento dos seguintes tÃ³picos:
 
-1. **Estruturas de Dados:** Conhecimento de estruturas de dados comuns, como arrays, listas, pilhas, filas, árvores, grafos, etc.&#x20;
-2. **Complexidade de Algoritmos:** Compreensão e análise de complexidade (tempo e espaço) dos algoritmos.
-3. **Gerenciamento de Memória:** Existirão situações em que o programador será responsável pelo gerenciamento de memória. Compreender alocação e liberação de memória é crucial para evitar vazamentos de memória e problemas de corrupção.
-4. **Depuração e Testes:** Habilidades para depurar código, identificar erros e realizar testes para garantir a funcionalidade e a robustez do programa.
-5. **Bibliotecas e APIs:** Familiaridade com o conceito de bibliotecas e APIs para realizar tarefas comuns, como entrada/saída, manipulação de arquivos, redes, etc.
-6. **Segurança:** Conhecimento sobre práticas de segurança, por exemplo, vulnerabilidades relacionadas à estouro de buffer.
-7. **Controle de Versão:** Familiaridade com sistemas de controle de versão e de comparação de arquivos (*diff*), como Git, para rastrear e gerenciar alterações no código-fonte.
-8. **Compreensão de Arquitetura de Computadores:** Ter um entendimento básico da arquitetura x86 irá ajudar na compreensão de certos aspectos de implementação da linguagem.
+1. **Estruturas de Dados:** Conhecimento de estruturas de dados comuns, como arrays, listas, pilhas, filas, Ã¡rvores, grafos, etc.&#x20;
+2. **Complexidade de Algoritmos:** CompreensÃ£o e anÃ¡lise de complexidade (tempo e espaÃ§o) dos algoritmos.
+3. **Gerenciamento de MemÃ³ria:** ExistirÃ£o situaÃ§Ãµes em que o programador serÃ¡ responsÃ¡vel pelo gerenciamento de memÃ³ria. Compreender alocaÃ§Ã£o e liberaÃ§Ã£o de memÃ³ria Ã© crucial para evitar vazamentos de memÃ³ria e problemas de corrupÃ§Ã£o.
+4. **DepuraÃ§Ã£o e Testes:** Habilidades para depurar cÃ³digo, identificar erros e realizar testes para garantir a funcionalidade e a robustez do programa.
+5. **Bibliotecas e APIs:** Familiaridade com o conceito de bibliotecas e APIs para realizar tarefas comuns, como entrada/saÃ­da, manipulaÃ§Ã£o de arquivos, redes, etc.
+6. **SeguranÃ§a:** Conhecimento sobre prÃ¡ticas de seguranÃ§a, por exemplo, vulnerabilidades relacionadas Ã  estouro de buffer.
+7. **Controle de VersÃ£o:** Familiaridade com sistemas de controle de versÃ£o e de comparaÃ§Ã£o de arquivos (*diff*), como Git, para rastrear e gerenciar alteraÃ§Ãµes no cÃ³digo-fonte.
+8. **CompreensÃ£o de Arquitetura de Computadores:** Ter um entendimento bÃ¡sico da arquitetura x86 irÃ¡ ajudar na compreensÃ£o de certos aspectos de implementaÃ§Ã£o da linguagem.
 
-## O que é Português Puro?
+## O que Ã© PortuguÃªs Puro?
 
-Português Puro é uma linguagem de programação de alto nível, ou seja é uma linguagem que permite criar programas utilizando um alto nível de abstração.
+PortuguÃªs Puro Ã© uma linguagem de programaÃ§Ã£o de alto nÃ­vel, ou seja Ã© uma linguagem que permite criar programas utilizando um alto nÃ­vel de abstraÃ§Ã£o.
 
-Português Puro possui uma biblioteca padrão que contém diversos tipos de dados, tais como:&#x20;
+PortuguÃªs Puro possui uma biblioteca padrÃ£o que contÃ©m diversos tipos de dados, tais como:&#x20;
 
-* Números inteiros;
-* Números fracionários;
+* NÃºmeros inteiros;
+* NÃºmeros fracionÃ¡rios;
 * Caracteres;
 * Strings;
 * Listas duplamente encadeadas;
 * Estruturas.
 
-Além de possuir um conjunto de elementos essenciais que compõem o cerne da linguagem, incluindo operadores, estruturas de controle e declarações. O compilador e a Biblioteca padrão do Português Puro podem ser expandidos para uma variedade de finalidades, permitindo, assim, a extensão da linguagem.
+AlÃ©m de possuir um conjunto de elementos essenciais que compÃµem o cerne da linguagem, incluindo operadores, estruturas de controle e declaraÃ§Ãµes. O compilador e a Biblioteca padrÃ£o do PortuguÃªs Puro podem ser expandidos para uma variedade de finalidades, permitindo, assim, a extensÃ£o da linguagem.
 
-## Começando a programar com Português Puro
+## ComeÃ§ando a programar com PortuguÃªs Puro
 
-Para iniciar a aprendizagem da linguagem Português Puro, você precisará de um ambiente de desenvolvimento adequado.&#x20;
+Para iniciar a aprendizagem da linguagem PortuguÃªs Puro, vocÃª precisarÃ¡ de um ambiente de desenvolvimento adequado.&#x20;
 
-Aqui está uma breve introdução sobre como dar seus primeiros passos com o Português Puro:
+Aqui estÃ¡ uma breve introduÃ§Ã£o sobre como dar seus primeiros passos com o PortuguÃªs Puro:
 
-1. Escolha um ambiente de desenvolvimento integrado (IDE) que suporte o Português Puro, como o [Visual Studio Code](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/downloads/) ou o [*PAL-1000*](https://github.com/elenderg/PAL-1000).
+1. Escolha um ambiente de desenvolvimento integrado (IDE) que suporte o PortuguÃªs Puro, como o [Visual Studio Code](https://code.visualstudio.com/), [Notepad++](https://notepad-plus-plus.org/downloads/) ou o [*PAL-1000*](https://github.com/elenderg/PAL-1000).
 2. Abra o IDE e crie um novo arquivo de texto.
-3. Escreva o seu código no editor de texto da IDE.
+3. Escreva o seu cÃ³digo no editor de texto da IDE.
 4. Compile e execute o programa para ver os resultados.
 
-O ambiente de desenvolvimento integrado pode variar dependendo da escolha do IDE, mas todos eles oferecem recursos semelhantes para escrever, compilar e executar o código.
+O ambiente de desenvolvimento integrado pode variar dependendo da escolha do IDE, mas todos eles oferecem recursos semelhantes para escrever, compilar e executar o cÃ³digo.
 
 {% hint style="info" %}
-Uma ferramenta útil para explorar as capacidades o Português Puro é o [Ambiente de desenvolvimento integrado](https://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_integrado) (ADI), denominado [PAL-1000](https://github.com/elenderg/PAL-1000) que permite escrever, compilar e executar códigos em Português Puro. Seu código-fonte foi escrito 100% em Português Puro com o objetivo de demonstrar as capacidades da linguagem, servindo assim como uma [*Prova de Conceito*](https://pt.wikipedia.org/wiki/Prova_de_conceito).
+Uma ferramenta Ãºtil para explorar as capacidades o PortuguÃªs Puro Ã© o [Ambiente de desenvolvimento integrado](https://pt.wikipedia.org/wiki/Ambiente_de_desenvolvimento_integrado) (ADI), denominado [PAL-1000](https://github.com/elenderg/PAL-1000) que permite escrever, compilar e executar cÃ³digos em PortuguÃªs Puro. Seu cÃ³digo-fonte foi escrito 100% em PortuguÃªs Puro com o objetivo de demonstrar as capacidades da linguagem, servindo assim como uma [*Prova de Conceito*](https://pt.wikipedia.org/wiki/Prova_de_conceito).
 {% endhint %}
 
-Para compilar um programa, basta invocar o compilador através da linha de comando, informando o PATH do projeto a ser compilado.
+Para compilar um programa, basta invocar o compilador atravÃ©s da linha de comando, informando o PATH do projeto a ser compilado.
 
 \
 Exemplo:
@@ -55,5 +55,5 @@ Exemplo:
 `C:\compilador.exe D:\nome do projeto\`
 
 {% hint style="warning" %}
-Observação: Todos os arquivos que irão compilados devem possuir a extensão .pop
+ObservaÃ§Ã£o: Todos os arquivos que irÃ£o compilados devem possuir a extensÃ£o .pop
 {% endhint %}

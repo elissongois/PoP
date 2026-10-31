@@ -38,11 +38,11 @@ O `Português Puro` não é uma camada de script de brinquedo ou um pré-process
 
 1. **Gramática Baseada em Frases**:
    - Instruções terminam com ponto (`.`).
-   - Cabeçalhos de rotinas e tipos terminam com dois-pontos (`:`).
-   - Indentação indica agrupamento de instruções dentro de laços e rotinas.
+   - Cabeçalhos de rotinas e funções terminam com dois-pontos (`:`).
+   - Indentação é util para evidenciar agrupamento de instruções dentro de laços e rotinas.
 
 2. **Independência de Ordem**:
-   - Tipos, variáveis globais e rotinas podem ser declarados em qualquer lugar nos arquivos de fonte em qualquer ordem. Não há arquivos de cabeçalho (`.h`), declarações antecipadas ou diretivas `#include`.
+   - Tipos, variáveis globais e rotinas podem ser declarados em qualquer lugar nos arquivos de fonte, e em qualquer ordem. Não há arquivos de cabeçalho (`.h`), declarações antecipadas ou diretivas `#include`.
 
 3. **Plurais e Artigos Naturais**:
    - A linguagem entende a gramática portuguesa: artigos indefinidos (`um`, `uma`, `uns`, `umas`, `outro`, `outra`, `alguns`, `algumas`) introduzem novas instâncias ou slots de parâmetros, enquanto artigos definidos (`o`, `a`, `os`, `as`, `este`, `esta`, `estes`, `estas`) referenciam variáveis existentes.

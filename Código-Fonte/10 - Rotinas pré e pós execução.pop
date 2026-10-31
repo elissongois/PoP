@@ -1394,6 +1394,9 @@ Rotina para que se compile a próxima instrução usando um percorredor (demais 
   Se o segmento inicial deste percorredor for "Push", \ traduzir para "Empilhe"
     Compile a próxima instrução usando o percorredor (cláusula de empilhamento);
     Retorne.
+  Se o segmento inicial deste percorredor for "Empilhe", \ traduzir para "Empilhe"
+    Compile a próxima instrução usando o percorredor (cláusula de empilhamento);
+    Retorne.
   Se o segmento inicial deste percorredor for alguma chamada de biblioteca externa,
     Compile a próxima instrução usando o percorredor (palavra-chave 'processe');
     Retorne.

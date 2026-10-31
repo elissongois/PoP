@@ -121,6 +121,7 @@ export interface RoutineLocalVariable {
 export interface RoutineDeclaration {
 	name: TypeReference;
 	alternateNames: TypeReference[];
+	qualifier?: string;
 	parameters: RoutineParameter[];
 	preservedParameters: PreservedRoutineParameter[];
 	assignments: RoutineAssignment[];
@@ -380,7 +381,7 @@ export function normalizeTypeName(name: string): string {
 	return name.trim().replace(/\s+/gu, ' ').toLocaleLowerCase('pt-BR');
 }
 
-function pluralizeTypeNames(name: string): string[] {
+export function pluralizeTypeNames(name: string): string[] {
 	const words = name.trim().split(/\s+/u);
 	const lastWordPlural = [...words];
 	const lastIndex = lastWordPlural.length - 1;
@@ -551,15 +552,7 @@ function resolveRoutineCalls(
 ): void {
 	const globalVariableSymbols = new GlobalVariableSymbolTable(allGlobalVariables);
 	for (const routine of routines) {
-		const body = source.slice(routine.bodyRange.start, routine.bodyRange.end);
 		let hasValidBooleanReturn = false;
-		if (!body.trim()) {
-			diagnostics.push({
-				message: `Routine "${routine.name.name}" has no statements.`,
-				range: { start: routine.bodyRange.start, end: routine.bodyRange.start },
-				severity: 'hint'
-			});
-		}
 
 		let statementStart = routine.bodyRange.start;
 		let periodIndex = findDeclarationPeriod(source, statementStart);
@@ -1151,9 +1144,84 @@ function diagnoseUnresolvedRoutineCall(
 		}
 	}
 
+	if (hasCompatibleQualifiedRoutineCandidate(
+		source,
+		statement,
+		routines,
+		caller,
+		globalVariables,
+		symbols
+	)) {
+		return;
+	}
+
 	diagnostics.push({
 		message: `No compatible routine found for "${source.slice(statement.start, statement.end)}".`,
 		range: statement
+	});
+}
+
+function hasCompatibleQualifiedRoutineCandidate(
+	source: string,
+	statement: SourceRange,
+	routines: RoutineDeclaration[],
+	caller: RoutineDeclaration,
+	globalVariables: GlobalVariableSymbolTable,
+	symbols: TypeSymbolTable
+): boolean {
+	const qualifier = /\(([^()]*)\)\s*$/u.exec(source.slice(statement.start, statement.end));
+	if (!qualifier) {
+		return false;
+	}
+	const qualifierName = normalizeTypeName(qualifier[1]);
+	const argumentsEnd = statement.start + qualifier.index;
+
+	return routines.some(candidate => {
+		if (
+			!candidate.qualifier ||
+			normalizeTypeName(candidate.qualifier) !== qualifierName ||
+			!candidate.parameters.length
+		) {
+			return false;
+		}
+		const nameEnd = routineNames(candidate)
+			.map(name => matchRoutineNamePrefix(source, statement, name))
+			.find(end => end !== undefined && /\s/u.test(source[end] ?? ''));
+		if (nameEnd === undefined) {
+			return false;
+		}
+
+		const argumentsList = splitRoutineArguments(
+			source,
+			trimRange(source, nameEnd, argumentsEnd)
+		);
+		return argumentsList.length === candidate.parameters.length &&
+			argumentsList.every((argument, index) => {
+				if (routineArgumentMatchesType(
+					source,
+					argument,
+					candidate.parameters[index].type,
+					caller,
+					globalVariables,
+					symbols
+				)) {
+					return true;
+				}
+				const article = readWord(source, argument.start, argument.end);
+				if (!article || !definiteArticles.has(article.value.toLocaleLowerCase('pt-BR'))) {
+					return false;
+				}
+				const argumentType = findTypeSuffix(
+					source,
+					trimRange(source, article.end, argument.end),
+					symbols
+				);
+				return Boolean(argumentType && isCompatibleType(
+					argumentType,
+					candidate.parameters[index].type,
+					symbols
+				));
+			});
 	});
 }
 
@@ -1457,6 +1525,7 @@ function validateReservedNames(
 
 interface ParsedRoutineHeader {
 	name: TypeReference;
+	qualifier?: string;
 	parameters: RoutineParameter[];
 	returnParameter?: RoutineParameter;
 	annotation?: 'rotina' | 'função';
@@ -1488,9 +1557,15 @@ function parseRoutineDeclarations(
 				continue;
 			}
 			const headerEnd = headerPattern.lastIndex + terminatorIndex;
+			const qualifier = /\(([^()]*)\)\s*$/u.exec(
+				source.slice(headerPattern.lastIndex, headerEnd)
+			);
+			const qualifierStart = qualifier
+				? headerPattern.lastIndex + qualifier.index
+				: headerEnd;
 			const usingMarker = findWord(source, headerPattern.lastIndex, headerEnd, 'usando');
 			const returningMarker = findWord(source, headerPattern.lastIndex, headerEnd, 'retornando');
-			const signatureEnd = returningMarker?.start ?? headerEnd;
+			const signatureEnd = Math.min(returningMarker?.start ?? headerEnd, qualifierStart);
 			const parameterArticle = findAnyWord(
 				source,
 				usingMarker?.end ?? headerPattern.lastIndex,
@@ -1525,7 +1600,7 @@ function parseRoutineDeclarations(
 				});
 			}
 
-			const parametersEnd = returningMarker?.start ?? headerEnd;
+			const parametersEnd = Math.min(returningMarker?.start ?? headerEnd, qualifierStart);
 			const parameters = parameterStart !== undefined
 				? parseRoutineParameters(source, parameterStart, parametersEnd, diagnostics)
 				: [];
@@ -1539,17 +1614,18 @@ function parseRoutineDeclarations(
 				});
 			}
 			const returnParameter = returningMarker
-				? parseRoutineParameter(source, returningMarker.end, headerEnd)
+				? parseRoutineParameter(source, returningMarker.end, qualifierStart)
 				: undefined;
 			if (returningMarker && !returnParameter) {
 				diagnostics.push({
 					message: 'A return type is required after "retornando".',
-					range: { start: returningMarker.start, end: headerEnd }
+					range: { start: returningMarker.start, end: qualifierStart }
 				});
 			}
 
 			headers.push({
 				name: createTypeReference(source, nameRange),
+				qualifier: qualifier?.[1].trim(),
 				parameters,
 				returnParameter,
 				annotation: match[1]?.toLocaleLowerCase('pt-BR') as 'rotina' | 'função' | undefined,
@@ -1588,6 +1664,7 @@ function parseRoutineDeclarations(
 			declarations.push({
 				name: header.name,
 				alternateNames: alternateHeaders.map(alternate => alternate.name),
+				qualifier: header.qualifier,
 				parameters: header.parameters,
 				preservedParameters: [],
 				assignments: [],

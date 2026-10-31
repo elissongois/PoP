@@ -1,13 +1,13 @@
-# Coment·rios
+# Coment√°rios
 
-## Coment·rios de linha ˙nica
+## Coment√°rios de linha √∫nica
 
-Coment·rios de linha s„o iniciados por uma barra invertida. Exemplo:
+Coment√°rios de linha s√£o iniciados por uma barra invertida. Exemplo:
 
-<mark style="color:blue;">`\ Este È um coment·rio que ocupa uma linha inteira.`</mark>
+<mark style="color:blue;">`\ Este √© um coment√°rio que ocupa uma linha inteira.`</mark>
 
-## Coment·rio de bloco
+## Coment√°rio de bloco
 
-Os colchetes s„o utilizados para indicar coment·rios no meio das linhas. Exemplo:
+Os colchetes s√£o utilizados para indicar coment√°rios no meio das linhas. Exemplo:
 
 `Pinte a caixa usando a cor preta`<mark style="color:blue;">**`[na borda]`**</mark>`e a cor branca.`<mark style="color:blue;">**`[como preenchimento]`**</mark>

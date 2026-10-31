@@ -11,23 +11,35 @@ import {
 	DiagnosticSeverity,
 	CompletionItem,
 	CompletionItemKind,
+	ErrorCodes,
 	Hover,
 	InitializeResult,
 	Location,
 	MarkupKind,
+	PrepareRenameParams,
 	ProposedFeatures,
+	RenameParams,
+	ResponseError,
+	TextEdit,
 	TextDocumentPositionParams,
 	TextDocumentSyncKind,
-	TextDocuments
+	TextDocuments,
+	WorkspaceEdit
 } from 'vscode-languageserver/node';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import {
 	findRoutineCallTargetAtOffset,
 	findRoutineDeclarationAtOffset,
 	GlobalVariableSymbolTable,
+	SourceRange,
 	findTypeReferenceAtOffset,
 	normalizeTypeName,
 	parseTypeDeclarations,
+	pluralizeTypeNames,
+	RoutineDeclaration,
+	TypeDeclaration,
+	TypeReference,
+	TypeSymbol,
 	TypeSymbolTable
 } from './typeParser';
 import { createKeywordCompletions, languageKeywords } from './editorFeatures';
@@ -48,6 +60,8 @@ connection.onInitialize((): InitializeResult => ({
 		definitionProvider: true,
 		typeDefinitionProvider: true,
 		implementationProvider: true,
+		referencesProvider: true,
+		renameProvider: { prepareProvider: true },
 		completionProvider: { triggerCharacters: [' '] },
 		hoverProvider: true
 	}
@@ -109,6 +123,499 @@ connection.onDefinition((params: TextDocumentPositionParams) => {
 	return navigateDefinition(params);
 });
 
+connection.onReferences(async params => {
+	const target = await findRenameTarget(params.textDocument.uri, params.position);
+	if (!target) {
+		return undefined;
+	}
+	const indexedDocuments = await getSiblingDocuments(target.document);
+	const parsedDocuments = parseIndexedDocuments(indexedDocuments);
+	return findSymbolOccurrences(
+		target,
+		parsedDocuments,
+		params.context.includeDeclaration
+	).map(occurrence => createLocation(occurrence.document, occurrence.range));
+});
+
+connection.onPrepareRename(async (params: PrepareRenameParams) => {
+	const target = await findRenameTarget(params.textDocument.uri, params.position);
+	if (!target) {
+		return undefined;
+	}
+	return {
+		range: toProtocolRange(target.selectionDocument, target.selectionRange),
+		placeholder: target.name
+	};
+});
+
+connection.onRenameRequest(async (params: RenameParams) => {
+	const target = await findRenameTarget(params.textDocument.uri, params.position);
+	if (!target) {
+		return undefined;
+	}
+	if (!params.newName.trim() || params.newName !== params.newName.trim() || /[\r\n]/u.test(params.newName)) {
+		throw new ResponseError(ErrorCodes.InvalidParams, 'The new name must be a non-empty single-line identifier.');
+	}
+
+	const indexedDocuments = await getSiblingDocuments(target.document);
+	const parsedDocuments = parseIndexedDocuments(indexedDocuments);
+	const changes: NonNullable<WorkspaceEdit['changes']> = {};
+	for (const occurrence of findSymbolOccurrences(target, parsedDocuments, true, params.newName)) {
+		const edits = changes[occurrence.document.uri] ?? [];
+		edits.push(TextEdit.replace(
+			toProtocolRange(occurrence.document, occurrence.range),
+			occurrence.newText ?? params.newName
+		));
+		changes[occurrence.document.uri] = edits;
+	}
+	return { changes };
+});
+
+type RenameTarget =
+	| {
+		kind: 'type';
+		document: TextDocument;
+		selectionDocument: TextDocument;
+		name: string;
+		selectionRange: SourceRange;
+		declarationRange: SourceRange;
+		declaration: TypeDeclaration;
+		symbol: TypeSymbol;
+	}
+	| {
+		kind: 'variable';
+		document: TextDocument;
+		selectionDocument: TextDocument;
+		name: string;
+		selectionRange: SourceRange;
+		declarationRange: SourceRange;
+		routine?: RoutineDeclaration;
+	}
+	| {
+		kind: 'routine';
+		document: TextDocument;
+		selectionDocument: TextDocument;
+		name: string;
+		selectionRange: SourceRange;
+		declarationRange: SourceRange;
+		routine: RoutineDeclaration;
+	};
+
+interface SymbolOccurrence {
+	document: TextDocument;
+	range: SourceRange;
+	newText?: string;
+}
+
+async function findRenameTarget(
+	documentUri: string,
+	position: TextDocumentPositionParams['position']
+): Promise<RenameTarget | undefined> {
+	const document = documents.get(documentUri);
+	const parsedDocument = document && parsedDocuments.get(document.uri);
+	if (!document || !parsedDocument) {
+		return undefined;
+	}
+	const offset = document.offsetAt(position);
+	const indexedDocuments = await getSiblingDocuments(document);
+
+	const declaration = parsedDocument.declarations.find(candidate =>
+		offset >= candidate.name.range.start && offset <= candidate.name.range.end
+	);
+	const typeReference = declaration?.name ?? findTypeReferenceAtOffset(parsedDocument, offset);
+	if (typeReference) {
+		const symbol = parsedDocument.symbols.lookup(typeReference.name);
+		const typeDeclaration = symbol?.declaration;
+		const owner = typeDeclaration && indexedDocuments.find(candidate =>
+			candidate.parsed.declarations.includes(typeDeclaration)
+		);
+		if (symbol && typeDeclaration && owner) {
+			return {
+				kind: 'type',
+				document: owner.document,
+				selectionDocument: document,
+				name: typeDeclaration.name.name,
+				selectionRange: typeReference.range,
+				declarationRange: typeDeclaration.name.range,
+				declaration: typeDeclaration,
+				symbol
+			};
+		}
+	}
+
+	for (const routine of parsedDocument.routines) {
+		for (const name of [routine.name, ...routine.alternateNames]) {
+			if (offset >= name.range.start && offset <= name.range.end) {
+				return {
+					kind: 'routine',
+					document,
+					selectionDocument: document,
+					name: name.name,
+					selectionRange: name.range,
+					declarationRange: name.range,
+					routine
+				};
+			}
+		}
+		for (const call of routine.calls) {
+			if (
+				!call.target ||
+				offset < call.name.range.start ||
+				offset > call.name.range.end
+			) {
+				continue;
+			}
+			const targetName = [call.target.name, ...call.target.alternateNames]
+				.find(name => name.normalizedName === call.name.normalizedName);
+			const owner = indexedDocuments.find(candidate =>
+				candidate.parsed.routines.includes(call.target!)
+			);
+			if (targetName && owner) {
+				return {
+					kind: 'routine',
+					document: owner.document,
+					selectionDocument: document,
+					name: targetName.name,
+					selectionRange: call.name.range,
+					declarationRange: targetName.range,
+					routine: call.target
+				};
+			}
+		}
+	}
+
+	const symbol = findNamedSymbolAtOffset(document, offset, indexedDocuments, 'variable');
+	if (!symbol) {
+		return undefined;
+	}
+	const scopeRoutine = indexedDocuments
+		.find(candidate => candidate.document.uri === symbol.document.uri)
+		?.parsed.routines.find(routine =>
+			routine.parameters.some(parameter => parameter.name.range.start === symbol.range.start) ||
+			routine.localVariables.some(variable => variable.name.range.start === symbol.range.start)
+		);
+	const selectionRange = findNameRangeAtOffset(document.getText(), symbol.name, offset) ??
+		symbol.range;
+	return {
+		kind: 'variable',
+		document: symbol.document,
+		selectionDocument: document,
+		name: symbol.name,
+		selectionRange,
+		declarationRange: symbol.range,
+		routine: scopeRoutine
+	};
+}
+
+function parseIndexedDocuments(indexedDocuments: IndexedDocument[]): IndexedDocument[] {
+	return indexedDocuments.map(candidate => {
+		const externalDocuments = indexedDocuments.filter(other =>
+			other.document.uri !== candidate.document.uri
+		);
+		return {
+			document: candidate.document,
+			parsed: parseTypeDeclarations(candidate.document.getText(), {
+				externalDeclarations: externalDocuments.flatMap(other => other.parsed.declarations),
+				externalGlobalVariables: externalDocuments.flatMap(other => other.parsed.globalVariables),
+				externalRoutines: externalDocuments.flatMap(other => other.parsed.routines)
+			})
+		};
+	});
+}
+
+function findSymbolOccurrences(
+	target: RenameTarget,
+	indexedDocuments: IndexedDocument[],
+	includeDeclaration: boolean,
+	newName?: string
+): SymbolOccurrence[] {
+	let occurrences: SymbolOccurrence[];
+	if (target.kind === 'type') {
+		occurrences = findTypeOccurrences(target, indexedDocuments, newName);
+	} else if (target.kind === 'routine') {
+		occurrences = findRoutineOccurrences(target, indexedDocuments);
+	} else {
+		occurrences = findVariableOccurrences(target, indexedDocuments);
+	}
+
+	if (!includeDeclaration) {
+		occurrences = occurrences.filter(occurrence =>
+			occurrence.document.uri !== target.document.uri ||
+			occurrence.range.start !== target.declarationRange.start
+		);
+	}
+	const unique = new Map<string, SymbolOccurrence>();
+	for (const occurrence of occurrences) {
+		const key = `${occurrence.document.uri}:${occurrence.range.start}:${occurrence.range.end}`;
+		unique.set(key, occurrence);
+	}
+	return [...unique.values()].sort((first, second) =>
+		first.document.uri.localeCompare(second.document.uri) ||
+		first.range.start - second.range.start
+	);
+}
+
+function findTypeOccurrences(
+	target: Extract<RenameTarget, { kind: 'type' }>,
+	indexedDocuments: IndexedDocument[],
+	newName?: string
+): SymbolOccurrence[] {
+	const names = [
+		target.symbol.normalizedName,
+		...target.symbol.pluralNames.map(normalizeTypeName)
+	];
+	return indexedDocuments.flatMap(candidate =>
+		collectTypeReferences(candidate.parsed)
+			.filter(reference => names.includes(reference.normalizedName))
+			.map(reference => {
+				const pluralIndex = target.symbol.pluralNames.findIndex(name =>
+					normalizeTypeName(name) === reference.normalizedName
+				);
+				const replacements = pluralizeTypeNames(newName ?? target.name);
+				return {
+					document: candidate.document,
+					range: reference.range,
+					newText: !newName
+						? undefined
+						: pluralIndex < 0
+							? newName
+							: replacements[pluralIndex] ?? replacements[0] ?? newName
+				};
+			})
+	);
+}
+
+function collectTypeReferences(parsed: ReturnType<typeof parseTypeDeclarations>): TypeReference[] {
+	const references: TypeReference[] = [];
+	const addFields = (fields: TypeDeclaration['fields']): void => {
+		for (const field of fields ?? []) {
+			if (field.kind === 'byte-array') {
+				references.push(field.elementType);
+			} else {
+				const inferredTypeName = parsed.symbols.lookup(field.name.name)
+					? field.name
+					: field.type;
+				references.push(inferredTypeName);
+			}
+		}
+	};
+	for (const declaration of parsed.declarations) {
+		references.push(declaration.name, declaration.baseType);
+		if (declaration.pointedType) {
+			references.push(declaration.pointedType);
+		}
+		addFields(declaration.fields);
+	}
+	for (const declaration of parsed.globalVariables) {
+		if (declaration.type) {
+			references.push(declaration.type);
+		}
+		addFields(declaration.fields);
+	}
+	for (const routine of parsed.routines) {
+		for (const parameter of [
+			...routine.parameters,
+			...(routine.returnParameter ? [routine.returnParameter] : [])
+		]) {
+			references.push(parameter.type);
+		}
+		for (const variable of routine.localVariables) {
+			references.push(variable.type);
+		}
+	}
+	return references;
+}
+
+function findRoutineOccurrences(
+	target: Extract<RenameTarget, { kind: 'routine' }>,
+	indexedDocuments: IndexedDocument[]
+): SymbolOccurrence[] {
+	const targetOwner = indexedDocuments.find(candidate =>
+		candidate.document.uri === target.document.uri
+	);
+	const targetRoutine = targetOwner?.parsed.routines.find(routine =>
+		routine.name.range.start === target.routine.name.range.start
+	);
+	if (!targetRoutine) {
+		return [];
+	}
+	const occurrences: SymbolOccurrence[] = [{
+		document: target.document,
+		range: target.declarationRange
+	}];
+	for (const candidate of indexedDocuments) {
+		for (const routine of candidate.parsed.routines) {
+			for (const call of routine.calls) {
+				if (
+					call.target?.name.range.start === targetRoutine.name.range.start &&
+					call.name.normalizedName === normalizeTypeName(target.name)
+				) {
+					occurrences.push({ document: candidate.document, range: call.name.range });
+				}
+			}
+		}
+	}
+	return occurrences;
+}
+
+function findVariableOccurrences(
+	target: Extract<RenameTarget, { kind: 'variable' }>,
+	indexedDocuments: IndexedDocument[]
+): SymbolOccurrence[] {
+	const occurrences: SymbolOccurrence[] = [];
+	const scopeRoutineStart = target.routine?.range.start;
+	for (const candidate of indexedDocuments) {
+		const source = candidate.document.getText();
+		const code = maskCommentsAndStrings(source);
+		for (const routine of candidate.parsed.routines) {
+			if (scopeRoutineStart !== undefined) {
+				if (
+					candidate.document.uri !== target.document.uri ||
+					routine.range.start !== scopeRoutineStart
+				) {
+					continue;
+				}
+			} else if (
+				routine.parameters.some(parameter =>
+					parameter.name.normalizedName === normalizeTypeName(target.name)
+				) ||
+				routine.localVariables.some(variable =>
+					variable.name.normalizedName === normalizeTypeName(target.name)
+				)
+			) {
+				continue;
+			}
+			occurrences.push(...findNameRanges(
+				code,
+				target.name,
+				routine.bodyRange
+			).map(range => ({ document: candidate.document, range })));
+		}
+	}
+	if (includeVariableDeclaration(target, indexedDocuments)) {
+		occurrences.push({
+			document: target.document,
+			range: target.declarationRange
+		});
+	}
+	return occurrences;
+}
+
+function includeVariableDeclaration(
+	target: Extract<RenameTarget, { kind: 'variable' }>,
+	_indexedDocuments: IndexedDocument[]
+): boolean {
+	return target.declarationRange.end > target.declarationRange.start;
+}
+
+function findNameRangeAtOffset(
+	source: string,
+	name: string,
+	offset: number
+): SourceRange | undefined {
+	return findNameRanges(source, name, { start: 0, end: source.length })
+		.find(range => offset >= range.start && offset <= range.end);
+}
+
+function findNameRanges(
+	source: string,
+	name: string,
+	within: SourceRange
+): SourceRange[] {
+	const words = name.trim().split(/\s+/u).map(escapeRegExp);
+	if (words.length === 0 || !words[0]) {
+		return [];
+	}
+	const pattern = new RegExp(words.join('\\s+'), 'giu');
+	const ranges: SourceRange[] = [];
+	let match: RegExpExecArray | null;
+	while ((match = pattern.exec(source))) {
+		const start = match.index;
+		const end = start + match[0].length;
+		if (start < within.start || end > within.end) {
+			continue;
+		}
+		const before = source[start - 1] ?? '';
+		const after = source[end] ?? '';
+		if (
+			(isIdentifierCharacter(before) && isIdentifierCharacter(name[0])) ||
+			(isIdentifierCharacter(after) && isIdentifierCharacter(name[name.length - 1]))
+		) {
+			continue;
+		}
+		ranges.push({ start, end });
+	}
+	return ranges;
+}
+
+function maskCommentsAndStrings(source: string): string {
+	const characters = source.split('');
+	let inString = false;
+	let inBlockComment = false;
+	let inLineComment = false;
+	let blockDepth = 0;
+	for (let index = 0; index < characters.length; index++) {
+		const character = characters[index];
+		const nextCharacter = characters[index + 1];
+		if (inLineComment) {
+			if (character === '\n' || character === '\r') {
+				inLineComment = false;
+			} else {
+				characters[index] = ' ';
+			}
+			continue;
+		}
+		if (inBlockComment) {
+			if (character === '[') {
+				blockDepth++;
+			} else if (character === ']') {
+				blockDepth--;
+				if (blockDepth === 0) {
+					inBlockComment = false;
+				}
+			}
+			if (character !== '\n' && character !== '\r') {
+				characters[index] = ' ';
+			}
+			continue;
+		}
+		if (inString) {
+			if (character === '"' && nextCharacter === '"') {
+				characters[index] = ' ';
+				characters[index + 1] = ' ';
+				index++;
+			} else {
+				if (character !== '\n' && character !== '\r') {
+					characters[index] = ' ';
+				}
+				if (character === '"') {
+					inString = false;
+				}
+			}
+			continue;
+		}
+		if (character === '"') {
+			characters[index] = ' ';
+			inString = true;
+		} else if (character === '[') {
+			characters[index] = ' ';
+			inBlockComment = true;
+			blockDepth = 1;
+		} else if (character === '\\') {
+			characters[index] = ' ';
+			inLineComment = true;
+		}
+	}
+	return characters.join('');
+}
+
+function toProtocolRange(document: TextDocument, range: SourceRange) {
+	return {
+		start: document.positionAt(range.start),
+		end: document.positionAt(range.end)
+	};
+}
+
 async function navigateDefinition(params: TextDocumentPositionParams): Promise<Location | undefined> {
 	const document = documents.get(params.textDocument.uri);
 	if (!document) {
@@ -157,6 +664,18 @@ connection.onTypeDefinition(async (params: TextDocumentPositionParams) => {
 	);
 	if (typeDeclaration) {
 		return resolveTypeLocation(typeDeclaration.baseType.name, document.uri, indexedDocuments);
+	}
+
+	const declaredBaseType = parsedDocument.declarations.find(declaration =>
+		offset >= declaration.baseType.range.start && offset <= declaration.baseType.range.end
+	);
+	if (declaredBaseType) {
+		const referencedType = parsedDocument.symbols.lookup(declaredBaseType.baseType.name)?.declaration;
+		const baseTypeLocation = referencedType &&
+			resolveTypeLocation(referencedType.baseType.name, document.uri, indexedDocuments);
+		if (baseTypeLocation) {
+			return baseTypeLocation;
+		}
 	}
 
 	const typeReferenceLocation = resolveTypeReferenceLocation(

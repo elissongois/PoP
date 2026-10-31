@@ -16,6 +16,7 @@ Este documento registra o estado da extensão VS Code mantida em [`LSP/`](./LSP/
 - [x] Ir para Definição para tipos, variáveis globais, rotinas e funções.
 - [x] Ir para Definição de Tipo para tipos e variáveis globais ou locais tipadas.
 - [x] Ir para Implementação para chamadas de rotinas e funções.
+- [x] Encontrar referências e renomear tipos, variáveis globais/locais, rotinas e nomes alternativos.
 - [x] Resolução de referências em nomes compostos e escritos em mais de uma linha.
 - [x] Busca por arquivos `.pop` irmãos, inclusive quando não estão abertos; arquivos em pastas pai ou subpastas não entram nessa busca.
 - [x] Atualização da tabela de símbolos quando um documento abre, muda ou é salvo; cache de documentos irmãos em disco.
@@ -31,6 +32,7 @@ O servidor tem um parser próprio em [`LSP/server/src/typeParser.ts`](./LSP/serv
 - [x] Variáveis locais criadas em chamadas, resolução de argumentos, precedência de variáveis locais sobre globais e preservação de parâmetros.
 - [x] Comentários removidos da entrada do parser sem alterar os deslocamentos usados para diagnósticos e navegação.
 - [x] Diagnósticos para alguns tipos desconhecidos, declarações de campos, chamadas incompatíveis e usos inválidos de instruções como `Retorne`, `Diga` e `Decodifique`.
+- [x] Rotinas com corpo vazio são aceitas sem dica; funções deliberativas continuam exigindo `Diga sim` ou `Diga não`.
 
 ## Desafios trazidos pela linguagem
 
@@ -166,7 +168,7 @@ A documentação de operadores afirma que todos têm a mesma precedência e são
 - `compativelmente` é o único qualificador especial identificado nas páginas MCP consultadas; sua posição é explicitamente descrita para callbacks.
 - O `;` tem papel dependente do contexto: termina cabeçalho alternativo de rotina/função; dentro de bloco condicional, separa instruções.
 
-O parser atual do LSP ainda emite uma dica quando encontra corpo vazio de rotina. Isso diverge do complemento normativo acima e deve ser corrigido; funções deliberativas continuam obrigadas a conter `Diga sim` ou `Diga não`.
+O parser do LSP aceita corpo vazio de rotina, que retorna implicitamente. Funções deliberativas continuam obrigadas a conter `Diga sim` ou `Diga não`.
 
 ### Tipos e nomes que não são palavras reservadas
 
@@ -185,7 +187,7 @@ A página MCP de características da linguagem enumera como tipos primitivos `by
 - [x] Registrar corpo vazio e `Retorne` implícito para rotinas/funções, e retorno booleano explícito para funções deliberativas.
 - [ ] Completar o inventário depois de confirmar a lista normativa de palavras reservadas com a documentação MCP.
 - [ ] Conferir cada candidato local com páginas MCP antes de habilitá-lo em realce, Hover ou completions.
-- [ ] Corrigir o diagnóstico de corpo vazio: permitir rotina vazia sem dica, mantendo a validação de retorno das funções deliberativas.
+- [x] Corrigir o diagnóstico de corpo vazio: permitir rotina vazia sem dica, mantendo a validação de retorno das funções deliberativas.
 - [ ] Expandir as formas verbais, conjunções, pronomes e contrações somente quando houver fonte MCP explícita.
 
 ## Próximas implementações
@@ -241,7 +243,7 @@ Ordem sugerida; cada item deve ser validado com a documentação do MCP e exempl
 - [ ] Incluir símbolos locais e parâmetros nas sugestões.
 - [ ] Vincular Hovers às páginas correspondentes da documentação.
 - [ ] Revisar diagnósticos com exemplos do compilador e da documentação.
-- [ ] Alinhar a dica de corpo vazio do parser com a regra de `Retorne` implícito.
+- [x] Alinhar a dica de corpo vazio do parser com a regra de `Retorne` implícito.
 - [ ] Decidir a estratégia de indexação além dos arquivos irmãos.
 - [ ] Executar a suíte completa após cada conjunto de mudanças.
 - [ ] Atualizar a documentação de recursos após cada entrega.

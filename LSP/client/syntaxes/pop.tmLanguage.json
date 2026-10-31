@@ -6,6 +6,7 @@
 		{ "include": "#line-comment" },
 		{ "include": "#block-comment" },
 		{ "include": "#string" },
+		{ "include": "#type-declaration" },
 		{ "include": "#routine-header" },
 		{ "include": "#number" },
 		{ "include": "#boolean" },
@@ -37,6 +38,14 @@
 			"patterns": [
 				{ "include": "#block-comment" }
 			]
+		},
+		"type-declaration": {
+			"match": "(?i)(^[ \\t]*)(um|uma|uns|umas)([ \\t]+)([\\p{L}\\p{N}_]+(?:[ \\t]+[\\p{L}\\p{N}_]+)*?)([ \\t]+)(é|são)(?=[ \\t]|$)",
+			"captures": {
+				"2": { "name": "keyword.other.article.portugues-puro" },
+				"4": { "name": "entity.name.type.portugues-puro" },
+				"6": { "name": "keyword.operator.declaration.portugues-puro" }
+			}
 		},
 		"string": {
 			"name": "string.quoted.double.portugues-puro",

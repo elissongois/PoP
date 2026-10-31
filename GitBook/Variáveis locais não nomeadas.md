@@ -1,25 +1,25 @@
-# Vari·veis locais n„o nomeadas
+# Vari√°veis locais n√£o nomeadas
 
-… possÌvel criar uma vari·vel local sem definir um nome para a mesma.&#x20;
+√â poss√≠vel criar uma vari√°vel local sem definir um nome para a mesma.&#x20;
 
 Exemplo:
 
 ```
-Atribua "Jo„o" para uma string.
+Atribua "Jo√£o" para uma string.
 ```
 
-Ao se deparar com a linha acima, o compilador executa as seguintes aÁıes:
+Ao se deparar com a linha acima, o compilador executa as seguintes a√ß√µes:
 
-1. O compilador busca o tipo no cat·logo de tipos (neste caso o tipo È denominado "string").
-2. Ao encotrar o tipo, atribui o nome do tipo (string, neste caso) para o nome da vari·vel.
-3. Inicializa  a vari·vel com o valor informado.
+1. O compilador busca o tipo no cat√°logo de tipos (neste caso o tipo √© denominado "string").
+2. Ao encotrar o tipo, atribui o nome do tipo (string, neste caso) para o nome da vari√°vel.
+3. Inicializa  a vari√°vel com o valor informado.
 
 {% hint style="info" %}
-Este recurso funciona mesmo quando o nome do tipo È derivado a partir de um tipo prÈ-existente. Veja os exemplos abaixo:
+Este recurso funciona mesmo quando o nome do tipo √© derivado a partir de um tipo pr√©-existente. Veja os exemplos abaixo:
 {% endhint %}
 
 ```
-Atribua "JosÈ" para uma segunda string.
+Atribua "Jos√©" para uma segunda string.
 Atribua "Maria" para uma nova string.
 Atribua "Paulo" para uma outra string.
 Atribua "Marcos" para uma quinta string.
@@ -28,7 +28,7 @@ Atribua "Marcos" para uma quinta string.
 O processo funciona de forma similar:
 
 1. O compilador busca o tipo  (neste caso o tipo procurado foi "segunda string").
-2. Ao n„o encontrar o tipo "segunda string" no cat·logo de tipos, o compilador tenta efetuar a "reduÁ„o" do nome, (neste caso, o nome È reduzido para "string".
-3. O compilador busca novamente o tipo no cat·logo de tipos.
-4. Ao encotrar o tipo, atribui o nome do tipo (string, neste caso) para o nome da vari·vel.
-5. Inicializa  a vari·vel com o valor informado.
+2. Ao n√£o encontrar o tipo "segunda string" no cat√°logo de tipos, o compilador tenta efetuar a "redu√ß√£o" do nome, (neste caso, o nome √© reduzido para "string".
+3. O compilador busca novamente o tipo no cat√°logo de tipos.
+4. Ao encotrar o tipo, atribui o nome do tipo (string, neste caso) para o nome da vari√°vel.
+5. Inicializa  a vari√°vel com o valor informado.
