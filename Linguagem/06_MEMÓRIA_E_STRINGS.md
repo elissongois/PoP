@@ -10,10 +10,10 @@ O `Português Puro` entrega a velocidade e eficiência de memória de linguagens
 Sempre que você declara uma estrutura personalizada, ponteiro ou `lista`, o compilador gera automaticamente quatro rotinas de memória para aquele tipo:
 - `Aloque memória para um [tipo]`
 - `Desaloque um [tipo]`
-- `~Finalize um [tipo]`
+- `Finalize um [tipo]`
 - `Destrua [tipo]`
 
-Quando uma estrutura contendo strings ou sub-objetos dinâmicos é desalocada, sua rotina `~Finalize` automaticamente percorre todos os campos e libera buffers dinâmicos aninhados.
+Quando uma estrutura contendo strings ou sub-objetos dinâmicos é desalocada, sua rotina `Finalize` automaticamente percorre todos os campos e libera buffers dinâmicos aninhados.
 
 ### 1.2 A Palavra-chave `Preserve`
 Quando uma rotina recebe um ponteiro ou string e precisa modificá-lo localmente sem alterar a cópia do chamador, use `Preserve`:

@@ -101,8 +101,28 @@ Uma word é uma estrutura com
 
 A estrutura <mark style="color:blue;">`número`</mark>, será armazenada da seguinte forma:<br>
 
+| ----------------------------- |
+|             Número            |
+| -------- | ------- | -------- |
+|   Bits   |  Bytes  |  Word    |
+| -------- | ------- | -------- |
+| 00000000 | 1º byte | Inferior |
+| 00000000 | 2º byte | Inferior |
+| 00000000 | 3º byte | Superior |
+| 00000000 | 4º byte | Superior |
+| ----------------------------- |
+
 <figure><img src="https://803735286-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FW9DLU1YMdC8rZiJDCRdo%2Fuploads%2FZ0aBAV1NIaNApivMAURQ%2Fimage.png?alt=media&token=75c82a08-ff10-4453-bf7c-ebf4fe822c47" alt=""><figcaption></figcaption></figure>
 
 Sendo que cada <mark style="color:blue;">`word`</mark> será armazenada da seguinte forma:
+
+| ----------------------- |
+|         Word            |
+| -------- | ------------ |
+|   Bits   |    Bytes     |
+| -------- | ------------ |
+| 00000000 | Byte inicial |
+| 00000000 | Byte final   |
+| ----------------------- |
 
 <figure><img src="https://803735286-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FW9DLU1YMdC8rZiJDCRdo%2Fuploads%2FI83jvmicbdanXcpBBMHe%2Fimage.png?alt=media&token=d946c149-9bbf-481c-a148-ee1c1d87c830" alt=""><figcaption></figcaption></figure>

@@ -18,17 +18,20 @@ Português Puro é uma linguagem de programação imperativa que utiliza sintaxe
 
 ```tree
 PoP/
-├── Regras/                    # Documentação completa das regras da linguagem
-├── Gramática/                 # Gramática Langium e ferramentas LSP
-├── Implementações/            # Código-fonte de exemplo em `Português Puro`
-├── Bibliotecas/               # Bibliotecas adicionais (em desenvolvimento)
-├── IDE/                       # Código-fonte da IDE (em desenvolvimento)
-├── Binários/                  # Compilador e executáveis (em desenvolvimento)
-├── Extensões/                 # Extensões para editores
-│   ├── VSCode/                # Extensão VS Code com LSP
-│   └── NotePadPlusPlus/       # UDL para Notepad++
-├── Algoritmos/                # Algoritmos de exemplo (em desenvolvimento)
-└── Guias/                     # Guias de solução de erros (em desenvolvimento)
+├── Regras/                    # Regras e sintaxe — documentação única, fonte de verdade das regras
+├── LSP/                       # Extensão VS Code e servidor de linguagem (código executável)
+├── Código-Fonte/              # Compilador real: 16 estágios escritos em `.pop`
+├── Implementações/            # Código de suporte do compilador em `.pop`
+├── Definições/                # Tipos e variáveis globais de suporte do compilador
+├── Algoritmos/                # Algoritmos de exemplo em `.pop`
+├── Documentação/              # Documentação em prosa: características, guia sintático, FAQ e notas do compilador
+├── Índices/                   # Índices de referência cruzada
+├── Mensagens de Erro/         # Guia de mensagens de erro para diagnósticos
+├── Revisão/                   # Revisão e correção dos arquivos de `Regras/`
+├── Linguagem/                 # Especificação da linguagem por capítulos
+├── GitBook/                   # Capítulos publicados da documentação
+├── Final/                     # Transcrição da sessão que originou o servidor de linguagem
+└── Gramática/                 # Rascunho de gramática em Langium — marcado para exclusão
 ```
 
 ## 🚀 Começando
@@ -38,17 +41,17 @@ PoP/
 - Node.js 20.x ou superior
 - npm 10.x ou superior
 
-### Instalação da Gramática Langium
+### Extensão VS Code e servidor de linguagem
+
+A extensão VS Code com suporte LSP fica na pasta [`LSP/`](./LSP/). O analisador léxico e o analisador sintático são escritos à mão em TypeScript, sem gerador de parser. O estado e os próximos passos do servidor são acompanhados em [`LSP - Estado e Próximos Passos.md`](./LSP%20-%20Estado%20e%20Próximos%20Passos.md).
 
 ```cmd
-cd Gramática
+cd LSP
 npm install
-npm run build
+npm run compile
 ```
 
-### Extensão VS Code
-
-A extensão VS Code com suporte LSP está em desenvolvimento na pasta `Gramática/packages/extension`.
+O realce de sintaxe usa uma gramática TextMate (`LSP/client/syntaxes/pop.tmLanguage.json`) e os trechos de código estão em `LSP/client/snippets/`.
 
 ## 📚 Documentação
 
@@ -58,8 +61,7 @@ A documentação completa das regras da linguagem está disponível em [Regras/]
 - **[Símbolos](./Regras/Símbolos.md)**: Caracteres permitidos, reservados e especiais
 - **[Tipos](./Regras/Tipos.md)**: Sistema de tipos, estruturas, listas e conversões
 - **[Expressões](./Regras/Expressões.md)**: Operadores e avaliação de expressões
-- **[Operadores](./Regras/Operadores.md)**: Operadores aritméticos, lógicos e de concatenação
-- **[Comparadores](./Regras/Comparadores.md)**: Operadores de comparação
+- **[Operadores](./Regras/Operadores.md)**: Operadores aritméticos, de comparação, lógicos e de concatenação
 
 ## 💡 Exemplo de Código
 
@@ -84,7 +86,9 @@ Rotina para que se calcule a distância entre dois pontos:
 
 ## 🛠️ Tecnologias
 
-- **[Langium](https://langium.org/)**: Framework para desenvolvimento de linguagens
+- **Parser artesanal**: análise léxica e sintática escritas à mão em TypeScript, sem gerador de parser
+- **Gramática TextMate**: realce de sintaxe no editor
+- **Language Server Protocol**: servidor de linguagem próprio
 - **TypeScript**: Implementação da gramática e ferramentas
 - **VS Code Extension API**: Extensão com Language Server Protocol
 
@@ -147,7 +151,7 @@ Em Desenvolvimento Ativo
 ### Componentes Concluídos
 
 - ✅ Documentação das regras da linguagem
-- ✅ Gramática Langium básica
+- ✅ Gramática e sintaxe documentadas em `Regras/` (índice em `Índice da Documentação.md`)
 - ✅ Definição de tipos e estruturas
 - ✅ Sistema de expressões
 - ✅ Guia de solução de erros
@@ -163,11 +167,17 @@ Em Desenvolvimento Ativo
 
 ### Em Desenvolvimento
 
-- 🚧 Extensão de servidor de linguagem de `Português Puro` para VS Code com:
-  - [x] Gramática inicial em langium funcionando
-  - [ ] Expansão da gramática
-  - [ ] Implementação do servidor de linguagem
-  - [ ] Implementação da extensão
+- 🚧 Extensão de servidor de linguagem de `Português Puro` para VS Code, em `LSP/`, com:
+  - [x] Parser próprio e tabela de símbolos de tipos, variáveis e rotinas
+  - [x] Realce TextMate, snippets e codificação Windows-1252
+  - [x] Navegação: definição, definição de tipo, implementação, referências e renomear
+  - [ ] Expansão da cobertura da gramática pelo parser
+  - [ ] Hover, sugestões e diagnósticos para todo o vocabulário documentado
+  - [ ] Testes automatizados de realce, snippets e diagnósticos
+
+### Decisão de Implementação
+
+A gramática e o LSP são feitos de maneira tradicional: regras documentadas em prosa e parser escrito à mão, sem frameworks de engenharia de linguagens nem geradores de parser. O workspace `Gramática/`, resultado de um experimento anterior, está marcado para exclusão futura.
 
 ### Planejado
 

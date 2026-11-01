@@ -24,12 +24,6 @@
 - Manter a hierarquia de tipos (primitivos → derivados → derivados de derivados).
 - Garantir que pluralização automática funcione corretamente.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `DeclaracaoTipo` com artigo indefinido, nome, `é`/`são` e definição.
-- Mapear `DefinicaoTipo` como `DefinicaoEstrutura | DefinicaoLista | DefinicaoPonteiro | TipoEscalar | TipoBase`.
-- Implementar terminal `IDTipo` que permita símbolos especiais (`#`, `/`, `-`, `_`, `'`).
-- Garantir que campos estruturados suportem `denominado`, `(referência)` e `sob`.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 O contador é um número.

@@ -410,45 +410,6 @@ Função para que se determine se um byte é maior ou igual a um segundo byte:
 
 ---
 
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// FUNÇÕES DELIBERATIVAS (Retorno Booleano)
-// ============================================================================
-
-FuncaoDeliberativa:
-    cabecalhos+=CabecalhoFuncao+ ':'
-    corpo=CorpoFuncao;
-
-CabecalhoFuncao:
-    'Função' 'para' 'que' 'se' 'determine' 'se' expressao=ExpressaoFuncao ';'?;
-
-ExpressaoFuncao:
-    // Nome da função + parâmetros
-    elementos+=(PalavraChave | ArtigoIndefinido | Tipo | Preposicao)+;
-
-CorpoFuncao:
-    instrucoes+=Instrucao+
-    retorno=RetornoBooleano;
-
-RetornoBooleano:
-    'Diga' valor=('sim' | 'não') '.';
-
-// ============================================================================
-// CHAMADA DE FUNÇÃO (em expressões condicionais)
-// ============================================================================
-
-ExpressaoCondicional:
-    'Se' condicao=CondicaoFuncao ',' acoes=BlocoAcoes '.';
-
-CondicaoFuncao:
-    // Usa a expressão da função sem "Função para que se determine"
-    elementos+=(PalavraChave | Artigo | Variavel | Preposicao)+;
-```
-
----
-
 ## Observações Importantes
 
 1. **Nomenclatura**: O nome da função começa após `Função para que se determine se`

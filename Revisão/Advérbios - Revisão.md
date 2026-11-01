@@ -17,13 +17,6 @@
 - Nenhuma correção necessária.
 - Manter a distinção clara entre advérbios de negação (afetam lógica) e ignoráveis (não afetam lógica).
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `Adverbio` como `AdverbioNegacao | AdverbioIgnoravel`.
-- `AdverbioNegacao`: `'não'`.
-- `AdverbioIgnoravel`: `'já' | 'ainda'`.
-- `não` deve preceder o verbo em expressões condicionais.
-- Advérbios ignoráveis devem ser removidos durante a compilação.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 Se o número for 0, pare.

@@ -37,12 +37,6 @@
 - Garantir consistência entre `para` e `em` em comandos imperativos
 - Validar se `com` é operador de concatenação válido (mencionado em exemplos)
 
-## Decisões de design para futuro mapeamento Langium
-- Não há precedência de operadores (tudo é sequencial)
-- Comandos e expressões devem ser tratados como regras separadas
-- Operadores lógicos `e`, `ou`, `nem` são simulados via funções (não operadores nativos)
-- Case-insensitivity deve ser aplicado a todos os operadores
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Aritmética

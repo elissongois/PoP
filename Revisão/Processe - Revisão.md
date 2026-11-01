@@ -21,12 +21,6 @@
 - Validar suporte a chamadas indiretas
 - Verificar se comentários inline `[...]` funcionam
 
-## Decisões de design para futuro mapeamento Langium
-- `Processe` é palavra-chave para chamadas externas
-- DLL e função podem ser literais string ou expressões
-- Argumentos separados por `e`
-- Retorno é opcional e sempre o último parâmetro
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Chamada simples

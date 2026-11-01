@@ -29,12 +29,6 @@
 - Manter a inferência de tipo quando `denominado` é omitido.
 - Garantir que passagem por referência funcione corretamente.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `DeclaracaoLocal` com comando, valor, preposição, artigo indefinido e nome opcional.
-- `ComandoDeclaracao`: `'Atribua' | 'Aloque' 'memória'`.
-- `ArtigoIndefinido` deve incluir pronomes demonstrativos abrangentes.
-- `denominado` deve ser opcional.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 Atribua 10 para um contador.

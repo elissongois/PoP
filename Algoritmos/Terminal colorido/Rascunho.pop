@@ -1,0 +1,147 @@
+Rotina para que se execute o programa:
+  Defina "console" como o tipo da aplicação.
+  Atribua "Texto de exemplo " para um string.
+    Escreva a string em reset para StdOut.
+  Escreva em negrito a string para StdOut.
+  Escreva a string em negrito para StdOut.
+  Escreva com sublinhado a string para StdOut.
+  Escreva a string com sublinhado para StdOut.
+  Escreva com cores invertidas a string para StdOut.
+  Escreva a string com cores invertidas para StdOut.
+  Escreva em preto brilhante a string para StdOut.
+  Escreva a string em preto brilhante  para StdOut.
+  Escreva em vermelho brilhante a string para StdOut.
+  Escreva a string em vermelho brilhante  para StdOut.
+  Escreva em verde brilhante a string para StdOut.
+  Escreva a string em verde brilhante  para StdOut.
+  Escreva em amarelo brilhante a string para StdOut.
+  Escreva a string em amarelo brilhante  para StdOut.
+  Escreva em azul brilhante a string para StdOut.
+  Escreva a string em azul brilhante  para StdOut.
+  Escreva em magenta brilhante a string para StdOut.
+  Escreva a string em magenta brilhante  para StdOut.
+  Escreva em ciano brilhante a string para StdOut.
+  Escreva a string em ciano brilhante  para StdOut.
+  Escreva em branco brilhante a string para StdOut.
+  Escreva a string em branco brilhante  para StdOut.
+  Escreva com fundo preto brilhante a string para StdOut.
+  Escreva a string com fundo preto brilhante  para StdOut.
+  Escreva com fundo vermelho brilhante a string para StdOut.
+  Escreva a string com fundo vermelho brilhante  para StdOut.
+  Escreva com fundo verde brilhante a string para StdOut.
+  Escreva a string com fundo verde brilhante  para StdOut.
+  Escreva com fundo amarelo brilhante a string para StdOut.
+  Escreva a string com fundo amarelo brilhante  para StdOut.
+  Escreva com fundo azul brilhante a string para StdOut.
+  Escreva a string com fundo azul brilhante  para StdOut.
+  Escreva com fundo magenta brilhante a string para StdOut.
+  Escreva a string com fundo magenta brilhante  para StdOut.
+  Escreva com fundo ciano brilhante a string para StdOut.
+  Escreva a string com fundo ciano brilhante  para StdOut.
+  Escreva com fundo branco brilhante a string para StdOut.
+  Escreva a string com fundo branco brilhante  para StdOut.
+  Escreva em preto opaco a string para StdOut.
+  Escreva a string em preto opaco para StdOut.
+  Escreva em vermelho opaco a string para StdOut.
+  Escreva a string em vermelho opaco para StdOut.
+  Escreva em verde opaco a string para StdOut.
+  Escreva a string em verde opaco para StdOut.
+  Escreva em amarelo opaco a string para StdOut.
+  Escreva a string em amarelo opaco para StdOut.
+  Escreva em azul opaco a string para StdOut.
+  Escreva a string em azul opaco para StdOut.
+  Escreva em magenta opaco a string para StdOut.
+  Escreva a string em magenta opaco para StdOut.
+  Escreva em ciano opaco a string para StdOut.
+  Escreva a string em ciano opaco para StdOut.
+  Escreva em branco opaco a string para StdOut.
+  Escreva a string em branco opaco para StdOut.
+  Escreva com fundo preto opaco a string para StdOut.
+  Escreva a string com fundo preto opaco para StdOut.
+  Escreva com fundo vermelho opaco a string para StdOut.
+  Escreva a string com fundo vermelho opaco para StdOut.
+  Escreva com fundo verde opaco a string para StdOut.
+  Escreva a string com fundo verde opaco para StdOut.
+  Escreva com fundo amarelo opaco a string para StdOut.
+  Escreva a string com fundo amarelo opaco para StdOut.
+  Escreva com fundo azul opaco a string para StdOut.
+  Escreva a string com fundo azul opaco para StdOut.
+  Escreva com fundo magenta opaco a string para StdOut.
+  Escreva a string com fundo magenta opaco para StdOut.
+  Escreva com fundo ciano opaco a string para StdOut.
+  Escreva a string com fundo ciano opaco para StdOut.
+  Escreva com fundo branco opaco a string para StdOut.
+  Escreva a string com fundo branco opaco para StdOut.
+
+  Escreva a string em reset na nova linha de texto para StdOut.
+  Escreva em negrito a string na nova linha de texto para StdOut.
+  Escreva a string em negrito na nova linha de texto para StdOut.
+  Escreva com sublinhado a string na nova linha de texto para StdOut.
+  Escreva a string com sublinhado na nova linha de texto para StdOut.
+  Escreva com cores invertidas a string na nova linha de texto para StdOut.
+  Escreva a string com cores invertidas na nova linha de texto para StdOut.
+  Escreva em preto brilhante a string na nova linha de texto para StdOut.
+  Escreva a string em preto brilhante  na nova linha de texto para StdOut.
+  Escreva em vermelho brilhante a string na nova linha de texto para StdOut.
+  Escreva a string em vermelho brilhante  na nova linha de texto para StdOut.
+  Escreva em verde brilhante a string na nova linha de texto para StdOut.
+  Escreva a string em verde brilhante  na nova linha de texto para StdOut.
+  Escreva em amarelo brilhante a string na nova linha de texto para StdOut.
+  Escreva a string em amarelo brilhante  na nova linha de texto para StdOut.
+  Escreva em azul brilhante a string na nova linha de texto para StdOut.
+  Escreva a string em azul brilhante  na nova linha de texto para StdOut.
+  Escreva em magenta brilhante a string na nova linha de texto para StdOut.
+  Escreva a string em magenta brilhante  na nova linha de texto para StdOut.
+  Escreva em ciano brilhante a string na nova linha de texto para StdOut.
+  Escreva a string em ciano brilhante  na nova linha de texto para StdOut.
+  Escreva em branco brilhante a string na nova linha de texto para StdOut.
+  Escreva a string em branco brilhante  na nova linha de texto para StdOut.
+  Escreva com fundo preto brilhante a string na nova linha de texto para StdOut.
+  Escreva a string com fundo preto brilhante  na nova linha de texto para StdOut.
+  Escreva com fundo vermelho brilhante a string na nova linha de texto para StdOut.
+  Escreva a string com fundo vermelho brilhante  na nova linha de texto para StdOut.
+  Escreva com fundo verde brilhante a string na nova linha de texto para StdOut.
+  Escreva a string com fundo verde brilhante  na nova linha de texto para StdOut.
+  Escreva com fundo amarelo brilhante a string na nova linha de texto para StdOut.
+  Escreva a string com fundo amarelo brilhante  na nova linha de texto para StdOut.
+  Escreva com fundo azul brilhante a string na nova linha de texto para StdOut.
+  Escreva a string com fundo azul brilhante  na nova linha de texto para StdOut.
+  Escreva com fundo magenta brilhante a string na nova linha de texto para StdOut.
+  Escreva a string com fundo magenta brilhante  na nova linha de texto para StdOut.
+  Escreva com fundo ciano brilhante a string na nova linha de texto para StdOut.
+  Escreva a string com fundo ciano brilhante  na nova linha de texto para StdOut.
+  Escreva com fundo branco brilhante a string na nova linha de texto para StdOut.
+  Escreva a string com fundo branco brilhante  na nova linha de texto para StdOut.
+  Escreva em preto opaco a string na nova linha de texto para StdOut.
+  Escreva a string em preto opaco na nova linha de texto para StdOut.
+  Escreva em vermelho opaco a string na nova linha de texto para StdOut.
+  Escreva a string em vermelho opaco na nova linha de texto para StdOut.
+  Escreva em verde opaco a string na nova linha de texto para StdOut.
+  Escreva a string em verde opaco na nova linha de texto para StdOut.
+  Escreva em amarelo opaco a string na nova linha de texto para StdOut.
+  Escreva a string em amarelo opaco na nova linha de texto para StdOut.
+  Escreva em azul opaco a string na nova linha de texto para StdOut.
+  Escreva a string em azul opaco na nova linha de texto para StdOut.
+  Escreva em magenta opaco a string na nova linha de texto para StdOut.
+  Escreva a string em magenta opaco na nova linha de texto para StdOut.
+  Escreva em ciano opaco a string na nova linha de texto para StdOut.
+  Escreva a string em ciano opaco na nova linha de texto para StdOut.
+  Escreva em branco opaco a string na nova linha de texto para StdOut.
+  Escreva a string em branco opaco na nova linha de texto para StdOut.
+  Escreva com fundo preto opaco a string na nova linha de texto para StdOut.
+  Escreva a string com fundo preto opaco na nova linha de texto para StdOut.
+  Escreva com fundo vermelho opaco a string na nova linha de texto para StdOut.
+  Escreva a string com fundo vermelho opaco na nova linha de texto para StdOut.
+  Escreva com fundo verde opaco a string na nova linha de texto para StdOut.
+  Escreva a string com fundo verde opaco na nova linha de texto para StdOut.
+  Escreva com fundo amarelo opaco a string na nova linha de texto para StdOut.
+  Escreva a string com fundo amarelo opaco na nova linha de texto para StdOut.
+  Escreva com fundo azul opaco a string na nova linha de texto para StdOut.
+  Escreva a string com fundo azul opaco na nova linha de texto para StdOut.
+  Escreva com fundo magenta opaco a string na nova linha de texto para StdOut.
+  Escreva a string com fundo magenta opaco na nova linha de texto para StdOut.
+  Escreva com fundo ciano opaco a string na nova linha de texto para StdOut.
+  Escreva a string com fundo ciano opaco na nova linha de texto para StdOut.
+  Escreva com fundo branco opaco a string na nova linha de texto para StdOut.
+  Escreva a string com fundo branco opaco na nova linha de texto para StdOut.
+  Feche o programa.

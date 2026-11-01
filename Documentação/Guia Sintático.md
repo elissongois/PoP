@@ -1,6 +1,8 @@
-# Português Puro
+# Português Puro — Guia Sintático
 
-Esta folha de consulta resume a sintaxe, os conceitos e os padrões idiomáticos da linguagem de programação "Português Puro". O objetivo é fornecer de forma sucinta mas completa um guia estruturado para auxiliar na escrita de código.
+Esta folha de consulta resume a sintaxe, os conceitos e os padrões idiomáticos da linguagem de programação "Português Puro". O objetivo é fornecer de forma sucinta mas completa um guia estruturado para auxiliar na escrita de código e servir de referência rápida para ajuste fino de modelos de linguagem.
+
+Este é o único guia sintático do repositório; o antigo "Cheat Sheet para Fine-Tuning" tinha as mesmas seções e foi fundido aqui. Para a semântica detalhada de cada assunto, veja a árvore única de regras em `../Regras/`.
 
 ## 1. Conceitos Fundamentais
 
@@ -16,12 +18,12 @@ Esta folha de consulta resume a sintaxe, os conceitos e os padrões idiomáticos
 ## 2. Comentários
 
 - **Linha única:** Começa com `\` e se estende até o fim da linha `CRLF`.
-  ```portugues-puro
+  ```pop
   \ Este é um comentário de linha única.
   Uma nova linha de texto é uma linha de texto. \ Comentários de linha única podem aparecer após linhas de código
   ```
 - **Bloco (inline):** Envolto por colchetes `[]`.
-  ```portugues-puro
+  ```pop
   Pinte a caixa usando a cor preta [na borda] e a cor branca [dentro].
   Um caractere inicial é um ponteiro [que aponta] para um byte.
   ```
@@ -37,10 +39,11 @@ Declaradas fora de rotinas, são acessíveis em todo o módulo.
 - **Artigos para Declaração:** `O`, `Os`, `A`, `As`.
 - **Sintaxe:** `<artigo definido> <nome> é/são <artigo indefinido> <tipo> [igual a <valor>].`
 - **Exemplos:**
-  ```portugues-puro
+  ```pop
   \ Declaração sem valor inicial
   O servidor SMTP é uma string.
   As cores primárias são umas cores.
+  As aspas duplas são um caractere.
 
   \ Declaração com valor inicial
   A cor de fundo é uma cor igual a #FFFFFF.
@@ -58,7 +61,7 @@ Declaradas dentro de rotinas e acessíveis apenas naquele escopo. A declaração
   1.  **Com Inferência de Tipo (mais comum):** O tipo é inferido a partir de uma palavra-chave no nome da variável.
       - **Sintaxe:** `Atribua <valor> para <artigo indefinido> <nome-com-tipo>.`
       - **Exemplo:**
-        ```portugues-puro
+        ```pop
         \ O tipo 'número' é inferido da palavra "número".
         Atribua 10 para um número.
 
@@ -69,13 +72,13 @@ Declaradas dentro de rotinas e acessíveis apenas naquele escopo. A declaração
   2.  **Com Nome Explícito:** O tipo é definido explicitamente, e a variável é nomeada.
       - **Sintaxe:** `Atribua <valor> para <artigo indefinido> <tipo> denominado <nome>.`
       - **Exemplo:**
-        ```portugues-puro
+        ```pop
         Atribua 18 para um número denominado idade.
         ```
 
 - **Uso Posterior:** Após a declaração, a variável local é referenciada usando um artigo definido (`o`, `a`, etc.).
   - **Exemplo:**
-    ```portugues-puro
+    ```pop
     \ Declara a variável local 'contato'
     Aloque memória para um contato.
     \ Usa o artigo definido 'o' para se referir ao 'contato' já declarado
@@ -84,17 +87,17 @@ Declaradas dentro de rotinas e acessíveis apenas naquele escopo. A declaração
 
 ## 4. Tipos de Dados Fundamentais
 
-A linguagem conta com os seguintes tipos principais:
+A linguagem conta com os seguintes tipos principais. `byte` e `estrutura` são os tipos primitivos; todos os demais derivam deles.
 
+- **`byte`** (primitivo): A menor unidade de memória endereçável.
+- **`estrutura`** (primitivo): Tipo composto que agrupa diferentes variáveis (detalhado na seção 8).
 - **`número`**: Inteiro de 32 bits.
 - **`fração`**: Representa um número racional com `numerador` e `denominador`.
 - **`sinalizador`**: Valor booleano, que pode ser `sim` ou `não`.
 - **`caractere`**: Um único `byte`, usado para representar caracteres.
 - **`string`**: Uma sequência de caracteres.
 - **`ponteiro`**: Armazena um endereço de memória.
-- **`estrutura`**: Tipo composto que agrupa diferentes variáveis (detalhado na seção 8).
 - **`lista`**: Estrutura de dados do tipo lista duplamente encadeada (detalhada na seção 9).
-- **`byte`**: A menor unidade de memória endereçável.
 
 ## 5. Estruturas de Controle de Fluxo
 
@@ -109,13 +112,14 @@ Executa um bloco de código se uma condição for verdadeira.
     <instrução 2>;
     <instrução 3>.
   ```
+  Em linha única: `Se <condição>, <instrução 1>; <instrução 2>.`
 - **Estrutura:**
   - O bloco de código é iniciado por uma **vírgula** (`,`) após a condição.
   - As instruções dentro do bloco são separadas por **ponto e vírgula** (`;`).
   - O bloco é finalizado com um **ponto final** (`.`)
 - **Importante:** Aninhamento de condicionais `Se` não é permitido.
 - **Exemplo:**
-  ```portugues-puro
+  ```pop
   Se o número for menor do que 0,
     Escreva "Número negativo." para StdOut;
     Retorne.
@@ -142,7 +146,7 @@ Cria um laço infinito, análogo a um `while(true)`, que depende de uma condiç�
 - **Importante:** Aninhamento de laços não é permitido.
 
 - **Exemplo:**
-  ```portugues-puro
+  ```pop
   Atribua 1 para um contador.
   Itere.
     Adicione 1 para o contador.
@@ -157,10 +161,11 @@ Cria um laço infinito, análogo a um `while(true)`, que depende de uma condiç�
 Blocos de código reutilizáveis que executam uma tarefa, equivalentes a procedimentos ou funções `void`.
 
 - **Declaração e Chamada:**
+  - **Sintaxe:** `Rotina para que se <nome da rotina com parâmetros>:`
   - A declaração define a tarefa e seus parâmetros (introduzidos por `um`, `uma`, etc.).
   - A chamada executa a tarefa de forma imperativa.
   - **Exemplo:**
-    ```portugues-puro
+    ```pop
     \ Declaração
     Rotina para que se saudação para uma pessoa:
       Escreva "Olá, " junto com a pessoa para StdOut.
@@ -172,7 +177,7 @@ Blocos de código reutilizáveis que executam uma tarefa, equivalentes a procedi
 - **Sinônimos (Aliases):**
   - Permitem definir nomes alternativos para uma mesma rotina. Declare as assinaturas alternativas (terminadas em `;`) antes da declaração principal.
   - **Exemplo:**
-    ```portugues-puro
+    ```pop
     \ Definição de sinônimos
     Rotina para que se obtenha o fatorial de um número;
     Rotina para que se calcule o fatorial de um número:
@@ -188,11 +193,11 @@ Blocos de código reutilizáveis que executam uma tarefa, equivalentes a procedi
 Funções que retornam `sim` (verdadeiro) ou `não` (falso), usadas em expressões condicionais.
 
 - **Declaração e Chamada:**
-  - A declaração usa a sintaxe `Função para que se determine se...`.
+  - **Sintaxe:** `Função para que se determine se <nome da função com parâmetros>:`
   - O retorno é feito com `Diga sim.` ou `Diga não.`.
   - A chamada ocorre dentro de um condicional.
   - **Exemplo:**
-    ```portugues-puro
+    ```pop
     \ Declaração da função
     Função para que se determine se um número é negativo:
       Se o número for menor do que 0, diga sim.
@@ -211,7 +216,7 @@ A linguagem possui duas formas de realizar operações: com comandos imperativos
   - Modificam o valor de uma variável existente.
   - Comandos: `Adicione`, `Subtraia`, `Multiplique`, `Divida`.
   - Exemplo:
-    ```portugues-puro
+    ```pop
     Atribua 10 para um total.
     Adicione 5 para o total.      \ total agora é 15
     Multiplique o total por 2.   \ total agora é 30
@@ -222,22 +227,24 @@ A linguagem possui duas formas de realizar operações: com comandos imperativos
   - Operadores: `mais`, `menos`, `vezes`, `dividido por`.
   - **Importante:** As expressões são avaliadas da esquerda para a direita, **sem ordem de precedência**.
   - Exemplo:
-    ```portugues-puro
+    ```pop
     \ A expressão "2 mais 3 vezes 4" resulta em 20 ( (2+3)*4 )
     Atribua 2 mais 3 vezes 4 para um resultado.
     Escreva o resultado para StdOut. \ Imprime 20
     ```
 
 - **Concatenação de Strings:**
-  - Segue o mesmo padrão, com o comando `Acrescente` ou operadores como `junto com`.
+  - Segue o mesmo padrão, com o comando `Acrescente` ou operadores como `junto com`, `seguido de`, `acompanhado de`.
   - Exemplo:
-    ```portugues-puro
+    ```pop
     \ Usando um comando
     Atribua "Olá" para uma saudação.
     Acrescente ", Mundo!" para a saudação. \ A variável 'saudação' agora contém "Olá, Mundo!"
 
     \ Usando um operador em uma expressão
     Escreva "Olá" junto com ", Mundo!" para StdOut.
+    Escreva "Sr. " junto com o nome seguido de " Silva" para StdOut.
+    Escreva a saudação acompanhada de "!" para StdOut.
     ```
 
 ## 8. Estruturas
@@ -248,7 +255,7 @@ Estruturas são tipos de dados compostos que agrupam múltiplas variáveis (camp
   - Define os campos e seus tipos.
   - **Sintaxe:** `Um/Uma <nome> é uma estrutura com <campo 1> , <campo 2> e <campo 3> ou <campo 4> e <último campo>.`
   - **Exemplos:**
-    ```portugues-puro
+    ```pop
     \ Estrutura com múltiplos campos
     Uma pessoa é uma estrutura com
       Uma string denominada nome e \Entre o final da definição de um campo e o começo do próximo deve ser utilizado um delimitador dentre: `e`, `ou` e `,`
@@ -261,7 +268,7 @@ Estruturas são tipos de dados compostos que agrupam múltiplas variáveis (camp
 - **Acesso aos Campos:**
   - O acesso aos campos de uma variável de estrutura é feito com as contrações `deste`, `desta`, `destes`, `destas`.
   - **Exemplo:**
-    ```portugues-puro
+    ```pop
     \ Considerando que 'pessoa' é uma variável do tipo 'pessoa'
     Atribua "João" para o nome desta pessoa.
     Atribua 30 para a idade desta pessoa.
@@ -271,7 +278,7 @@ Estruturas são tipos de dados compostos que agrupam múltiplas variáveis (camp
   - Um mecanismo para criar "campos virtuais" que não existem na estrutura e cujo valor é calculado por uma rotina, permitindo que sejam acessados como se fossem campos reais da estrutura. Primeiro é preciso implementar uma rotina dum campo calculado, e então basta que ela seja empregada no corpo de qualquer rotina para que o campo calculado seja tratado como campo real naquele escopo.
   - A rotina que define o campo usa o verbo `atribua` em sua assinatura.
   - **Exemplo:**
-    ```portugues-puro
+    ```pop
     \ A estrutura 'linha' só tem 'inicial' e 'final'.
     Uma linha é uma estrutura com uma localização inicial e uma localização final.
 
@@ -296,7 +303,7 @@ A linguagem implementa listas como estruturas duplamente encadeadas. A manipula�
 
 - **Declaração:** O processo tem dois passos: definir a estrutura do item individual e, em seguida, declarar a variável que representará a coleção.
   - **Exemplo:**
-    ```portugues-puro
+    ```pop
     \ 1. Define a estrutura de cada item da lista.
     Um contato é uma lista com
       Uma string denominada nome e
@@ -309,8 +316,9 @@ A linguagem implementa listas como estruturas duplamente encadeadas. A manipula�
 - **Manipulação Comum:** As operações são feitas através de rotinas. As mais comuns são:
   - **Adicionar:** `Acrescente <item> na <coleção>.` ou `Anteponha <item> para <coleção>.`
   - **Remover:** `Remova o <item> desde a <coleção>.`
+  - **Memória:** `Aloque memória para <item>.` antes de usar o item; `Destrua <item>.` depois de removê-lo da coleção.
   - **Obter:** Uma rotina de obtenção é usada dentro de um laço para percorrer os itens.
-    ```portugues-puro
+    ```pop
     \ Exemplo de iteração para percorrer a agenda
     Atribua nulo para um contato.
     Itere.
@@ -319,19 +327,26 @@ A linguagem implementa listas como estruturas duplamente encadeadas. A manipula�
       Escreva o nome deste contato para StdOut.
     Reitere.
     ```
+  - **Exemplo de ciclo completo:**
+    ```pop
+    Aloque memória para um contato.
+    Acrescente o contato na agenda telefônica.
+    Remova o contato desde a agenda telefônica.
+    Destrua o contato.
+    ```
 
 ## 10. Interação com o Sistema
 
 - **Saída no Console:**
-  ```portugues-puro
+  ```pop
   Escreva "Hello World!" para StdOut.
   ```
 - **Entrada do Console:**
-  ```portugues-puro
+  ```pop
   Leia um trecho desde a StdIn.
   ```
 - **Bibliotecas Externas (DLLs):**
-  ```portugues-puro
+  ```pop
   \ Sem parâmetros
   Processe "user32.dll" "CloseClipboard".
 
@@ -341,7 +356,7 @@ A linguagem implementa listas como estruturas duplamente encadeadas. A manipula�
 
 ## 11. Exemplo Completo (Fatorial)
 
-```portugues-puro
+```pop
 O fatorial é um número.
 
 Rotina para que se calcule o fatorial de um número:
@@ -375,7 +390,7 @@ Para tarefas de parsing, a linguagem utiliza os conceitos de `Subtexto` e `Perco
 - **Percorredor:** É uma estrutura que facilita a iteração sobre uma string, dividindo-a em `segmento inicial` e `segmento final`.
 
 - **Exemplo de uso:**
-  ```portugues-puro
+  ```pop
   \ Lança um subtexto sobre toda a string
   Lance um subtexto em uma string.
 
@@ -395,7 +410,7 @@ Para tarefas de parsing, a linguagem utiliza os conceitos de `Subtexto` e `Perco
 - **`Preserve`:** Para evitar a modificação da variável original, use a palavra-chave `Preserve`. Ela cria uma cópia local da variável no início da rotina.
 
 - **Exemplo:**
-  ```portugues-puro
+  ```pop
   Rotina para que se inverta uma string:
     \ Cria uma cópia local de 'string' para ser manipulada
     Preserve a string.
@@ -414,7 +429,7 @@ Para tarefas de parsing, a linguagem utiliza os conceitos de `Subtexto` e `Perco
 - **Uso:** Permitem tratar uma variável de um tipo como se fosse de outro tipo para uma operação específica, sem alterar a variável original.
 
 - **Exemplo:**
-  ```portugues-puro
+  ```pop
   \ Trata um ponteiro como um número para uma operação lógica
   Disjuncione logicamente o ponteiro tal como um número com o número.
 

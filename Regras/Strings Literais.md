@@ -285,21 +285,6 @@ Função para que se determine se um percorredor está sobre múltiplas aspas du
 
 **Nota**: Português Puro usa a mesma convenção que SQL e Pascal (duplicação do delimitador).
 
-## Mapeamento para Langium
-
-```langium
-// Terminal para strings literais
-terminal STRING:
-    '"' ( '""' | !'"' )* '"';
-```
-
-### Explicação da Regex
-- `'"'` - Aspas duplas de abertura
-- `( '""' | !'"' )*` - Zero ou mais ocorrências de:
-  - `'""'` - Duas aspas duplas (escape) OU
-  - `!'"'` - Qualquer caractere exceto aspas duplas
-- `'"'` - Aspas duplas de fechamento
-
 ## Exemplos Completos
 
 ### Exemplo 1: Declaração de Variável

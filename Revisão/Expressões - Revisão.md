@@ -20,12 +20,6 @@
 - Validar se `seguido de` e `junto com` são completamente sinônimos
 - Verificar se conversão automática funciona corretamente em concatenação
 
-## Decisões de design para futuro mapeamento Langium
-- Expressões não têm precedência (tudo sequencial)
-- Não suportar parênteses para agrupamento
-- Operador `e` é apenas para `Processe`, não para expressões
-- Possessivos seguem regras de `Possessivos.md`
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Aritmética sequencial

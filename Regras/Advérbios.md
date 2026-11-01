@@ -201,37 +201,6 @@ Se o sistema está pronto e tem recursos, inicie.
 
 ---
 
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// ADVÉRBIOS
-// ============================================================================
-
-Adverbio:
-    AdverbioNegacao | AdverbioIgnoravel;
-
-// Advérbio de Negação
-AdverbioNegacao:
-    'não';
-
-// Advérbios Ignoráveis
-AdverbioIgnoravel:
-    'já' | 'ainda';
-
-// Uso em Expressões Condicionais
-ExpressaoCondicional:
-    'Se' sujeito=Termo negacao=AdverbioNegacao? verbo=Verbo complemento=Termo ',' acao=Comando '.';
-
-// Uso em Funções Deliberativas
-FuncaoDeliberativa:
-    'Função' 'para' 'que' 'se' 'determine' 'se' 
-    sujeito=Termo negacao=AdverbioNegacao? verbo=Verbo complemento=Termo ':' 
-    corpo=Bloco;
-```
-
----
-
 ## Boas Práticas
 
 1. **Use `não` para Negação**: É claro e direto

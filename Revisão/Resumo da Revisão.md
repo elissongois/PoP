@@ -50,15 +50,6 @@ Foram revisados 26 arquivos da pasta `Regras/`, criando arquivos de revisão em 
 - Algoritmos usam a linguagem conforme documentado
 - Necessidade de validar possessivos ambangentes em estruturas aninhadas
 
-### Decisões de Design para Langium
-1. **Sem precedência de operadores** - Avaliação sequencial esquerda→direita
-2. **Condicionais sem aninhamento** - Apenas `Se`, sem `else`
-3. **Laços únicos** - `while(true)` com `Itere`, `Reitere`, `Pare`
-4. **Funções deliberativas** - Retornam booleanos, usadas apenas em `Se`
-5. **Rotinas diretas** - Chamadas sem `Rotina para que se`
-6. **Callbacks** - `compativelmente` para stdcall Windows
-7. **Possessivos** - Adjacentes para campos, abrangentes para tipos
-
 ### Padrões Confirmados nos Algoritmos
 - Janela usa rotinas, laços, condicionais corretamente
 - Usa `Processe` para APIs Windows
@@ -66,10 +57,10 @@ Foram revisados 26 arquivos da pasta `Regras/`, criando arquivos de revisão em 
 - Sintaxe consistente com documentação
 
 ## Próximos Passos
-1. **Mapeamento para Langium** - Usar decisões de design documentadas
+1. **Definição da gramática** - Escrever a gramática formal a partir das decisões de design documentadas
 2. **Validação com exemplos** - Testar gramática com algoritmos reais
 3. **Correção de divergências** - Ajustar `Regras/` conforme necessidade
 4. **Documentação final** - Consolidar decisões tomadas
 
 ## Conclusão
-A revisão foi concluída com sucesso. Os arquivos de `Regras/` estão consistentes com os exemplos em `Algoritmos/` e a documentação do compilador. As decisões de design documentadas servirão como base para o mapeamento Langium.
+A revisão foi concluída com sucesso. Os arquivos de `Regras/` estão consistentes com os exemplos em `Algoritmos/` e a documentação do compilador. As decisões de design documentadas servirão como base para a gramática.

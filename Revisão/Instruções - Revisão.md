@@ -24,12 +24,6 @@
 - Validar sintaxe de `Processe` com múltiplos parâmetros
 - Verificar se `Remova` funciona corretamente para strings e listas
 
-## Decisões de design para futuro mapeamento Langium
-- Instruções são regras separadas para cada tipo
-- Preposições sinônimas devem ser agrupadas
-- `Processe` precisa de suporte para argumentos variáveis com `e`
-- `Decodifique` aceita literais hexadecimais
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Atribuição

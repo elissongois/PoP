@@ -33,12 +33,6 @@
 - Manter a distinção entre artigos definidos (globais) e indefinidos (tipos).
 - Garantir que abreviações entre colchetes sejam reconhecidas.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `DeclaracaoGlobal` com artigo definido, nome, `é`/`são`, tipo e inicialização opcional.
-- Implementar terminal `IDVariavel` que permita símbolos especiais.
-- Abreviações entre `[...]` devem ser opcionais.
-- `é`/`são` e `igual`/`iguais` devem ter variações singular/plural.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 O contador é um número.

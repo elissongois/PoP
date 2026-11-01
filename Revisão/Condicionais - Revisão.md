@@ -20,12 +20,6 @@
 - Validar que `else` não é suportado
 - Verificar se verbos condicionais cobrem todos os casos necessários
 
-## Decisões de design para futuro mapeamento Langium
-- `Se` é a única palavra-chave condicional
-- Vírgula é obrigatória após expressão
-- Bloco de instruções usa `;` e `.`
-- Sem suporte a `else` ou aninhamento
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Validação

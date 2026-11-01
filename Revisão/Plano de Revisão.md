@@ -8,8 +8,7 @@ Revisar e corrigir cada arquivo da pasta `Regras/` comparando com:
 
 ## Critérios
 - Reduzir redundâncias
-- Manter informações suficientes para Mapeamento para Langium posterior
-- Ignorar seções "Mapeamento para Langium" (serão feitas após revisão completa)
+- Manter informações suficientes para a definição posterior da gramática
 - Corrigir divergências entre docs, gramática e exemplos
 - Documentar decisões tomadas
 
@@ -58,7 +57,7 @@ Para cada arquivo, criar em `Revisão/` um arquivo `<Nome Original> - Revisão.m
 1. **Resumo do arquivo original** (pontos principais)
 2. **Divergências encontradas** (vs algoritmos, docs, gramática)
 3. **Correções propostas**
-4. **Decisões de design** (para Langium posterior)
+4. **Decisões de design** (para a gramática posterior)
 5. **Exemplos de uso real** (extraídos de `Algoritmos/`)
 
 ## Status
@@ -68,4 +67,4 @@ Para cada arquivo, criar em `Revisão/` um arquivo `<Nome Original> - Revisão.m
 - Pendentes: 0
 
 ## Próximos Passos
-Após revisão completa, iniciar o Mapeamento para Langium usando as decisões de design documentadas em cada arquivo de revisão.
+Após revisão completa, iniciar a definição da gramática usando as decisões de design documentadas em cada arquivo de revisão.

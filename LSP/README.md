@@ -1,150 +1,55 @@
-# Português Puro Language Server
+# Servidor de Linguagem de Português Puro
 
-The VS Code extension recognizes Português Puro source files with the `.pop`
-extension. The language ID defaults to the `windows1252` encoding used by
-Português Puro source files.
+A extensão para VS Code reconhece arquivos-fonte de Português Puro com a extensão `.pop`. O identificador de linguagem `portugues-puro` adota por padrão a codificação `windows1252` usada pelos arquivos-fonte: o workspace a configura em `.vscode/settings.json` e a própria extensão também contribui com esse padrão.
 
-## Functionality
+Este README é o único documento de funcionalidade e desenvolvimento da extensão; `client/` e `server/` não têm README próprio.
 
-- Syntax highlighting for comments, strings, literals, keywords, articles,
-  conjunctions, declared type names, routine/function headers, parenthetical
-  qualifiers, and header separators used by alternate routine/function names.
-- Hover documentation for language keywords, types, variables, and routine
-  declarations, including their parameters and alternate names.
-- Completion suggestions for language keywords and symbols declared in
-  same-folder `.pop` files.
-- Snippets for routines, deliberative functions, structures, global/local
-  variables, and `Itere`/`Reitere` loops.
-- Go to Definition for declared types, global variables, routines, and
-  functions, including identifiers with multiple words or line breaks.
-- Go to Type Definition for declared types and typed global/local variables.
-- Go to Implementation for routine and function calls.
-- Find References and Rename for types, global/local variables, routines, and
-  routine alternate names. These features include references in sibling `.pop`
-  files; type renames preserve plural forms, and variable searches ignore
-  comments and strings.
-- Navigation searches `.pop` files beside the active file, including unopened
-  siblings, but does not search parent folders or subdirectories. Sibling files
-  are decoded as Windows-1252.
-- Type references resolve across sibling `.pop` documents, including both the
-  base type and pointed-to type in pointer declarations.
-- Each open document's symbol table is refreshed when the document opens,
-  changes, or is saved, and discarded when it closes.
-- Initial parser and type symbol table in `server/src/typeParser.ts`, recognizing
-  dot-terminated type declarations, including `ponteiro para um tipo`,
-  structures with named fields, and union fields using `sob o/a/os/as`. The
-  primitive type names are `byte`/`bytes` and `estrutura`/`estruturas`.
-  `número` is a declared structure type, not a primitive.
-- Structure fields may include an unnamed contiguous byte array, such as
-  `4 bytes.`. Other array element types are reported as errors.
-- A field may omit `denominado/a/os/as` to infer its name from the field type.
-  Multi-word aliases such as `primeiro byte` are resolved by removing leading
-  words until a known type suffix is found; unresolved aliases and duplicate
-  field names are reported as errors.
-- Structure fields may end with `(referência)` to mark that the field stores a
-  reference to its type. The marker is excluded from the field name and is not
-  treated as a type reference for navigation.
-- Scalar declarations can use integer multipliers (for example,
-  `Uma dezena são 10 unidades.`). Type lookup accepts generated plural names,
-  and scalar types store their reduced scale as a fraction relative to the
-  declared type `número`.
-- Type names are case-insensitive for lookup, and runs of whitespace (including
-  line breaks and tabs) are normalized.
-- Unknown base types are reported as errors on the type name, including names
-  that differ from a declared type only by missing or incorrect accents.
-- Global variables use the definite articles `o`, `os`, `a`, and `as` and are
-  stored in a symbol catalog separate from types. Their declared types are
-  checked against the type catalog.
-- Global variables declared as structures may contain fields, using the same
-  named, inferred, aliased, union, byte-array, and reference-marker rules as
-  structure types.
-- Global variables may be initialized with signed 32-bit integers, fractions,
-  mixed numbers, hexadecimal values, or quoted strings. String literals support
-  doubled quotes as escapes and reject control characters.
-- Global variable types may be inferred from abbreviated literal initializers:
-  integers infer `número`, fractions and mixed numbers infer `fração`,
-  hexadecimal values infer `texto hexadecimal`, and strings infer `string`.
-- Comments are ignored by the parser: `\` starts a line comment, while `[ ... ]`
-  delimits a block comment. Comment contents do not affect declarations or
-  source locations. Non-printable control characters in comments are diagnosed,
-  except CR/LF that terminate line comments.
-- Routine and function headers use `para que se`, optionally preceded by
-  `Rotina` or `Função`. Semicolon-terminated alternate names are associated
-  with the following colon-terminated header. Headers may declare parameters
-  after `usando` and a return value after `retornando`; parameter and return
-  types are resolved against the type catalog. The routine body begins after
-  the header colon and ends at the next top-level type declaration, global
-  variable declaration, or routine header; no block delimiter is required.
-- Alternate headers that repeat the primary name and parameter types are
-  diagnosed as semantically equivalent. A colon-terminated header immediately
-  followed by another routine header receives a hint to use `;` for the
-  alternate header.
-- Statements in routine bodies end with a period. Routine calls are resolved
-  against declared names and aliases, matching calls without parameters first;
-  definite or demonstrative articles in arguments can identify passed
-  parameters. Calls resolve to the matching routine definition. Empty routine
-  bodies are valid and return implicitly; boolean functions still require a
-  valid `Diga sim.` or `Diga não.` statement.
-- The `Decodifique` instruction accepts a hexadecimal literal (for example,
-  `Decodifique $8B8508000000.`). A diagnostic is reported when it is followed
-  by another value or no value; routine names beginning with `Decodifique`
-  therefore cannot be invoked as normal calls.
-- The `Retorne` statement returns control to the caller and must appear without
-  a value or variable (for example, `Retorne.`). The keyword is reserved and
-  cannot be used in a routine name.
-- Routine parameters are passed by reference, so a routine can modify the
-  arguments supplied by its caller without returning a replacement value.
-- Routine calls accept compatible literal values or variables/parameters of the
-  expected type. An indefinite article in a call argument declares a local
-  variable of the following type, optionally named with `denominado/a/os/as`
-  (for example, `bar um número denominado contagem.`). Without an explicit
-  name, the type phrase supplies the variable name and may be reduced to find
-  its base type. A variable can then be passed to later calls using a definite
-  article, as in `baz a contagem.`. Declarations can also be initialized in
-  the call, for example `Atribua 123 para um número denominado valor.`.
-- Local variables take precedence over global variables with the same
-  normalized name throughout the containing routine. Thus, declaring a local
-  `nome` shadows a global `nome` when resolving later arguments and references.
-- Routine calls that have no matching declared routine produce a diagnostic.
-  When a parameter call passes an unresolved variable name (for example,
-  `Baz a string.` for a routine expecting a `string`), the parser reports the
-  missing variable. A matching global variable or a local declaration such as
-  `Baz uma string.` resolves the argument instead.
-- `Preserve` creates a local copy of a routine parameter. The copy keeps the
-  parameter's original name, while the received argument is renamed by adding
-  `original` (for example, preserving `valor` creates `valor` as the copy and
-  `valor original` as the original argument). It must be followed by a definite
-  article and a parameter name, and cannot be used in a routine name.
-- Arithmetic assignment expressions support `mais`, `menos`, `vezes`, and
-  `dividido por`. They are evaluated strictly from left to right with no
-  precedence rules; for example, `Atribua o número mais 2 menos 1 vezes o
-  número dividido por 2 para o segundo número.` is grouped as sequential
-  left-associated operations.
-- String expressions support the equivalent concatenation operators `junto
-  com` and `seguido de`. They may be mixed in one expression and are evaluated
-  left to right, for example: `Escreva "Olá, " junto com o nome junto com o
-  sobrenome seguido de "!" para StdOut.`
-- Boolean functions use the `para que se determine se` header and must contain
-  a `Diga sim.` or `Diga não.` statement. `Diga` accepts only these boolean
-  literals and cannot be used in ordinary routines or routine names.
-- A period terminates type and global-variable declarations and statements;
-  it also terminates conditional blocks. A colon is used for the end of a
-  routine header and start of its body. Semicolons separate statements in
-  conditional blocks, with alternate routine headers as the existing syntax
-  exception. These punctuation marks are diagnosed when used in type or
-  global-variable names.
-- Reserved grammar words are diagnosed when used in type or global-variable
-  identifiers.
-- End-to-end coverage for Go to Definition.
+## Funcionalidade
 
-## Development
+- Realce TextMate para comentários, strings, literais, palavras-chave, artigos, conjunções, nomes de tipos declarados, cabeçalhos de rotinas e funções, qualificadores entre parênteses e separadores de cabeçalho usados pelos nomes alternativos de rotinas e funções.
+- Hover com documentação das palavras-chave da linguagem, dos tipos, das variáveis e das declarações de rotinas, incluindo seus parâmetros e nomes alternativos.
+- Sugestões de palavras da linguagem e de símbolos declarados em arquivos `.pop` da mesma pasta.
+- Snippets para rotinas, funções deliberativas, estruturas, variáveis globais e locais e laços `Itere`/`Reitere`.
+- Ir para Definição para tipos declarados, variáveis globais, rotinas e funções, incluindo identificadores com várias palavras ou quebras de linha.
+- Ir para Definição de Tipo para tipos declarados e variáveis globais ou locais tipadas.
+- Ir para Implementação para chamadas de rotinas e funções.
+- Encontrar Referências e Renomear tipos, variáveis globais/locais, rotinas e nomes alternativos de rotinas. Esses recursos incluem referências em arquivos `.pop` irmãos; as renomeações de tipos preservam as formas de plural, e as buscas por variáveis ignoram comentários e strings.
+- A navegação busca arquivos `.pop` ao lado do arquivo ativo, inclusive irmãos não abertos, mas não busca em pastas pai nem em subpastas. Os arquivos irmãos são decodificados como Windows-1252.
+- As referências de tipos resolvem entre documentos `.pop` irmãos, incluindo tanto o tipo base quanto o tipo apontado em declarações de ponteiro.
+- A tabela de símbolos de cada documento aberto é atualizada quando o documento abre, muda ou é salvo, e descartada quando ele fecha.
+- Parser inicial e tabela de símbolos de tipos em `server/src/typeParser.ts`, reconhecendo declarações de tipos terminadas por ponto, incluindo `ponteiro para um tipo`, estruturas com campos nomeados e campos de união que usam `sob o/a/os/as`. Os nomes dos tipos primitivos são `byte`/`bytes` e `estrutura`/`estruturas`. `número` é um tipo de estrutura declarado, não um primitivo.
+- Os campos de estrutura podem incluir um array contíguo de bytes sem nome, como `4 bytes.`. Outros tipos de elemento de array são reportados como erros.
+- Um campo pode omitir `denominado/a/os/as` para inferir seu nome a partir do tipo do campo. Apelidos de várias palavras, como `primeiro byte`, são resolvidos removendo as palavras iniciais até que um sufixo de tipo conhecido seja encontrado; apelidos não resolvidos e nomes de campo duplicados são reportados como erros.
+- Os campos de estrutura podem terminar com `(referência)` para indicar que o campo armazena uma referência ao seu tipo. O marcador é excluído do nome do campo e não é tratado como uma referência de tipo para navegação.
+- As declarações escalares podem usar multiplicadores inteiros (por exemplo, `Uma dezena são 10 unidades.`). A busca por tipos aceita nomes de plural gerados, e os tipos escalares armazenam sua escala reduzida como uma fração em relação ao tipo declarado `número`.
+- Os nomes de tipos não distinguem maiúsculas e minúsculas na busca, e as sequências de espaços em branco (inclusive quebras de linha e tabulações) são normalizadas.
+- Tipos base desconhecidos são reportados como erros no nome do tipo, inclusive nomes que diferem de um tipo declarado apenas por acentos ausentes ou incorretos.
+- As variáveis globais usam os artigos definidos `o`, `os`, `a` e `as` e são armazenadas em um catálogo de símbolos separado dos tipos. Seus tipos declarados são verificados em relação ao catálogo de tipos.
+- As variáveis globais declaradas como estruturas podem conter campos, usando as mesmas regras de campos nomeados, inferidos, com apelido, de união, de array de bytes e com marcador de referência dos tipos de estrutura.
+- As variáveis globais podem ser inicializadas com inteiros de 32 bits com sinal, frações, numerais mistos, valores hexadecimais ou strings entre aspas. Os literais de string suportam aspas duplicadas como escape e rejeitam caracteres de controle.
+- Os tipos das variáveis globais podem ser inferidos a partir de inicializações literais abreviadas: inteiros inferem `número`, frações e numerais mistos inferem `fração`, valores hexadecimais inferem `texto hexadecimal` e strings inferem `string`.
+- Os comentários são ignorados pelo parser: `\` inicia um comentário de linha, enquanto `[ ... ]` delimita um comentário de bloco. O conteúdo dos comentários não afeta as declarações nem as localizações no código-fonte. Caracteres de controle não imprimíveis nos comentários são diagnosticados, exceto CR/LF, que terminam os comentários de linha.
+- Os cabeçalhos de rotinas e funções usam `para que se`, opcionalmente precedidos por `Rotina` ou `Função`. Os nomes alternativos terminados por `;` são associados ao cabeçalho seguinte, terminado por `:`. Os cabeçalhos podem declarar parâmetros após `usando` e um valor de retorno após `retornando`; os tipos dos parâmetros e do retorno são resolvidos em relação ao catálogo de tipos. O corpo da rotina começa após os dois-pontos do cabeçalho e termina na próxima declaração de tipo de nível superior, declaração de variável global ou cabeçalho de rotina; não é necessário delimitador de bloco.
+- Cabeçalhos alternativos que repetem o nome principal e os tipos dos parâmetros são diagnosticados como semanticamente equivalentes. Um cabeçalho terminado por `:` imediatamente seguido de outro cabeçalho de rotina recebe uma dica para usar `;` no cabeçalho alternativo.
+- As instruções nos corpos das rotinas terminam com ponto final. As chamadas de rotina são resolvidas em relação aos nomes declarados e aos nomes alternativos, correspondendo primeiro às chamadas sem parâmetros; artigos definidos ou demonstrativos nos argumentos podem identificar os parâmetros passados. As chamadas resolvem para a definição de rotina correspondente. Corpos de rotina vazios são válidos e retornam implicitamente; as funções deliberativas ainda exigem uma instrução válida `Diga sim.` ou `Diga não.`.
+- A instrução `Decodifique` aceita um literal hexadecimal (por exemplo, `Decodifique $8B8508000000.`). Um diagnóstico é reportado quando ela é seguida por outro valor ou por nenhum valor; portanto, nomes de rotina que começam com `Decodifique` não podem ser invocados como chamadas normais.
+- A instrução `Retorne` devolve o controle ao chamador e deve aparecer sem valor ou variável (por exemplo, `Retorne.`). A palavra-chave é reservada e não pode ser usada em um nome de rotina.
+- Os parâmetros de rotina são passados por referência, de modo que uma rotina pode modificar os argumentos fornecidos por seu chamador sem retornar um valor substituto.
+- As chamadas de rotina aceitam valores literais compatíveis ou variáveis/parâmetros do tipo esperado. Um artigo indefinido em um argumento de chamada declara uma variável local do tipo seguinte, opcionalmente nomeada com `denominado/a/os/as` (por exemplo, `bar um número denominado contagem.`). Sem um nome explícito, a expressão de tipo fornece o nome da variável e pode ser reduzida para encontrar seu tipo base. Uma variável pode então ser passada para chamadas posteriores usando um artigo definido, como em `baz a contagem.`. Declarações também podem ser inicializadas na chamada, por exemplo `Atribua 123 para um número denominado valor.`.
+- As variáveis locais têm precedência sobre variáveis globais com o mesmo nome normalizado em toda a rotina que as contém. Assim, declarar um `nome` local oculta um `nome` global ao resolver argumentos e referências posteriores.
+- Chamadas de rotina sem uma rotina declarada correspondente produzem um diagnóstico. Quando uma chamada com parâmetros passa um nome de variável não resolvido (por exemplo, `Baz a string.` para uma rotina que espera uma `string`), o parser reporta a variável ausente. Uma variável global correspondente ou uma declaração local como `Baz uma string.` resolve o argumento em vez disso.
+- `Preserve` cria uma cópia local de um parâmetro de rotina. A cópia mantém o nome original do parâmetro, enquanto o argumento recebido é renomeado com o acréscimo de `original` (por exemplo, preservar `valor` cria `valor` como a cópia e `valor original` como o argumento original). `Preserve` deve ser seguido por um artigo definido e um nome de parâmetro, e não pode ser usado em um nome de rotina.
+- As expressões de atribuição aritmética suportam `mais`, `menos`, `vezes` e `dividido por`. São avaliadas estritamente da esquerda para a direita, sem regras de precedência; por exemplo, `Atribua o número mais 2 menos 1 vezes o número dividido por 2 para o segundo número.` é agrupada como operações sequenciais associadas à esquerda.
+- As expressões de string suportam os operadores de concatenação equivalentes `junto com` e `seguido de`. Eles podem ser misturados em uma única expressão e são avaliados da esquerda para a direita, por exemplo: `Escreva "Olá, " junto com o nome junto com o sobrenome seguido de "!" para StdOut.`
+- As funções deliberativas usam o cabeçalho `para que se determine se` e devem conter uma instrução `Diga sim.` ou `Diga não.`. `Diga` aceita apenas esses literais booleanos e não pode ser usado em rotinas comuns nem em nomes de rotina.
+- O ponto final termina as declarações de tipos e de variáveis globais e as instruções; ele também termina os blocos condicionais. Os dois-pontos são usados para o fim de um cabeçalho de rotina e o início de seu corpo. O ponto e vírgula separa instruções em blocos condicionais, com os cabeçalhos alternativos de rotina como a exceção sintática existente. Esses sinais de pontuação são diagnosticados quando usados em nomes de tipos ou de variáveis globais.
+- Palavras reservadas da gramática são diagnosticadas quando usadas em identificadores de tipos ou de variáveis globais.
+- Cobertura de ponta a ponta para Ir para Definição.
 
-- Open this `LSP` folder as the VS Code workspace (not only its parent folder).
-- Run `npm install` here to install the extension, client, and server
-  dependencies. No files or packages from `LSP-old` are required.
-- Run `npm run compile` here to build with this folder's local TypeScript
-  dependency, or press Ctrl+Shift+B to compile in watch mode.
-- Press F5 and select **Launch Client** to start the Extension Development Host;
-  open a `.pop` file there to test the language server.
-- Run `npm test` to compile and execute the VS Code end-to-end tests against
-  this workspace, including the language-specific encoding setting.
+## Desenvolvimento
+
+- Abra esta pasta `LSP` como o workspace do VS Code (não apenas sua pasta pai).
+- Execute `npm install` aqui para instalar as dependências da extensão, do cliente e do servidor. Nenhum arquivo ou pacote de `LSP-old` é necessário.
+- Execute `npm run compile` aqui para compilar com a dependência local de TypeScript desta pasta, ou pressione Ctrl+Shift+B para compilar no modo de observação.
+- Pressione F5 e selecione **Launch Client** para iniciar o Extension Development Host; abra um arquivo `.pop` ali para testar o servidor de linguagem.
+- Execute `npm test` para compilar e executar os testes de ponta a ponta do VS Code neste workspace, incluindo a configuração de codificação específica da linguagem.

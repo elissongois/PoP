@@ -23,12 +23,6 @@
 - Validar sintaxe de `Aponte`
 - Verificar se parâmetros são acessados corretamente
 
-## Decisões de design para futuro mapeamento Langium
-- `compativelmente` é modificador opcional em declarações de rotina
-- `Aponte` é comando específico para callbacks
-- Callbacks são rotinas com convenção de chamada especial
-- Parâmetros são passados automaticamente pela API
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Callback de procedimento de janela

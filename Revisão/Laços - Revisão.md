@@ -23,12 +23,6 @@
 - Validar que `Itere` pode ser omitido corretamente
 - Verificar se `Reitere` funciona como `continue` e como fim de laço
 
-## Decisões de design para futuro mapeamento Langium
-- Apenas um tipo de laço (`while(true)`)
-- `Itere` opcional no início da rotina
-- `Reitere` tem dois usos: fim de laço e continue
-- Sem suporte a `for`, `while`, `do-while`
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Laço com contador

@@ -21,12 +21,6 @@
 - Verificar se `próxima` (usada em listas) é palavra reservada ou pode ser nome de variável
 - Garantir que possessivos ambangentes (`desse`, `dessa`, etc.) sejam devidamente documentados
 
-## Decisões de design para futuro mapeamento Langium
-- Possessivos devem ser um único terminal com múltiplas alternativas
-- Distinguir entre formas adjacentes (acesso direto) e ambangentes (campos calculados)
-- `AcessoMembro`: campo=Identificador possessivo=Possessivo estrutura=Expressao
-- Permitir encadeamento para estruturas aninhadas
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 *(Nenhum exemplo direto de possessivos no algoritmo Janela)*
 

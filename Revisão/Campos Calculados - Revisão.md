@@ -22,12 +22,6 @@
 - Verificar se possessivos abrangentes (`duma`, `dum`) são completamente especificados
 - Garantir que a distinção entre possessivos adjacentes e abrangentes esteja clara
 
-## Decisões de design para futuro mapeamento Langium
-- `CampoCalculado`: regra especial com `atribua` no lugar do verbo comum
-- `PossessivoAbrangente`: terminais separados de `Possessivo` adjacente
-- Acesso a campo calculado usa mesmo mecanismo que campo real
-- Emprego explícito vs implícito deve ter suporte sintático
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 *(Nenhum exemplo de campos calculados no algoritmo Janela)*
 

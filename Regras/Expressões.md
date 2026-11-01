@@ -402,50 +402,6 @@ Converta o byte para uma string hexadecimal.
 
 ---
 
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// EXPRESSÕES
-// ============================================================================
-
-Expressao:
-    ExpressaoSimples | ExpressaoComposta;
-
-ExpressaoSimples:
-    ValorLiteral | Variavel | CampoAcesso;
-
-ExpressaoComposta:
-    esquerda=Expressao operador=Operador direita=Expressao;
-
-// ============================================================================
-// OPERADORES
-// ============================================================================
-
-Operador:
-    OperadorAritmetico | OperadorConcatenacao;
-
-OperadorAritmetico:
-    'mais' | 'menos' | 'vezes' | 'dividido' ('por'|'pelo'|'pela');
-
-OperadorConcatenacao:
-    'junto' 'com' | 'seguido' 'de';
-
-// ============================================================================
-// ACESSO A CAMPOS
-// ============================================================================
-
-CampoAcesso:
-    campo=ID possessivo=Possessivo estrutura=Variavel;
-
-Possessivo:
-    'deste' | 'desta' | 'destes' | 'destas' |
-    'desse' | 'dessa' | 'desses' | 'dessas' |
-    'daquele' | 'daquela' | 'daqueles' | 'daquelas';
-```
-
----
-
 ## Observações Importantes
 
 1. **Avaliação Sequencial**: Esquerda→direita, **sem precedência** de operadores

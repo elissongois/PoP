@@ -27,6 +27,22 @@ Uma pessoa é uma estrutura com
 
 Palavras-chave e identificadores não diferenciam maiúsculas de minúsculas, exceto dentro de strings e comentários.
 
+### O que é a definição
+
+A `definição` é a parte da declaração que vem depois de `é` ou `são`. Ela informa qual tipo existente serve de base ou descreve a forma, o conteúdo ou a escala do novo tipo. Não é o nome do tipo que está sendo declarado.
+
+As definições podem assumir estas formas:
+
+| Forma da definição | O que declara | Exemplo |
+|--------------------|---------------|---------|
+| Tipo base | Deriva o novo tipo de um tipo já definido | `Um caractere é um byte.` |
+| Estrutura | Agrupa campos ou reserva um tamanho fixo | `Uma pessoa é uma estrutura com ...` / `Um ponteiro é uma estrutura com 4 bytes.` |
+| Lista | Declara uma lista de elementos ou campos | `Um polígono é uma lista com uns vértices.` |
+| Ponteiro | Declara um ponteiro genérico ou o tipo apontado | `Um endereço de byte é um ponteiro para um byte.` |
+| Escala | Relaciona uma unidade a um tipo base por uma razão | `Um pixel são 15 twips.` |
+
+Por exemplo, em `Um caractere é um byte.`, `caractere` é o nome declarado e `um byte` é sua definição (o tipo base). Em `Uma pessoa é uma estrutura com ...`, a definição começa em `uma estrutura com` e inclui os campos até o ponto final. As regras específicas de cada forma estão nas seções correspondentes abaixo.
+
 ## Nomes de tipos
 
 O nome do tipo pode ser simples ou composto. Espaços e alguns símbolos fazem parte de nomes compostos:
@@ -390,6 +406,19 @@ valor as número
 Se o valor like um byte for maior que 10, ...
 ```
 
+Em Português Puro a conversão também se expressa com o verbo `Converta` e com os sinônimos `tal como` / `tal qual`, que forçam o compilador a tratar um valor como outro tipo:
+
+```pop
+Converta o número para uma string denominada valor.
+Converta a string para um número denominado quantidade.
+
+Atribua o byte à cifra binária tal como um byte.
+Converta a string tal qual uma cifra hexadecimal para um texto hexadecimal.
+Destrinche o campo tal como uma variável.
+```
+
+Essas formas de conversão em instruções estão detalhadas em [Instruções.md](Instruções.md) (seções de conversão explícita e conversão forçada).
+
 ## Exemplos reunidos
 
 ### Tipos derivados
@@ -459,3 +488,24 @@ Uma polegada são 1440 twips.
 Um kb são 1024 bytes#.
 Um megabyte são 1024 kb.
 ```
+
+## Resumo dos tipos da biblioteca padrão
+
+| Tipo | Base | Tamanho | Intervalo / Notas |
+|------|------|---------|-------------------|
+| `byte` | Primitivo | 8 bits | 0 a 255 (sem sinal) |
+| `caractere` | `byte` | 8 bits | Codepage Windows-1252 |
+| `estrutura` | Primitivo | - | Base das declarações compostas |
+| `ponteiro` | `estrutura` | 4 bytes | Endereço de 32 bits; 0 é `nulo`/`inexistente` |
+| `string` | `estrutura` | 2 ponteiros | `caractere inicial` + `caractere final`; alocação automática |
+| `lista` | `ponteiro` | 4 bytes | Ponteiro para uma `lista estruturada` |
+| `lista estruturada` | `estrutura` | 2 ponteiros | `lista posterior` + `lista anterior` |
+| `umas listas` | `estrutura` | 2 ponteiros | `lista inicial` + `lista final` (âncora do conjunto) |
+| `número` | `estrutura` | 4 bytes | -2.147.483.648 a +2.147.483.647; acesso por `word` com `sob` |
+| `word` | `estrutura` | 2 bytes | `byte inicial` + `byte final` |
+| `fração` | `estrutura` | 2 números | `numerador` + `denominador`; racional exato, sem ponto flutuante |
+| `numeral misto` | `estrutura` | número + fração | Parte inteira sob uma fração, por exemplo `1+1/2` |
+| `sinalizador` | `estrutura` | 4 bytes | `sim` (1) ou `não` (0) |
+| `texto hexadecimal` | - | variável | Literal com prefixo `$`, por exemplo `$DEADBEEF` |
+
+Os escalas derivadas (`Um pixel são 15 twips.`) não têm tamanho próprio: ocupam o espaço do tipo base numérico e guardam a escala como fração de `número`.

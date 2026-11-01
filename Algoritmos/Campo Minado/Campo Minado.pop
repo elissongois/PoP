@@ -1,0 +1,94 @@
+Rotina para que se execute o programa:
+  Inicialize o jogo.
+  Execute os eventos.
+  Feche o programa.
+
+A área do campo é uma caixa.
+
+O campo minado é uma lista com umas células.
+
+Uma célula é uma estrutura com
+  Uma caixa,
+  Uma string denominada ícone,
+  Uma string denominado tipo de célula,
+  Uma string denominado estado da célula,
+  Um número denominado quantidade de células vizinhas,
+  Um número denominado quantidade de bombas próximas.
+
+
+
+\O tamanho da célula é um número igual a 30.
+ A quantidade de colunas é um número igual a 10.
+ A quantidade de linhas é um número igual a 10.
+ A quantidade de minas é um número igual a 10.
+
+Rotina para que se pinte o campo minado:
+  Posicione o campo minado.
+  Posicione as células no campo minado.
+
+Rotina para que se posicione o campo minado:
+  Atribua 12000 para um twip denominado largura.
+  Atribua 12000 para um twip denominado altura.
+  Faça a área do campo usando a largura pela altura.
+  Mova a área do campo para o lado esquerdo dessa caixa desta tela.
+  Mova a área do campo 300 pixels para a direita.
+  Mova a área do campo 150 pixels para baixo.
+  Pinte a área do campo usando a cor preta e a cor cinza escuro.
+
+Rotina para que se posicione as células no campo minado:
+  Atribua 100 para um twip denominado largura.
+  Atribua 100 para um twip denominado altura.
+  Aloque memória para o campo minado.
+  Atribua 0 para um número denominado contador.
+  Itere.
+    Obtenha uma célula desde o campo minado.
+    Se a célula for inexistente, pare.
+    Faça a caixa desta célula usando a largura pela altura.
+    Mova a caixa desta célula para o lado esquerdo dessa caixa desta tela.
+    Pinte a caixa desta célula usando a cor preta e a cor cinza escuro.
+    Adicione 1 para o contador.
+    Se o contador for 1, reitere.
+    Mova a caixa desta célula 100 pixels para a direita.
+    Mova a área do campo 150 pixels para baixo.
+    Pinte a área do campo usando a cor preta e a cor cinza escuro.
+
+\ As células são um array de células
+
+\ Um array de células é uma array de números com 
+  \ Umas células.
+
+\ O indicador de Game Over é um sinalizador.
+
+
+
+
+  \Atribua 0 para um número denominado índice.
+  \Atribua 0 para um número denominado contagem.
+  \Atribua 0 para um número denominado quantidade de minas colocadas.
+
+
+
+
+
+
+
+
+
+
+
+  \ Defina "console" como o tipo da aplicação.
+  \ Crie um array de números com 100 elementos.
+  \ Atribua 2 para o índice 1 no array de números.
+  \ Atribua 1 no array de números para o índice 1.
+  \ Atribua 50 no array de números para o índice 50.
+  \ Atribua 99 no array de números para o índice 99.
+  \ Atribua 100 no array de números para o índice 100.  
+  \ Obtenha um segundo número desde o array de números para o índice 50.
+  \ Obtenha um terceiro número desde o array de números para o índice 100.
+  \ Atribua o último índice desde o array de números para um quarto número.
+  \ Atribua o primeiro índice desde o array de números para um quinto número.  
+  \ Escreva "índice 100: " junto com o terceiro número junto com o texto CRLF para StdOut.
+  \ Escreva "índice 50: " junto com o segundo número junto com o texto CRLF para StdOut.
+  \ Escreva "valor do último índice: " junto com o quarto número junto com o texto CRLF para StdOut.
+  \ Escreva "valor do primeiro índice: " junto com o quinto número junto com o texto CRLF para StdOut.
+  \ Destrua o array de números.

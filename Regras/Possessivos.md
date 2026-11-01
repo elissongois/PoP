@@ -226,27 +226,6 @@ Atribua o valor de 10 para um número. \ verificar as regras de preposição ant
 \ Já que o "de" pode fazer parte do nome da variável, ele precisa ser distinguido de preposição. Na verdade o de só atua como preposição quando não é seguido por um pronome demonstrativo. Fora disso, ou ele faz parte de um nome de variável, ou ele é apenas açúcar sintático, ou seja, ele não tem significado e não está ao lado de um parâmetro ou variável. Requer uma preposição entre o nome da variável ou parâmetro e o `de`
 ```
 
-## Mapeamento para Langium
-
-```langium
-// Possessivos (contrações de de + pronome demonstrativo)
-Possessivo returns string:
-    'deste' | 'desta' | 'destes' | 'destas' | //adjacentes - acesso a campo/variável global/variável local de um tipo definido
-    'desse' | 'dessa' | 'desses' | 'dessas' | //ambrangentes - acesso a campos calculados de tipos ou variáveis locais inicializadas em invocação de rotina
-    'daquele' | 'daquela' | 'daqueles' | 'daquelas'; //ambrangentes - acesso a campos calculados de tipos ou variáveis locais inicializadas em invocação de rotina
-
-// Acesso a membro
-AcessoMembro:
-    campo=Identificador possessivo=Possessivo estrutura=Expressao;
-
-// Exemplo de uso em expressão
-ExpressaoPrimaria:
-    AcessoMembro |
-    Identificador |
-    Literal |
-    '(' Expressao ')';
-```
-
 ## Observações Importantes
 
 1. **Invariância**: `deste`, `desta`, `destes`, `destas` são **funcionalmente idênticos**

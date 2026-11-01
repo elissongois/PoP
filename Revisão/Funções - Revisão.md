@@ -20,12 +20,6 @@
 - Validar que retorno é sempre booleano
 - Verificar se sobrecarga funciona corretamente
 
-## Decisões de design para futuro mapeamento Langium
-- `Função para que se determine se` é a palavra-chave de declaração
-- Retorno obrigatório: `Diga sim` ou `Diga não`
-- Parâmetros usam artigos indefinidos
-- Sobrecarga suportada via múltiplos nomes
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Declaração de função

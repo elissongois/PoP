@@ -86,7 +86,7 @@ Rotina para que se execute o programa:
 ## 4. Próximos Passos
 
 Explore o restante deste guia do usuário para dominar o Português Puro:
-- [02: Sintaxe e Regras Fundamentais](./02_SYNTAXE_E_REGRAS.md)
+- [02: Sintaxe e Regras Fundamentais](./02_SINTAXE_E_REGRAS.md)
 - [03: Sistema de Tipos e Estruturas de Dados](./03_TIPOS.md)
 - [04: Rotinas, Funções e Funções Deliberativas](./04_ROTINAS_E_FUNÇÕES.md)
 - [05: Controle de Fluxo e Laços](./05_CONTROLE_DE_FLUXO.md)

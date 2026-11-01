@@ -32,12 +32,6 @@
 - Manter a equivalência entre `e`, `ou`, vírgula e ponto-e-vírgula como separadores.
 - Confirmar que conjunções inglesas sejam efetivamente deprecated.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `Conjuncao` como `'e' | 'ou' | 'nem'`.
-- Mapear `Separador` como `Conjuncao | ',' | ';'`.
-- `e` deve ser reconhecido também como operador de continuidade quando usado em contexto de sequência de comandos.
-- Garantir que `ou` seja tratado como alternativa semântica em definições.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 Uma pessoa é uma estrutura com

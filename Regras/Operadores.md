@@ -9,7 +9,6 @@ A linguagem Português Puro possui 4 categorias principais de operadores:
 3. [**Operadores de Concatenação**](#3-operadores-de-concatenação): Para junção de strings e valores
 4. [**Operadores Lógicos**](#4-operadores-lógicos): Para inversão dos operadores de comparação
 5. [**Observações Importantes**](#5-observações-importantes): Avaliação, conversão, case-insensitive
-6. [**Mapeamento para Langium**](#6-mapeamento-para-langium): Regras gramaticais
 
 ## Características Importantes
 
@@ -449,92 +448,6 @@ Adicione 5 para o total.
 ADICIONE 5 PARA O TOTAL.
 adicione 5 para o total.
 \ Todos são equivalentes
-```
-
----
-
-# 6. MAPEAMENTO PARA LANGIUM
-
-```langium
-// ============================================================================
-// OPERADORES ARITMÉTICOS
-// ============================================================================
-
-ComandoAritmetico:
-    ComandoAdicao | ComandoSubtracao | ComandoMultiplicacao | ComandoDivisao;
-
-ComandoAdicao:
-    'Adicione' valor=Expressao preposicao=('para'|'em') variavel=IDVariavel '.';
-
-ComandoSubtracao:
-    'Subtraia' valor=Expressao preposicao=('de'|'desde') variavel=IDVariavel '.';
-
-ComandoMultiplicacao:
-    'Multiplique' variavel=IDVariavel preposicao=('por'|'pelo') valor=Expressao '.';
-
-ComandoDivisao:
-    'Divida' variavel=IDVariavel preposicao=('por'|'pelo') valor=Expressao '.';
-
-// Operadores em expressões
-OperadorAritmetico returns string:
-    'mais' | 'menos' | 'vezes' | 
-    'multiplicado' ('por')? | 
-    'dividido' ('por')?;
-
-// ============================================================================
-// OPERADORES DE COMPARAÇÃO
-// ============================================================================
-
-ExpressaoComparacao:
-    esquerda=Termo operador=OperadorComparacao direita=Termo;
-
-OperadorComparacao returns string:
-    'for' ('igual' ('a')?)? |
-    'é' ('igual' ('a')?)? |
-    'está' ('igual' ('a')?)? |
-    'não' 'for' ('igual' ('a')?)? |
-    'não' 'é' ('igual' ('a')?)? |
-    'não' 'está' |
-    'for' 'maior' ('do')? 'que' |
-    'for' 'menor' ('do')? 'que' |
-    'for' 'maior' 'ou' 'igual' 'a' |
-    'for' 'menor' 'ou' 'igual' 'a' |
-    'excede' | 'exceder' |
-    'supera' | 'superar' |
-    'for' ('nulo'|'nula') |
-    'não' 'for' ('nulo'|'nula') |
-    'estiver' 'em' 'branco' |
-    'existe' | 'existir' |
-    'não' ('existe'|'existir');
-
-// ============================================================================
-// OPERADORES DE CONCATENAÇÃO
-// ============================================================================
-
-ComandoConcatenacao:
-    ComandoAcrescentar | ComandoAntepor;
-
-ComandoAcrescentar:
-    'Acrescente' valor=Expressao preposicao=('para'|'em') variavel=IDVariavel '.';
-
-ComandoAntepor:
-    'Anteponha' valor=Expressao 'para' variavel=IDVariavel '.';
-
-OperadorConcatenacao returns string:
-    'junto' 'com' |
-    'juntamente' 'com' |
-    'seguido' 'de' |
-    'seguida' 'de' |
-    'acompanhado' 'de' |
-    'acompanhada' 'de' |
-    'com';
-
-// ============================================================================
-// OPERADORES LÓGICOS
-// ============================================================================
-
-OperadorLogico returns string:
-    'e' | 'ou' | 'nem' | 'não';
 ```
 
 ---

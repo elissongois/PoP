@@ -22,12 +22,6 @@
 - Manter a distinção clara entre comentários de linha (`\`) e comentários em linha (`[]`).
 - Garantir que o compilador ignore comentários de linha (`[]`) como observações e não os trate como comentários de bloco.
 
-## Decisões de design para futuro mapeamento Langium
-- **Comentário de linha**: Mapear como `//` no Langium (ou equivalente).
-- **Comentário em linha**: Mapear como `[]` no Langium, com validação de balanceamento de colchetes.
-- **Comentário multilinha**: Mapear como `\\` em cada linha, com suporte a aninhamento de colchetes se necessário.
-- **Códigos de erro**: `#005` e `#006` devem ser replicados no parser para garantir consistência.
-
 ## Exemplos de uso extraídos de `Algoritmos/Janela/Janela.pop`
 ```pop
 \\ Comentário no final da linha

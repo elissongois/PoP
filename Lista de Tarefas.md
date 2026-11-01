@@ -1,52 +1,51 @@
-# Lista de Tarefas – Alinhamento de Gramática e Regras
+# Lista de Tarefas – Alinhamento entre Parser, Regras e Exemplos
 
 ## Visão Geral
 
-Esta lista reúne as melhorias e correções necessárias para os arquivos de gramática do Langium e a documentação de regras, a fim de garantir consistência em todo o projeto, especialmente com os arquivos `.pop` em `D:\POP\Algoritmos`.
+Esta lista reúne as melhorias e correções necessárias na documentação de regras (`Regras/`) e no parser da linguagem, para garantir consistência em todo o projeto, especialmente com os arquivos `.pop` de `Algoritmos/`. A gramática e o LSP são implementados de maneira tradicional (parser escrito à mão em `LSP/server/src/`), então o alinhamento é feito entre documentação, parser e exemplos.
 
 ---
 
-## ✅ Arquivos de Gramática (`pop.langium` vs `PortuguesPuro.langium`)
+## ✅ Documentação de Regras (`Regras/`)
 
-- [ ] **Unificar definições de operadores** – `OperadorAritmetico`, `OperadorLogico`, `OperadorComparacao` e `OperadorConcatenacao` são definidos em ambas as gramáticas com pequenas variações (por exemplo, preposições extras em `PortuguesPuro`). Consolidá-los em uma definição compartilhada ou garantir que ambas as gramáticas exponham o mesmo conjunto de literais.
-
-- [ ] **Tratamento de Preposição** – `pop.langium` define `Preposição` como `PreposiçãoSemA | 'a'`. `PortuguesPuro` usa apenas `PreposicaoSemA`. Adicione `'a'` a este último ou ajuste o analisador léxico para aceitar ambas as formas.
-- [ ] **Consistência na nomenclatura da interface** – `ComandoRetorno` (pop) vs `ComandoDeRetorno` (PortuguesPuro) e `ComandoPare` vs `ComandoDeParada`. Alinhe os nomes ou forneça aliases para evitar definições de regras duplicadas.
-- [ ] **Divergência na sintaxe dos comandos** – `pop.langium` usa `ComandoAtribuicao` com as preposições `para`, `a`, `ao`. `PortuguesPuro` restringe-se a `para`/`em`. Estenda `PortuguesPuro` para aceitar todas as preposições usadas nos exemplos.
-- [ ] **Variantes de comando ausentes** – `Acrescente` / `Anteponha` (comandos de concatenação) existem na documentação das regras, mas estão ausentes em `PortuguesPuro.langium`. Adicione os equivalentes `ComandoAcrescentar` e `ComandoAntepor`.
-- [x] **Entradas duplicadas de `ArtigoDefinido`** – `PortuguesPuro.langium` repete a mesma linha (linhas 248-251). Remova a duplicata para manter a gramática limpa.
-- [ ] **Sintaxe de declaração de variáveis** – `DeclaracaoGlobal` em `PortuguesPuro` permite duas formas alternativas com `|`. Certifique-se de que ambas as formas sejam refletidas no analisador sintático e que os exemplos na pasta Algoritmos usem a sintaxe suportada.
-- [x] **Insensibilidade a maiúsculas e minúsculas** – As gramáticas atualmente dependem de strings literais. Adicione uma regra ou transformador do analisador léxico para tornar todas as palavras-chave insensíveis a maiúsculas e minúsculas, conforme a documentação da regra.
-- [-] **Tratamento de literais para `texto CRLF`** – Vários arquivos `.pop` concatenam `texto CRLF`. Defina uma regra terminal ou auxiliar para reconhecer `texto CRLF` como um literal de string com tratamento de quebra de linha.
-- [ ] **Variações de PreposicaoAtribuicao** – A documentação da regra lista muitas preposições (`para`, `ao`, `à`, `às`, `em`, `na`, `no`, etc.). Estenda `PreposicaoAtribuicao` em ambas as gramáticas para incluir a lista completa.
+- [ ] **Consistência do mapeamento de operadores** – Verifique se as tabelas de operadores em `Operadores.md` correspondem exatamente aos literais reconhecidos pelo parser (por exemplo, `mais`, `menos`, `vezes`, `multiplicado por`). Atualize a documentação ou o parser para resolver as inconsistências.
+- [ ] **Completude de `Preposições.md`** – Garanta que todas as preposições usadas nos arquivos `.pop` de `Algoritmos/` (`para`, `em`, `de`, `a`, `com` etc.) estejam listadas em `Preposições.md` e sejam reconhecidas pelo parser.
+- [ ] **Alinhamento da documentação de comandos** – As seções de comandos em `Instruções.md` devem refletir as regras realmente aceitas pelo parser (atribuição, retorno, `Pare` etc.). Ajuste a documentação onde houver divergências.
+- [ ] **Erros tipográficos** – Revise todos os arquivos markdown de regras em busca de títulos duplicados, tabelas quebradas ou crases de fechamento ausentes.
+- [ ] **Consistência das formas verbais** – A documentação lista formas verbais (`Adicione`, `Subtraia`, `Multiplique`, `Divida`) que precisam bater com as formas reconhecidas na análise léxica. Certifique-se de que as listas de verbos sejam exaustivas.
+- [ ] **Definições de operadores lógicos** – `Operadores.md` inclui operadores lógicos (`e`, `ou`, `nem`, `não`). Verifique se todas essas formas são reconhecidas e se a insensibilidade a maiúsculas e minúsculas é aplicada.
 
 ---
 
-## ✅ Documentação de Regras (`D:\POP\Regras`)
+## ✅ Algoritmos de Exemplo (`Algoritmos/`)
 
-- [ ] **Consistência do mapeamento de operadores** – Verifique se as tabelas de operadores em `Operadores.md` correspondem exatamente aos literais definidos nas gramáticas (por exemplo, `mais`, `menos`, `vezes`, `multiplicado por`). Atualize a documentação ou a gramática para resolver as inconsistências.
-
-- [ ] **Completude de Preposicoes.md** – Garanta que todas as preposições usadas nos arquivos `.pop` do Algoritmos (`para`, `em`, `de`, `a`, `com`, etc.) estejam listadas em `Preposicoes.md` e mapeadas para a regra Langium apropriada.
-
-- [ ] **Alinhamento da documentação de comandos** – As seções de comandos em `Instruções.md` e `Comandos.md` devem refletir as regras gramaticais reais (`ComandoAtribuição`, `ComandoRetorno`, `ComandoPare`, etc.). Ajuste a documentação onde houver divergências.
-- [ ] **Erros tipográficos** – Verifique todos os arquivos markdown de regras em busca de títulos duplicados, tabelas quebradas ou crases de fechamento ausentes que possam causar confusão ao gerar a documentação.
-- [ ] **Consistência das formas verbais** – A documentação lista formas verbais (`Adicione`, `Subtraia`, `Multiplique`, `Divida`), enquanto a gramática usa `Adicione`/`Subtraia`, etc. Certifique-se de que as listas de verbos sejam exaustivas e correspondam às definições do analisador léxico.
-- [ ] **Definições de operadores lógicos** – `Operadores.md` inclui operadores lógicos (`e`, `ou`, `nem`, `não`). Verifique se `OperadorLogico` nas gramáticas inclui todas essas formas e se a distinção entre maiúsculas e minúsculas é aplicada.
+- [ ] **Validar sintaxe em relação às regras** – Abra cada arquivo `.pop` (`Agenda Telefônica`, `Basteroides`, `Janela`, `Sudoku`) com a extensão de `LSP/` e registre os erros de análise. Ajuste o parser ou os arquivos conforme o caso.
+- [ ] **Auditoria de uso de operadores** – Certifique-se de que cada operador usado nos exemplos (por exemplo, `Adicione`, `Subtraia`, `Multiplique`, `Divida`, `junto com`, `acompanhado de`) seja aceito pelo parser e documentado em `Operadores.md`.
+- [ ] **Consistência de preposições** – Verifique se todas as preposições (`para`, `em`, `de`, `a`, `com` etc.) usadas nos algoritmos estão presentes em `Preposições.md` e são reconhecidas pelo parser.
+- [ ] **Nomenclatura de comandos** – Alinhe os nomes dos comandos nos algoritmos (`Adicione`, `Acrescente`, `Anteponha`, `Escreva`, `Leia`) com o que o parser e a documentação reconhecem.
+- [ ] **Formatação de literais** – Os exemplos usam `texto CRLF` e literais de string com aspas escapadas. Garanta que a análise léxica trate esses padrões ou documente a regra correspondente.
 
 ---
 
-## ✅ Subpastas de Algoritmos (`D:\POP\Algoritmos`)
+## ✅ Documentação em Prosa (`Documentação/` e `GitBook/`)
 
-- [ ] **Validar sintaxe em relação à gramática** – Execute o analisador sintático Langium em cada arquivo `.pop` (`Agenda Telefônica.pop`, `Basteroides.pop`, `Janela.pop`, `Sudoku.pop`) e registre quaisquer erros de análise. Atualize as gramáticas ou os arquivos de acordo.
-
-- [ ] **Auditoria de uso de operadores** – Certifique-se de que cada operador usado nos exemplos (por exemplo, `Adicione`, `Subtraia`, `Multiplique`, `Divida`, `junto com`, `acompanhado de`) esteja definido na gramática e documentado em `Operadores.md`.
-
-- [ ] **Consistência de preposições** – Verifique se todas as preposições (`para`, `em`, `de`, `a`, `com`, etc.) usadas nos algoritmos estão presentes em `Preposicoes.md` e na gramática.
-- [ ] **Nomenclatura de comandos** – Alinhe os nomes dos comandos nos algoritmos (`Adicione`, `Acrescente`, `Anteponha`, `Escrever`, `Leia`) com os nomes das interfaces nas gramáticas.
-- [ ] **Formatação de literais** – Os exemplos usam `texto CRLF` e literais de string com aspas escapadas. Certifique-se de que o analisador léxico possa lidar com esses padrões ou adicione regras explícitas.
+- [ ] **Duplicação entre o tutorial único e o GitBook** – `Documentação/Documentação Português Puro.md` (~2 900 linhas) contém quase por inteiro 17 páginas publicadas em `GitBook/` (exemplos como Fatorial, Oláh Mundo, 100 Portas, Animação de sprites, Pintando como Claude Monet, Agenda Telefônica, Cofrinho Virtual, Lidando com vazamentos de memória em laços). Nenhuma das duas é exportação exata da outra. Decidir qual vira fonte única e reduzir a outra a um índice de links.
+- [ ] **Redundância residual com `Regras/`** – O mesmo tutorial reapresenta regras elementais (tipos, rotinas, controle de fluxo) que já têm capítulo próprio em `Regras/`. Enxugar essas seções em favor de links.
 
 ---
 
-## Próximos passos
+## Próximos Passos
 
-1. Priorizar a unificação das operações
+1. Priorizar a unificação das definições de operadores entre `Regras/Operadores.md` e o parser.
+2. Cobrir no parser as variantes de comando e preposições que faltam (`Acrescente`, `Anteponha` e as preposições de atribuição).
+3. Atualizar a documentação de regras para refletir a gramática finalizada.
+4. Executar o parser sobre todos os arquivos dos algoritmos de exemplo e corrigir as divergências restantes.
+5. Rodar a suíte de testes da extensão (`npm test` em `LSP/`) depois de cada conjunto de mudanças.
+
+---
+
+## Nota sobre o Histórico
+
+Esta lista era originalmente dedicada aos arquivos de gramática do experimento com Langium (`pop.langium` e `PortuguesPuro.langium`), que foram descartados com a decisão de implementar a gramática e o LSP de maneira tradicional. O workspace `Gramática/` permanece no repositório apenas como legado, marcado para exclusão. Os itens foram reescritos para o parser artesanal de `LSP/`.
+
+Havia uma cópia em inglês deste arquivo (`TodoList.md`); ela foi fundida aqui e removida. Esta é a única lista de tarefas pendentes do repositório.

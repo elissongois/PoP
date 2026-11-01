@@ -17,12 +17,6 @@
 - Manter a normalização automática de verbos para formas canônicas.
 - Garantir que `ser` e `estar` sejam tratados como equivalentes.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `Verbo` como união de todos os grupos de verbos.
-- Implementar normalização automática para formas canônicas (`é`, `está`, `tem`, `pode`, etc.).
-- Verbos flexionam em número (singular/plural) e tempo verbal, mas são normalizados.
-- Case-insensitive para todos os verbos.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 O contador é um número.

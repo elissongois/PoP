@@ -20,13 +20,6 @@
 - Manter a documentação de escape de aspas (`""`) clara.
 - Confirmar que valores especiais como `inexistente` sejam tratados como ponteiros nulos.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `NumeroInteiro`, `Fracao`, `String`, `Hexadecimal`, `Booleano`, `ValorEspecial` no lexer.
-- Garantir que `sinal` para números inteiros seja opcional (`'-'`).
-- Definir `digitos` como sequência de caracteres numéricos.
-- Definir `StringConteudo` para aceitar `CaractereNormal` e `""` (aspas escapadas).
-- Definir `Hexadecimal` com prefixo `$` e dígitos `0-9A-Fa-f`.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 Atribua 0 para o contador.

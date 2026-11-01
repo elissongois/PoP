@@ -17,13 +17,6 @@
 - Manter a categorização clara das preposições.
 - Garantir que preposições compostas (a partir de, dentro de, etc.) sejam reconhecidas como unidade única.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `Preposicao` com todas as categorias listadas.
-- Preposições compostas devem ser tratadas como sequências de palavras que formam uma unidade léxica.
-- Contrações com artigos (do, da, no, na, etc.) devem ser mapeadas como tokens separados ou como regras composicionais.
-- Preposições pronominais (cujo, cuja, etc.) devem ser consideradas como parte do sistema de pronomes.
-- Garantir case-insensitive para todas as preposições.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 Atribua 10 para um contador.

@@ -398,39 +398,6 @@ Processe "kernel32.dll" "CreateThread" com
 
 ---
 
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// CALLBACKS
-// ============================================================================
-
-RotinaCallback:
-    'Rotina' 'para' 'que' 'se' 'compativelmente' nome=ExpressaoRotina ':' 
-    corpo=CorpoRotina;
-
-ComandoAponte:
-    'Aponte' ponteiro=Variavel 'para' 'a' 'rotina' rotina=NomeRotina '.';
-
-NomeRotina:
-    // Nome da rotina sem "Rotina para que se"
-    palavras+=PALAVRA+;
-
-// Uso em Processe
-ChamadaExternaComCallback:
-    'Processe' dll=STRING funcao=STRING 'com'
-    parametros+=Parametro ('e' parametros+=Parametro)*
-    ('retornando' retorno=Variavel)? '.';
-
-Parametro:
-    Variavel | Literal | PonteiroCallback;
-
-PonteiroCallback:
-    'o' 'ponteiro' | 'o' 'callback';
-```
-
----
-
 ## Boas Práticas
 
 1. **Sempre `compativelmente`**: Use para todos os callbacks do Windows

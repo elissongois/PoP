@@ -1,66 +1,66 @@
-Create or update `AGENTS.md` for this repository.
+Crie ou atualize o `AGENTS.md` deste repositório.
 
-The goal is a compact instruction file that helps future OpenCode sessions avoid mistakes and ramp up quickly. Every line should answer: "Would an agent likely miss this without help?" If not, leave it out.
+O objetivo é um arquivo compacto de instruções que ajude futuras sessões OpenCode a evitar erros e a ganharem ritmo rapidamente. Cada linha deve responder: "Um agente provavelmente deixaria isso passar sem ajuda?" Se não, deixe de fora.
 
-User-provided focus or constraints (honor these):
+Foco ou restrições indicados pelo usuário (cumpra-os):
 
 
-## How to investigate
+## Como investigar
 
-Read the highest-value sources first:
-- `README*`, root manifests, workspace config, lockfiles
-- build, test, lint, formatter, typecheck, and codegen config
-- CI workflows and pre-commit / task runner config
-- existing instruction files (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.cursorrules`, `.github/copilot-instructions.md`)
-- repo-local OpenCode config such as `opencode.json`
+Leia primeiro as fontes de maior valor:
+- `README*`, manifests da raiz, configuração de workspace, lockfiles
+- configuração de build, test, lint, formatter, typecheck e codegen
+- CI workflows e configuração de pre-commit / task runner
+- arquivos de instrução existentes (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.cursorrules`, `.github/copilot-instructions.md`)
+- configuração OpenCode local do repositório, como `opencode.json`
 
-If architecture is still unclear after reading config and docs, inspect a small number of representative code files to find the real entrypoints, package boundaries, and execution flow. Prefer reading the files that explain how the system is wired together over random leaf files.
+Se a arquitetura ainda estiver pouco clara depois de ler a configuração e a documentação, inspecione um pequeno número de arquivos de código representativos para encontrar os reais pontos de entrada, os limites entre pacotes e o fluxo de execução. Prefira ler os arquivos que explicam como o sistema é conectado a ler arquivos folha aleatórios.
 
-Prefer executable sources of truth over prose. If docs conflict with config or scripts, trust the executable source and only keep what you can verify.
+Prefira fontes executáveis de verdade à documentação em prosa. Se os docs conflitarem com configuração ou scripts, confie na fonte executável e mantenha apenas o que você consegue verificar.
 
-## What to extract
+## O que extrair
 
-Look for the highest-signal facts for an agent working in this repo:
-- exact developer commands, especially non-obvious ones
-- how to run a single test, a single package, or a focused verification step
-- required command order when it matters, such as `lint -> typecheck -> test`
-- monorepo or multi-package boundaries, ownership of major directories, and the real app/library entrypoints
-- framework or toolchain quirks: generated code, migrations, codegen, build artifacts, special env loading, dev servers, infra deploy flow
-- repo-specific style or workflow conventions that differ from defaults
-- testing quirks: fixtures, integration test prerequisites, snapshot workflows, required services, flaky or expensive suites
-- important constraints from existing instruction files worth preserving
+Procure os fatos de maior sinal para um agente que trabalhe neste repositório:
+- comandos exatos de desenvolvimento, sobretudo os não óbvios
+- como executar um teste único, um pacote único ou uma etapa focada de verificação
+- ordem obrigatória de comandos quando ela importa, como `lint -> typecheck -> test`
+- limites de monorepo ou de múltiplos pacotes, a titularidade dos diretórios principais e os reais pontos de entrada de app/biblioteca
+- peculiaridades de framework ou toolchain: código gerado, migrations, codegen, artefatos de build, carregamento especial de ambiente, servidores de desenvolvimento, fluxo de deploy de infraestrutura
+- convenções de estilo ou de fluxo de trabalho do repositório que diferem dos padrões
+- peculiaridades de testes: fixtures, pré-requisitos de testes de integração, fluxos de snapshot, serviços necessários, suítes flaky ou caras
+- restrições importantes de arquivos de instrução existentes que valem preservar
 
-Good `AGENTS.md` content is usually hard-earned context that took reading multiple files to infer.
+Bom conteúdo de `AGENTS.md` costuma ser contexto difícil de obter, que exigiu ler vários arquivos para ser inferido.
 
-## Questions
+## Perguntas
 
-Only ask the user questions if the repo cannot answer something important. Use the `question` tool for one short batch at most.
+Só faça perguntas ao usuário se o repositório não puder responder algo importante. Use a ferramenta `question` para no máximo um lote curto de perguntas.
 
-Good questions:
-- undocumented team conventions
-- branch / PR / release expectations
-- missing setup or test prerequisites that are known but not written down
+Boas perguntas:
+- convenções de equipe não documentadas
+- expectativas de branch / PR / release
+- pré-requisitos de setup ou de testes que são conhecidos, mas não estão escritos
 
-Do not ask about anything the repo already makes clear.
+Não pergunte nada que o repositório já deixe claro.
 
-## Writing rules
+## Regras de redação
 
-Include only high-signal, repo-specific guidance such as:
-- exact commands and shortcuts the agent would otherwise guess wrong
-- architecture notes that are not obvious from filenames
-- conventions that differ from language or framework defaults
-- setup requirements, environment quirks, and operational gotchas
-- references to existing instruction sources that matter
+Inclua apenas orientação de alto sinal e específica do repositório, como:
+- comandos e atalhos exatos que o agente, de outra forma, estimaria errado
+- notas de arquitetura que não são óbvias pelos nomes dos arquivos
+- convenções que diferem dos padrões da linguagem ou do framework
+- requisitos de setup, peculiaridades de ambiente e armadilhas operacionais
+- referências a fontes de instrução existentes que importam
 
-Exclude:
-- generic software advice
-- long tutorials or exhaustive file trees
-- obvious language conventions
-- speculative claims or anything you could not verify
-- content better stored in another file referenced via `opencode.json` `instructions`
+Exclua:
+- conselhos genéricos de software
+- tutoriais longos ou árvores de arquivos exaustivas
+- convenções óbvias de linguagem
+- afirmações especulativas ou qualquer coisa que você não tenha conseguido verificar
+- conteúdo melhor armazenado em outro arquivo referenciado via `opencode.json` `instructions`
 
-When in doubt, omit.
+Na dúvida, omita.
 
-Prefer short sections and bullets. If the repo is simple, keep the file simple. If the repo is large, summarize the few structural facts that actually change how an agent should work.
+Prefira seções e itens curtos. Se o repositório é simples, mantenha o arquivo simples. Se o repositório é grande, resuma os poucos fatos estruturais que de fato mudam como um agente deve trabalhar.
 
-If `AGENTS.md` already exists at `/home/elisson/Projetos/Pop`, improve it in place rather than rewriting blindly. Preserve verified useful guidance, delete fluff or stale claims, and reconcile it with the current codebase.
+Se já existe um `AGENTS.md` na raiz `/home/elisson/Projetos/Pop`, melhore-o no próprio lugar em vez de reescrevê-lo às cegas. Preserve a orientação útil verificada, elimine enfeites e afirmações desatualizadas, e reconcilie o arquivo com o codebase atual.

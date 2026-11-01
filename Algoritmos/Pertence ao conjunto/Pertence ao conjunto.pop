@@ -1,0 +1,30 @@
+Rotina para que se execute o programa:
+  Defina "console" como o tipo da aplicação.
+  Valide números de conjuntos númericos.
+  Feche o programa.
+
+Rotina para que se valide números de conjuntos númericos:
+  Escreva "Informe o número a ser comparado" junto com o texto CRLF para StdOut.
+  Leia uma string desde a StdIn.
+  Converta a string para um número denominado número comparado.
+  Escreva "Informe o limite inferior" junto com o texto CRLF para StdOut.
+  Leia uma segunda string desde a StdIn.
+  Converta a segunda string para um número denominado limite inferior.
+  Escreva "Informe o limite superior" junto com o texto CRLF para StdOut.
+  Leia uma terceira string desde a StdIn.
+  Converta a terceira string para um número denominado  limite superior.
+  Se o número comparado for menor do que o limite inferior,
+    Escreva "Número menor do que o limite inferior" junto com  o texto CRLF para StdOut;
+    Retorne.
+  Se o número comparado for maior do que o limite superior,
+    Escreva "Número maior do que o limite superior" junto com o texto CRLF para StdOut;
+    Retorne.
+  Escreva "---------------------------------" junto com o texto CRLF para StdOut.
+  Escreva "O Número está dentro do conjunto." junto com o texto CRLF para StdOut.
+
+
+
+Função para que se determine se um número está entre um segundo número e um terceiro número:
+  Se o número for menor do que o segundo número, diga não.
+  Se o número for maior do que o terceiro número, diga não.
+  Diga sim.

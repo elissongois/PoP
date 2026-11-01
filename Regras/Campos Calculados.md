@@ -227,29 +227,6 @@ Rotina para que se meça linha:
 2. **Custo Computacional**: O valor é recalculado a cada acesso
 3. **Escopo**: Requer que a rotina do campo calculado esteja disponível no escopo
 
-## Mapeamento para Langium
-
-```langium
-// Definição de campo calculado
-CampoCalculado:
-    'Rotina' 'para' 'que' 'se' 'atribua' 
-    campo=Identificador 
-    possessivo=PossessivoAbrangente 
-    tipo=TipoReferencia 
-    'para' tipoRetorno=TipoReferencia ':' 
-    corpo=CorpoRotina;
-
-// Possessivos abrangentes para definição
-PossessivoAbrangente:
-    'duma' | 'dum' | 'dumas' | 'duns' |
-    'dessa' | 'desse' | 'dessas' | 'desses' |
-    'daquela' | 'daquele' | 'daquelas' | 'daqueles';
-
-// Acesso a campo calculado (igual a campo normal)
-AcessoCampo:
-    campo=Identificador possessivo=Possessivo estrutura=Expressao;
-```
-
 ## Observações Importantes
 
 1. **Assinatura Especial**: A rotina usa `atribua` em vez de verbos comuns

@@ -1,6 +1,8 @@
-O compilador da linguagem Português Puro, é um único binário completo contendo lexer, parser ou linker e assembler, realiza uma análise aprofundada do código fonte, permitindo inclusive compilar sistemas com modificações ou recursos específicos. Baseado nas informações fornecidas nas fontes, a seguir estão os detalhes sobre como ele executa essas funções:
+# Sobre o Compilador
 
-### Análise Sintática e Semântica de Código
+O compilador da linguagem Português Puro, sendo uma ferramenta embutida, sem depender de lexers, parsers ou linkers externos, realiza uma análise aprofundada do código fonte, permitindo inclusive compilar sistemas com modificações ou recursos específicos. Baseado nas informações fornecidas nas fontes, a seguir estão os detalhes sobre como ele executa essas funções:
+
+## Análise Sintática e Semântica de Código
 
 O compilador de Português Puro realiza a análise sintática e semântica através de uma série de *etapas de compilação bem definidas*, cada uma focada em aspectos específicos do código :
 

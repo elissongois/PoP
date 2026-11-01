@@ -192,7 +192,7 @@ Um número [em pixels] denominado largura.
 
 ### Referenciadores `()`
 
-- **Função**: Marcar referências
+- **Função**: Marcar referências ou documentar
 - **Efeito**: `(referência)` afeta compilação
 - **Uso**: Ponteiros, documentação semântica
 

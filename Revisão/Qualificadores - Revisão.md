@@ -27,13 +27,6 @@
 - Manter a distinção clara entre qualificador semântico (`referência`) e documentais.
 - Garantir que `(referência)` seja reconhecido e afete gerenciamento de memória.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `Qualificador` como `QualificadorReferencia | QualificadorDocumental`.
-- `QualificadorReferencia`: `'(' 'referência' ')'`.
-- `QualificadorDocumental`: `'(' conteudo=QualificadorConteudo ')'`.
-- Validar balanceamento de parênteses e rejeitar parênteses aninhados.
-- Garantir que qualificadores documentais sejam ignorados durante compilação.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 Uma lista é uma estrutura com

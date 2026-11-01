@@ -1,0 +1,46 @@
+O comando é um trecho.
+O limite inferior é um número.
+O limite superior é um número.
+
+Rotina para que se execute o programa:
+  Defina "console" como o tipo da aplicação.
+  Escreva o texto CRLF junto com "Gerador de números aleatórios." junto com o texto CRLF para StdOut.
+  Escreva o texto CRLF junto com "Digite quantos números deseja gerar: " para StdOut.
+  Itere.
+    Escreva o texto CRLF junto com " > " para StdOut.
+    Leia o comando desde a StdIn.
+    Se o comando estiver em branco,
+      Reitere.
+  Converta o comando para um número denominado quantidade de números.
+  Escreva o texto CRLF junto com "Digite o intervalo inferior: " para StdOut.
+  Itere.
+    Escreva o texto CRLF junto com " > " para StdOut.
+    Leia o comando desde a StdIn.
+    Se o comando estiver em branco,
+      Reitere.
+  Converta o comando para o limite inferior.
+  Escreva o texto CRLF junto com "Digite o intervalo superior: " para StdOut.
+  Itere.
+    Escreva o texto CRLF junto com " > " para StdOut.
+    Leia o comando desde a StdIn.
+    Se o comando estiver em branco,
+      Reitere.
+  Converta o comando para o limite superior.
+  Sorteie os números usando a quantidade de números.
+  Escreva o texto CRLF junto com "Os números sorteados foram: " junto com o resultado do sorteio para StdOut.
+  Feche o programa.
+
+O resultado do sorteio é uma string.
+
+Rotina para que se sorteie os números usando uma quantidade de números:
+  Escolha aleatoriamente um número entre o limite inferior e o limite superior.
+  Converta o número para o resultado do sorteio.
+  Atribua 2 para um contador.
+  Itere.
+    Se o contador for maior do que a quantidade de números, pare.
+    Escolha aleatoriamente o número entre o limite inferior e o limite superior.
+    Converta o número para uma string denominada número sorteado.
+    Se o número sorteado estiver no resultado do sorteio, reitere.
+    Acrescente "-" junto com o número sorteado para o resultado do sorteio.
+    Adicione 1 para o contador.
+  Reitere.

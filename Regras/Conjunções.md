@@ -189,54 +189,6 @@ Rotina para que se processe um número ou uma string:
 
 ---
 
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// CONJUNÇÕES
-// ============================================================================
-
-Conjuncao:
-    'e' | 'ou' | 'nem';
-
-// Conjunções inglesas (deprecated)
-ConjuncaoInglesa:
-    'neither' | 'nor';
-
-// Separadores equivalentes
-Separador:
-    Conjuncao | ',' | ';';
-
-// ============================================================================
-// USO EM ESTRUTURAS
-// ============================================================================
-
-CamposEstrutura:
-    campo+=Campo (separador=Separador campo+=Campo)* '.';
-
-Campo:
-    artigo=ArtigoIndefinido tipo=Tipo palavra='denominado' nome=ID;
-
-// ============================================================================
-// USO EM PARÂMETROS
-// ============================================================================
-
-Parametros:
-    parametro+=Parametro (separador=Separador parametro+=Parametro)*;
-
-Parametro:
-    artigo=ArtigoIndefinido tipo=Tipo;
-
-// ============================================================================
-// OPERADOR DE CONTINUIDADE
-// ============================================================================
-
-OperadorContinuidade:
-    'e';
-```
-
----
-
 ## Observações Importantes
 
 1. **Equivalência**: `e`, `ou` e `,` são tratados de forma similar

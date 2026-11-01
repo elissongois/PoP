@@ -452,51 +452,6 @@ Rotina para que se processe uma linha:
 
 ---
 
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// LAÇOS
-// ============================================================================
-
-Laco:
-    inicio=InicioLaco
-    corpo=CorpoLaco
-    fim=FimLaco;
-
-InicioLaco:
-    'Itere' '.';
-
-CorpoLaco:
-    instrucoes+=InstrucaoLaco+;
-
-InstrucaoLaco:
-    ChamadaRotina | CondicionalSe | Pare | Retorne | Reitere | 
-    Atribuicao | /* outras instruções */;
-
-FimLaco:
-    'Reitere' '.';
-
-Pare:
-    'Pare' '.';
-
-Reitere:
-    'Reitere' '.';
-
-// ============================================================================
-// LAÇO COM ITERE IMPLÍCITO (início da rotina)
-// ============================================================================
-
-CorpoRotina:
-    (laco=LacoImplicito | instrucoes+=Instrucao+);
-
-LacoImplicito:
-    instrucoes+=InstrucaoLaco+
-    fim='Reitere' '.';
-```
-
----
-
 ## Observações Importantes
 
 1. **Tipo Único**: Apenas um tipo de laço (`while(true)`)

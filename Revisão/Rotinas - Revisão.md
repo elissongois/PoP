@@ -22,12 +22,6 @@
 - Validar que `Preserve` e `original` funcionam corretamente
 - Verificar se sobrecarga funciona em rotinas
 
-## Decisões de design para futuro mapeamento Langium
-- `Rotina para que se` é a palavra-chave de declaração
-- Rotinas são chamadas diretamente pelo nome
-- `compativelmente` é modificador para callbacks Windows
-- Sobrecarga suportada via múltiplos nomes
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 \ Rotina principal

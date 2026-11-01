@@ -518,48 +518,6 @@ Rotina para que se compativelmente manipule um evento:
 
 ---
 
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// ROTINAS (Procedimentos)
-// ============================================================================
-
-Rotina:
-    cabecalhos+=CabecalhoRotina+ ':'
-    corpo=CorpoRotina;
-
-CabecalhoRotina:
-    'Rotina' 'para' 'que' 'se' ('compativelmente')? expressao=ExpressaoRotina ';'?;
-
-ExpressaoRotina:
-    // Nome da rotina + parâmetros + preposições
-    elementos+=(PalavraChave | ArtigoIndefinido | Tipo | Preposicao | Conjuncao)+;
-
-CorpoRotina:
-    instrucoes+=Instrucao+;
-
-// ============================================================================
-// INSTRUÇÕES
-// ============================================================================
-
-Instrucao:
-    ChamadaRotina | CondicionalSe | Itere | Retorne | Atribuicao | 
-    Decodifique | Processe | Preserve | /* outras instruções */;
-
-ChamadaRotina:
-    // Usa a expressão da rotina sem "Rotina para que se"
-    elementos+=(PalavraChave | Artigo | Variavel | Preposicao | Valor)+ '.';
-
-Retorne:
-    'Retorne' '.';
-
-Preserve:
-    'Preserve' variavel=Variavel '.';
-```
-
----
-
 ## Observações Importantes
 
 1. **Nomenclatura**: O nome da rotina começa após `Rotina para que se`

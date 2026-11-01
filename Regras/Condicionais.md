@@ -334,47 +334,6 @@ Se X não estiver em branco, ...
 
 ---
 
-## Mapeamento para Langium
-
-```langium
-// ============================================================================
-// CONDICIONAIS
-// ============================================================================
-
-Condicional:
-    'Se' expressao=ExpressaoCondicional ','
-    bloco=BlocoInstrucoes;
-
-ExpressaoCondicional:
-    // Chamada de função deliberativa
-    elementos+=(Variavel | Verbo | Valor | Preposicao | Comparador)+;
-
-BlocoInstrucoes:
-    instrucoes+=InstrucaoCondicional+;
-
-InstrucaoCondicional:
-    instrucao=Instrucao separador=(';' | '.');
-
-// ============================================================================
-// VERBOS CONDICIONAIS
-// ============================================================================
-
-VerboCondicional:
-    'for' | 'estiver' | 'não' 'for' | 'não' 'estiver' |
-    'for' Comparador | 'estiver' Estado;
-
-Comparador:
-    'maior' 'do' 'que' ('ou' 'igual' ('a'|'ao'))? |
-    'menor' 'do' 'que' ('ou' 'igual' ('a'|'ao'))? |
-    'igual' ('a'|'ao');
-
-Estado:
-    'em' 'branco' | 'ativo' | 'aberto' | 'fechado' | 
-    'inexistente' | /* outros estados */;
-```
-
----
-
 ## Observações Importantes
 
 1. **Apenas Funções**: A expressão condicional deve ser uma função deliberativa

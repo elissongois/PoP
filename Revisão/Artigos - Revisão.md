@@ -21,13 +21,6 @@
 - Manter a clara distinção entre artigos definidos (escopo global) e indefinidos (local/tipo).
 - Confirmar que pronomes demonstrativos abrangentes (esse, aquele, certo, determinado) são tratados como artigos indefinidos.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear `ArtigoDefinido` como `'o' | 'os' | 'a' | 'as' | 'este' | 'esta' | 'estes' | 'estas'`.
-- Mapear `ArtigoIndefinido` incluindo formas básicas `'um' | 'uns' | 'uma' | 'umas'` e pronomes abrangentes `'esse' | 'essa' | 'aqueles' | 'esses' | 'certo' | 'certos' | 'determinado' | 'determinados'`.
-- Mapear contrações: `ContracaoDeDefinido` (`'do' | 'da' | 'dos' | 'das'`), `ContracaoEmDefinido` (`'no' | 'na' | 'nos' | 'nas'`).
-- Mapear contrações com pronomes demonstrativos (`deste`, `destes`, `desse`, `nesses`, etc.).
-- Garantir case-insensitive em toda a implementação.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 O contador é um número.

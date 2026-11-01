@@ -1,0 +1,47 @@
+Rotina para que se execute o programa:
+  Defina "console" como o tipo da aplicação.
+  Subdivida "gHHH5YY++///\" em uns conjuntos de texto para cada mudança de caractere.
+  Escreva os conjuntos de texto na saída padrão.
+  Destrua os conjuntos de texto.
+  Feche o programa.
+
+
+Rotina para que se subdivida uma string em uns conjuntos de texto para cada mudança de caractere:
+  Se a quantidade de caracteres desta string for menor que 2,
+    Adicione a string para os conjuntos de texto;
+    Retorne.
+  Lance um percorredor sobre a string.
+  Itere.
+    Mova o percorredor (cláusulas de mudanças de caracteres).
+    Adicione o segmento inicial deste percorredor para os conjuntos de texto.
+    Se o segmento final deste percorredor estiver em branco, 
+      retorne.
+  Reitere.
+
+Rotina para que se mova um percorredor (cláusulas de mudanças de caracteres):
+  Posicione o segmento inicial deste percorredor sobre o segmento final deste percorredor.
+  Itere.
+    Se o segmento final deste percorredor estiver em branco, 
+      retorne.
+    Se o segmento inicial deste percorredor estiver em branco,
+      Avance o percorredor;
+      Reitere.
+    Atribua o caractere final deste segmento inicial deste percorredor mais 1 para um endereço de byte.
+    Se o conteúdo deste caractere final deste segmento inicial deste percorredor não for o conteúdo deste endereço de byte,
+      Retorne.
+    Se o conteúdo deste caractere final deste segmento inicial deste percorredor for o conteúdo deste endereço de byte,
+      Avance o percorredor.
+  Reitere.
+
+
+Rotina para que se escreva uns conjuntos de texto na saída padrão:
+  
+  Itere.
+    Obtenha um conjunto de texto desde os conjuntos de texto.
+    Se o conjunto de texto for inexistente,
+      Atribua o primeiro conjunto de texto destes conjuntos de texto ao conjunto de texto;
+      Retorne.
+    Se o conjunto de texto não for o primeiro conjunto de texto destes conjuntos de texto,
+      Anteponha ", " para a string deste conjunto de texto.
+    Escreva a string deste conjunto de texto para StdOut.
+  Reitere.

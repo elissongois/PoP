@@ -21,16 +21,6 @@
 - Manter a distinção entre palavras-chave obrigatórias e opcionais (açúcar sintático).
 - Garantir que sinônimos sejam tratados de forma equivalente.
 
-## Decisões de design para futuro mapeamento Langium
-- Mapear cada categoria de palavra-chave como regras separadas.
-- `PalavraChaveDesignacao`: `'denominado' | 'denominada' | 'denominados' | 'denominadas' | 'chamado' | 'chamada' | 'chamados' | 'chamadas'`.
-- `PalavraChaveComplementacao`: `'com' | 'contendo'`.
-- `PalavraChaveReferenciamento`: `'(referência)'`.
-- `PalavraChaveDevolucao`: `'retornando' | 'recebendo' | 'obtendo'`.
-- Comandos de controle: `'Se' | 'quando' | 'Itere' | 'Reitere' | 'Pare' | 'Retorne' | 'determine' | 'Diga' | 'Preserve' | 'Processe' | 'aponte' | etc.`.
-- Operadores especiais: `'igual' | 'magnitude' | 'conteúdo' | 'endereçamento' | 'empregue'`.
-- Açúcar sintático: `'Rotina' | 'Função' | 'Procedimento'`.
-
 ## Exemplo de uso extraído de `Algoritmos/Janela/Janela.pop`
 ```pop
 Rotina para que se processe dados:
