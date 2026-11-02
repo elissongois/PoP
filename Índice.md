@@ -9,6 +9,7 @@ Este índice apresenta os pontos de entrada das principais áreas do Português 
 | [LSP](./LSP/README.md) | Extensão do VS Code e servidor de linguagem em TypeScript. |
 | [Objetivos](./Objetivos.md) | Estado do LSP e tarefas pendentes do projeto. |
 | [IDE](./IDE/) | Repositório independente da IDE PAL-1000. |
+| [Repositórios externos como submódulos Git](./Reposit%C3%B3rios%20externos%20como%20subm%C3%B3dulos%20Git.md) | Como vincular a Wiki e a IDE como submódulos e cloná-las junto do projeto. |
 
 ## Limites de leitura para assistentes
 
