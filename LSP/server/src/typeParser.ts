@@ -381,6 +381,109 @@ export function normalizeTypeName(name: string): string {
 	return name.trim().replace(/\s+/gu, ' ').toLocaleLowerCase('pt-BR');
 }
 
+// Verb equivalences: maps inflected forms to their canonical form so that
+// routine calls using alternate conjugations still resolve to the declared name.
+const verbEquivalences = new Map<string, string>([
+	['for', 'é'],
+	['foi', 'é'],
+	['foram', 'é'],
+	['forem', 'é'],
+	['seja', 'é'],
+	['sejam', 'é'],
+	['são', 'é'],
+	['está', 'é'],
+	['estão', 'é'],
+	['estiver', 'é'],
+	['estiverem', 'é'],
+	['estamos', 'é'],
+	['tiver', 'tem'],
+	['houver', 'há'],
+	['existir', 'existe'],
+	['começar', 'começa'],
+	['terminar', 'termina'],
+	['puder', 'pode'],
+	['puderem', 'pode'],
+	['possuir', 'possui'],
+	['couber', 'cabe'],
+]);
+
+// Preposition equivalences: maps alternate prepositions to their canonical form.
+const prepositionEquivalences = new Map<string, string>([
+	['desde', 'usando'],
+	['dada', 'usando'],
+	['dado', 'usando'],
+	['dadas', 'usando'],
+	['dados', 'usando'],
+	['com', 'usando'],
+	['contendo', 'usando'],
+	['sob', 'sobre'],
+	['em', 'para'],
+]);
+
+// Contraction expansions applied before verb/preposition normalization.
+const contractionExpansions = new Map<string, string>([
+	['ao', 'para o'],
+	['à', 'para a'],
+	['aos', 'para os'],
+	['às', 'para as'],
+	['dum', 'de esse'],
+	['duma', 'de essa'],
+	['dumas', 'de esses'],
+	['duns', 'de esses'],
+	['desse', 'de o'],
+	['dessa', 'de a'],
+	['desses', 'de os'],
+	['dessas', 'de as'],
+	['deste', 'de este'],
+	['desta', 'de esta'],
+	['destes', 'de estes'],
+	['destas', 'de estas'],
+	['nesse', 'em esse'],
+	['nesses', 'em esses'],
+	['neste', 'em este'],
+	['nestes', 'em estes'],
+	['nessa', 'em essa'],
+	['nessas', 'em essas'],
+	['nesta', 'em esta'],
+]);
+
+// Normalizes a routine call text by expanding contractions and mapping equivalent
+// verbs/prepositions to their canonical forms so that lookup works regardless of
+// which inflection the caller used.
+export function normalizeRoutineCallText(text: string): string {
+	const normalized = normalizeTypeName(text);
+	const words = normalized.split(' ');
+	const result: string[] = [];
+	for (let i = 0; i < words.length; i++) {
+		const word = words[i];
+		const contraction = contractionExpansions.get(word);
+		if (contraction) {
+			result.push(...contraction.split(' '));
+			continue;
+		}
+		// Handle "a um/uma/uns/umas/o/a/os/as" → "para um/..." sequences.
+		if (word === 'a' && i + 1 < words.length) {
+			const next = words[i + 1];
+			if (['um', 'uma', 'uns', 'umas', 'o', 'os', 'as'].includes(next)) {
+				result.push('para');
+				continue;
+			}
+		}
+		const verbCanon = verbEquivalences.get(word);
+		if (verbCanon !== undefined) {
+			result.push(verbCanon);
+			continue;
+		}
+		const prepCanon = prepositionEquivalences.get(word);
+		if (prepCanon !== undefined) {
+			result.push(prepCanon);
+			continue;
+		}
+		result.push(word);
+	}
+	return result.join(' ');
+}
+
 export function pluralizeTypeNames(name: string): string[] {
 	const words = name.trim().split(/\s+/u);
 	const lastWordPlural = [...words];
@@ -938,9 +1041,10 @@ function resolveRoutineCall(
 	}
 
 	const statement = normalizeTypeName(source.slice(statementRange.start, statementRange.end));
+	const normalizedStatement = normalizeRoutineCallText(statement);
 	const exactMatch = routines.find(routine =>
 		routine.parameters.length === 0 &&
-		routineNames(routine).some(name => name.normalizedName === statement)
+		routineNames(routine).some(name => name.normalizedName === statement || name.normalizedName === normalizedStatement)
 	);
 	if (exactMatch) {
 		return {
@@ -1256,7 +1360,16 @@ function matchRoutineNamePrefix(
 		if (prefix === routineName.normalizedName) {
 			return end;
 		}
-		if (!routineName.normalizedName.startsWith(prefix)) {
+		// Also try with verb/preposition equivalence normalization so that, e.g.,
+		// a call using "for" matches a routine declared with "é".
+		const normalizedPrefix = normalizeRoutineCallText(prefix);
+		if (normalizedPrefix === routineName.normalizedName) {
+			return end;
+		}
+		if (
+			!routineName.normalizedName.startsWith(prefix) &&
+			!routineName.normalizedName.startsWith(normalizedPrefix)
+		) {
 			return undefined;
 		}
 	}

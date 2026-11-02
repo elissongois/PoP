@@ -693,6 +693,27 @@ connection.onTypeDefinition(async (params: TextDocumentPositionParams) => {
 		return resolveTypeLocation(symbol.typeName, document.uri, indexedDocuments);
 	}
 
+	// When cursor is over a routine call argument, navigate to the type of the
+	// corresponding parameter in the target routine declaration.
+	for (const routine of parsedDocument.routines) {
+		for (const call of routine.calls) {
+			if (!call.target) {
+				continue;
+			}
+			for (let argIndex = 0; argIndex < call.arguments.length; argIndex++) {
+				const arg = call.arguments[argIndex];
+				const param = call.target.parameters[argIndex];
+				if (
+					param &&
+					offset >= arg.range.start &&
+					offset <= arg.range.end
+				) {
+					return resolveTypeLocation(param.type.name, document.uri, indexedDocuments);
+				}
+			}
+		}
+	}
+
 	return undefined;
 });
 

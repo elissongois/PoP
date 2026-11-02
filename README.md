@@ -18,20 +18,29 @@ Português Puro é uma linguagem de programação imperativa que utiliza sintaxe
 
 ```tree
 PoP/
-├── Regras/                    # Regras e sintaxe — documentação única, fonte de verdade das regras
 ├── LSP/                       # Extensão VS Code e servidor de linguagem (código executável)
-├── Código-Fonte/              # Compilador real: 16 estágios escritos em `.pop`
-├── Implementações/            # Código de suporte do compilador em `.pop`
-├── Definições/                # Tipos e variáveis globais de suporte do compilador
-├── Algoritmos/                # Algoritmos de exemplo em `.pop`
-├── Documentação/              # Documentação em prosa: características, guia sintático, FAQ e notas do compilador
-├── Índices/                   # Índices de referência cruzada
-├── Mensagens de Erro/         # Guia de mensagens de erro para diagnósticos
-├── Revisão/                   # Revisão e correção dos arquivos de `Regras/`
-├── Linguagem/                 # Especificação da linguagem por capítulos
-├── GitBook/                   # Capítulos publicados da documentação
-├── Final/                     # Transcrição da sessão que originou o servidor de linguagem
-└── Gramática/                 # Rascunho de gramática em Langium — marcado para exclusão
+├── Código/                    # Fontes, bibliotecas, exemplos, índices e mensagens de erro
+│   ├── Índice.md              # Navegação pelo código e bibliotecas
+│   ├── Algoritmos/            # Algoritmos de exemplo em `.pop`
+│   ├── Código-Fonte/          # Compilador real: 16 estágios escritos em `.pop`
+│   ├── Bibliotecas/
+│   │   ├── Padrão/            # Fonte da Biblioteca Padrão
+│   │   ├── Matemática/        # Bibliotecas matemáticas
+│   │   ├── Definições/        # Recortes de tipos e variáveis globais
+│   │   └── Implementações/    # Recortes de rotinas e funções
+│   ├── Índices/               # Índices de referência cruzada
+│   └── Mensagens de Erro/     # Guia e catálogo de diagnósticos
+├── Documentação/              # Regras, guia do usuário, referências e documentação do compilador
+│   ├── Índice.md              # Ponto de entrada da documentação
+│   ├── Regras/                 # Referência normativa da linguagem
+│   ├── Guia do Usuário/        # Conteúdo didático
+│   ├── Referência/             # Guia sintático, FAQ e características
+│   ├── Compilador/             # Documentação técnica do compilador
+│   ├── GitBook/                # Backup da documentação online
+│   └── Wiki/                   # Repositório desatualizado, aguardando revisão
+├── IDE/                       # Outro repositório; assistentes não devem ler/indexar
+├── Objetivos.md               # Estado e pendências do projeto
+└── Índice.md                  # Navegação geral do repositório
 ```
 
 ## 🚀 Começando
@@ -43,7 +52,7 @@ PoP/
 
 ### Extensão VS Code e servidor de linguagem
 
-A extensão VS Code com suporte LSP fica na pasta [`LSP/`](./LSP/). O analisador léxico e o analisador sintático são escritos à mão em TypeScript, sem gerador de parser. O estado e os próximos passos do servidor são acompanhados em [`LSP - Estado e Próximos Passos.md`](./LSP%20-%20Estado%20e%20Próximos%20Passos.md).
+A extensão VS Code com suporte LSP fica na pasta [`LSP/`](./LSP/). O analisador léxico e o analisador sintático são escritos à mão em TypeScript, sem gerador de parser. O estado e os próximos passos do projeto são acompanhados em [`Objetivos.md`](./Objetivos.md).
 
 ```cmd
 cd LSP
@@ -55,13 +64,16 @@ O realce de sintaxe usa uma gramática TextMate (`LSP/client/syntaxes/pop.tmLang
 
 ## 📚 Documentação
 
-A documentação completa das regras da linguagem está disponível em [Regras/](./Regras/):
+A documentação está organizada em [`Documentação/Índice.md`](./Documentação/Índice.md):
 
-- **[Índice de Elementos Léxicos](<>./Regras/Índice de Elementos Léxicos.md>)**: Visão geral de todos os elementos da linguagem
-- **[Símbolos](./Regras/Símbolos.md)**: Caracteres permitidos, reservados e especiais
-- **[Tipos](./Regras/Tipos.md)**: Sistema de tipos, estruturas, listas e conversões
-- **[Expressões](./Regras/Expressões.md)**: Operadores e avaliação de expressões
-- **[Operadores](./Regras/Operadores.md)**: Operadores aritméticos, de comparação, lógicos e de concatenação
+- **[Regras](./Documentação/Regras/)**: referência normativa da linguagem
+- **[Guia do Usuário](./Documentação/Guia%20do%20Usu%C3%A1rio/LEIA-ME.md)**: percurso didático por módulos
+- **[Referência](./Documentação/Refer%C3%AAncia/)**: guia sintático, FAQ e características
+- **[Compilador](./Documentação/Compilador/)**: documentação técnica
+
+O código e as bibliotecas estão organizados em [`Código/Índice.md`](./Código/Índice.md). Para navegar pelo repositório inteiro, consulte [`Índice.md`](./Índice.md).
+
+> **Atenção a assistentes de código:** `IDE/` contém outro repositório e não deve ser lida, pesquisada nem indexada até autorização expressa. `Documentação/Wiki/` também deve permanecer sem leitura, indexação ou alterações até a revisão da documentação ser concluída.
 
 ## 💡 Exemplo de Código
 
@@ -151,7 +163,7 @@ Em Desenvolvimento Ativo
 ### Componentes Concluídos
 
 - ✅ Documentação das regras da linguagem
-- ✅ Gramática e sintaxe documentadas em `Regras/` (índice em `Índice da Documentação.md`)
+- ✅ Gramática e sintaxe documentadas em `Documentação/Regras/` (índice em `Documentação/Índice.md`)
 - ✅ Definição de tipos e estruturas
 - ✅ Sistema de expressões
 - ✅ Guia de solução de erros

@@ -1,74 +1,49 @@
-# AGENTS.md
+# Instruções do repositório — Português Puro
 
-Repositório do **Português Puro** (linguagem de programação em linguagem natural pt-BR). Caminhos, identificadores, documentação e sintaxe da linguagem são em português — mantenha isso.
+Português Puro é uma linguagem de programação em pt-BR. Mantenha em português os novos caminhos, identificadores, comentários e documentos.
 
-**Decisão de arquitetura:** a gramática da linguagem e o LSP são implementados de maneira **tradicional** — regras documentadas em prosa/notação própria e parser escrito à mão. Não use nem reintroduza geradores de parser ou frameworks de engenharia de linguagens. As seções de "Mapeamento para Langium" foram removidas dos docs, e a documentação de regras e sintaxe está **reunida num único lugar: `Regras/`** (os antigos capítulos numerados de `Sintaxe/` e as notas duplicadas de `Final/` foram fundidos ali).
+## Arquitetura e fontes de verdade
 
-## Layout (verificado; árvore do README raiz era aspiracional)
+- `Documentação/` organiza o conteúdo em `Regras/` (normativa), `Guia do Usuário/` (didático), `Referência/` e `Compilador/`; consulte `Documentação/Índice.md` como entrada. Ainda há redundâncias entre documentos.
+- `Documentação/GitBook/` é um backup da documentação online. **Não modifique seu conteúdo sem ordem expressa do usuário.**
+- `Documentação/Wiki/` contém um repositório desatualizado, reservado para atualização após a revisão da documentação. **Não leia, indexe nem altere seu conteúdo antes dessa revisão e de uma solicitação expressa.**
+- `Código/` reúne algoritmos, fontes do compilador, bibliotecas, índices e mensagens de erro; consulte `Código/Índice.md` para navegar.
+- `Código/Índices/` contém referências cruzadas para localizar rotinas sem abrir muitos arquivos; consulte-os antes de buscas amplas no código-fonte.
+- `Código/Bibliotecas/Padrão/Biblioteca padrão.pop` é a fonte da Biblioteca Padrão. A maioria dos arquivos em `Código/Bibliotecas/Definições/` e `Código/Bibliotecas/Implementações/` são trechos dessa fonte; `Funções Léxicas.pop` é a exceção.
+- `IDE/` contém outro repositório com muitos arquivos. **Não leia, indexe nem pesquise seu conteúdo** enquanto o usuário não autorizar expressamente.
+- `LSP/` contém a extensão VS Code e o servidor ativo: TypeScript, parser escrito à mão, gramática TextMate e snippets.
+- O compilador real é escrito em Português Puro. Não existe compilador Node neste repositório.
+- O parser `LSP/server/src/typeParser.ts` oferece análise incremental para recursos do editor; não substitui o compilador.
+- Ao resolver divergências, use `Documentação/Regras/` para a semântica pretendida; `LSP/server/src/` para o que o parser aceita atualmente; `Código/Algoritmos/*.pop` para sintaxe real ainda não coberta; `Objetivos.md` para estado e pendências. Verifique a documentação redundante antes de inferir que há uma única versão.
+- Prefira manifests, configurações e scripts executáveis a descrições conflitantes em prosa.
 
-| Caminho | O que realmente é |
-|---------|-------------------|
-| `Regras/` | **Documentação única de regras e sintaxe** — fonte de verdade de como o Português Puro funciona. Índice de capítulos em `Índice da Documentação.md` |
-| `LSP/` | **Código executável do servidor de linguagem.** Extensão VS Code em TypeScript, parser à mão, gramática TextMate e snippets |
-| `Código-Fonte/` | Compilador real: 16 estágios escritos em `.pop` (`00`…`16`) |
-| `Implementações/`, `Definições/` | Código de suporte do compilador em `.pop` |
-| `Algoritmos/` | Programas de exemplo: Agenda Telefônica, Basteroides, Janela, Sudoku |
-| `Mensagens de Erro/` | Guia de mensagens de erro para diagnósticos do compilador |
-| `Documentação/`, `Índices/` | Docs em prosa — um assunto por arquivo (características, guia sintático, FAQ, notas do compilador, palavras-chave) e índices de referência cruzada |
-| `Revisão/`, `Linguagem/`, `GitBook/` | Revisão das regras (um arquivo por capítulo de `Regras/`), guia de usuário em módulos e documentação publicada |
-| `Final/` | Apenas `Elender.md`; as notas de comentários, tipos e qualificadores que estavam aqui foram fundidas em `Regras/` |
-| `Gramática/` | **Legado marcado para exclusão.** Workspace npm do experimento com Langium; não é a implementação escolhida |
+## Desenvolvimento e validação
 
-Diretórios como `Bibliotecas/`, `IDE/`, `Extensões/` não existem aqui. Compilador e IDE dedicadas também vivem em repositórios externos (veja `README.md` raiz). A pasta `Sintaxe/` ainda existe, mas vazia de documentação (sobrou apenas um `Teste.pop`); os capítulos que ela tinha foram movidos para `Regras/`.
-
-## Ferramentas — sempre execute a partir do diretório do pacote
-
-Raiz do repositório não tem package.json. Node 20 / npm 10 (Volta fixa `node 20.19.2`, `npm 10.8.2`).
-
-Extensão e servidor de linguagem (o trabalho ativo):
+A raiz não tem `package.json`. Execute os comandos do LSP no diretório do pacote:
 
 ```bash
 cd LSP
-npm install      # postinstall instala client/ e server/
-npm run compile  # tsc -b
-npm run watch    # tsc -b -w
-npm run lint     # eslint
-npm test         # compila e roda os testes fim a fim do VS Code
+npm install
+npm run compile
+npm run watch
+npm run lint
+npm test
 ```
 
-Abra `LSP/` como workspace do VS Code (não a pasta pai) e use F5 ("Launch Client") para o Extension Development Host. Os testes fim a fim baixam um VS Code em `LSP/.vscode-test/` (gitignored).
+`npm install` executa o postinstall que instala dependências de `client/` e `server/`. `npm test` compila e executa testes E2E do VS Code; eles podem baixar uma instalação de teste para `LSP/.vscode-test/`. Se `node_modules` ou `out/` estiverem ausentes, instale dependências antes de validar.
 
-O workspace legado `Gramática/` ainda compila e tem scripts próprios (`npm run langium:generate`, `npm run build`, `npm test` com vitest). **Não** estenda esse pacote: ele está marcado para exclusão. Se precisar mexer ali por causa de remoção, não presuma que ele reflete as regras da linguagem.
+Abra `LSP/` como workspace do VS Code e use F5 (“Launch Client”) para iniciar o Extension Development Host.
 
-## O que NÃO é o compilador
+## Limites e armadilhas conhecidas
 
-- Compilador real é `Código-Fonte/*.pop` + `Implementações/` + `Definições/`. Não há script Node neste repo que compile `.pop`.
-- O parser em `LSP/server/src/typeParser.ts` **não** substitui o compilador: é análise incremental para recursos de editor (navegação, diagnósticos, sugestões).
-- `Gramática/packages/cli` e `Gramática/packages/extension` são scaffolds do experimento; a CLI `generate` escreve stub TODO.
-- `.vscode/tasks.json` raiz tem path Windows hardcoded (`D:\Projetos\...`) e alias `Compile` — não usável como está aqui.
-- `Gramática/packages/language/test-janela.mjs` está quebrado (import path stale, path de exemplo errado `Exemplos/` — exemplos estão em `Algoritmos/`). Não confie nem "corrija" sem checar `Algoritmos/Janela/Janela.pop`.
+- O compilador standalone é Windows 32-bit; não há script Node que compile `.pop`. Não presuma que compilação nativa esteja disponível em Linux.
+- A configuração `.vscode/tasks.json` da raiz contém caminho Windows hardcoded e não é utilizável como está neste ambiente.
+- A documentação em `Documentação/Regras/` ainda pode divergir de `Código/Algoritmos/*.pop`; variantes como `Acrescente`/`Anteponha` e diferenças de preposições são pendências, não as “corrija” por suposição.
+- Comentários `.pop`: `\\` inicia comentário de linha e `[...]` delimita comentário de bloco. Comentários TypeScript usam `//`.
+- Não há CI nem configuração de pre-commit conhecida. A suíte E2E do LSP fica em `LSP/client/src/test/`, com fixtures em `LSP/client/testFixture/` e exemplos em `LSP/teste/`.
 
-## Gramática vs exemplos vs docs
+## Manutenção destas instruções
 
-A documentação está **incompleta** em relação a `Algoritmos/*.pop` (faltam variantes de comando como `Acrescente`/`Anteponha`, conjuntos de preposições mais estreitos, drift de nomenclatura). Quando docs, parser e exemplos discordam:
+Mantenha este arquivo curto e específico do repositório. Inclua apenas fatos de alto valor que possam ser verificados; prefira apontar para documentação existente em vez de duplicá-la. Ao atualizar, confira primeiro manifests, scripts e código ativo, remova orientações obsoletas e valide referências e comandos.
 
-1. `Regras/` para semântica intencional da linguagem
-2. `LSP/server/src/` para o que o parser de fato aceita hoje
-3. `Algoritmos/*.pop` para sintaxe real que a gramática deve eventualmente suportar
-4. `Lista de Tarefas.md` para drift pendente conhecido, e `LSP - Estado e Próximos Passos.md` para o estado da extensão
-
-Sintaxe de comentários difere por linguagem: `.pop` usa `\\` para linha e `[...]` para bloco; TypeScript do LSP usa `//`.
-
-## Testes / validação — peculiaridades
-
-- Não existe CI nem config de pre-commit.
-- Cobertura do LSP: testes fim a fim do VS Code em `LSP/client/src/test/` (executados por `npm test` em `LSP/`), com fixtures em `LSP/client/testFixture/` e arquivos reais de exemplo em `LSP/teste/`.
-- `npm test` em `Gramática/` roda apenas vitest do `packages/language`; `linking.test.ts` e `validating.test.ts` são stubs.
-- `node_modules` e `out/` podem não existir em clone fresco — sempre `npm install` primeiro.
-
-## Convenções
-
-- Mantenha português para caminhos, identificadores, comentários e novos docs; siga estilo existente.
-- Não invente comandos — apenas os scripts de `LSP/` e do legado `Gramática/` acima existem.
-- Prefira fontes executáveis (`package.json`, `LSP/package.json` e seu `contributes`) sobre READMEs em prosa quando conflitarem.
-- Licença: nenhuma declarada no repo principal (`LSP/package.json` declara MIT).
+O estado da extensão e as tarefas do projeto estão reunidos em [`Objetivos.md`](./Objetivos.md).
