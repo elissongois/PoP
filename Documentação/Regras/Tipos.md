@@ -230,7 +230,7 @@ Isso permite representar uma união: os bytes e as words ocupam regiões sobrepo
 
 ### Referência em campos
 
-O qualificador `(referência)` marca o campo como ponteiro em vez de valor incorporado. Esse campo não é desalocado automaticamente junto com a estrutura; o gerenciamento da memória fica a cargo do programa:
+A palavra chave de referenciamento  `(referência)` marca o campo como ponteiro em vez de valor incorporado. Em listas, esse campo não é desalocado automaticamente junto com a estrutura; o gerenciamento da memória fica a cargo do programador:
 
 ```pop
 Uma árvore é uma estrutura com
@@ -241,7 +241,7 @@ Uma árvore é uma estrutura com
 
 Sem `(referência)`, o campo é incorporado à estrutura e segue o gerenciamento automático aplicável ao tipo.
 
-## Qualificadores, observações e comentários em campos
+## Observações e comentários em campos
 
 ### Observações entre colchetes
 

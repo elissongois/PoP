@@ -209,7 +209,7 @@ A stack é [composta de] uns elementos das stacks.
     * Equivalente a: `são uns twips`
 
 
-12. Indicador de início de variável:
+12. Permitido antes de início de variável:
  * **Artigo**: não;
  * **Conjunção**: sim;
  * **Verbo**: sim;
@@ -223,7 +223,7 @@ A stack é [composta de] uns elementos das stacks.
  * **Sinal de pontuação**: não;
  * **Valor literal**: não;
 
-13. Indicador de fim de variável:
+13. Permitido depois de fim de variável:
  * **Advérbio de negação**: sim;
  * **Artigo**: sim;
  * **Conjunção**: sim;

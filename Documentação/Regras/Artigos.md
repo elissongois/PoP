@@ -114,7 +114,7 @@ Funcionam como artigos indefinidos, oferecendo variações estilísticas.
 | `esses` | Masculino | Plural   | `Esses números são uns contadores.`  |
 | `essas` | Feminino  | Plural   | `Essas strings são umas mensagens.`  |
 
-### Distância (`aquele`, `aquela`)
+### ~~Distância (`aquele`, `aquela`)~~
 | Pronome   | Gênero    | Número   | Uso                                       |
 |-----------|-----------|----------|-------------------------------------------|
 | `aquele`  | Masculino | Singular | `Aquele tipo é uma estrutura com...`      |
@@ -122,7 +122,7 @@ Funcionam como artigos indefinidos, oferecendo variações estilísticas.
 | `aqueles` | Masculino | Plural   | `Aqueles tipos são uns números.`          |
 | `aquelas` | Feminino  | Plural   | `Aquelas estruturas são umas listas.`     |
 
-### Indeterminação (`certo`, `certa`)
+### ~~Indeterminação (`certo`, `certa`)~~
 | Pronome  | Gênero    | Número   | Uso                                  |
 |----------|-----------|----------|--------------------------------------|
 | `certo`  | Masculino | Singular | `Certo número é um contador.`        |
@@ -130,7 +130,7 @@ Funcionam como artigos indefinidos, oferecendo variações estilísticas.
 | `certos` | Masculino | Plural   | `Certos números são uns contadores.` |
 | `certas` | Feminino  | Plural   | `Certas strings são umas mensagens.` |
 
-### Determinação (`determinado`, `determinada`)
+### ~~Determinação (`determinado`, `determinada`)~~
 | Pronome        | Gênero    | Número   | Uso                                        |
 |----------------|-----------|----------|--------------------------------------------|
 | `determinado`  | Masculino | Singular | `Determinado tipo é uma estrutura...`      |

@@ -9,6 +9,9 @@ import {
 	createConnection,
 	Diagnostic,
 	DiagnosticSeverity,
+	DocumentSymbol,
+	SymbolInformation,
+	SymbolKind,
 	CompletionItem,
 	CompletionItemKind,
 	ErrorCodes,
@@ -28,9 +31,18 @@ import {
 } from 'vscode-languageserver/node';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import {
+	ByteArrayField,
 	findRoutineCallTargetAtOffset,
 	findRoutineDeclarationAtOffset,
+	findRoutineFieldAtOffset,
+	findComputedFieldAtOffset,
+	findFieldDeclarationAtOffset,
+	findTypeDefinitionReferenceAtOffset,
+	estaEmTrechoNaoCodigo,
+	GlobalVariableDeclaration,
 	GlobalVariableSymbolTable,
+	NamedTypeField,
+	ParsedDocument,
 	SourceRange,
 	findTypeReferenceAtOffset,
 	normalizeTypeName,
@@ -62,6 +74,8 @@ connection.onInitialize((): InitializeResult => ({
 		implementationProvider: true,
 		referencesProvider: true,
 		renameProvider: { prepareProvider: true },
+		documentSymbolProvider: true,
+		workspaceSymbolProvider: true,
 		completionProvider: { triggerCharacters: [' '] },
 		hoverProvider: true
 	}
@@ -121,6 +135,46 @@ documents.onDidClose(({ document }) => {
 
 connection.onDefinition((params: TextDocumentPositionParams) => {
 	return navigateDefinition(params);
+});
+
+connection.onDocumentSymbol(params => {
+	const document = documents.get(params.textDocument.uri);
+	const parsedDocument = document && parsedDocuments.get(document.uri);
+	if (!document || !parsedDocument) {
+		return undefined;
+	}
+	return createDocumentSymbols(parsedDocument, document);
+});
+
+connection.onWorkspaceSymbol(async params => {
+	const workspaceDocuments = await getWorkspaceDocuments();
+	const query = normalizeTypeName(params.query);
+	const results: SymbolInformation[] = [];
+
+	for (const { document, parsed } of workspaceDocuments.values()) {
+		const visit = (symbol: DocumentSymbol, containerName?: string): void => {
+			if (!query || normalizeTypeName(symbol.name).includes(query)) {
+				results.push(SymbolInformation.create(
+					symbol.name,
+					symbol.kind,
+					symbol.range,
+					document.uri,
+					containerName
+				));
+			}
+			const childContainer = containerName
+				? `${containerName}.${symbol.name}`
+				: symbol.name;
+			for (const child of symbol.children ?? []) {
+				visit(child, childContainer);
+			}
+		};
+
+		for (const symbol of createDocumentSymbols(parsed, document)) {
+			visit(symbol);
+		}
+	}
+	return results;
 });
 
 connection.onReferences(async params => {
@@ -217,6 +271,9 @@ async function findRenameTarget(
 		return undefined;
 	}
 	const offset = document.offsetAt(position);
+	if (estaEmTrechoNaoCodigo(parsedDocument, offset)) {
+		return undefined;
+	}
 	const indexedDocuments = await getSiblingDocuments(document);
 
 	const declaration = parsedDocument.declarations.find(candidate =>
@@ -626,8 +683,23 @@ async function navigateDefinition(params: TextDocumentPositionParams): Promise<L
 	if (!parsedDocument) {
 		return undefined;
 	}
-	const indexedDocuments = await getSiblingDocuments(document);
 	const offset = document.offsetAt(params.position);
+	if (estaEmTrechoNaoCodigo(parsedDocument, offset)) {
+		return undefined;
+	}
+	const indexedDocuments = await getSiblingDocuments(document);
+	const computedField = findComputedFieldAtOffset(parsedDocument, offset);
+	const computedFieldLocation = computedField &&
+		resolveComputedFieldLocation(computedField, indexedDocuments);
+	if (computedFieldLocation) {
+		return computedFieldLocation;
+	}
+	const field = findRoutineFieldAtOffset(parsedDocument, offset) ??
+		findFieldDeclarationAtOffset(parsedDocument, offset);
+	const fieldLocation = field && resolveFieldLocation(field, indexedDocuments);
+	if (fieldLocation) {
+		return fieldLocation;
+	}
 	return resolveTypeReferenceLocation(
 		document,
 		parsedDocument,
@@ -650,6 +722,37 @@ async function navigateDefinition(params: TextDocumentPositionParams): Promise<L
 	);
 }
 
+function resolveComputedFieldLocation(
+	routine: RoutineDeclaration,
+	indexedDocuments: IndexedDocument[]
+): Location | undefined {
+	if (!routine.computedField) {
+		return undefined;
+	}
+	const owner = indexedDocuments.find(candidate =>
+		candidate.parsed.routines.includes(routine)
+	);
+	return owner
+		? createLocation(owner.document, routine.computedField.name.range)
+		: undefined;
+}
+
+function resolveFieldLocation(
+	field: ReturnType<typeof findFieldDeclarationAtOffset>,
+	indexedDocuments: IndexedDocument[]
+): Location | undefined {
+	if (!field) {
+		return undefined;
+	}
+	const owner = indexedDocuments.find(candidate =>
+		[
+			...candidate.parsed.declarations,
+			...candidate.parsed.globalVariables
+		].some(declaration => declaration.fields?.includes(field))
+	);
+	return owner ? createLocation(owner.document, field.name.range) : undefined;
+}
+
 connection.onTypeDefinition(async (params: TextDocumentPositionParams) => {
 	const document = documents.get(params.textDocument.uri);
 	const parsedDocument = document && parsedDocuments.get(document.uri);
@@ -659,6 +762,9 @@ connection.onTypeDefinition(async (params: TextDocumentPositionParams) => {
 
 	const indexedDocuments = await getSiblingDocuments(document);
 	const offset = document.offsetAt(params.position);
+	if (estaEmTrechoNaoCodigo(parsedDocument, offset)) {
+		return undefined;
+	}
 	const typeDeclaration = parsedDocument.declarations.find(declaration =>
 		offset >= declaration.name.range.start && offset <= declaration.name.range.end
 	);
@@ -675,6 +781,21 @@ connection.onTypeDefinition(async (params: TextDocumentPositionParams) => {
 			resolveTypeLocation(referencedType.baseType.name, document.uri, indexedDocuments);
 		if (baseTypeLocation) {
 			return baseTypeLocation;
+		}
+	}
+
+	const typeDefinitionReference = findTypeDefinitionReferenceAtOffset(
+		parsedDocument,
+		offset
+	);
+	if (typeDefinitionReference) {
+		const location = resolveTypeLocation(
+			typeDefinitionReference.name,
+			document.uri,
+			indexedDocuments
+		);
+		if (location) {
+			return location;
 		}
 	}
 
@@ -725,6 +846,9 @@ connection.onImplementation(async (params: TextDocumentPositionParams) => {
 	}
 
 	const offset = document.offsetAt(params.position);
+	if (estaEmTrechoNaoCodigo(parsedDocument, offset)) {
+		return undefined;
+	}
 	const indexedDocuments = await getSiblingDocuments(document);
 	return resolveRoutineLocation(
 		document,
@@ -767,7 +891,9 @@ connection.onCompletion(async params => {
 					detail: routine.isBooleanFunction ? 'Função deliberativa' : 'Rotina'
 				},
 				...routine.alternateNames.map(alternate => ({
-					label: alternate.name,
+					label: alternate.qualifier
+						? `${alternate.name} ${alternate.qualifier}`
+						: alternate.name,
 					kind: CompletionItemKind.Function,
 					detail: `Nome alternativo de ${routine.name.name}`
 				}))
@@ -965,7 +1091,19 @@ function resolveRoutineLocation(
 	offset: number,
 	indexedDocuments: IndexedDocument[]
 ): Location | undefined {
-	const routine = findRoutineDeclarationAtOffset(parsedDocument, offset);
+	const routines = indexedDocuments.flatMap(candidate => candidate.parsed.routines);
+	const routine = findRoutineCallTargetAtOffset(
+		parsedDocument,
+		document.getText(),
+		offset,
+		routines,
+		new TypeSymbolTable(indexedDocuments.flatMap(candidate =>
+			candidate.parsed.declarations
+		)),
+		new GlobalVariableSymbolTable(indexedDocuments.flatMap(candidate =>
+			candidate.parsed.globalVariables
+		))
+	);
 	if (!routine) {
 		return undefined;
 	}
@@ -1037,7 +1175,16 @@ function findNamedSymbolAtOffset(
 					priority: 1
 				});
 			}
-			for (const localVariable of routine.localVariables) {
+			for (const localVariable of [
+				...routine.localVariables,
+				...(routine.returnParameter ? [routine.returnParameter] : []),
+				...routine.calls.flatMap(call =>
+					call.localVariable ? [call.localVariable] : []
+				),
+				...routine.processes.flatMap(process =>
+					process.returnVariable ? [process.returnVariable] : []
+				)
+			]) {
 				matches.push({
 					name: localVariable.name.name,
 					kind: 'variable',
@@ -1092,6 +1239,209 @@ function isIdentifierCharacter(character: string): boolean {
 
 function escapeRegExp(text: string): string {
 	return text.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+}
+
+function createDocumentSymbols(
+	parsed: ParsedDocument,
+	document: TextDocument
+): DocumentSymbol[] {
+	const toRange = (range: SourceRange) => ({
+		start: document.positionAt(range.start),
+		end: document.positionAt(range.end)
+	});
+	const displayTypeName = (name: string): string =>
+		parsed.symbols.lookup(name)?.name ?? name;
+	const fieldSymbol = (field: NamedTypeField | ByteArrayField): DocumentSymbol => {
+		if (field.kind === 'byte-array') {
+			const range = toRange(field.range);
+			return DocumentSymbol.create(
+				`${field.count} bytes`,
+				displayTypeName(field.elementType.name),
+				SymbolKind.Field,
+				range,
+				range
+			);
+		}
+		return DocumentSymbol.create(
+			field.name.name,
+			displayTypeName(field.type.name),
+			SymbolKind.Field,
+			toRange({
+				start: Math.min(field.name.range.start, field.type.range.start),
+				end: Math.max(field.name.range.end, field.type.range.end)
+			}),
+			toRange(field.name.range)
+		);
+	};
+	const fieldChildren = (
+		fields: (NamedTypeField | ByteArrayField)[] | undefined
+	): DocumentSymbol[] => (fields ?? []).map(fieldSymbol);
+
+	const typeSymbols = parsed.declarations.map(declaration => {
+		const baseTypeName = displayTypeName(declaration.baseType.name);
+		const detail = declaration.pointedType
+			? `${baseTypeName} para ${displayTypeName(declaration.pointedType.name)}`
+			: baseTypeName;
+		const kind = parsed.symbols.getBaseTypeDistance(
+			declaration.name.name,
+			'estrutura'
+		) !== undefined
+			? SymbolKind.Struct
+			: SymbolKind.Class;
+		const computedFields = parsed.routines.flatMap(routine => {
+			const field = routine.computedField;
+			if (
+				!field ||
+				normalizeTypeName(field.structureType.name) !==
+					normalizeTypeName(declaration.name.name)
+			) {
+				return [];
+			}
+			return [DocumentSymbol.create(
+				field.name.name,
+				field.valueType ? displayTypeName(field.valueType.name) : undefined,
+				SymbolKind.Field,
+				toRange(field.name.range),
+				toRange(field.name.range)
+			)];
+		});
+		return DocumentSymbol.create(
+			declaration.name.name,
+			detail,
+			kind,
+			toRange(declaration.range),
+			toRange(declaration.name.range),
+			[...fieldChildren(declaration.fields), ...computedFields]
+		);
+	});
+
+	const variableSymbols = parsed.globalVariables.map(
+		(declaration: GlobalVariableDeclaration) => {
+			const detail = declaration.type
+				? displayTypeName(declaration.type.name)
+				: declaration.inferredTypeName ?? declaration.initializer?.kind;
+			return DocumentSymbol.create(
+				declaration.name.name,
+				detail,
+				SymbolKind.Variable,
+				toRange(declaration.range),
+				toRange(declaration.name.range),
+				fieldChildren(declaration.fields)
+			);
+		}
+	);
+
+	const routineSymbols = parsed.routines.map(routine => {
+		const children = [
+			...routine.parameters.map(parameter => DocumentSymbol.create(
+				parameter.name.name,
+				displayTypeName(parameter.type.name),
+				SymbolKind.Variable,
+				toRange(parameter.name.range),
+				toRange(parameter.name.range)
+			)),
+			...(routine.returnParameter ? [DocumentSymbol.create(
+				routine.returnParameter.name.name,
+				displayTypeName(routine.returnParameter.type.name),
+				SymbolKind.Variable,
+				toRange(routine.returnParameter.name.range),
+				toRange(routine.returnParameter.name.range)
+			)] : []),
+			...[
+				...routine.localVariables,
+				...routine.calls.flatMap(call =>
+					call.localVariable ? [call.localVariable] : []
+				),
+				...routine.processes.flatMap(process =>
+					process.returnVariable ? [process.returnVariable] : []
+				)
+			].map(variable => DocumentSymbol.create(
+				variable.name.name,
+				displayTypeName(variable.type.name),
+				SymbolKind.Variable,
+				toRange(variable.range),
+				toRange(variable.name.range)
+			))
+		];
+		const name = routine.qualifier
+			? `${routine.name.name} ${routine.qualifier}`
+			: routine.name.name;
+		const detail = [
+			routine.annotation,
+			...routine.parameters.map(parameter =>
+				`${displayTypeName(parameter.type.name)} ${parameter.name.name}`
+			)
+		].filter(Boolean).join(' ');
+		return DocumentSymbol.create(
+			name,
+			detail || undefined,
+			SymbolKind.Function,
+			toRange({
+				start: routine.range.start,
+				end: routine.bodyRange.end
+			}),
+			toRange(routine.name.range),
+			children
+		);
+	});
+
+	return [...typeSymbols, ...variableSymbols, ...routineSymbols]
+		.sort((first, second) =>
+			first.range.start.line - second.range.start.line ||
+			first.range.start.character - second.range.start.character
+		);
+}
+
+async function getWorkspaceDocuments(): Promise<
+	Map<string, IndexedDocument>
+> {
+	const result = new Map<string, IndexedDocument>();
+	for (const document of documents.all()) {
+		const parsed = parsedDocuments.get(document.uri);
+		if (parsed) {
+			result.set(document.uri, { document, parsed });
+		}
+	}
+
+	const folders = await connection.workspace.getWorkspaceFolders();
+	for (const folder of folders ?? []) {
+		await collectWorkspacePopFiles(fileURLToPath(folder.uri), result);
+	}
+	return result;
+}
+
+async function collectWorkspacePopFiles(
+	directory: string,
+	result: Map<string, IndexedDocument>
+): Promise<void> {
+	const ignoredDirectories = new Set([
+		'.git', '.vscode', 'node_modules', 'out', 'dist', '.vscode-test'
+	]);
+	const entries = await readdir(directory, { withFileTypes: true });
+
+	for (const entry of entries) {
+		const filePath = join(directory, entry.name);
+		if (entry.isDirectory()) {
+			if (!ignoredDirectories.has(entry.name)) {
+				await collectWorkspacePopFiles(filePath, result);
+			}
+			continue;
+		}
+		if (!entry.isFile() || extname(entry.name).toLocaleLowerCase('en-US') !== '.pop') {
+			continue;
+		}
+
+		const uri = pathToFileURL(filePath).toString();
+		if (result.has(uri)) {
+			continue;
+		}
+		const content = new TextDecoder('windows-1252').decode(await readFile(filePath));
+		const document = TextDocument.create(uri, 'portugues-puro', 0, content);
+		result.set(uri, {
+			document,
+			parsed: parseTypeDeclarations(content, { navigationOnly: true })
+		});
+	}
 }
 
 function findKeywordAtOffset(source: string, offset: number) {

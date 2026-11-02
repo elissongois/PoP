@@ -898,68 +898,6 @@
 [516]    Se a string for "cerca", diga sim.
 [517]    Diga não.
 
-[457]  Função para que se determine se uma string é alguma preposição:
-[458]    Se a string for "partir", diga sim.
-[459]    Se a string for "partindo", diga sim.
-[460]    Se a string for "aproximadamente", diga sim.
-[461]    Se a string for "através", diga sim.
-[462]    Se a string for "after", diga sim.
-[463]    \Se a string for "all", diga sim.
-[464]    Se a string for "alone", diga sim.
-[465]    Se a string for "algum", diga sim.
-[466]    \Se a string for "as", diga sim.
-[467]    Se a string for "sob", diga sim.
-[468]    Se a string for "backward", diga sim.
-[469]    Se a string for "regressivamente", diga sim.
-[470]    Se a string for "backwards", diga sim.
-[471]    Se a string for "entre", diga sim.
-[472]    Se a string for "aproada", diga sim.
-[473]    Se a string for "aproado", diga sim.
-[474]    Se a string for "aproando", diga sim.
-[475]    Se a string for "orientada", diga sim.
-[476]    Se a string for "orientado", diga sim.
-[477]    Se a string for "orientando", diga sim.
-[478]    Se a string for "orientando-se", diga sim.
-[479]    Se a string for "virada", diga sim.
-[480]    Se a string for "virado", diga sim.
-[481]    Se a string for "virando", diga sim.
-[482]    Se a string for "virando-se", diga sim.
-[483]    \Se a string for "for", diga sim.
-[484]    Se a string for "por", diga sim.
-[485]    Se a string for "usando", diga sim.
-[486]    Se a string for "tão", diga sim.
-[487]    Se a string for "quão", diga sim.
-[488]    Se a string for "tanto", diga sim.
-[489]    Se a string for "quanto", diga sim.
-[490]    Se a string for "dentro", diga sim.
-[491]    Se a string for "em comprimento", diga sim.
-[492]    Se a string for "d'", diga sim.
-[493]    Se a string for "d'", diga sim.
-[494]    Se a string for "referente", diga sim.
-[495]    Se a string for "pertencente", diga sim.
-[496]    Se a string for "pertinente", diga sim.
-[497]    Se a string for "somente", diga sim.
-[498]    Se a string for "apenas", diga sim.
-[499]    Se a string for "só", diga sim.
-[500]    Se a string for "exclusivamente", diga sim.
-[501]    Se a string for "fora", diga sim.
-[502]    \Se a string for "sobre", diga sim.
-[503]    Se a string for "pointing", diga sim.
-[504]    Se a string for "retornando", diga sim.
-[505]    Se a string for "retornando", diga sim.
-[506]    Se a string for "começando", diga sim.
-[507]    Se o subtexto for "começando", diga sim.
-[508]    Se o subtexto for "iniciando", diga sim.
-[509]    Se a string for "usando", diga sim.
-[510]    Se a string for "via", diga sim.
-[511]    Se a string for "com", diga sim.
-[512]    Se a string for "dentre", diga sim.
-[513]    Se a string for "depois", diga sim. \ depois de
-[514]    Se a string for "desde", diga sim.
-[515]    Se a string for "aproximadamente", diga sim.
-[516]    Se a string for "cerca", diga sim.
-[517]    Diga não.
-
 [519]  Função para que se determine se uma string é algum possessivo reverso:
 [520]    Se a string for "de", diga sim.
 [521]    \Se a string for "do", diga sim. \ short por "de o", expanded em "compile um termo usando um percorredor e um campo nome (possessivo reverso)"

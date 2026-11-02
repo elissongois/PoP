@@ -1015,8 +1015,17 @@ suite('Português Puro definitions', () => {
       );
       assert.ok(definition);
       assert.equal(definition.length, 1);
-      assert.equal(definition[0].range.start.line, 1);
+      assert.equal(definition[0].range.start.line, 4);
     }
+
+    const definicaoTipoDoCampo = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeTypeDefinitionProvider',
+      docUri,
+      document.positionAt(lowerFieldName)
+    );
+    assert.ok(definicaoTipoDoCampo);
+    assert.equal(definicaoTipoDoCampo.length, 1);
+    assert.equal(definicaoTipoDoCampo[0].range.start.line, 0);
 
     const inferredNameStart = text.lastIndexOf('segundo número');
     for (const word of ['segundo', 'número']) {
@@ -1028,8 +1037,17 @@ suite('Português Puro definitions', () => {
       );
       assert.ok(definition);
       assert.equal(definition.length, 1);
-      assert.equal(definition[0].range.start.line, 3);
+      assert.equal(definition[0].range.start.line, 8);
     }
+
+    const definicaoTipoDoCampoInferido = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeTypeDefinitionProvider',
+      docUri,
+      document.positionAt(inferredNameStart)
+    );
+    assert.ok(definicaoTipoDoCampoInferido);
+    assert.equal(definicaoTipoDoCampoInferido.length, 1);
+    assert.equal(definicaoTipoDoCampoInferido[0].range.start.line, 3);
   });
 
   test('Parses reference field markers as field terminators, not navigable names', async () => {
@@ -1061,7 +1079,16 @@ suite('Português Puro definitions', () => {
     );
     assert.ok(fieldNameDefinition);
     assert.equal(fieldNameDefinition.length, 1);
-    assert.equal(fieldNameDefinition[0].range.start.line, 1);
+    assert.equal(fieldNameDefinition[0].range.start.line, 3);
+
+    const definicaoTipoDoCampo = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeTypeDefinitionProvider',
+      docUri,
+      document.positionAt(fieldNameOffset)
+    );
+    assert.ok(definicaoTipoDoCampo);
+    assert.equal(definicaoTipoDoCampo.length, 1);
+    assert.equal(definicaoTipoDoCampo[0].range.start.line, 1);
 
     const inferredTypeOffset = text.indexOf('segundo número') + 2;
     const inferredTypeDefinition = await vscode.commands.executeCommand<vscode.Location[]>(
@@ -1071,7 +1098,16 @@ suite('Português Puro definitions', () => {
     );
     assert.ok(inferredTypeDefinition);
     assert.equal(inferredTypeDefinition.length, 1);
-    assert.equal(inferredTypeDefinition[0].range.start.line, 0);
+    assert.equal(inferredTypeDefinition[0].range.start.line, 4);
+
+    const definicaoTipoDoCampoInferido = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeTypeDefinitionProvider',
+      docUri,
+      document.positionAt(inferredTypeOffset)
+    );
+    assert.ok(definicaoTipoDoCampoInferido);
+    assert.equal(definicaoTipoDoCampoInferido.length, 1);
+    assert.equal(definicaoTipoDoCampoInferido[0].range.start.line, 0);
 
     const referenceOnlyNameOffset = text.indexOf('(referência)', text.indexOf('segundo número')) - 2;
     const referenceOnlyFieldDefinition = await vscode.commands.executeCommand<vscode.Location[]>(
@@ -1081,7 +1117,16 @@ suite('Português Puro definitions', () => {
     );
     assert.ok(referenceOnlyFieldDefinition);
     assert.equal(referenceOnlyFieldDefinition.length, 1);
-    assert.equal(referenceOnlyFieldDefinition[0].range.start.line, 0);
+    assert.equal(referenceOnlyFieldDefinition[0].range.start.line, 4);
+
+    const definicaoTipoDoCampoDeReferencia = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeTypeDefinitionProvider',
+      docUri,
+      document.positionAt(referenceOnlyNameOffset)
+    );
+    assert.ok(definicaoTipoDoCampoDeReferencia);
+    assert.equal(definicaoTipoDoCampoDeReferencia.length, 1);
+    assert.equal(definicaoTipoDoCampoDeReferencia[0].range.start.line, 0);
   });
 
   test('Reports unknown base types without ignoring accent differences', async () => {
@@ -1355,7 +1400,16 @@ suite('Português Puro definitions', () => {
     );
     assert.ok(typeDefinition);
     assert.equal(typeDefinition.length, 1);
-    assert.equal(typeDefinition[0].range.start.line, 0);
+    assert.equal(typeDefinition[0].range.start.line, 4);
+
+    const definicaoTipoDoCampo = await vscode.commands.executeCommand<vscode.Location[]>(
+      'vscode.executeTypeDefinitionProvider',
+      docUri,
+      document.positionAt(numberOffset + 2)
+    );
+    assert.ok(definicaoTipoDoCampo);
+    assert.equal(definicaoTipoDoCampo.length, 1);
+    assert.equal(definicaoTipoDoCampo[0].range.start.line, 0);
 
     const commentOffset = text.indexOf('[comentário', text.indexOf('Um byte denominado'));
     const commentDefinition = await vscode.commands.executeCommand<vscode.Location[]>(
@@ -1395,11 +1449,13 @@ suite('Português Puro definitions', () => {
       }
     }
     assert.ok(expectedOffsets.length >= 3);
-    assert.equal(diagnostics.length, expectedOffsets.length);
-    assert.ok(diagnostics.every(diagnostic =>
+    assert.equal(diagnostics.length, 2);
+    assert.equal(diagnostics.filter(diagnostic =>
       diagnostic.message === 'Non-printable characters are not allowed in comments.'
-    ));
-
+    ).length, 1);
+    assert.equal(diagnostics.filter(diagnostic =>
+      diagnostic.message === 'Line breaks are not allowed in block comments.'
+    ).length, 1);
     assert.ok(diagnostics.every(diagnostic =>
       expectedOffsets.some(offset =>
         document.positionAt(offset).line === diagnostic.range.start.line
@@ -1457,6 +1513,112 @@ suite('Português Puro definitions', () => {
       assert.equal(definition.length, 1);
       assert.equal(definition[0].range.start.line, 0);
     }
+  });
+
+  test('Resolves external parameter and field types in navigation and outline symbols', async () => {
+    const externalPath = getDocPath('external-type-sibling.pop');
+    const externalUri = vscode.Uri.file(externalPath);
+    await writeFile(
+      externalPath,
+      Buffer.from([
+        'Um tipo de arquivo é uma estrutura.',
+        'Uma unidade é uma estrutura.'
+      ].join('\n'), 'latin1')
+    );
+    try {
+      await activate(docUri);
+      const diagnosticsUpdated = new Promise<void>(resolve => {
+        const listener = vscode.languages.onDidChangeDiagnostics(event => {
+          if (event.uris.some(uri => uri.toString() === docUri.toString())) {
+            listener.dispose();
+            resolve();
+          }
+        });
+      });
+      await setTestContent([
+        'Um elemento é um tipo de arquivo com um tipo de arquivo denominado conteúdo.',
+        'Rotina para que se calcule usando um segundo tipo de arquivo com uma unidade:',
+        '  Retorne.'
+      ].join('\n'));
+      await diagnosticsUpdated;
+
+      const document = await vscode.workspace.openTextDocument(docUri);
+      const text = document.getText();
+      const fieldName = text.indexOf('conteúdo');
+      const fieldDefinition = await vscode.commands.executeCommand<vscode.Location[]>(
+        'vscode.executeDefinitionProvider',
+        docUri,
+        document.positionAt(fieldName + 2)
+      );
+      assert.equal(fieldDefinition?.length, 1);
+      assert.equal(fieldDefinition?.[0].range.start.line, 0);
+
+      const fieldTypeDefinition = await vscode.commands.executeCommand<vscode.Location[]>(
+        'vscode.executeTypeDefinitionProvider',
+        docUri,
+        document.positionAt(fieldName + 2)
+      );
+      assert.equal(fieldTypeDefinition?.length, 1);
+      assert.equal(fieldTypeDefinition?.[0].uri.toString(), externalUri.toString());
+
+      const parameterOffset = text.indexOf('segundo tipo de arquivo') + 4;
+      const parameterTypeDefinition = await vscode.commands.executeCommand<vscode.Location[]>(
+        'vscode.executeTypeDefinitionProvider',
+        docUri,
+        document.positionAt(parameterOffset)
+      );
+      assert.equal(parameterTypeDefinition?.length, 1);
+      assert.equal(parameterTypeDefinition?.[0].uri.toString(), externalUri.toString());
+
+      const symbols = await vscode.commands.executeCommand<vscode.DocumentSymbol[]>(
+        'vscode.executeDocumentSymbolProvider',
+        docUri
+      );
+      const element = symbols?.find(symbol => symbol.name === 'elemento');
+      assert.equal(element?.detail, 'tipo de arquivo');
+      assert.equal(element?.kind, vscode.SymbolKind.Struct);
+      const routine = symbols?.find(symbol => symbol.name === 'calcule');
+      assert.equal(
+        routine?.children?.find(symbol => symbol.name === 'segundo tipo de arquivo')?.detail,
+        'tipo de arquivo'
+      );
+      assert.equal(
+        routine?.children?.find(symbol => symbol.name === 'unidade')?.detail,
+        'unidade'
+      );
+    } finally {
+      await unlink(externalPath);
+    }
+  });
+
+  test('Rejects line breaks in strings, block comments, and routine qualifiers', async () => {
+    await activate(docUri);
+    const diagnosticsUpdated = new Promise<void>(resolve => {
+      const listener = vscode.languages.onDidChangeDiagnostics(event => {
+        if (event.uris.some(uri => uri.toString() === docUri.toString())) {
+          listener.dispose();
+          resolve();
+        }
+      });
+    });
+    await setTestContent([
+      'Uma mensagem é uma string igual a "duas',
+      'linhas".',
+      'Um tipo é uma estrutura [comentário',
+      'continuado].',
+      'Rotina para que se faça algo (qualificador',
+      'continuado):',
+      '  Retorne.',
+      'Função para que se determine se inválido:',
+      '  Retorne.'
+    ].join('\n'));
+    await diagnosticsUpdated;
+
+    const messages = vscode.languages.getDiagnostics(docUri).map(({ message }) => message);
+    assert.ok(messages.includes('Line breaks are not allowed in strings.'));
+    assert.ok(messages.includes('Line breaks are not allowed in block comments.'));
+    assert.ok(messages.includes('Line breaks are not allowed in routine qualifiers.'));
+    assert.ok(messages.includes('"Retorne" cannot be used in a boolean function.'));
   });
 
   test('Ends routine bodies at following top-level declarations and routine headers', async () => {
@@ -2022,7 +2184,7 @@ suite('Português Puro definitions', () => {
       'Rotina para que se execute:',
       '  Atribua "João" para uma string denominada nome.',
       '  consuma o nome.',
-      'Rotina para que se atribua uma string para uma string:',
+      'Rotina para que se atribua uma string denominada origem para uma string denominada destino:',
       '  Retorne.',
       'Rotina para que se consuma uma string:',
       '  Retorne.'
