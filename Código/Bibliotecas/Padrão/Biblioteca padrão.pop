@@ -1647,6 +1647,7 @@ O sinal & é um byte igual a 38.
 O & é um byte igual a 38.
 O sinal tironiano é um byte igual a 38. \&
 O apóstrofo é um byte igual a 39.
+A aspa simples é um byte igual a 39.
 O parênteses esquerdo é um byte igual a 40.
 O parênteses direito é um byte igual a 41.
 O asterisco é um byte igual a 42.

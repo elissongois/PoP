@@ -1,173 +1,173 @@
-[Implementa√ß√£o das Fun√ß√µes]
-Fun√ß√£o para que se determine se um byte √© um segundo byte:
+[ImplementaÁ„o das FunÁıes]
+FunÁ„o para que se determine se um byte È um segundo byte:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
   Decodifique $8A1B. \ mov bl,[ebx]
   Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o outro byte
   Decodifique $3A19. \ cmp bl,[ecx]
-  Decodifique $0F8406000000. \ je sobre o pr√≥ximo 1 statement
+  Decodifique $0F8406000000. \ je sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um byte √© maior que um segundo byte;
-Fun√ß√£o para que se determine se um byte √© maior do que um segundo byte:
+FunÁ„o para que se determine se um byte È maior que um segundo byte;
+FunÁ„o para que se determine se um byte È maior do que um segundo byte:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
   Decodifique $8A1B. \ mov bl,[ebx]
   Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ a segunda byte
   Decodifique $3A19. \ cmp bl,[ecx]
-  Decodifique $0F8706000000. \ ja sobre o pr√≥ximo 1 statement
+  Decodifique $0F8706000000. \ ja sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um byte √© maior que um n√∫mero;
-Fun√ß√£o para que se determine se um byte √© maior do que um n√∫mero:
+FunÁ„o para que se determine se um byte È maior que um n˙mero;
+FunÁ„o para que se determine se um byte È maior do que um n˙mero:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
   Decodifique $0FB61B. \ movzx ebx,byte ptr [ebx]
-  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o n√∫mero
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o n˙mero
   Decodifique $3B19. \ cmp ebx,[ecx]
-  Decodifique $0F8F06000000. \ jg sobre o pr√≥ximo 1 statement
+  Decodifique $0F8F06000000. \ jg sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um byte √© maior do que ou igual a um segundo byte;
-Fun√ß√£o para que se determine se um byte √© maior que ou igual a um segundo byte;
-Fun√ß√£o para que se determine se um byte √© maior ou igual a um segundo byte:
+FunÁ„o para que se determine se um byte È maior do que ou igual a um segundo byte;
+FunÁ„o para que se determine se um byte È maior que ou igual a um segundo byte;
+FunÁ„o para que se determine se um byte È maior ou igual a um segundo byte:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
   Decodifique $8A1B. \ mov bl,[ebx]
   Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ a segunda byte
   Decodifique $3A19. \ cmp bl,[ecx]
-  Decodifique $0F8306000000. \ ja sobre o pr√≥ximo 1 statement
+  Decodifique $0F8306000000. \ ja sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um byte √© menor que um segundo byte;
-Fun√ß√£o para que se determine se um byte √© menor do que um segundo byte:
+FunÁ„o para que se determine se um byte È menor que um segundo byte;
+FunÁ„o para que se determine se um byte È menor do que um segundo byte:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
   Decodifique $8A1B. \ mov bl,[ebx]
   Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ a segunda byte
   Decodifique $3A19. \ cmp bl,[ecx]
-  Decodifique $0F8206000000. \ jb sobre o pr√≥ximo 1 statement
+  Decodifique $0F8206000000. \ jb sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um byte √© menor que um n√∫mero;
-Fun√ß√£o para que se determine se um byte √© menor do que um n√∫mero:
+FunÁ„o para que se determine se um byte È menor que um n˙mero;
+FunÁ„o para que se determine se um byte È menor do que um n˙mero:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
   Decodifique $0FB61B. \ movzx ebx,byte ptr [ebx]
-  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o n√∫mero
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o n˙mero
   Decodifique $3B19. \ cmp ebx,[ecx]
-  Decodifique $0F8C06000000. \ jl sobre o pr√≥ximo 1 statement
+  Decodifique $0F8C06000000. \ jl sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um byte √© menor do que ou igual a um segundo byte;
-Fun√ß√£o para que se determine se um byte √© menor que ou igual a um segundo byte;
-Fun√ß√£o para que se determine se um byte √© igual ou menor do que um segundo byte;
-Fun√ß√£o para que se determine se um byte √© igual ou menor que um segundo byte;
-Fun√ß√£o para que se determine se um byte √© menor ou igual a um segundo byte:
+FunÁ„o para que se determine se um byte È menor do que ou igual a um segundo byte;
+FunÁ„o para que se determine se um byte È menor que ou igual a um segundo byte;
+FunÁ„o para que se determine se um byte È igual ou menor do que um segundo byte;
+FunÁ„o para que se determine se um byte È igual ou menor que um segundo byte;
+FunÁ„o para que se determine se um byte È menor ou igual a um segundo byte:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
   Decodifique $8A1B. \ mov bl,[ebx]
   Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ a segunda byte
   Decodifique $3A19. \ cmp bl,[ecx]
-  Decodifique $0F8606000000. \ jbe sobre o pr√≥ximo 1 statement
+  Decodifique $0F8606000000. \ jbe sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um byte √© igual a um n√∫mero;
-Fun√ß√£o para que se determine se um byte √© um n√∫mero:
+FunÁ„o para que se determine se um byte È igual a um n˙mero;
+FunÁ„o para que se determine se um byte È um n˙mero:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
   Decodifique $0FB61B. \ movzx ebx,byte ptr [ebx]
-  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o n√∫mero
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o n˙mero
   Decodifique $3B19. \ cmp ebx,[ecx]
-  Decodifique $0F8406000000. \ je sobre o pr√≥ximo 1 statement
+  Decodifique $0F8406000000. \ je sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um sinalizador √© um n√∫mero;
-Fun√ß√£o para que se determine se um sinalizador √© um segundo sinalizador;
-Fun√ß√£o para que se determine se um ponteiro √© um n√∫mero;
-Fun√ß√£o para que se determine se um ponteiro √© um segunda ponteiro;
-Fun√ß√£o para que se determine se um n√∫mero √© igual a um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© um segundo n√∫mero:
+FunÁ„o para que se determine se um sinalizador È um n˙mero;
+FunÁ„o para que se determine se um sinalizador È um segundo sinalizador;
+FunÁ„o para que se determine se um ponteiro È um n˙mero;
+FunÁ„o para que se determine se um ponteiro È um segunda ponteiro;
+FunÁ„o para que se determine se um n˙mero È igual a um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È um segundo n˙mero:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
-  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n√∫mero
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n˙mero
   Decodifique $8B1B. \ mov ebx,[ebx]
-  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n√∫mero
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n˙mero
   Decodifique $3B19. \ cmp ebx,[ecx]
-  Decodifique $0F8406000000. \ je sobre o pr√≥ximo 1 statement
+  Decodifique $0F8406000000. \ je sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um ponteiro √© maior do que um segundo ponteiro;
-Fun√ß√£o para que se determine se um n√∫mero √© maior do que um segundo n√∫mero:
-  Decodifique $C7C001000000. \ mov eax,1 \ presume que o n√∫mero seja maior logo de come√ßo
-  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n√∫mero
+FunÁ„o para que se determine se um ponteiro È maior do que um segundo ponteiro;
+FunÁ„o para que se determine se um n˙mero È maior do que um segundo n˙mero:
+  Decodifique $C7C001000000. \ mov eax,1 \ presume que o n˙mero seja maior logo de comeÁo
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n˙mero
   Decodifique $8B1B. \ mov ebx,[ebx]
-  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n√∫mero
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n˙mero
   Decodifique $3B19. \ cmp ebx,[ecx]
-  Decodifique $0F8F06000000. \ jg sobre o pr√≥ximo 1 statement
+  Decodifique $0F8F06000000. \ jg sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um ponteiro √© maior do que ou igual a um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© maior que ou igual a um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© igual ou maior do que um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© igual ou maior que um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© maior ou igual a um segundo ponteiro;
-Fun√ß√£o para que se determine se um n√∫mero √© um segundo n√∫mero ou more;
-Fun√ß√£o para que se determine se um n√∫mero √© maior do que ou igual a um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© maior que ou igual a um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© igual ou maior do que um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© igual ou maior que um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© maior ou igual a um segundo n√∫mero:
+FunÁ„o para que se determine se um ponteiro È maior do que ou igual a um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È maior que ou igual a um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È igual ou maior do que um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È igual ou maior que um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È maior ou igual a um segundo ponteiro;
+FunÁ„o para que se determine se um n˙mero È um segundo n˙mero ou more;
+FunÁ„o para que se determine se um n˙mero È maior do que ou igual a um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È maior que ou igual a um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È igual ou maior do que um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È igual ou maior que um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È maior ou igual a um segundo n˙mero:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
-  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n√∫mero
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n˙mero
   Decodifique $8B1B. \ mov ebx,[ebx]
-  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n√∫mero
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n˙mero
   Decodifique $3B19. \ cmp ebx,[ecx]
-  Decodifique $0F8D06000000. \ jge sobre o pr√≥ximo 1 statement
+  Decodifique $0F8D06000000. \ jge sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um ponteiro √© menor do que um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© menor que um segundo ponteiro;
-Fun√ß√£o para que se determine se um n√∫mero √© menor que um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© menor do que um segundo n√∫mero:
+FunÁ„o para que se determine se um ponteiro È menor do que um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È menor que um segundo ponteiro;
+FunÁ„o para que se determine se um n˙mero È menor que um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È menor do que um segundo n˙mero:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
-  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n√∫mero
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n˙mero
   Decodifique $8B1B. \ mov ebx,[ebx]
-  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n√∫mero
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n˙mero
   Decodifique $3B19. \ cmp ebx,[ecx]
-  Decodifique $0F8C06000000. \ jl sobre o pr√≥ximo 1 statement
+  Decodifique $0F8C06000000. \ jl sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se um ponteiro √© menor do que ou igual a um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© menor que ou igual a um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© menor ou igual a um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© igual ou menor do que um segundo ponteiro;
-Fun√ß√£o para que se determine se um ponteiro √© igual ou menor que um segundo ponteiro;
-Fun√ß√£o para que se determine se um n√∫mero √© um segundo n√∫mero ou menos;
-Fun√ß√£o para que se determine se um n√∫mero √© um segundo n√∫mero ou menor;
-Fun√ß√£o para que se determine se um n√∫mero √© menor do que ou igual a um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© menor que ou igual a um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© igual ou menor do que um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© igual ou menor que um segundo n√∫mero;
-Fun√ß√£o para que se determine se um n√∫mero √© menor ou igual a um segundo n√∫mero:
+FunÁ„o para que se determine se um ponteiro È menor do que ou igual a um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È menor que ou igual a um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È menor ou igual a um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È igual ou menor do que um segundo ponteiro;
+FunÁ„o para que se determine se um ponteiro È igual ou menor que um segundo ponteiro;
+FunÁ„o para que se determine se um n˙mero È um segundo n˙mero ou menos;
+FunÁ„o para que se determine se um n˙mero È um segundo n˙mero ou menor;
+FunÁ„o para que se determine se um n˙mero È menor do que ou igual a um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È menor que ou igual a um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È igual ou menor do que um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È igual ou menor que um segundo n˙mero;
+FunÁ„o para que se determine se um n˙mero È menor ou igual a um segundo n˙mero:
   Decodifique $C7C001000000. \ mov eax,1 \ assume true
-  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n√∫mero
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o n˙mero
   Decodifique $8B1B. \ mov ebx,[ebx]
-  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n√∫mero
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo n˙mero
   Decodifique $3B19. \ cmp ebx,[ecx]
-  Decodifique $0F8E06000000. \ jle sobre o pr√≥ximo 1 statement
+  Decodifique $0F8E06000000. \ jle sobre o prÛximo 1 statement
   Decodifique $C7C000000000. \ mov eax,0 \ now it is false
 
-Fun√ß√£o para que se determine se uma string possui conte√∫do dentro dela;
-Fun√ß√£o para que se determine se uma string cont√©m algum texto;
-Fun√ß√£o para que se determine se uma string cont√©m texto;
-Fun√ß√£o para que se determine se uma string est√° definida;
-Fun√ß√£o para que se determine se h√° conte√∫do dentro de uma string;
-Fun√ß√£o para que se determine se uma string est√° preenchida:
-  Se a string estiver em branco, diga n√£o.
+FunÁ„o para que se determine se uma string possui conte˙do dentro dela;
+FunÁ„o para que se determine se uma string contÈm algum texto;
+FunÁ„o para que se determine se uma string contÈm texto;
+FunÁ„o para que se determine se uma string est· definida;
+FunÁ„o para que se determine se h· conte˙do dentro de uma string;
+FunÁ„o para que se determine se uma string est· preenchida:
+  Se a string estiver em branco, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma string est√° em branco:
-  \ A fun√ß√£o come√ßa presumindo veracidade
+FunÁ„o para que se determine se uma string est· em branco:
+  \ A funÁ„o comeÁa presumindo veracidade
   Decodifique $B801000000. \ mov eax, 1
   Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ a string
     \ Se o caractere inicial for 0, retorna
@@ -181,50 +181,50 @@ Fun√ß√£o para que se determine se uma string est√° em branco:
   Decodifique $B800000000. \ mov eax,0
   \ FIM:
 
-Fun√ß√£o para que se determine se uma caixa √© uma segunda caixa:
-  Se a coordenada X1 desta caixa n√£o for a coordenada X1 desta segunda caixa, diga n√£o.
-  Se a coordenada Y1 desta caixa n√£o for a coordenada Y1 desta segunda caixa, diga n√£o.
-  Se a coordenada X2 desta caixa n√£o for a coordenada X2 desta segunda caixa, diga n√£o.
-  Se a coordenada Y2 desta caixa n√£o for a coordenada Y2 desta segunda caixa, diga n√£o.
+FunÁ„o para que se determine se uma caixa È uma segunda caixa:
+  Se a coordenada X1 desta caixa n„o for a coordenada X1 desta segunda caixa, diga n„o.
+  Se a coordenada Y1 desta caixa n„o for a coordenada Y1 desta segunda caixa, diga n„o.
+  Se a coordenada X2 desta caixa n„o for a coordenada X2 desta segunda caixa, diga n„o.
+  Se a coordenada Y2 desta caixa n„o for a coordenada Y2 desta segunda caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma caixa est√° em uma segunda caixa;
-Fun√ß√£o para que se determine se uma caixa est√° dentro de uma segunda caixa:
-  Se a coordenada X1 desta caixa for menor do que a coordenada X1 desta segunda caixa, diga n√£o.
-  Se a coordenada Y1 desta caixa for menor do que a coordenada Y1 desta segunda caixa, diga n√£o.
-  Se a coordenada X2 desta caixa for maior do que a coordenada X2 desta segunda caixa, diga n√£o.
-  Se a coordenada Y2 desta caixa for maior do que a coordenada Y2 desta segunda caixa, diga n√£o.
+FunÁ„o para que se determine se uma caixa est· em uma segunda caixa;
+FunÁ„o para que se determine se uma caixa est· dentro de uma segunda caixa:
+  Se a coordenada X1 desta caixa for menor do que a coordenada X1 desta segunda caixa, diga n„o.
+  Se a coordenada Y1 desta caixa for menor do que a coordenada Y1 desta segunda caixa, diga n„o.
+  Se a coordenada X2 desta caixa for maior do que a coordenada X2 desta segunda caixa, diga n„o.
+  Se a coordenada Y2 desta caixa for maior do que a coordenada Y2 desta segunda caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma caixa est√° tocando uma segunda caixa:
-  Se a coordenada X2 desta segunda caixa for menor do que a coordenada X1 desta caixa, diga n√£o.
-  Se a coordenada Y2 desta segunda caixa for menor do que a coordenada Y1 desta caixa, diga n√£o.
-  Se a coordenada X1 desta segunda caixa for maior do que a coordenada X2 desta caixa, diga n√£o.
-  Se a coordenada Y1 desta segunda caixa for maior do que a coordenada Y2 desta caixa, diga n√£o.
+FunÁ„o para que se determine se uma caixa est· tocando uma segunda caixa:
+  Se a coordenada X2 desta segunda caixa for menor do que a coordenada X1 desta caixa, diga n„o.
+  Se a coordenada Y2 desta segunda caixa for menor do que a coordenada Y1 desta caixa, diga n„o.
+  Se a coordenada X1 desta segunda caixa for maior do que a coordenada X2 desta caixa, diga n„o.
+  Se a coordenada Y1 desta segunda caixa for maior do que a coordenada Y2 desta caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um byte √© alfanum√©rico:
+FunÁ„o para que se determine se um byte È alfanumÈrico:
   Se o byte for algum letra, diga sim.
-  Se o byte for algum d√≠gito, diga sim.
-  Diga n√£o.
+  Se o byte for algum dÌgito, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© um segundo byte ou um terceiro byte:
+FunÁ„o para que se determine se um byte È um segundo byte ou um terceiro byte:
   Se o byte for o segundo byte, diga sim.
   Se o byte for o terceiro byte, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© alguma consoante:
-  Se o byte estiver em "bcdfghjklmnpqrstvwxyz√ß√±", diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um byte È alguma consoante:
+  Se o byte estiver em "bcdfghjklmnpqrstvwxyzÁÒ", diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© algum d√≠gito:
-  Se o byte for menor do que o n√∫mero zero, diga n√£o.
-  Se o byte for maior do que o n√∫mero nove, diga n√£o.
+FunÁ„o para que se determine se um byte È algum dÌgito:
+  Se o byte for menor do que o n˙mero zero, diga n„o.
+  Se o byte for maior do que o n˙mero nove, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um byte √© algum letra:
-  Se o byte estiver entre o 'A' mai√∫sculo e o Z mai√∫sculo, diga sim.
-  Se o byte estiver entre o 'a' min√∫sculo e o z min√∫sculo, diga sim.
+FunÁ„o para que se determine se um byte È algum letra:
+  Se o byte estiver entre o 'A' mai˙sculo e o Z mai˙sculo, diga sim.
+  Se o byte estiver entre o 'a' min˙sculo e o z min˙sculo, diga sim.
   Se o byte for 131 ou 138, diga sim.
   Se o byte for 140 ou 142, diga sim.
   Se o byte for 154 ou 156, diga sim.
@@ -232,72 +232,72 @@ Fun√ß√£o para que se determine se um byte √© algum letra:
   Se o byte estiver entre 192 e 214, diga sim.
   Se o byte estiver entre 216 e 246, diga sim.
   Se o byte estiver entre 248 e 255, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© algum indicador num√©rico:
-  Se o byte for algum d√≠gito, diga sim.
-  Se o byte for algum sinal aritm√©tico, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um byte È algum indicador numÈrico:
+  Se o byte for algum dÌgito, diga sim.
+  Se o byte for algum sinal aritmÈtico, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© algum caractere n√£o-alfanum√©rico:
+FunÁ„o para que se determine se um byte È algum caractere n„o-alfanumÈrico:
   \ precisa ser aprimorado
-  Se o byte for o caractere de espa√ßo, diga n√£o.
-  Se o byte n√£o for alfanum√©rico, diga sim.
-  Diga n√£o.
+  Se o byte for o caractere de espaÁo, diga n„o.
+  Se o byte n„o for alfanumÈrico, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© algum sinal aritm√©tico:
-  Se o byte for o sinal de adi√ß√£o, diga sim.
-  Se o byte for o sinal de subtra√ß√£o, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um byte È algum sinal aritmÈtico:
+  Se o byte for o sinal de adiÁ„o, diga sim.
+  Se o byte for o sinal de subtraÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© algum unidade de disco v√°lida:
-  Atribua o byte para um endere√ßo completo.
-  Acrescente ":\" para o endere√ßo completo.
-  Obtenha um categoria da unidade de disco pelo endere√ßo completo.
-  Se a categoria da unidade de disco for "", diga n√£o.
+FunÁ„o para que se determine se um byte È algum unidade de disco v·lida:
+  Atribua o byte para um endereÁo completo.
+  Acrescente ":\" para o endereÁo completo.
+  Obtenha um categoria da unidade de disco pelo endereÁo completo.
+  Se a categoria da unidade de disco for "", diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um byte √© algum vogal:
-  Se o byte estiver em "aeiouy√°√©√≠√≥√∫√Ω√£√µ√§√´√Ø√∂√º√ø√¢√™√Æ√¥√ª√†√®√¨√≤√π", diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um byte È algum vogal:
+  Se o byte estiver em "aeiouy·ÈÌÛ˙˝„ı‰ÎÔˆ¸ˇ‚ÍÓÙ˚‡ËÏÚ˘", diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte est√° entre um segundo byte e um terceiro byte:
-  Se o byte for menor do que o segundo byte, diga n√£o.
-  Se o byte for maior do que o terceiro byte, diga n√£o.
+FunÁ„o para que se determine se um byte est· entre um segundo byte e um terceiro byte:
+  Se o byte for menor do que o segundo byte, diga n„o.
+  Se o byte for maior do que o terceiro byte, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um byte est√° entre um n√∫mero e um segundo n√∫mero:
-  Se o byte for menor do que o n√∫mero, diga n√£o.
-  Se o byte for maior do que o segundo n√∫mero, diga n√£o.
+FunÁ„o para que se determine se um byte est· entre um n˙mero e um segundo n˙mero:
+  Se o byte for menor do que o n˙mero, diga n„o.
+  Se o byte for maior do que o segundo n˙mero, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um byte est√° em uma string:
+FunÁ„o para que se determine se um byte est· em uma string:
   Preserve o byte.
   Lowercase o byte.
   Lance um subtexto sobre a string.
   Itere.
-    Se o subtexto estiver em branco, diga n√£o.
-    Atribua o conte√∫do deste caractere inicial deste subtexto para um segundo byte.
+    Se o subtexto estiver em branco, diga n„o.
+    Atribua o conte˙do deste caractere inicial deste subtexto para um segundo byte.
     Lowercase o segundo byte.
     Se o segundo byte for o byte, diga sim.
     Adicione 1 para o caractere inicial deste subtexto.
   Reitere.
 
-Fun√ß√£o para que se determine se um byte √© parecido com um segundo byte;
-Fun√ß√£o para que se determine se um byte √© similar para um segundo byte;
-Fun√ß√£o para que se determine se um byte √© semelhante para um segundo byte:
+FunÁ„o para que se determine se um byte È parecido com um segundo byte;
+FunÁ„o para que se determine se um byte È similar para um segundo byte;
+FunÁ„o para que se determine se um byte È semelhante para um segundo byte:
   \ used internally para palavra selecione o texto em
-  Se o byte for algum espa√ßo em branco,
+  Se o byte for algum espaÁo em branco,
     Ative um sinalizador.
-  Se o segundo byte for algum espa√ßo em branco,
+  Se o segundo byte for algum espaÁo em branco,
     Ative um segundo sinalizador.
   Se o sinalizador for o segundo sinalizador, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© irrelevante:
-  Se o byte for menor do que ou igual ao caractere de espa√ßo, diga sim.
-  Se o byte for o [ANTIGO] s√≠mbolo DEL [descontinuado], diga sim.
-  Se o byte for o espa√ßo r√≠gido, diga sim.
+FunÁ„o para que se determine se um byte È irrelevante:
+  Se o byte for menor do que ou igual ao caractere de espaÁo, diga sim.
+  Se o byte for o [ANTIGO] sÌmbolo DEL [descontinuado], diga sim.
+  Se o byte for o espaÁo rÌgido, diga sim.
   Se o byte for 129, diga sim. \ Inutilizado
   Se o byte for 141, diga sim. \ Inutilizado
   Se o byte for 143, diga sim. \ Inutilizado
@@ -305,688 +305,688 @@ Fun√ß√£o para que se determine se um byte √© irrelevante:
   Se o byte for 157, diga sim. \ Inutilizado
   Se o byte for o indicador ordinal masculino, diga sim.
   Se o byte for o indicador ordinal feminino, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© igual a um n√∫mero ou para um segundo n√∫mero;
-Fun√ß√£o para que se determine se um byte √© um n√∫mero ou um segundo n√∫mero:
-  Se o byte for o n√∫mero, diga sim.
-  Se o byte for o segundo n√∫mero, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um byte È igual a um n˙mero ou para um segundo n˙mero;
+FunÁ„o para que se determine se um byte È um n˙mero ou um segundo n˙mero:
+  Se o byte for o n˙mero, diga sim.
+  Se o byte for o segundo n˙mero, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© imprim√≠vel:
-  Se o byte for menor do que o caractere de espa√ßo, diga n√£o.
-  Se o byte for o s√≠mbolo DEL [que agora est√° descontinuado], diga n√£o.
-  Se o byte for 129, diga n√£o.
-  Se o byte for 141, diga n√£o.
-  Se o byte for 143, diga n√£o.
-  Se o byte for 144, diga n√£o.
-  Se o byte for 157, diga n√£o.
+FunÁ„o para que se determine se um byte È imprimÌvel:
+  Se o byte for menor do que o caractere de espaÁo, diga n„o.
+  Se o byte for o sÌmbolo DEL [que agora est· descontinuado], diga n„o.
+  Se o byte for 129, diga n„o.
+  Se o byte for 141, diga n„o.
+  Se o byte for 143, diga n„o.
+  Se o byte for 144, diga n„o.
+  Se o byte for 157, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um byte √© uma string:
-  Se a quantidade de caracteres desta string n√£o for 1, diga n√£o.
+FunÁ„o para que se determine se um byte È uma string:
+  Se a quantidade de caracteres desta string n„o for 1, diga n„o.
   Preserve o byte.
   Lowercase o byte.
-  Atribua o conte√∫do deste caractere inicial desta string para um segundo byte.
+  Atribua o conte˙do deste caractere inicial desta string para um segundo byte.
   Lowercase o segundo byte.
   Se o byte for o segundo byte, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© symbolic:
-  Se o byte estiver entre o ponto de exclama√ß√£o e a barra inclinada, diga sim.
+FunÁ„o para que se determine se um byte È symbolic:
+  Se o byte estiver entre o ponto de exclamaÁ„o e a barra inclinada, diga sim.
   Se o byte estiver entre o sinal de dois pontos e o sinal de arroba, diga sim.
   Se o byte estiver entre o colchete esquerdo e o acento grave, diga sim.
   Se o byte estiver entre a chave esquerda e o acento til, diga sim.
-  Se o byte for 128, diga sim. \ ‚Ç¨
-  Se o byte for 130, diga sim. \ aspas simples inferiores'‚Äö' N√£o confundir com uma v√≠rgula ','
-  Se o byte estiver entre 132 e 137, diga sim. \ s√≠mbolos em geral
-  Se o byte for 139, diga sim. \ ‚Äπ
+  Se o byte for 128, diga sim. \ Ä
+  Se o byte for 130, diga sim. \ aspas simples inferiores'Ç' N„o confundir com uma vÌrgula ','
+  Se o byte estiver entre 132 e 137, diga sim. \ sÌmbolos em geral
+  Se o byte for 139, diga sim. \ ã
   Se o byte estiver entre 145 e 153, diga sim.
-  Se o byte for 155, diga sim. \ ‚Ä∫
+  Se o byte for 155, diga sim. \ õ
   Se o byte estiver entre 161 e 180, diga sim.
   Se o byte estiver entre 183 e 191, diga sim.
-  Se o byte for 215, diga sim. \ √ó
-  Se o byte for 247, diga sim. \ √∑
-  Diga n√£o.
+  Se o byte for 215, diga sim. \ ◊
+  Se o byte for 247, diga sim. \ ˜
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um byte √© algum espa√ßo em branco:
-  Se o byte for o caractere de espa√ßo, diga sim.
-  Se o byte for o tabula√ß√£o horizontal, diga sim.
+FunÁ„o para que se determine se um byte È algum espaÁo em branco:
+  Se o byte for o caractere de espaÁo, diga sim.
+  Se o byte for o tabulaÁ„o horizontal, diga sim.
   Se o byte for o retorno de carro, diga sim.
   Se o byte for a quebra de linha, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se o cursor de texto de uma caixa de texto est√° sob o come√ßo:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se o n√∫mero de linhas do cursor desta sele√ß√£o desta caixa de texto n√£o for 1, diga n√£o.
-  Se o cursor da coluna desta sele√ß√£o desta caixa de texto n√£o for 1, diga n√£o.
+FunÁ„o para que se determine se o cursor de texto de uma caixa de texto est· sob o comeÁo:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se o n˙mero de linhas do cursor desta seleÁ„o desta caixa de texto n„o for 1, diga n„o.
+  Se o cursor da coluna desta seleÁ„o desta caixa de texto n„o for 1, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se o cursor de texto de uma caixa de texto √© sob o fim:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se o n√∫mero de linhas do cursor desta sele√ß√£o desta caixa de texto n√£o for a contagem destas linhas de texto desta caixa de texto, diga n√£o.
-  Obtenha uma linha de texto usando o n√∫mero de linhas do cursor desta sele√ß√£o desta caixa de texto e a caixa de texto.
-  Se o cursor da coluna desta sele√ß√£o desta caixa de texto n√£o for a quantidade de caracteres desta string desta linha de texto, diga n√£o.
+FunÁ„o para que se determine se o cursor de texto de uma caixa de texto È sob o fim:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se o n˙mero de linhas do cursor desta seleÁ„o desta caixa de texto n„o for a contagem destas linhas de texto desta caixa de texto, diga n„o.
+  Obtenha uma linha de texto usando o n˙mero de linhas do cursor desta seleÁ„o desta caixa de texto e a caixa de texto.
+  Se o cursor da coluna desta seleÁ„o desta caixa de texto n„o for a quantidade de caracteres desta string desta linha de texto, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se o cursor de texto de uma caixa de texto est√° sobre a primeira linha reta:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se o n√∫mero de linhas do cursor desta sele√ß√£o desta caixa de texto n√£o for 1, diga n√£o.
+FunÁ„o para que se determine se o cursor de texto de uma caixa de texto est· sobre a primeira linha reta:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se o n˙mero de linhas do cursor desta seleÁ„o desta caixa de texto n„o for 1, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se o cursor de texto de uma caixa de texto est√° sobre a √∫ltima linha reta:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se as linhas de texto desta caixa de texto estiverem vazias, diga n√£o.
-  Se o n√∫mero de linhas do cursor desta sele√ß√£o desta caixa de texto n√£o for o n√∫mero da linha desta √∫ltima linha de texto destas linhas de texto desta caixa de texto, diga n√£o.
+FunÁ„o para que se determine se o cursor de texto de uma caixa de texto est· sobre a ˙ltima linha reta:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se as linhas de texto desta caixa de texto estiverem vazias, diga n„o.
+  Se o n˙mero de linhas do cursor desta seleÁ„o desta caixa de texto n„o for o n˙mero da linha desta ˙ltima linha de texto destas linhas de texto desta caixa de texto, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma alternativa √© uma string:
-  Se a alternativa for inexistente, diga n√£o.
+FunÁ„o para que se determine se uma alternativa È uma string:
+  Se a alternativa for inexistente, diga n„o.
   Se o nome desta alternativa for a string, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma cor e uma segunda cor est√£o clear:
-  Se a cor n√£o for clear, diga n√£o.
-  Se a segunda cor n√£o for clear, diga n√£o.
+FunÁ„o para que se determine se uma cor e uma segunda cor est„o clear:
+  Se a cor n„o for clear, diga n„o.
+  Se a segunda cor n„o for clear, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma cor √© uma segunda cor:
-  Se a matiz desta cor n√£o for a matiz desta segunda cor, diga n√£o.
-  Se a satura√ß√£o desta cor n√£o for a satura√ß√£o desta segunda cor, diga n√£o.
-  Se a luminosidade desta cor n√£o for a luminosidade desta segunda cor, diga n√£o.
+FunÁ„o para que se determine se uma cor È uma segunda cor:
+  Se a matiz desta cor n„o for a matiz desta segunda cor, diga n„o.
+  Se a saturaÁ„o desta cor n„o for a saturaÁ„o desta segunda cor, diga n„o.
+  Se a luminosidade desta cor n„o for a luminosidade desta segunda cor, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma cor √© transparente;
-Fun√ß√£o para que se determine se uma cor √© clear:
+FunÁ„o para que se determine se uma cor È transparente;
+FunÁ„o para que se determine se uma cor È clear:
   Se a matiz desta cor for menor do que 0, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma cor √© alguma cor escura;
-Fun√ß√£o para que se determine se uma cor √© escura:
+FunÁ„o para que se determine se uma cor È alguma cor escura;
+FunÁ„o para que se determine se uma cor È escura:
   Se a luminosidade desta cor estiver entre 250 e 374, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma cor √© alguma cor clara;
-Fun√ß√£o para que se determine se uma cor √© clara:
+FunÁ„o para que se determine se uma cor È alguma cor clara;
+FunÁ„o para que se determine se uma cor È clara:
   Se a luminosidade desta cor estiver entre 625 e 749, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma cor √© alguma cor normal;
-Fun√ß√£o para que se determine se uma cor √© normal:
+FunÁ„o para que se determine se uma cor È alguma cor normal;
+FunÁ„o para que se determine se uma cor È normal:
   Se a luminosidade desta cor estiver entre 375 e 624, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-\Fun√ß√£o para que se determine se uma cor √© uma cor bastante escura;
-\Fun√ß√£o para que se determine se uma cor √© uma cor bem escura;
-Fun√ß√£o para que se determine se uma cor √© alguma cor muito escura;
-Fun√ß√£o para que se determine se uma cor √© muito escura:
+\FunÁ„o para que se determine se uma cor È uma cor bastante escura;
+\FunÁ„o para que se determine se uma cor È uma cor bem escura;
+FunÁ„o para que se determine se uma cor È alguma cor muito escura;
+FunÁ„o para que se determine se uma cor È muito escura:
   Se a luminosidade desta cor estiver entre 125 e 249, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-\Fun√ß√£o para que se determine se uma cor √© cor bastante clara;
-\Fun√ß√£o para que se determine se uma cor √© cor bem clara;
-Fun√ß√£o para que se determine se uma cor √© alguma cor muito clara;
-Fun√ß√£o para que se determine se uma cor √© muito clara:
+\FunÁ„o para que se determine se uma cor È cor bastante clara;
+\FunÁ„o para que se determine se uma cor È cor bem clara;
+FunÁ„o para que se determine se uma cor È alguma cor muito clara;
+FunÁ„o para que se determine se uma cor È muito clara:
   Se a luminosidade desta cor estiver entre 750 e 874, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma cor √© alguma cor muit√≠ssimo escura;
-Fun√ß√£o para que se determine se uma cor √© muit√≠ssimo escura:
+FunÁ„o para que se determine se uma cor È alguma cor muitÌssimo escura;
+FunÁ„o para que se determine se uma cor È muitÌssimo escura:
   Se a luminosidade desta cor for menor do que ou igual a 124, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma cor √© alguma cor muit√≠ssimo clara;
-Fun√ß√£o para que se determine se uma cor √© muit√≠ssimo clara:
+FunÁ„o para que se determine se uma cor È alguma cor muitÌssimo clara;
+FunÁ„o para que se determine se uma cor È muitÌssimo clara:
   Se a luminosidade desta cor for maior do que ou igual a 875, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um contador est√° ultrapassando um n√∫mero:
+FunÁ„o para que se determine se um contador est· ultrapassando um n˙mero:
   Adicione 1 para o contador.
-  Se o contador for maior do que o n√∫mero, diga sim.
-  Diga n√£o.
+  Se o contador for maior do que o n˙mero, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se a localiza√ß√£o atual est√° em cima ou em baixo de uma caixa:
-  Se a localiza√ß√£o deste contexto estiver em cima ou em baixo dessa caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se a localizaÁ„o atual est· em cima ou em baixo de uma caixa:
+  Se a localizaÁ„o deste contexto estiver em cima ou em baixo dessa caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se a localiza√ß√£o atual est√° no lado esquerdo ou no lado direito de uma caixa:
-  Se a localiza√ß√£o deste contexto estiver no lado esquerdo ou no lado direito dessa caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se a localizaÁ„o atual est· no lado esquerdo ou no lado direito de uma caixa:
+  Se a localizaÁ„o deste contexto estiver no lado esquerdo ou no lado direito dessa caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se a localiza√ß√£o atual est√° para o lado direito de uma caixa:
-  Se a coordenada X desta localiza√ß√£o deste contexto for maior do que a coordenada X2 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se a localizaÁ„o atual est· para o lado direito de uma caixa:
+  Se a coordenada X desta localizaÁ„o deste contexto for maior do que a coordenada X2 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se a localiza√ß√£o atual est√° dentre uns twips em uma caixa:
-  Se a localiza√ß√£o deste contexto estiver dentre os twips em a caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se a localizaÁ„o atual est· dentre uns twips em uma caixa:
+  Se a localizaÁ„o deste contexto estiver dentre os twips em a caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma valor da diferen√ßa est√° dentre uma malha quadriculada:
-  Preserve o valor da diferen√ßa.
-  Remova o sinal desde o valor da diferen√ßa.
-  Se o n√∫mero X deste valor da diferen√ßa for maior do que ou igual ao n√∫mero X desta malha quadriculada, diga n√£o.
-  Se o n√∫mero Y deste valor da diferen√ßa for maior do que ou igual ao n√∫mero Y desta malha quadriculada, diga n√£o.
+FunÁ„o para que se determine se uma valor da diferenÁa est· dentre uma malha quadriculada:
+  Preserve o valor da diferenÁa.
+  Remova o sinal desde o valor da diferenÁa.
+  Se o n˙mero X deste valor da diferenÁa for maior do que ou igual ao n˙mero X desta malha quadriculada, diga n„o.
+  Se o n˙mero Y deste valor da diferenÁa for maior do que ou igual ao n˙mero Y desta malha quadriculada, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um evento √© algum atalho de tecla:
-  Se o evento for inexistente, diga n√£o.
-  Se a categoria deste evento n√£o for "pressionamento de tecla", diga n√£o.
-  Se o evento n√£o foi alterado, diga n√£o.
+FunÁ„o para que se determine se um evento È algum atalho de tecla:
+  Se o evento for inexistente, diga n„o.
+  Se a categoria deste evento n„o for "pressionamento de tecla", diga n„o.
+  Se o evento n„o foi alterado, diga n„o.
   Se a tecla deste evento estiver entre a tecla A/a e a tecla Z/z, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um evento foi alterada;
-Fun√ß√£o para que se determine se um evento foi alterado:
+FunÁ„o para que se determine se um evento foi alterada;
+FunÁ„o para que se determine se um evento foi alterado:
   Se o sinalizador de tecla Ctrl deste evento estiver ativo, diga sim.
   Se o sinalizador de tecla Alt deste evento estiver ativo, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um √≠ndice ultrapassou o fim de uma string:
-  Se o √≠ndice for inexistente, diga sim.
-  Se o √≠ndice for maior do que o caractere final desta string, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um Ìndice ultrapassou o fim de uma string:
+  Se o Ìndice for inexistente, diga sim.
+  Se o Ìndice for maior do que o caractere final desta string, diga sim.
+  Diga n„o.
 
-\Fun√ß√£o para que se determine se uma bandeira est√° levantada;
-\Fun√ß√£o para que se determine se uma bandeira est√° sendo mostrada;
-\Fun√ß√£o para que se determine se uma bandeira est√° sendo exibida;
-\Fun√ß√£o para que se determine se um sem√°foro est√° verde/vermelho;
-\Fun√ß√£o para que se determine se um alarme est√° tocando;
-\Fun√ß√£o para que se determine se um alarme est√° soando;
-\Fun√ß√£o para que se determine se um alarme soou;
-\Fun√ß√£o para que se determine se um alarme j√° soou;
-\Fun√ß√£o para que se determine se um alarme est√° disparando;
-\Fun√ß√£o para que se determine se um alarme disparou;
-\Fun√ß√£o para que se determine se um alarme est√° alarmando;
-\Fun√ß√£o para que se determine se um sinalizador j√° est√° ativado;
-\Fun√ß√£o para que se determine se um sinalizador foi ativado anteriomente;
-\Fun√ß√£o para que se determine se um sinalizador j√° foi ativado anteriomente;
-\Fun√ß√£o para que se determine se um sinalizador est√° presente;
-\Fun√ß√£o para que se determine se um sinalizador est√° em vigor;
-Fun√ß√£o para que se determine se um sinalizador est√° ligado; \foi ligado tamb√©m funciona
-Fun√ß√£o para que se determine se um sinalizador est√° ativo;
-Fun√ß√£o para que se determine se um sinalizador est√° ativado:
+\FunÁ„o para que se determine se uma bandeira est· levantada;
+\FunÁ„o para que se determine se uma bandeira est· sendo mostrada;
+\FunÁ„o para que se determine se uma bandeira est· sendo exibida;
+\FunÁ„o para que se determine se um sem·foro est· verde/vermelho;
+\FunÁ„o para que se determine se um alarme est· tocando;
+\FunÁ„o para que se determine se um alarme est· soando;
+\FunÁ„o para que se determine se um alarme soou;
+\FunÁ„o para que se determine se um alarme j· soou;
+\FunÁ„o para que se determine se um alarme est· disparando;
+\FunÁ„o para que se determine se um alarme disparou;
+\FunÁ„o para que se determine se um alarme est· alarmando;
+\FunÁ„o para que se determine se um sinalizador j· est· ativado;
+\FunÁ„o para que se determine se um sinalizador foi ativado anteriomente;
+\FunÁ„o para que se determine se um sinalizador j· foi ativado anteriomente;
+\FunÁ„o para que se determine se um sinalizador est· presente;
+\FunÁ„o para que se determine se um sinalizador est· em vigor;
+FunÁ„o para que se determine se um sinalizador est· ligado; \foi ligado tambÈm funciona
+FunÁ„o para que se determine se um sinalizador est· ativo;
+FunÁ„o para que se determine se um sinalizador est· ativado:
   Se o sinalizador for 1, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-\Fun√ß√£o para que se determine se uma bandeira est√° vermelha/verde;
-\Fun√ß√£o para que se determine se um sinalizador est√° dormente;
-Fun√ß√£o para que se determine se um sinalizador est√° suspenso;
-Fun√ß√£o para que se determine se um sinalizador est√° inativo;
-Fun√ß√£o para que se determine se um sinalizador est√° desligado;
-Fun√ß√£o para que se determine se um sinalizador est√° desativado:
+\FunÁ„o para que se determine se uma bandeira est· vermelha/verde;
+\FunÁ„o para que se determine se um sinalizador est· dormente;
+FunÁ„o para que se determine se um sinalizador est· suspenso;
+FunÁ„o para que se determine se um sinalizador est· inativo;
+FunÁ„o para que se determine se um sinalizador est· desligado;
+FunÁ„o para que se determine se um sinalizador est· desativado:
   Se o sinalizador for 0, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma fra√ß√£o √© uma segunda fra√ß√£o:
-  Preserve a fra√ß√£o.
-  Preserve a segunda fra√ß√£o.
-  Normalize a fra√ß√£o e a segunda fra√ß√£o.
-  Se o numerador desta fra√ß√£o √© o numerador desta segunda fra√ß√£o, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma fraÁ„o È uma segunda fraÁ„o:
+  Preserve a fraÁ„o.
+  Preserve a segunda fraÁ„o.
+  Normalize a fraÁ„o e a segunda fraÁ„o.
+  Se o numerador desta fraÁ„o È o numerador desta segunda fraÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma fra√ß√£o √© maior que uma segunda fra√ß√£o;
-Fun√ß√£o para que se determine se uma fra√ß√£o √© maior do que uma segunda fra√ß√£o:
-  Preserve a fra√ß√£o.
-  Preserve a segunda fra√ß√£o.
-  Normalize a fra√ß√£o e a segunda fra√ß√£o.
-  Se o numerador desta fra√ß√£o for maior do que o numerador desta segunda fra√ß√£o, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma fraÁ„o È maior que uma segunda fraÁ„o;
+FunÁ„o para que se determine se uma fraÁ„o È maior do que uma segunda fraÁ„o:
+  Preserve a fraÁ„o.
+  Preserve a segunda fraÁ„o.
+  Normalize a fraÁ„o e a segunda fraÁ„o.
+  Se o numerador desta fraÁ„o for maior do que o numerador desta segunda fraÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma fra√ß√£o √© maior ou igual a uma segunda fra√ß√£o;
-Fun√ß√£o para que se determine se uma fra√ß√£o √© maior do que ou igual a uma segunda fra√ß√£o:
-  Preserve a fra√ß√£o.
-  Preserve a segunda fra√ß√£o.
-  Normalize a fra√ß√£o e a segunda fra√ß√£o.
-  Se o numerador desta fra√ß√£o for maior do que ou igual ao numerador desta segunda fra√ß√£o, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma fraÁ„o È maior ou igual a uma segunda fraÁ„o;
+FunÁ„o para que se determine se uma fraÁ„o È maior do que ou igual a uma segunda fraÁ„o:
+  Preserve a fraÁ„o.
+  Preserve a segunda fraÁ„o.
+  Normalize a fraÁ„o e a segunda fraÁ„o.
+  Se o numerador desta fraÁ„o for maior do que ou igual ao numerador desta segunda fraÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma fra√ß√£o √© menor que uma segunda fra√ß√£o;
-Fun√ß√£o para que se determine se uma fra√ß√£o √© menor do que uma segunda fra√ß√£o:
-  Preserve a fra√ß√£o.
-  Preserve a segunda fra√ß√£o.
-  Normalize a fra√ß√£o e a segunda fra√ß√£o.
-  Se o numerador desta fra√ß√£o for menor do que o numerador desta segunda fra√ß√£o, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma fraÁ„o È menor que uma segunda fraÁ„o;
+FunÁ„o para que se determine se uma fraÁ„o È menor do que uma segunda fraÁ„o:
+  Preserve a fraÁ„o.
+  Preserve a segunda fraÁ„o.
+  Normalize a fraÁ„o e a segunda fraÁ„o.
+  Se o numerador desta fraÁ„o for menor do que o numerador desta segunda fraÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma fra√ß√£o √© menor do que ou igual a uma segunda fra√ß√£o;
-Fun√ß√£o para que se determine se uma fra√ß√£o √© menor que ou igual a uma segunda fra√ß√£o;
-Fun√ß√£o para que se determine se uma fra√ß√£o √© igual ou menor do que uma segunda fra√ß√£o;
-Fun√ß√£o para que se determine se uma fra√ß√£o √© igual ou menor que uma segunda fra√ß√£o;
-Fun√ß√£o para que se determine se uma fra√ß√£o √© menor ou igual a uma segunda fra√ß√£o:
-  Preserve a fra√ß√£o.
-  Preserve a segunda fra√ß√£o.
-  Normalize a fra√ß√£o e a segunda fra√ß√£o.
-  Se o numerador desta fra√ß√£o for menor do que ou igual ao numerador desta segunda fra√ß√£o, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma fraÁ„o È menor do que ou igual a uma segunda fraÁ„o;
+FunÁ„o para que se determine se uma fraÁ„o È menor que ou igual a uma segunda fraÁ„o;
+FunÁ„o para que se determine se uma fraÁ„o È igual ou menor do que uma segunda fraÁ„o;
+FunÁ„o para que se determine se uma fraÁ„o È igual ou menor que uma segunda fraÁ„o;
+FunÁ„o para que se determine se uma fraÁ„o È menor ou igual a uma segunda fraÁ„o:
+  Preserve a fraÁ„o.
+  Preserve a segunda fraÁ„o.
+  Normalize a fraÁ„o e a segunda fraÁ„o.
+  Se o numerador desta fraÁ„o for menor do que ou igual ao numerador desta segunda fraÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma fra√ß√£o √© negativa:
-  Se o numerador desta fra√ß√£o for menor do que 0,
+FunÁ„o para que se determine se uma fraÁ„o È negativa:
+  Se o numerador desta fraÁ„o for menor do que 0,
     Inverta um sinalizador.
-  Se o denominador desta fra√ß√£o for menor do que 0,
+  Se o denominador desta fraÁ„o for menor do que 0,
     Inverta o sinalizador.
-  \ Diga o sinalizador. \ n√£o funciona mais, pois n√£o agora os balores booleanos s√£o num√©ricos
+  \ Diga o sinalizador. \ n„o funciona mais, pois n„o agora os balores booleanos s„o numÈricos
   Se o sinalizador estiver ativo, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma fra√ß√£o √© um n√∫mero:
-  Se a fra√ß√£o √© o n√∫mero / 1, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma fraÁ„o È um n˙mero:
+  Se a fraÁ„o È o n˙mero / 1, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um cat√°logo est√° vazia;
-Fun√ß√£o para que se determine se um cat√°logo est√£o vazias;
-Fun√ß√£o para que se determine se um cat√°logo est√£o vazios;
-Fun√ß√£o para que se determine se um cat√°logo est√° vazio:
-  Se o cat√°logo for inexistente, diga sim.
+FunÁ„o para que se determine se um cat·logo est· vazia;
+FunÁ„o para que se determine se um cat·logo est„o vazias;
+FunÁ„o para que se determine se um cat·logo est„o vazios;
+FunÁ„o para que se determine se um cat·logo est· vazio:
+  Se o cat·logo for inexistente, diga sim.
   Itere.
-    Obtenha um recipiente usando o cat√°logo.
+    Obtenha um recipiente usando o cat·logo.
     Se o recipiente for inexistente, diga sim.
-    Se as refer√™ncias deste recipiente n√£o estiverem vazios, diga n√£o.
+    Se as referÍncias deste recipiente n„o estiverem vazios, diga n„o.
   Reitere.
 
-Fun√ß√£o para que se determine se um input √© um clique:
+FunÁ„o para que se determine se um input È um clique:
   Esvazie o clique.
-  Se a categoria deste input n√£o for "clique do bot√£o esquerdo", diga n√£o.
+  Se a categoria deste input n„o for "clique do bot„o esquerdo", diga n„o.
   Atribua o input ao clique.
 
-Fun√ß√£o para que se determine se um item √© encontrado:
-  Se a categoria deste item n√£o estiver em branco, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um item È encontrado:
+  Se a categoria deste item n„o estiver em branco, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla √© alguma tecla de d√≠gito:
+FunÁ„o para que se determine se uma tecla È alguma tecla de dÌgito:
   Se a tecla estiver entre 48 e 57, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla √© alguma tecla de letra:
+FunÁ„o para que se determine se uma tecla È alguma tecla de letra:
   Se a tecla estiver entre 65 e 90, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla √© algum tecla modificadora:
+FunÁ„o para que se determine se uma tecla È algum tecla modificadora:
   Se a tecla for a tecla Alt, diga sim.
   Se a tecla for a tecla Ctrl, diga sim.
   Se a tecla for a tecla Shift, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla √© algum pad tecla:
+FunÁ„o para que se determine se uma tecla È algum pad tecla:
   Se a tecla estiver entre 96 e 111, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla √© algum tecla imprim√≠vel:
-  Se a tecla for a barra de espa√ßo, diga sim.
-  Se a tecla for alguma tecla de d√≠gito, diga sim.
+FunÁ„o para que se determine se uma tecla È algum tecla imprimÌvel:
+  Se a tecla for a barra de espaÁo, diga sim.
+  Se a tecla for alguma tecla de dÌgito, diga sim.
   Se a tecla for alguma tecla de letra, diga sim.
   Se a tecla for algum pad tecla, diga sim.
-  Se a tecla for alguma tecla de s√≠mbolo, diga sim.
-  Diga n√£o.
+  Se a tecla for alguma tecla de sÌmbolo, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla √© alguma tecla de s√≠mbolo:
+FunÁ„o para que se determine se uma tecla È alguma tecla de sÌmbolo:
   Se a tecla estiver entre 186 e 192, diga sim.
   Se a tecla estiver entre 219 e 222, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla √© alguma tecla do tipo WM_CHAR:
-  Se a tecla n√£o for algum tecla imprim√≠vel , diga n√£o.
-  Se a tecla Alt est√° para baixo, diga n√£o.
-  Se a tecla Ctrl est√° para baixo, diga n√£o.
+FunÁ„o para que se determine se uma tecla È alguma tecla do tipo WM_CHAR:
+  Se a tecla n„o for algum tecla imprimÌvel , diga n„o.
+  Se a tecla Alt est· para baixo, diga n„o.
+  Se a tecla Ctrl est· para baixo, diga n„o.
   Diga sim.
 
 
 \To decide if a key is down:
-Fun√ß√£o para que se determine se uma tecla est√° sendo pressionado; [ou bot√£o do mouse]
-Fun√ß√£o para que se determine se uma tecla [espec√≠fica] est√° sendo pressionada:
-\Se a tecla n√£o estiver sendo pressionada, reitere.
+FunÁ„o para que se determine se uma tecla est· sendo pressionado; [ou bot„o do mouse]
+FunÁ„o para que se determine se uma tecla [especÌfica] est· sendo pressionada:
+\Se a tecla n„o estiver sendo pressionada, reitere.
 \If the key is not down, repeat.
   Processe "user32.dll" "GetAsyncKeyState" com
-  \ Determina se uma tecla est√° ativada ou desativada no momento em que a fun√ß√£o √© chamada e se a tecla foi pressionada ap√≥s uma chamada anterior para GetAsyncKeyState.
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/winuser/nf-winuser-getasynckeystate
+  \ Determina se uma tecla est· ativada ou desativada no momento em que a funÁ„o È chamada e se a tecla foi pressionada apÛs uma chamada anterior para GetAsyncKeyState.
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/winuser/nf-winuser-getasynckeystate
     A tecla [vKey] \ Consulte https://learn.microsoft.com/pt-br/windows/desktop/inputdev/virtual-key-codes
   Retornando uma word.
-  Atribua a word para um n√∫mero.
-  Se o n√∫mero for menor do que 0, diga sim.
-  Diga n√£o.
+  Atribua a word para um n˙mero.
+  Se o n˙mero for menor do que 0, diga sim.
+  Diga n„o.
 
 \Wait for the key to go down. - > If the key is not down, repeat.  -> GetAsyncKeyState"
 \Wait for the key to come up. -> If the key is not up, repeat. -> If the key is down, say no. - >
 
-Fun√ß√£o para que se determine se uma tecla est√° para cima:
-  Se a tecla estiver sendo pressionada, diga n√£o.
+FunÁ„o para que se determine se uma tecla est· para cima:
+  Se a tecla estiver sendo pressionada, diga n„o.
   Diga sim.
 
 \ To decide if a key was down:
-Fun√ß√£o para que se determine se uma tecla est√° para baixo:
+FunÁ„o para que se determine se uma tecla est· para baixo:
 \ foi pressionada \ estava pra baixo
   Processe "user32.dll" "GetKeyState" com
   \Recupera o status da tecla virtual especificada.
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/winuser/nf-winuser-getkeystate
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/winuser/nf-winuser-getkeystate
     A tecla [nVirtKey]
   Retornando um word.
-  Atribua a word para um n√∫mero.
-  Se o n√∫mero for menor do que 0, diga sim.
-  Diga n√£o.
+  Atribua a word para um n˙mero.
+  Se o n˙mero for menor do que 0, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla est√° ligada;
-Fun√ß√£o para que se determine se uma tecla est√° alternada;
-Fun√ß√£o para que se determine se uma tecla est√° ativada:
+FunÁ„o para que se determine se uma tecla est· ligada;
+FunÁ„o para que se determine se uma tecla est· alternada;
+FunÁ„o para que se determine se uma tecla est· ativada:
   Processe "user32.dll" "GetKeyState" com
     A tecla [nVirtKey]
   Retornando um word.
-  Atribua a word para um n√∫mero.
-  Conjuncione logicamente o n√∫mero com 1.
-  Se o n√∫mero for 1, diga sim.
-  Diga n√£o.
+  Atribua a word para um n˙mero.
+  Conjuncione logicamente o n˙mero com 1.
+  Se o n˙mero for 1, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma tecla com um lParam √© alguma tecla de cancelamento ou tecla modificadora:
-  Atribua o lParam para um n√∫mero.
-  Conjuncione logicamente o n√∫mero com 1073741824 [0x40000000].
-  Se o n√∫mero for 0, diga n√£o.
+FunÁ„o para que se determine se uma tecla com um lParam È alguma tecla de cancelamento ou tecla modificadora:
+  Atribua o lParam para um n˙mero.
+  Conjuncione logicamente o n˙mero com 1073741824 [0x40000000].
+  Se o n˙mero for 0, diga n„o.
   Se a tecla for a tecla Esc, diga sim.
   Se a tecla for algum tecla modificadora, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se o bot√£o esquerdo do mouse est√° para baixo:
-  Se o bot√£o esquerdo deste mouse estiver sendo pressionado, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se o bot„o esquerdo do mouse est· para baixo:
+  Se o bot„o esquerdo deste mouse estiver sendo pressionado, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma linha reta est√° acima de uma caixa:
-  Se a coordenada Y desta localiza√ß√£o inicial desta linha reta for maior do que ou igual √† coordenada Y1 desta caixa, diga n√£o.
-  Se a coordenada Y desta localiza√ß√£o final desta linha reta for maior do que ou igual √† coordenada Y1 desta caixa, diga n√£o.
+FunÁ„o para que se determine se uma linha reta est· acima de uma caixa:
+  Se a coordenada Y desta localizaÁ„o inicial desta linha reta for maior do que ou igual ‡ coordenada Y1 desta caixa, diga n„o.
+  Se a coordenada Y desta localizaÁ„o final desta linha reta for maior do que ou igual ‡ coordenada Y1 desta caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma linha reta est√° acima de uma coordenada:
-  Se a coordenada Y desta localiza√ß√£o inicial desta linha reta for maior do que ou igual √† coordenada, diga n√£o.
-  Se a coordenada Y desta localiza√ß√£o final desta linha reta for maior do que ou igual √† coordenada, diga n√£o.
+FunÁ„o para que se determine se uma linha reta est· acima de uma coordenada:
+  Se a coordenada Y desta localizaÁ„o inicial desta linha reta for maior do que ou igual ‡ coordenada, diga n„o.
+  Se a coordenada Y desta localizaÁ„o final desta linha reta for maior do que ou igual ‡ coordenada, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma linha reta est√° debaixo de uma caixa:
-  Se a coordenada Y desta localiza√ß√£o inicial desta linha reta for menor do que ou igual √† coordenada Y2 desta caixa, diga n√£o.
-  Se a coordenada Y desta localiza√ß√£o final desta linha reta for menor do que ou igual √† coordenada Y2 desta caixa, diga n√£o.
+FunÁ„o para que se determine se uma linha reta est· debaixo de uma caixa:
+  Se a coordenada Y desta localizaÁ„o inicial desta linha reta for menor do que ou igual ‡ coordenada Y2 desta caixa, diga n„o.
+  Se a coordenada Y desta localizaÁ„o final desta linha reta for menor do que ou igual ‡ coordenada Y2 desta caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma linha reta est√° debaixo de uma coordenada:
-  Se a coordenada Y desta localiza√ß√£o inicial desta linha reta for menor do que ou igual √† coordenada, diga n√£o.
-  Se a coordenada Y desta localiza√ß√£o final desta linha reta for menor do que ou igual √† coordenada, diga n√£o.
+FunÁ„o para que se determine se uma linha reta est· debaixo de uma coordenada:
+  Se a coordenada Y desta localizaÁ„o inicial desta linha reta for menor do que ou igual ‡ coordenada, diga n„o.
+  Se a coordenada Y desta localizaÁ„o final desta linha reta for menor do que ou igual ‡ coordenada, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma linha reta est√° still em uma caixa;
-Fun√ß√£o para que se determine se uma linha reta est√° em uma caixa:
-  Se a localiza√ß√£o inicial desta linha reta n√£o estiver na caixa, diga n√£o.
-  Se a localiza√ß√£o final desta linha reta n√£o estiver na caixa, diga n√£o.
+FunÁ„o para que se determine se uma linha reta est· still em uma caixa;
+FunÁ„o para que se determine se uma linha reta est· em uma caixa:
+  Se a localizaÁ„o inicial desta linha reta n„o estiver na caixa, diga n„o.
+  Se a localizaÁ„o final desta linha reta n„o estiver na caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um numeral misto √© um n√∫mero:
-  Converta o numeral misto para uma fra√ß√£o.
-  Se a fra√ß√£o for o n√∫mero, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um numeral misto È um n˙mero:
+  Converta o numeral misto para uma fraÁ„o.
+  Se a fraÁ„o for o n˙mero, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se o mouse foi arrastado desde uma localiza√ß√£o usando uma malha quadriculada:
-  Se o bot√£o esquerdo deste mouse n√£o estiver sendo pressionado, diga n√£o.
-  Atribua a localiza√ß√£o deste mouse para uma segunda localiza√ß√£o.
-  Calcule um valor da diferen√ßa entre a segunda localiza√ß√£o e a localiza√ß√£o.
-  Se o valor da diferen√ßa estiver dentre a malha quadriculada, reitere.
+FunÁ„o para que se determine se o mouse foi arrastado desde uma localizaÁ„o usando uma malha quadriculada:
+  Se o bot„o esquerdo deste mouse n„o estiver sendo pressionado, diga n„o.
+  Atribua a localizaÁ„o deste mouse para uma segunda localizaÁ„o.
+  Calcule um valor da diferenÁa entre a segunda localizaÁ„o e a localizaÁ„o.
+  Se o valor da diferenÁa estiver dentre a malha quadriculada, reitere.
   Diga sim.
 
-Fun√ß√£o para que se determine se o mouse est√° em uma caixa:
-  Se a localiza√ß√£o deste mouse estiver na caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se o mouse est· em uma caixa:
+  Se a localizaÁ„o deste mouse estiver na caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um n√∫mero √© um segundo n√∫mero e uma string √© uma segunda string:
-  Se o n√∫mero n√£o for o segundo n√∫mero, diga n√£o.
-  Se a string n√£o for a segunda string, diga n√£o.
+FunÁ„o para que se determine se um n˙mero È um segundo n˙mero e uma string È uma segunda string:
+  Se o n˙mero n„o for o segundo n˙mero, diga n„o.
+  Se a string n„o for a segunda string, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um n√∫mero est√° entre um segundo n√∫mero e um terceiro n√∫mero:
-  Se o n√∫mero for menor do que o segundo n√∫mero, diga n√£o.
-  Se o n√∫mero for maior do que o terceiro n√∫mero, diga n√£o.
+FunÁ„o para que se determine se um n˙mero est· entre um segundo n˙mero e um terceiro n˙mero:
+  Se o n˙mero for menor do que o segundo n˙mero, diga n„o.
+  Se o n˙mero for maior do que o terceiro n˙mero, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um n√∫mero √© par:
-  Se o n√∫mero for √≠mpar, diga n√£o.
+FunÁ„o para que se determine se um n˙mero È par:
+  Se o n˙mero for Ìmpar, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um n√∫mero √© uniformemente divis√≠vel por um segundo n√∫mero:
-  Preserve o n√∫mero.
-  Divida o n√∫mero pelo segundo n√∫mero usando um quociente e um resto.
+FunÁ„o para que se determine se um n˙mero È uniformemente divisÌvel por um segundo n˙mero:
+  Preserve o n˙mero.
+  Divida o n˙mero pelo segundo n˙mero usando um quociente e um resto.
   Se o resto for 0, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um n√∫mero √© um m√∫ltiplo em um segundo n√∫mero:
-  Se o n√∫mero for uniformemente divis√≠vel pelo segundo n√∫mero, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um n˙mero È um m˙ltiplo em um segundo n˙mero:
+  Se o n˙mero for uniformemente divisÌvel pelo segundo n˙mero, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um n√∫mero √© negativo:
-  Se o n√∫mero for menor do que 0, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um n˙mero È negativo:
+  Se o n˙mero for menor do que 0, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um n√∫mero √© positivo:
-  Se o n√∫mero for menor do que 0, diga n√£o.
+FunÁ„o para que se determine se um n˙mero È positivo:
+  Se o n˙mero for menor do que 0, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um n√∫mero √© √≠mpar:
-  Preserve o n√∫mero.
-  Conjuncione logicamente o n√∫mero com 1.
-  Se o n√∫mero for 0, diga n√£o.
+FunÁ„o para que se determine se um n˙mero È Ìmpar:
+  Preserve o n˙mero.
+  Conjuncione logicamente o n˙mero com 1.
+  Se o n˙mero for 0, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um n√∫mero √© prime:
-  Se o n√∫mero for menor do que 2, diga n√£o.
-  Se o n√∫mero for 2, diga sim.
-  Atribua o n√∫mero menos 1 para um segundo n√∫mero.
+FunÁ„o para que se determine se um n˙mero È prime:
+  Se o n˙mero for menor do que 2, diga n„o.
+  Se o n˙mero for 2, diga sim.
+  Atribua o n˙mero menos 1 para um segundo n˙mero.
   Itere.
-    Se o n√∫mero √© uniformemente divis√≠vel pelo segundo n√∫mero, diga n√£o.
-    Subtraia 1 desde o segundo n√∫mero.
-    Se o segundo n√∫mero for maior do que 1, reitere.
+    Se o n˙mero È uniformemente divisÌvel pelo segundo n˙mero, diga n„o.
+    Subtraia 1 desde o segundo n˙mero.
+    Se o segundo n˙mero for maior do que 1, reitere.
   Diga sim.
 
-Fun√ß√£o para que se determine se um par de n√∫meros √© um segundo par de n√∫meros:
-  Se o n√∫mero X deste par de n√∫meros n√£o for o n√∫mero X deste segundo par de n√∫meros, diga n√£o.
-  Se o n√∫mero Y deste par de n√∫meros n√£o for o n√∫mero Y deste segundo par de n√∫meros, diga n√£o.
+FunÁ„o para que se determine se um par de n˙meros È um segundo par de n˙meros:
+  Se o n˙mero X deste par de n˙meros n„o for o n˙mero X deste segundo par de n˙meros, diga n„o.
+  Se o n˙mero Y deste par de n˙meros n„o for o n˙mero Y deste segundo par de n˙meros, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um par de n√∫meros √© um n√∫mero:
-  Se o n√∫mero X deste par de n√∫meros n√£o for o n√∫mero, diga n√£o.
-  Se o n√∫mero Y deste par de n√∫meros n√£o for o n√∫mero, diga n√£o.
+FunÁ„o para que se determine se um par de n˙meros È um n˙mero:
+  Se o n˙mero X deste par de n˙meros n„o for o n˙mero, diga n„o.
+  Se o n˙mero Y deste par de n˙meros n„o for o n˙mero, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um par de n√∫meros √© um n√∫mero e um segundo n√∫mero:
-  Se o n√∫mero X deste par de n√∫meros n√£o for o n√∫mero, diga n√£o.
-  Se o n√∫mero Y deste par de n√∫meros n√£o for o segundo n√∫mero, diga n√£o.
+FunÁ„o para que se determine se um par de n˙meros È um n˙mero e um segundo n˙mero:
+  Se o n˙mero X deste par de n˙meros n„o for o n˙mero, diga n„o.
+  Se o n˙mero Y deste par de n˙meros n„o for o segundo n˙mero, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um endere√ßo completo √© do tipo pasta:
-  Se o endere√ßo completo estiver em branco, diga n√£o.
-  Se o conte√∫do deste caractere final deste endere√ßo completo for a barra invertida, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um endereÁo completo È do tipo pasta:
+  Se o endereÁo completo estiver em branco, diga n„o.
+  Se o conte˙do deste caractere final deste endereÁo completo for a barra invertida, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um endere√ßo completo √© do tipo unidade:
-  Se o endere√ßo completo come√ßa com "\\", diga sim.
-  Se a quantidade de caracteres deste endere√ßo completo n√£o for 3, diga n√£o.
-  Se o endere√ßo completo termina com ":\", diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um endereÁo completo È do tipo unidade:
+  Se o endereÁo completo comeÁa com "\\", diga sim.
+  Se a quantidade de caracteres deste endereÁo completo n„o for 3, diga n„o.
+  Se o endereÁo completo termina com ":\", diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um endere√ßo completo est√° vazia no sistema de arquivos;
-Fun√ß√£o para que se determine se um endere√ßo completo est√£o vazias no sistema de arquivos;
-Fun√ß√£o para que se determine se um endere√ßo completo est√£o vazios no sistema de arquivos;
-Fun√ß√£o para que se determine se um endere√ßo completo est√° vazio no sistema de arquivos:
-  Se o endere√ßo completo n√£o estiver no sistema de arquivos, diga sim.
-  Obtenha uma contagem de itens no endere√ßo completo no sistema de arquivos.
+FunÁ„o para que se determine se um endereÁo completo est· vazia no sistema de arquivos;
+FunÁ„o para que se determine se um endereÁo completo est„o vazias no sistema de arquivos;
+FunÁ„o para que se determine se um endereÁo completo est„o vazios no sistema de arquivos;
+FunÁ„o para que se determine se um endereÁo completo est· vazio no sistema de arquivos:
+  Se o endereÁo completo n„o estiver no sistema de arquivos, diga sim.
+  Obtenha uma contagem de itens no endereÁo completo no sistema de arquivos.
   Se a contagem de itens for 0, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um endere√ßo completo √© do tipo arquivo:
-  Se o endere√ßo completo estiver em branco, diga n√£o.
-  Se o conte√∫do deste caractere final deste endere√ßo completo for o sinal de dois pontos, diga n√£o.
-  Se o conte√∫do deste caractere final deste endere√ßo completo for a barra invertida, diga n√£o.
+FunÁ„o para que se determine se um endereÁo completo È do tipo arquivo:
+  Se o endereÁo completo estiver em branco, diga n„o.
+  Se o conte˙do deste caractere final deste endereÁo completo for o sinal de dois pontos, diga n„o.
+  Se o conte˙do deste caractere final deste endereÁo completo for a barra invertida, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um endere√ßo completo est√° no sistema de arquivos:
-  Preserve o endere√ßo completo.
-  Anexe o caractere NULL ap√≥s o endere√ßo completo.
+FunÁ„o para que se determine se um endereÁo completo est· no sistema de arquivos:
+  Preserve o endereÁo completo.
+  Anexe o caractere NULL apÛs o endereÁo completo.
   Processe "kernel32.dll" "GetFileAttributesA" com
-  \Obt√©m atributos do sistema de arquivos para um arquivo ou diret√≥rio especificado.
+  \ObtÈm atributos do sistema de arquivos para um arquivo ou diretÛrio especificado.
   \ https://learn.microsoft.com/pt-br/windows/win32/api/fileapi/nf-fileapi-getfileattributesa
-    O caractere inicial deste endere√ßo completo [lpFileName] \ Consulte https://learn.microsoft.com/pt-br/windows/desktop/FileIO/naming-a-file
-  Retornando um n√∫mero. \ Consulte https://learn.microsoft.com/pt-br/windows/desktop/FileIO/file-attribute-constants
-  Se o n√∫mero for menor do que 0, diga n√£o.
+    O caractere inicial deste endereÁo completo [lpFileName] \ Consulte https://learn.microsoft.com/pt-br/windows/desktop/FileIO/naming-a-file
+  Retornando um n˙mero. \ Consulte https://learn.microsoft.com/pt-br/windows/desktop/FileIO/file-attribute-constants
+  Se o n˙mero for menor do que 0, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um endere√ßo completo est√° protegido contra grava√ß√£o:
-Fun√ß√£o para que se determine se um endere√ßo completo √© somente leitura:
-  Preserve o endere√ßo completo.
-  Anexe o caractere NULL ap√≥s o endere√ßo completo.
+FunÁ„o para que se determine se um endereÁo completo est· protegido contra gravaÁ„o:
+FunÁ„o para que se determine se um endereÁo completo È somente leitura:
+  Preserve o endereÁo completo.
+  Anexe o caractere NULL apÛs o endereÁo completo.
   Processe "kernel32.dll" "GetFileAttributesA" com
-    O caractere inicial deste endere√ßo completo [lpFileName]
-  Retornando um n√∫mero.
-  Conjuncione logicamente o n√∫mero com 1 [FILE_ATTRIBUTE_READONLY].
-  Se o n√∫mero n√£o for 0, diga sim.
-  Diga n√£o.
+    O caractere inicial deste endereÁo completo [lpFileName]
+  Retornando um n˙mero.
+  Conjuncione logicamente o n˙mero com 1 [FILE_ATTRIBUTE_READONLY].
+  Se o n˙mero n„o for 0, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um ponteiro pode ser encontrado;
-Fun√ß√£o para que se determine se um ponteiro foi encontrado;
-Fun√ß√£o para que se determine se um ponteiro existe:
-  Se o ponteiro for inexistente, diga n√£o.
+FunÁ„o para que se determine se um ponteiro pode ser encontrado;
+FunÁ„o para que se determine se um ponteiro foi encontrado;
+FunÁ„o para que se determine se um ponteiro existe:
+  Se o ponteiro for inexistente, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um ponteiro est√° sumido do mapa;
-Fun√ß√£o para que se determine se um ponteiro √© null e vazio:
+FunÁ„o para que se determine se um ponteiro est· sumido do mapa;
+FunÁ„o para que se determine se um ponteiro È null e vazio:
   Se o ponteiro for inexistente, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um pol√≠gono est√° closed:
-  Se o pol√≠gono for inexistente, diga n√£o.
-  Se a contagem destes v√©rtices deste pol√≠gono for menor do que 3, diga n√£o.
-  Se a localiza√ß√£o deste primeiro v√©rtice deste pol√≠gono for a localiza√ß√£o deste √∫ltimo v√©rtice deste pol√≠gono, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um polÌgono est· closed:
+  Se o polÌgono for inexistente, diga n„o.
+  Se a contagem destes vÈrtices deste polÌgono for menor do que 3, diga n„o.
+  Se a localizaÁ„o deste primeiro vÈrtice deste polÌgono for a localizaÁ„o deste ˙ltimo vÈrtice deste polÌgono, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um texto retornado √© parecido com um segundo texto retornado;
-Fun√ß√£o para que se determine se um texto retornado √© similar para um segundo texto retornado;
-Fun√ß√£o para que se determine se um texto retornado √© semelhante para um segundo texto retornado:
+FunÁ„o para que se determine se um texto retornado È parecido com um segundo texto retornado;
+FunÁ„o para que se determine se um texto retornado È similar para um segundo texto retornado;
+FunÁ„o para que se determine se um texto retornado È semelhante para um segundo texto retornado:
   Preserve o texto retornado.
   Preserve o segundo texto retornado.
   Simplifique o texto retornado.
   Simplifique o segundo texto retornado.
   Se o texto retornado for o segundo texto retornado, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma linha de texto est√° em branco:
+FunÁ„o para que se determine se uma linha de texto est· em branco:
   Se a linha de texto for inexistente, diga sim.
   Lance um subtexto sobre a string desta linha de texto.
   Itere.
     Se o subtexto estiver em branco, diga sim.
-    Se o conte√∫do deste caractere inicial deste subtexto n√£o for irrelevante, diga n√£o.
+    Se o conte˙do deste caractere inicial deste subtexto n„o for irrelevante, diga n„o.
     Adicione 1 para o caractere inicial deste subtexto.
   Reitere.
 
-Fun√ß√£o para que se determine se uma linha de texto em uma caixa de texto est√° selecionada;
-Fun√ß√£o para que se determine se uma linha de texto em uma caixa de texto est√° selecionado:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se a linha de texto for inexistente, diga n√£o.
-  Se nada estiver selecionado na caixa de texto, diga n√£o.
-  Atribua a normalized sele√ß√£o desta caixa de texto para uma sele√ß√£o. \ calculated field
-  Se o n√∫mero da linha desta linha de texto for menor do que a √¢ncora de linha desta sele√ß√£o, diga n√£o.
-  Se o n√∫mero da linha desta linha de texto for maior do que o n√∫mero de linhas do cursor desta sele√ß√£o, diga n√£o.
-  Se o n√∫mero da linha desta linha de texto n√£o for o n√∫mero de linhas do cursor desta sele√ß√£o, diga sim.
-  Se o cursor da coluna desta sele√ß√£o for 1, diga n√£o.
+FunÁ„o para que se determine se uma linha de texto em uma caixa de texto est· selecionada;
+FunÁ„o para que se determine se uma linha de texto em uma caixa de texto est· selecionado:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se a linha de texto for inexistente, diga n„o.
+  Se nada estiver selecionado na caixa de texto, diga n„o.
+  Atribua a normalized seleÁ„o desta caixa de texto para uma seleÁ„o. \ calculated field
+  Se o n˙mero da linha desta linha de texto for menor do que a ‚ncora de linha desta seleÁ„o, diga n„o.
+  Se o n˙mero da linha desta linha de texto for maior do que o n˙mero de linhas do cursor desta seleÁ„o, diga n„o.
+  Se o n˙mero da linha desta linha de texto n„o for o n˙mero de linhas do cursor desta seleÁ„o, diga sim.
+  Se o cursor da coluna desta seleÁ„o for 1, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma linha de texto em uma caixa de texto √© vis√≠vel:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se a linha de texto for inexistente, diga n√£o.
+FunÁ„o para que se determine se uma linha de texto em uma caixa de texto È visÌvel:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se a linha de texto for inexistente, diga n„o.
   Obtenha uma caixa usando a linha de texto e a caixa de texto.
   Atribua a caixa desta caixa de texto para uma segunda caixa.
   Ajuste a segunda caixa usando 0 e a quantidade de twips/pixel e 0 e - a quantidade de twips/pixel .
   Se a caixa estiver tocando a segunda caixa, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma sele√ß√£o √© uma segunda sele√ß√£o:
-  Se a √¢ncora desta sele√ß√£o n√£o for a √¢ncora desta segunda sele√ß√£o, diga n√£o.
-  Se o cursor de texto desta sele√ß√£o n√£o for o cursor de texto desta segunda sele√ß√£o, diga n√£o.
+FunÁ„o para que se determine se uma seleÁ„o È uma segunda seleÁ„o:
+  Se a ‚ncora desta seleÁ„o n„o for a ‚ncora desta segunda seleÁ„o, diga n„o.
+  Se o cursor de texto desta seleÁ„o n„o for o cursor de texto desta segunda seleÁ„o, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se existe something selecionado em uma caixa de texto;
-Fun√ß√£o para que se determine se h√° something selecionado em uma caixa de texto;
-Fun√ß√£o para que se determine se something est√° selecionado em uma caixa de texto:
-  Se a √¢ncora desta sele√ß√£o desta caixa de texto for o cursor de texto desta sele√ß√£o desta caixa de texto, diga n√£o.
+FunÁ„o para que se determine se existe something selecionado em uma caixa de texto;
+FunÁ„o para que se determine se h· something selecionado em uma caixa de texto;
+FunÁ„o para que se determine se something est· selecionado em uma caixa de texto:
+  Se a ‚ncora desta seleÁ„o desta caixa de texto for o cursor de texto desta seleÁ„o desta caixa de texto, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° acima de uma caixa:
-  Se a coordenada Y desta localiza√ß√£o for menor do que a coordenada Y1 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· acima de uma caixa:
+  Se a coordenada Y desta localizaÁ„o for menor do que a coordenada Y1 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° acima de um linha reta horizontal:
-  Se a coordenada Y desta localiza√ß√£o for menor do que o horizontal y desta localiza√ß√£o inicial desta linha reta, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· acima de um linha reta horizontal:
+  Se a coordenada Y desta localizaÁ„o for menor do que o horizontal y desta localizaÁ„o inicial desta linha reta, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em cima ou em baixo de uma caixa:
-  Se a localiza√ß√£o estiver acima dessa caixa, diga sim.
-  Se a localiza√ß√£o estiver debaixo dessa caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· em cima ou em baixo de uma caixa:
+  Se a localizaÁ„o estiver acima dessa caixa, diga sim.
+  Se a localizaÁ„o estiver debaixo dessa caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° debaixo de uma caixa:
-  Se a coordenada Y desta localiza√ß√£o for maior do que a coordenada Y2 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· debaixo de uma caixa:
+  Se a coordenada Y desta localizaÁ„o for maior do que a coordenada Y2 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° debaixo de um linha reta horizontal:
-  Se a coordenada Y desta localiza√ß√£o for maior do que o horizontal y desta localiza√ß√£o inicial desta linha reta, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· debaixo de um linha reta horizontal:
+  Se a coordenada Y desta localizaÁ„o for maior do que o horizontal y desta localizaÁ„o inicial desta linha reta, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em uma elipse:
+FunÁ„o para que se determine se uma localizaÁ„o est· em uma elipse:
   Crie uma hRgn usando a elipse.
-  Preserve a localiza√ß√£o.
-  Divida a localiza√ß√£o pelo quantidade de twips/pixel .
+  Preserve a localizaÁ„o.
+  Divida a localizaÁ„o pelo quantidade de twips/pixel .
   Processe "gdi32.dll" "PtInRegion" com
-  \ Determina se o ponto especificado est√° dentro da regi√£o especificada.
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-ptinregion
+  \ Determina se o ponto especificado est· dentro da regi„o especificada.
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-ptinregion
     O hRgn [hrgn]
-    e A coordenada X desta localiza√ß√£o [x]
-    e A coordenada Y desta localiza√ß√£o [y]
-  Retornando um n√∫mero.
+    e A coordenada X desta localizaÁ„o [x]
+    e A coordenada Y desta localizaÁ„o [y]
+  Retornando um n˙mero.
   Destrua o hRgn.
-  Se o n√∫mero for 0, diga n√£o.
+  Se o n˙mero for 0, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em uma imagem:
-  Se a imagem for inexistente, diga n√£o.
-  Se a localiza√ß√£o estiver na caixa desta imagem, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· em uma imagem:
+  Se a imagem for inexistente, diga n„o.
+  Se a localizaÁ„o estiver na caixa desta imagem, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em um pol√≠gono:
-  Se o pol√≠gono for inexistente, diga n√£o.
-  Crie uma s√©rie de v√©rtices usando os v√©rtices deste pol√≠gono.
+FunÁ„o para que se determine se uma localizaÁ„o est· em um polÌgono:
+  Se o polÌgono for inexistente, diga n„o.
+  Crie uma sÈrie de vÈrtices usando os vÈrtices deste polÌgono.
   Processe "gdi32.dll" "CreatePolygonRgn" com
-  \ Cria uma regi√£o poligonal.
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-createpolypolygonrgn
-    O ponteiro da localiza√ß√£o desta s√©rie de v√©rtices  [*pptl]
-    e A quantidade de v√©rtices desta s√©rie de v√©rtices [cPoint]
+  \ Cria uma regi„o poligonal.
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-createpolypolygonrgn
+    O ponteiro da localizaÁ„o desta sÈrie de vÈrtices  [*pptl]
+    e A quantidade de vÈrtices desta sÈrie de vÈrtices [cPoint]
     e 2 [iMode = WINDING] \ -> https://learn.microsoft.com/pt-br/windows/win32/gdi/images/csrgn-03.png
   Retornando uma hRgn.
   Processe "gdi32.dll" "PtInRegion" com
-  \Determina se o ponto especificado est√° dentro da regi√£o especificada.
-  \ Documenta√ß√£o: ->  https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-ptinregion
+  \Determina se o ponto especificado est· dentro da regi„o especificada.
+  \ DocumentaÁ„o: ->  https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-ptinregion
     O hRgn [hrgn]
-    e A coordenada X desta localiza√ß√£o [x]
-    e A coordenada Y desta localiza√ß√£o [y]
-  Retornando um n√∫mero.
+    e A coordenada X desta localizaÁ„o [x]
+    e A coordenada Y desta localizaÁ„o [y]
+  Retornando um n˙mero.
   Processe "gdi32.dll" "DeleteObject" com
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-deleteobject
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-deleteobject
     O hRgn. [ho]
-  Destrua a s√©rie de v√©rtices.
-  Se o n√∫mero for 0, diga n√£o.
+  Destrua a sÈrie de vÈrtices.
+  Se o n˙mero for 0, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em [dentro de] uns pol√≠gonos:
-  Obtenha um pol√≠gono desde o pol√≠gonos.
-  Se o pol√≠gono for inexistente, diga n√£o.
-  Se a localiza√ß√£o estiver no pol√≠gono, diga sim.
+FunÁ„o para que se determine se uma localizaÁ„o est· em [dentro de] uns polÌgonos:
+  Obtenha um polÌgono desde o polÌgonos.
+  Se o polÌgono for inexistente, diga n„o.
+  Se a localizaÁ„o estiver no polÌgono, diga sim.
   Reitere.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em uma caixa arredondada:
+FunÁ„o para que se determine se uma localizaÁ„o est· em uma caixa arredondada:
   Preserve a caixa arredondada.
   Adicione a quantidade de twips/pixel para a canto inferior direito desta caixa arredondada.
-  Atribua o raio desta caixa arredondada vezes 2 para um di√¢metro.
-  Atribua o di√¢metro para uma largura.
-  Atribua o di√¢metro para uma altura.
+  Atribua o raio desta caixa arredondada vezes 2 para um di‚metro.
+  Atribua o di‚metro para uma largura.
+  Atribua o di‚metro para uma altura.
   Processe "gdi32.dll" "CreateRoundRectRgn" com
-  \ Cria uma regi√£o retangular com cantos arredondados.
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-createroundrectrgn
+  \ Cria uma regi„o retangular com cantos arredondados.
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-createroundrectrgn
     A coordenada X1 desta caixa arredondada [x1]
     e A coordenada Y1 desta caixa arredondada [y2]
     e A coordenada X2 desta caixa arredondada [x2]
@@ -995,489 +995,489 @@ Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em uma caixa arredonda
     e A altura [h]
   Retornando uma hRgn.
   Processe "gdi32.dll" "PtInRegion" com
-  \ Determina se um ponto est√° dentro de uma regi√£o
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-ptinregion
+  \ Determina se um ponto est· dentro de uma regi„o
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-ptinregion
     O hRgn [hrgn]
-    e A coordenada X desta localiza√ß√£o [x]
-    e A coordenada Y desta localiza√ß√£o [y]
-  Retornando um n√∫mero.
+    e A coordenada X desta localizaÁ„o [x]
+    e A coordenada Y desta localizaÁ„o [y]
+  Retornando um n˙mero.
   Processe "gdi32.dll" "DeleteObject" com
-  \ Exclui a regi√£o
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-deleteobject
+  \ Exclui a regi„o
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/wingdi/nf-wingdi-deleteobject
     O hRgn. [ho]
-  Se o n√∫mero for 0, diga n√£o.
+  Se o n˙mero for 0, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em uma caixa de texto:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se a localiza√ß√£o estiver na caixa desta caixa de texto, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· em uma caixa de texto:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se a localizaÁ„o estiver na caixa desta caixa de texto, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° dentro de uma caixa;
-\Fun√ß√£o para que se determine se uma localiza√ß√£o est√° dentro de uma caixa;
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° dentre uma caixa;
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em uma caixa:
-  Se a coordenada X desta localiza√ß√£o for menor do que a coordenada X1 desta caixa, diga n√£o.
-  Se a coordenada Y desta localiza√ß√£o for menor do que a coordenada Y1 desta caixa, diga n√£o.
-  Se a coordenada X desta localiza√ß√£o for maior do que a coordenada X2 desta caixa, diga n√£o.
-  Se a coordenada Y desta localiza√ß√£o for maior do que a coordenada Y2 desta caixa, diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· dentro de uma caixa;
+\FunÁ„o para que se determine se uma localizaÁ„o est· dentro de uma caixa;
+FunÁ„o para que se determine se uma localizaÁ„o est· dentre uma caixa;
+FunÁ„o para que se determine se uma localizaÁ„o est· em uma caixa:
+  Se a coordenada X desta localizaÁ„o for menor do que a coordenada X1 desta caixa, diga n„o.
+  Se a coordenada Y desta localizaÁ„o for menor do que a coordenada Y1 desta caixa, diga n„o.
+  Se a coordenada X desta localizaÁ„o for maior do que a coordenada X2 desta caixa, diga n„o.
+  Se a coordenada Y desta localizaÁ„o for maior do que a coordenada Y2 desta caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° para a esquerda de uma caixa;
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° para o lado esquerdo de uma caixa:
-  Se a coordenada X desta localiza√ß√£o for menor do que a coordenada X1 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· para a esquerda de uma caixa;
+FunÁ„o para que se determine se uma localizaÁ„o est· para o lado esquerdo de uma caixa:
+  Se a coordenada X desta localizaÁ„o for menor do que a coordenada X1 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° para a direita ou para a esquerda de uma caixa;
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° para a esquerda ou para a direita de uma caixa;
-\Fun√ß√£o para que se determine se uma localiza√ß√£o est√° no lado esquerdo ou no lado direito de uma caixa;
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° no lado esquerdo ou no lado direito de uma caixa:
-  Se a localiza√ß√£o estiver ao lado esquerdo dessa caixa, diga sim.
-  Se a localiza√ß√£o estiver ao lado direito dessa caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· para a direita ou para a esquerda de uma caixa;
+FunÁ„o para que se determine se uma localizaÁ„o est· para a esquerda ou para a direita de uma caixa;
+\FunÁ„o para que se determine se uma localizaÁ„o est· no lado esquerdo ou no lado direito de uma caixa;
+FunÁ„o para que se determine se uma localizaÁ„o est· no lado esquerdo ou no lado direito de uma caixa:
+  Se a localizaÁ„o estiver ao lado esquerdo dessa caixa, diga sim.
+  Se a localizaÁ„o estiver ao lado direito dessa caixa, diga sim.
+  Diga n„o.
 
-\Fun√ß√£o para que se determine se uma localiza√ß√£o est√° na parte de cima de uma caixa:
-\Fun√ß√£o para que se determine se uma localiza√ß√£o est√° em cima de uma caixa:
-\Fun√ß√£o para que se determine se uma localiza√ß√£o est√° acima de uma caixa:
-\Fun√ß√£o para que se determine se uma localiza√ß√£o est√° numa caixa;
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° sobre uma caixa: \ dentro de uma caixa
+\FunÁ„o para que se determine se uma localizaÁ„o est· na parte de cima de uma caixa:
+\FunÁ„o para que se determine se uma localizaÁ„o est· em cima de uma caixa:
+\FunÁ„o para que se determine se uma localizaÁ„o est· acima de uma caixa:
+\FunÁ„o para que se determine se uma localizaÁ„o est· numa caixa;
+FunÁ„o para que se determine se uma localizaÁ„o est· sobre uma caixa: \ dentro de uma caixa
   Atribua a caixa para uma segunda caixa.
-  Atribua 2 vezes a quantidade de twips/pixel para um n√∫mero.
-  Recue a segunda caixa usando o n√∫mero.
-  Se a localiza√ß√£o n√£o estiver na segunda caixa, diga n√£o.
+  Atribua 2 vezes a quantidade de twips/pixel para um n˙mero.
+  Recue a segunda caixa usando o n˙mero.
+  Se a localizaÁ„o n„o estiver na segunda caixa, diga n„o.
   Atribua a caixa para um terceira caixa.
-  Atribua 3 vezes a quantidade de twips/pixel para um segundo n√∫mero.
-  Encolha a terceira caixa usando o segundo n√∫mero.
-  Se a localiza√ß√£o estiver na terceira caixa, diga n√£o.
+  Atribua 3 vezes a quantidade de twips/pixel para um segundo n˙mero.
+  Encolha a terceira caixa usando o segundo n˙mero.
+  Se a localizaÁ„o estiver na terceira caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° sobre uma elipse:
+FunÁ„o para que se determine se uma localizaÁ„o est· sobre uma elipse:
   Atribua a elipse para uma segunda elipse.
-  Atribua 2 vezes a quantidade de twips/pixel para um n√∫mero.
-  Recue a caixa desta segunda elipse usando o n√∫mero.
-  Se a localiza√ß√£o n√£o estiver na segunda elipse, diga n√£o.
+  Atribua 2 vezes a quantidade de twips/pixel para um n˙mero.
+  Recue a caixa desta segunda elipse usando o n˙mero.
+  Se a localizaÁ„o n„o estiver na segunda elipse, diga n„o.
   Atribua a elipse para uma terceira elipse.
-  Atribua 3 vezes a quantidade de twips/pixel para um segundo n√∫mero.
-  Encolha a caixa desta terceira elipse usando o segundo n√∫mero.
-  Se a localiza√ß√£o estiver na terceira elipse, diga n√£o.
+  Atribua 3 vezes a quantidade de twips/pixel para um segundo n˙mero.
+  Encolha a caixa desta terceira elipse usando o segundo n˙mero.
+  Se a localizaÁ„o estiver na terceira elipse, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° sobre uma linha reta:
+FunÁ„o para que se determine se uma localizaÁ„o est· sobre uma linha reta:
   Preserve a linha reta.
-  Atribua 3 vezes a quantidade de twips/pixel para um n√∫mero.
-  \ Atribua o triplo da quantidade de twips/pixel para um n√∫mero.
+  Atribua 3 vezes a quantidade de twips/pixel para um n˙mero.
+  \ Atribua o triplo da quantidade de twips/pixel para um n˙mero.
   Itere.
-    Obtenha uma dist√¢ncia entre a localiza√ß√£o e o centro desta linha reta (trigonometria racional).\ calculated field
-    Se a dist√¢ncia for menor do que ou igual ao n√∫mero, diga sim.
-    Obtenha a dist√¢ncia entre a localiza√ß√£o inicial desta linha reta e a localiza√ß√£o final desta linha reta (trigonometria racional).
-    Se a dist√¢ncia for menor do que ou igual √† quantidade de twips/pixel , diga n√£o.
+    Obtenha uma dist‚ncia entre a localizaÁ„o e o centro desta linha reta (trigonometria racional).\ calculated field
+    Se a dist‚ncia for menor do que ou igual ao n˙mero, diga sim.
+    Obtenha a dist‚ncia entre a localizaÁ„o inicial desta linha reta e a localizaÁ„o final desta linha reta (trigonometria racional).
+    Se a dist‚ncia for menor do que ou igual ‡ quantidade de twips/pixel , diga n„o.
     Subdivida a linha reta em a linha reta e uma segunda linha reta.
-    Obtenha a dist√¢ncia entre a localiza√ß√£o e o centro desta linha reta (trigonometria racional).
-    Obtenha uma segunda dist√¢ncia entre a localiza√ß√£o e o centro desta segunda linha reta (trigonometria racional).
-    Se a dist√¢ncia for maior do que a segunda dist√¢ncia,
+    Obtenha a dist‚ncia entre a localizaÁ„o e o centro desta linha reta (trigonometria racional).
+    Obtenha uma segunda dist‚ncia entre a localizaÁ„o e o centro desta segunda linha reta (trigonometria racional).
+    Se a dist‚ncia for maior do que a segunda dist‚ncia,
       Atribua a segunda linha reta ao linha reta.
   Reitere.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° sobre uma imagem:
-  Se a imagem for inexistente, diga n√£o.
-  Se a localiza√ß√£o estiver sobre a caixa desta imagem, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· sobre uma imagem:
+  Se a imagem for inexistente, diga n„o.
+  Se a localizaÁ„o estiver sobre a caixa desta imagem, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° sobre um pol√≠gono:
-  Se o pol√≠gono for inexistente, diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· sobre um polÌgono:
+  Se o polÌgono for inexistente, diga n„o.
   Itere.
-    Obtenha um v√©rtice desde os v√©rtices deste pol√≠gono.
-    Se o v√©rtice for inexistente, diga n√£o.
-    Se o pr√≥ximo v√©rtice deste v√©rtice for inexistente, diga n√£o.
-    Atribua a localiza√ß√£o deste v√©rtice e a localiza√ß√£o deste pr√≥ximo v√©rtice deste v√©rtice para uma linha reta.
-    Se a localiza√ß√£o estiver sobre a linha reta, diga sim.
+    Obtenha um vÈrtice desde os vÈrtices deste polÌgono.
+    Se o vÈrtice for inexistente, diga n„o.
+    Se o prÛximo vÈrtice deste vÈrtice for inexistente, diga n„o.
+    Atribua a localizaÁ„o deste vÈrtice e a localizaÁ„o deste prÛximo vÈrtice deste vÈrtice para uma linha reta.
+    Se a localizaÁ„o estiver sobre a linha reta, diga sim.
   Reitere.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° sobre uma caixa arredondada:
+FunÁ„o para que se determine se uma localizaÁ„o est· sobre uma caixa arredondada:
   Atribua a caixa arredondada para uma segunda caixa arredondada.
-  Atribua 2 vezes a quantidade de twips/pixel para um n√∫mero.
-  Recue a segunda caixa arredondada usando o n√∫mero.
-  Se a localiza√ß√£o n√£o estiver na segunda caixa arredondada, diga n√£o.
+  Atribua 2 vezes a quantidade de twips/pixel para um n˙mero.
+  Recue a segunda caixa arredondada usando o n˙mero.
+  Se a localizaÁ„o n„o estiver na segunda caixa arredondada, diga n„o.
   Atribua a caixa arredondada para uma terceira caixa arredondada.
-  Atribua 3 vezes a quantidade de twips/pixel para um segundo n√∫mero.
-  Encolha a terceira caixa arredondada usando o segundo n√∫mero.
-  Se a localiza√ß√£o estiver na terceira caixa arredondada, diga n√£o.
+  Atribua 3 vezes a quantidade de twips/pixel para um segundo n˙mero.
+  Encolha a terceira caixa arredondada usando o segundo n˙mero.
+  Se a localizaÁ„o estiver na terceira caixa arredondada, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° fora de uma caixa:
-  Se a localiza√ß√£o √© dentro dessa caixa, diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· fora de uma caixa:
+  Se a localizaÁ„o È dentro dessa caixa, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° para o lado direito de uma caixa:
-  Se a coordenada X desta localiza√ß√£o for maior do que a coordenada X2 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· para o lado direito de uma caixa:
+  Se a coordenada X desta localizaÁ„o for maior do que a coordenada X2 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° tocando uma caixa:
-  Se a localiza√ß√£o estiver na caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· tocando uma caixa:
+  Se a localizaÁ„o estiver na caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° dentre uma malha quadriculada em uma segunda localiza√ß√£o:
-  Calcule um valor da diferen√ßa entre a segunda localiza√ß√£o e a localiza√ß√£o.
-  Se o valor da diferen√ßa est√° dentre a malha quadriculada, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma localizaÁ„o est· dentre uma malha quadriculada em uma segunda localizaÁ„o:
+  Calcule um valor da diferenÁa entre a segunda localizaÁ„o e a localizaÁ„o.
+  Se o valor da diferenÁa est· dentre a malha quadriculada, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° dentre uns twips em uma segunda localiza√ß√£o:
+FunÁ„o para que se determine se uma localizaÁ„o est· dentre uns twips em uma segunda localizaÁ„o:
   Atribua os twips e os twips para uma malha quadriculada.
-  Se a localiza√ß√£o estiver dentre a malha quadriculada em a segunda localiza√ß√£o, diga sim.
-  Diga n√£o.
+  Se a localizaÁ„o estiver dentre a malha quadriculada em a segunda localizaÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma localiza√ß√£o est√° dentre uns twips em uma caixa:
+FunÁ„o para que se determine se uma localizaÁ„o est· dentre uns twips em uma caixa:
   Preserve a caixa.
   Recue a caixa usando os twips.
-  Se a localiza√ß√£o estiver dentre a caixa [recuada], diga sim.
-  Diga n√£o.
+  Se a localizaÁ„o estiver dentre a caixa [recuada], diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se o stack possui just one coisa sobre it:
+FunÁ„o para que se determine se o stack possui just one coisa sobre it:
   Se a contagem deste stack for 1, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string termina com uma segunda string:
-  Se a quantidade de caracteres desta segunda string for maior do que a quantidade de caracteres desta string, diga n√£o.
+FunÁ„o para que se determine se uma string termina com uma segunda string:
+  Se a quantidade de caracteres desta segunda string for maior do que a quantidade de caracteres desta string, diga n„o.
   Lance um subtexto sobre a string.
   Atribua o caractere final deste subtexto menos a quantidade de caracteres desta segunda string mais 1 ao caractere inicial deste subtexto.
   Se o subtexto for a segunda string, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string come√ßa com uma segunda string:
-  Se a quantidade de caracteres desta segunda string for maior do que a quantidade de caracteres desta string, diga n√£o.
+FunÁ„o para que se determine se uma string comeÁa com uma segunda string:
+  Se a quantidade de caracteres desta segunda string for maior do que a quantidade de caracteres desta string, diga n„o.
   Lance um subtexto sobre a string.
   Atribua o caractere inicial deste subtexto mais a quantidade de caracteres desta segunda string menos 1 ao caractere final deste subtexto.
-  Se o subtexto √© a segunda string, diga sim.
-  Diga n√£o.
+  Se o subtexto È a segunda string, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string come√ßa com um byte:
-  Se a string estiver em branco, diga n√£o.
-  Se o conte√∫do deste caractere inicial desta string for o byte, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma string comeÁa com um byte:
+  Se a string estiver em branco, diga n„o.
+  Se o conte˙do deste caractere inicial desta string for o byte, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string termina com um byte: \ adicionado por Mike Gonta
-  Se a string estiver em branco, diga n√£o.
-  Se o conte√∫do deste caractere final desta string for o byte, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma string termina com um byte: \ adicionado por Mike Gonta
+  Se a string estiver em branco, diga n„o.
+  Se o conte˙do deste caractere final desta string for o byte, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string √© uma segunda string (compara√ß√£o de caracteres acentuados):
-  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string e o tabela de caracteres min√∫sculos s/ acento ascii (iguais somente).
+FunÁ„o para que se determine se uma string È uma segunda string (comparaÁ„o de caracteres acentuados):
+  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string e o tabela de caracteres min˙sculos s/ acento ascii (iguais somente).
 
-Fun√ß√£o para que se determine se uma string √© igual a uma segunda string;
-Fun√ß√£o para que se determine se uma string √© uma segunda string:
-  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string e o tabela de caracteres min√∫sculos ascii (iguais somente).
+FunÁ„o para que se determine se uma string È igual a uma segunda string;
+FunÁ„o para que se determine se uma string È uma segunda string:
+  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string e o tabela de caracteres min˙sculos ascii (iguais somente).
 
-Fun√ß√£o para que se determine se uma string √© uma segunda string ou uma terceira string:
+FunÁ„o para que se determine se uma string È uma segunda string ou uma terceira string:
   Se a string for a segunda string, diga sim.
   Se a string for a terceira string, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string √© alguma fra√ß√£o literal;
-Fun√ß√£o para que se determine se uma string √© alguma propor√ß√£o literal:
+FunÁ„o para que se determine se uma string È alguma fraÁ„o literal;
+FunÁ„o para que se determine se uma string È alguma proporÁ„o literal:
   Lance um subtexto sobre a string.
-  Se o subtexto estiver em branco, diga n√£o.
-  Se o conte√∫do deste caractere inicial deste subtexto n√£o for algum indicador num√©rico, diga n√£o.
-  Se o conte√∫do deste caractere inicial deste subtexto for algum sinal aritm√©tico,
+  Se o subtexto estiver em branco, diga n„o.
+  Se o conte˙do deste caractere inicial deste subtexto n„o for algum indicador numÈrico, diga n„o.
+  Se o conte˙do deste caractere inicial deste subtexto for algum sinal aritmÈtico,
     Adicione 1 para o caractere inicial deste subtexto.
   Subdivida o subtexto em um numerador textual e um denominador textual usando a barra inclinada.
-  Se o numerador textual n√£o for algum n√∫mero inteiro, diga n√£o.
-  Se o denominador textual n√£o for algum n√∫mero inteiro, diga n√£o.
+  Se o numerador textual n„o for algum n˙mero inteiro, diga n„o.
+  Se o denominador textual n„o for algum n˙mero inteiro, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma string √© algum inteiro;
-Fun√ß√£o para que se determine se uma string √© algum n√∫mero inteiro:
+FunÁ„o para que se determine se uma string È algum inteiro;
+FunÁ„o para que se determine se uma string È algum n˙mero inteiro:
   Lance um subtexto sobre a string.
-  Se o subtexto estiver em branco, diga n√£o.
-  Se o conte√∫do deste caractere inicial deste subtexto for algum sinal aritm√©tico,
+  Se o subtexto estiver em branco, diga n„o.
+  Se o conte˙do deste caractere inicial deste subtexto for algum sinal aritmÈtico,
     Adicione 1 para o caractere inicial deste subtexto.
-  Se o subtexto estiver em branco, diga n√£o.
+  Se o subtexto estiver em branco, diga n„o.
   Itere.
-    Se o conte√∫do deste caractere inicial deste subtexto n√£o for algum d√≠gito, diga n√£o.
+    Se o conte˙do deste caractere inicial deste subtexto n„o for algum dÌgito, diga n„o.
     Adicione 1 para o caractere inicial deste subtexto.
     Se o subtexto estiver em branco, diga sim.
   Reitere.
 
-Fun√ß√£o para que se determine se uma string √© algum numeral misto literal:
+FunÁ„o para que se determine se uma string È algum numeral misto literal:
   Lance um subtexto sobre a string.
-  Se o subtexto estiver em branco, diga n√£o.
-  Se o conte√∫do deste caractere inicial deste subtexto n√£o for algum indicador num√©rico, diga n√£o.
-  Se o conte√∫do deste caractere inicial deste subtexto for algum sinal aritm√©tico,
+  Se o subtexto estiver em branco, diga n„o.
+  Se o conte˙do deste caractere inicial deste subtexto n„o for algum indicador numÈrico, diga n„o.
+  Se o conte˙do deste caractere inicial deste subtexto for algum sinal aritmÈtico,
     Adicione 1 para o caractere inicial deste subtexto.
-  Subdivida o subtexto em um subtexto num√©rico e uma subtexto fracion√°rio usando o sinal de adi√ß√£o.
-  Se o subtexto num√©rico n√£o for algum n√∫mero inteiro, diga n√£o.
-  Se a subtexto fracion√°rio n√£o for alguma fra√ß√£o literal, diga n√£o.
+  Subdivida o subtexto em um subtexto numÈrico e uma subtexto fracion·rio usando o sinal de adiÁ„o.
+  Se o subtexto numÈrico n„o for algum n˙mero inteiro, diga n„o.
+  Se a subtexto fracion·rio n„o for alguma fraÁ„o literal, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma string √© algum sinal aritm√©tico:
-  Se a quantidade de caracteres desta string n√£o for 1, diga n√£o.
-  Se o conte√∫do deste caractere inicial desta string for algum sinal aritm√©tico, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma string È algum sinal aritmÈtico:
+  Se a quantidade de caracteres desta string n„o for 1, diga n„o.
+  Se o conte˙do deste caractere inicial desta string for algum sinal aritmÈtico, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string √© alguma palavra:
-  Se a quantidade de caracteres desta string for menor do que 2, diga n√£o.
+FunÁ„o para que se determine se uma string È alguma palavra:
+  Se a quantidade de caracteres desta string for menor do que 2, diga n„o.
   Lance um subtexto sobre a string.
   Subtraia 1 desde o caractere inicial deste subtexto.
   Itere.
     Adicione 1 para o caractere inicial deste subtexto.
     Se o subtexto estiver em branco, diga sim.
-    Se o conte√∫do deste caractere inicial deste subtexto for algum letra, reitere.
-    Se o conte√∫do deste caractere inicial deste subtexto for o ap√≥strofo, reitere.
-  Diga n√£o.
+    Se o conte˙do deste caractere inicial deste subtexto for algum letra, reitere.
+    Se o conte˙do deste caractere inicial deste subtexto for o apÛstrofo, reitere.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string √© igual a um byte;
-Fun√ß√£o para que se determine se uma string √© um byte:
-  Se a quantidade de caracteres desta string n√£o for 1, diga n√£o.
-  Se o conte√∫do deste caractere inicial desta string for o byte, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma string È igual a um byte;
+FunÁ„o para que se determine se uma string È um byte:
+  Se a quantidade de caracteres desta string n„o for 1, diga n„o.
+  Se o conte˙do deste caractere inicial desta string for o byte, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string √© compat√≠vel c/ o DOS:
-  Se a string estiver em branco, diga n√£o.
-  Se o conte√∫do deste caractere inicial desta string √© o ponto final, diga n√£o.
+FunÁ„o para que se determine se uma string È compatÌvel c/ o DOS:
+  Se a string estiver em branco, diga n„o.
+  Se o conte˙do deste caractere inicial desta string È o ponto final, diga n„o.
   Lance um subtexto sobre a string.
   Itere.
     Se o subtexto estiver em branco, diga sim.
-    Se o conte√∫do deste caractere inicial deste subtexto for a barra inclinada, diga n√£o.
-    Se o conte√∫do deste caractere inicial deste subtexto for a barra invertida, diga n√£o.
-    Se o conte√∫do deste caractere inicial deste subtexto for o sinal de dois pontos, diga n√£o.
-    Se o conte√∫do deste caractere inicial deste subtexto for o asterisco, diga n√£o.
-    Se o conte√∫do deste caractere inicial deste subtexto for o ponto de interroga√ß√£o, diga n√£o.
-    Se o conte√∫do deste caractere inicial deste subtexto for as aspas duplas, diga n√£o.
-    Se o conte√∫do deste caractere inicial deste subtexto for o s√≠mbolo menor do que, diga n√£o.
-    Se o conte√∫do deste caractere inicial deste subtexto for o s√≠mbolo maior do que, diga n√£o.
-    Se o conte√∫do deste caractere inicial deste subtexto for a barra vertical, diga n√£o.
+    Se o conte˙do deste caractere inicial deste subtexto for a barra inclinada, diga n„o.
+    Se o conte˙do deste caractere inicial deste subtexto for a barra invertida, diga n„o.
+    Se o conte˙do deste caractere inicial deste subtexto for o sinal de dois pontos, diga n„o.
+    Se o conte˙do deste caractere inicial deste subtexto for o asterisco, diga n„o.
+    Se o conte˙do deste caractere inicial deste subtexto for o ponto de interrogaÁ„o, diga n„o.
+    Se o conte˙do deste caractere inicial deste subtexto for as aspas duplas, diga n„o.
+    Se o conte˙do deste caractere inicial deste subtexto for o sÌmbolo menor do que, diga n„o.
+    Se o conte˙do deste caractere inicial deste subtexto for o sÌmbolo maior do que, diga n„o.
+    Se o conte˙do deste caractere inicial deste subtexto for a barra vertical, diga n„o.
     Adicione 1 para o caractere inicial deste subtexto.
   Reitere.
 
-Fun√ß√£o para que se determine se uma string √© maior que uma segunda string;
-Fun√ß√£o para que se determine se uma string √© maior do que uma segunda string:
-  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string retornando um n√∫mero.
-  Se o n√∫mero for maior do que 0, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma string È maior que uma segunda string;
+FunÁ„o para que se determine se uma string È maior do que uma segunda string:
+  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string retornando um n˙mero.
+  Se o n˙mero for maior do que 0, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string √© maior do que ou igual a uma segunda string;
-Fun√ß√£o para que se determine se uma string √© maior que ou igual a uma segunda string;
-Fun√ß√£o para que se determine se uma string √© maior ou igual a uma segunda string:
-  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string retornando um n√∫mero.
-  Se o n√∫mero for maior do que ou igual a 0, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma string È maior do que ou igual a uma segunda string;
+FunÁ„o para que se determine se uma string È maior que ou igual a uma segunda string;
+FunÁ„o para que se determine se uma string È maior ou igual a uma segunda string:
+  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string retornando um n˙mero.
+  Se o n˙mero for maior do que ou igual a 0, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string est√° em uma segunda string:
+FunÁ„o para que se determine se uma string est· em uma segunda string:
   Lance um subtexto sobre a segunda string.
   Atribua o caractere inicial deste subtexto mais a quantidade de caracteres desta string menos 1 ao caractere final deste subtexto.
   Itere.
-    Se o caractere final deste subtexto for maior do que o caractere final desta segunda string, diga n√£o.
+    Se o caractere final deste subtexto for maior do que o caractere final desta segunda string, diga n„o.
     Se o subtexto for a string, diga sim.
     Mova o subtexto usando 1.
   Reitere.
 
-Fun√ß√£o para que se determine se uma string est√° em um cat√°logo:
-  Se o cat√°logo for inexistente, diga n√£o.
-  Se a string estiver em branco, diga n√£o.
-  Encontre uma refer√™ncia usando a string e o cat√°logo.
-  Se a refer√™ncia for inexistente, diga n√£o.
+FunÁ„o para que se determine se uma string est· em um cat·logo:
+  Se o cat·logo for inexistente, diga n„o.
+  Se a string estiver em branco, diga n„o.
+  Encontre uma referÍncia usando a string e o cat·logo.
+  Se a referÍncia for inexistente, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma string √© menor que uma segunda string;
-Fun√ß√£o para que se determine se uma string √© menor do que uma segunda string:
-  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string retornando um n√∫mero.
-  Se o n√∫mero for menor do que 0, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma string È menor que uma segunda string;
+FunÁ„o para que se determine se uma string È menor do que uma segunda string:
+  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string retornando um n˙mero.
+  Se o n˙mero for menor do que 0, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma string √© menor do que ou igual a uma segunda string;
-Fun√ß√£o para que se determine se uma string √© menor que ou igual a uma segunda string;
-Fun√ß√£o para que se determine se uma string √© igual ou menor do que uma segunda string;
-Fun√ß√£o para que se determine se uma string √© igual ou menor que uma segunda string;
-Fun√ß√£o para que se determine se uma string √© menor ou igual a uma segunda string:
-  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string retornando um n√∫mero.
-  Se o n√∫mero for menor do que ou igual a 0, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma string È menor do que ou igual a uma segunda string;
+FunÁ„o para que se determine se uma string È menor que ou igual a uma segunda string;
+FunÁ„o para que se determine se uma string È igual ou menor do que uma segunda string;
+FunÁ„o para que se determine se uma string È igual ou menor que uma segunda string;
+FunÁ„o para que se determine se uma string È menor ou igual a uma segunda string:
+  Compare a string para a segunda string usando a quantidade de caracteres desta string e a quantidade de caracteres desta segunda string retornando um n˙mero.
+  Se o n˙mero for menor do que ou igual a 0, diga sim.
+  Diga n„o.
 
 \ needs work por Spanish
-Fun√ß√£o para que se determine se uma string est√° escrita incorretamente;
-Fun√ß√£o para que se determine se uma string est√° escrito incorretamente:
-  Se o dicion√°rio l√©xico for inexistente, diga n√£o.
-  Se a string n√£o for alguma palavra, diga n√£o.
+FunÁ„o para que se determine se uma string est· escrita incorretamente;
+FunÁ„o para que se determine se uma string est· escrito incorretamente:
+  Se o dicion·rio lÈxico for inexistente, diga n„o.
+  Se a string n„o for alguma palavra, diga n„o.
   Preserve a string.
   Se a string terminar com "'s",
-    Remova os dois √∫ltimos caracteres desde a string. \ talvez seria √∫til removar apenas o primeiro
-  Se a string estiver no cat√°logo deste dicion√°rio l√©xico, diga n√£o.
+    Remova os dois ˙ltimos caracteres desde a string. \ talvez seria ˙til removar apenas o primeiro
+  Se a string estiver no cat·logo deste dicion·rio lÈxico, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma string √© wider do que uma caixa:
-  \ presume que a fonte esteja selecionada no contexto de dispositivo de mem√≥ria
-  Obtenha um abcA e um abcC usando a string e o contexto de dispositivo de mem√≥ria.
-  Obtenha uma largura usando a string e o contexto de dispositivo de mem√≥ria.
+FunÁ„o para que se determine se uma string È wider do que uma caixa:
+  \ presume que a fonte esteja selecionada no contexto de dispositivo de memÛria
+  Obtenha um abcA e um abcC usando a string e o contexto de dispositivo de memÛria.
+  Obtenha uma largura usando a string e o contexto de dispositivo de memÛria.
   Subtraia o abcA desde a largura.
   Subtraia o abcC desde a largura.
   Se a largura for maior do que a largura desta caixa, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um subtexto est√° sobre alguma esp√©cie de contra√ß√£o:
-  Atribua o caractere inicial deste subtexto mais 1 para um endere√ßo de byte .
-  Se o endere√ßo de byte for maior do que o caractere final deste subtexto, diga n√£o.
-  Se o conte√∫do deste caractere inicial deste subtexto n√£o for o ap√≥strofo, diga n√£o.
-  Se o conte√∫do deste endere√ßo de byte n√£o for algum letra, diga n√£o.
+FunÁ„o para que se determine se um subtexto est· sobre alguma espÈcie de contraÁ„o:
+  Atribua o caractere inicial deste subtexto mais 1 para um endereÁo de byte .
+  Se o endereÁo de byte for maior do que o caractere final deste subtexto, diga n„o.
+  Se o conte˙do deste caractere inicial deste subtexto n„o for o apÛstrofo, diga n„o.
+  Se o conte˙do deste endereÁo de byte n„o for algum letra, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se um terminal est√° totalmente prenchido:
-  Atribua a altura deste terminal dividido por 24 pixels para um n√∫mero.
-  Se a contagem destes quoras deste terminal for maior do que o n√∫mero, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se um terminal est· totalmente prenchido:
+  Atribua a altura deste terminal dividido por 24 pixels para um n˙mero.
+  Se a contagem destes quoras deste terminal for maior do que o n˙mero, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se uma caixa de texto pode ser refeita;
-Fun√ß√£o para que se determine se uma caixa de texto pode ser refeito:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se a √∫ltima caixa de texto destas altera√ß√µes desta caixa de texto for inexistente, diga n√£o.
+FunÁ„o para que se determine se uma caixa de texto pode ser refeita;
+FunÁ„o para que se determine se uma caixa de texto pode ser refeito:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se a ˙ltima caixa de texto destas alteraÁıes desta caixa de texto for inexistente, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma caixa de texto pode ser desfeita;
-Fun√ß√£o para que se determine se uma caixa de texto pode ser desfeito:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se a √∫ltima caixa de texto destas restaura√ß√µes desta caixa de texto for inexistente, diga n√£o.
+FunÁ„o para que se determine se uma caixa de texto pode ser desfeita;
+FunÁ„o para que se determine se uma caixa de texto pode ser desfeito:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se a ˙ltima caixa de texto destas restauraÁıes desta caixa de texto for inexistente, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se uma caixa de texto foi alterado:
-  Se a caixa de texto for inexistente, diga n√£o.
-  Se o sinalizador de altera√ß√£o desta caixa de texto estiver ativo, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se uma caixa de texto foi alterado:
+  Se a caixa de texto for inexistente, diga n„o.
+  Se o sinalizador de alteraÁ„o desta caixa de texto estiver ativo, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se h√° something para backspace em uma caixa de texto;
-Fun√ß√£o para que se determine se existe something para backspace em uma caixa de texto:
-  Se a caixa de texto for inexistente, diga n√£o.
+FunÁ„o para que se determine se h· something para backspace em uma caixa de texto;
+FunÁ„o para que se determine se existe something para backspace em uma caixa de texto:
+  Se a caixa de texto for inexistente, diga n„o.
   Se something estiver selecionado na caixa de texto, diga sim.
-  Se o n√∫mero de linhas do cursor desta sele√ß√£o desta caixa de texto n√£o for 1, diga sim.
-  Se o cursor da coluna desta sele√ß√£o desta caixa de texto n√£o for 1, diga sim.
-  Diga n√£o.
+  Se o n˙mero de linhas do cursor desta seleÁ„o desta caixa de texto n„o for 1, diga sim.
+  Se o cursor da coluna desta seleÁ„o desta caixa de texto n„o for 1, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se h√° something para remover em uma caixa de texto;
-Fun√ß√£o para que se determine se existe something para remover em uma caixa de texto:
-  Se a caixa de texto for inexistente, diga n√£o.
+FunÁ„o para que se determine se h· something para remover em uma caixa de texto;
+FunÁ„o para que se determine se existe something para remover em uma caixa de texto:
+  Se a caixa de texto for inexistente, diga n„o.
   Se something estiver selecionado na caixa de texto, diga sim.
-  Se o n√∫mero de linhas do cursor desta sele√ß√£o desta caixa de texto n√£o for a contagem de linhas desta caixa de texto, diga sim. \ calculated field
-  Obtenha uma linha de texto usando o n√∫mero de linhas do cursor desta sele√ß√£o desta caixa de texto e a caixa de texto.
-  Se o cursor da coluna desta sele√ß√£o desta caixa de texto n√£o for a quantidade de caracteres desta string desta linha de texto, diga sim.
-  Diga n√£o.
+  Se o n˙mero de linhas do cursor desta seleÁ„o desta caixa de texto n„o for a contagem de linhas desta caixa de texto, diga sim. \ calculated field
+  Obtenha uma linha de texto usando o n˙mero de linhas do cursor desta seleÁ„o desta caixa de texto e a caixa de texto.
+  Se o cursor da coluna desta seleÁ„o desta caixa de texto n„o for a quantidade de caracteres desta string desta linha de texto, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se h√° caixa de texto na √°rea de transfer√™ncia do Windows;
-Fun√ß√£o para que se determine se existe caixa de texto sobre a √°rea de transfer√™ncia do Windows:
+FunÁ„o para que se determine se h· caixa de texto na ·rea de transferÍncia do Windows;
+FunÁ„o para que se determine se existe caixa de texto sobre a ·rea de transferÍncia do Windows:
   Processe "user32.dll" "IsClipboardFormatAvailable" com
-  \Determina se a √°rea de transfer√™ncia cont√©m dados com o formato especificado.
-  \ Documenta√ß√£o: -> https://learn.microsoft.com/pt-br/windows/win32/api/winuser/nf-winuser-isclipboardformatavailable
+  \Determina se a ·rea de transferÍncia contÈm dados com o formato especificado.
+  \ DocumentaÁ„o: -> https://learn.microsoft.com/pt-br/windows/win32/api/winuser/nf-winuser-isclipboardformatavailable
   1 [format = CF_TEXT]  \ Consulte https://learn.microsoft.com/pt-br/windows/win32/dataxchg/standard-clipboard-formats
-  Retornando um n√∫mero.
-  Se o n√∫mero for 0, diga n√£o.
+  Retornando um n˙mero.
+  Se o n˙mero for 0, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se umas listas est√£o vazios;
-Fun√ß√£o para que se determine se umas listas est√£o vazias;
-Fun√ß√£o para que se determine se umas listas est√£o vazia;
-Fun√ß√£o para que se determine se umas listas est√£o vazio:
+FunÁ„o para que se determine se umas listas est„o vazios;
+FunÁ„o para que se determine se umas listas est„o vazias;
+FunÁ„o para que se determine se umas listas est„o vazia;
+FunÁ„o para que se determine se umas listas est„o vazio:
   Se a lista inicial destas listas for inexistente, diga sim.
-  Diga n√£o.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se um segmento inicial √© numeric:
+FunÁ„o para que se determine se um segmento inicial È numeric:
   Preserve o segmento inicial.
-  Remova os caracteres ignor√°veis no in√≠cio desde o segmento inicial.
-  Se o segmento inicial estiver em branco, diga n√£o.
+  Remova os caracteres ignor·veis no inÌcio desde o segmento inicial.
+  Se o segmento inicial estiver em branco, diga n„o.
   Itere.
     Obtenha um byte desde o segmento inicial.
-    Se o byte n√£o for algum d√≠gito, diga n√£o.
+    Se o byte n„o for algum dÌgito, diga n„o.
     Se o segmento inicial estiver em branco, diga sim.
   Reitere.
 
-Fun√ß√£o para que se determine se o usu√°rio clicou sobre umas alternativas;
-Fun√ß√£o para que se determine se o usu√°rio clicou em umas alternativas:
+FunÁ„o para que se determine se o usu·rio clicou sobre umas alternativas;
+FunÁ„o para que se determine se o usu·rio clicou em umas alternativas:
   Itere.
-  Se o bot√£o esquerdo deste mouse n√£o estiver para baixo, diga n√£o.
-  Encontre uma alternativa usando a localiza√ß√£o deste mouse.
-  Se a alternativa n√£o puder ser encontrada, diga n√£o.
+  Se o bot„o esquerdo deste mouse n„o estiver para baixo, diga n„o.
+  Encontre uma alternativa usando a localizaÁ„o deste mouse.
+  Se a alternativa n„o puder ser encontrada, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se we pode encontre um ponteiro:
+FunÁ„o para que se determine se we pode encontre um ponteiro:
   \ deveria ser "can" not "ca", compilador bug
-  Se o ponteiro for inexistente, diga n√£o.
+  Se o ponteiro for inexistente, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se we could encontre um ponteiro:
-  Se o ponteiro for inexistente, diga n√£o.
+FunÁ„o para que se determine se we could encontre um ponteiro:
+  Se o ponteiro for inexistente, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se we did encontre um ponteiro:
-  Se o ponteiro for inexistente, diga n√£o.
+FunÁ„o para que se determine se we did encontre um ponteiro:
+  Se o ponteiro for inexistente, diga n„o.
   Diga sim.
 
-Fun√ß√£o para que se determine se estamos acima de uma caixa:
-  Se a coordenada Y desta localiza√ß√£o deste contexto for menor do que a coordenada Y1 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos acima de uma caixa:
+  Se a coordenada Y desta localizaÁ„o deste contexto for menor do que a coordenada Y1 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos acima de uma coordenada:
-  Se a coordenada Y desta localiza√ß√£o deste contexto for menor do que a coordenada, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos acima de uma coordenada:
+  Se a coordenada Y desta localizaÁ„o deste contexto for menor do que a coordenada, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos acima de uma linha reta horizontal:
-  Se a localiza√ß√£o deste contexto estiver acima dessa linha reta horizontal, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos acima de uma linha reta horizontal:
+  Se a localizaÁ„o deste contexto estiver acima dessa linha reta horizontal, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos em cima ou em baixo de uma caixa:
-  Se a coordenada Y desta localiza√ß√£o deste contexto for menor do que a coordenada Y1 desta caixa, diga sim.
-  Se a coordenada Y desta localiza√ß√£o deste contexto for maior do que a coordenada Y2 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos em cima ou em baixo de uma caixa:
+  Se a coordenada Y desta localizaÁ„o deste contexto for menor do que a coordenada Y1 desta caixa, diga sim.
+  Se a coordenada Y desta localizaÁ„o deste contexto for maior do que a coordenada Y2 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos acima de uma localiza√ß√£o:
-  Se a coordenada Y desta localiza√ß√£o deste contexto for menor do que a coordenada Y desta localiza√ß√£o, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos acima de uma localizaÁ„o:
+  Se a coordenada Y desta localizaÁ„o deste contexto for menor do que a coordenada Y desta localizaÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos debaixo de uma caixa:
-  Se a coordenada Y desta localiza√ß√£o deste contexto for maior do que a coordenada Y2 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos debaixo de uma caixa:
+  Se a coordenada Y desta localizaÁ„o deste contexto for maior do que a coordenada Y2 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos debaixo de uma coordenada:
-  Se a coordenada Y desta localiza√ß√£o deste contexto for maior do que a coordenada, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos debaixo de uma coordenada:
+  Se a coordenada Y desta localizaÁ„o deste contexto for maior do que a coordenada, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos debaixo de uma linha reta horizontal:
-  Se a localiza√ß√£o deste contexto √© debaixo dessa linha reta horizontal, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos debaixo de uma linha reta horizontal:
+  Se a localizaÁ„o deste contexto È debaixo dessa linha reta horizontal, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos debaixo de uma localiza√ß√£o:
-  Se a coordenada Y desta localiza√ß√£o deste contexto for maior do que a coordenada Y desta localiza√ß√£o, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos debaixo de uma localizaÁ„o:
+  Se a coordenada Y desta localizaÁ„o deste contexto for maior do que a coordenada Y desta localizaÁ„o, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos voltada para o north:
+FunÁ„o para que se determine se estamos voltada para o north:
   \ *** need east, south, west
-  Normalize a orienta√ß√£o deste contexto.
-  Se a orienta√ß√£o deste contexto for 0, diga sim.
-  Diga n√£o.
+  Normalize a orientaÁ„o deste contexto.
+  Se a orientaÁ„o deste contexto for 0, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos no lado esquerdo de uma caixa;
-Fun√ß√£o para que se determine se estamos na esquerda de uma caixa;
-Fun√ß√£o para que se determine se estamos lado esquerdo de uma caixa:
-  Se a coordenada X desta localiza√ß√£o deste contexto for menor do que a coordenada X1 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos no lado esquerdo de uma caixa;
+FunÁ„o para que se determine se estamos na esquerda de uma caixa;
+FunÁ„o para que se determine se estamos lado esquerdo de uma caixa:
+  Se a coordenada X desta localizaÁ„o deste contexto for menor do que a coordenada X1 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos na esquerda ou na direita de uma caixa;
-Fun√ß√£o para que se determine se estamos no lado esquerdo ou no lado direito de uma caixa:
-  Se a coordenada X desta localiza√ß√£o deste contexto for menor do que a coordenada X1 desta caixa, diga sim.
-  Se a coordenada X desta localiza√ß√£o deste contexto for maior do que a coordenada X2 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos na esquerda ou na direita de uma caixa;
+FunÁ„o para que se determine se estamos no lado esquerdo ou no lado direito de uma caixa:
+  Se a coordenada X desta localizaÁ„o deste contexto for menor do que a coordenada X1 desta caixa, diga sim.
+  Se a coordenada X desta localizaÁ„o deste contexto for maior do que a coordenada X2 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos fora de uma caixa:
-  Se a localiza√ß√£o deste contexto estiver fora dessa caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos fora de uma caixa:
+  Se a localizaÁ„o deste contexto estiver fora dessa caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos no lado direito de uma caixa:
-  Se a coordenada X desta localiza√ß√£o deste contexto for maior do que a coordenada X2 desta caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos no lado direito de uma caixa:
+  Se a coordenada X desta localizaÁ„o deste contexto for maior do que a coordenada X2 desta caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos em uma caixa:
-  Se a localiza√ß√£o deste contexto estiver na caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos em uma caixa:
+  Se a localizaÁ„o deste contexto estiver na caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos dentre uns twips em uma caixa:
-  Se a localiza√ß√£o deste contexto estiver dentre os twips em a caixa, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos dentre uns twips em uma caixa:
+  Se a localizaÁ„o deste contexto estiver dentre os twips em a caixa, diga sim.
+  Diga n„o.
 
-Fun√ß√£o para que se determine se estamos com sorte:
-  Escolha aleatoriamente um n√∫mero entre 1 e 100.
-  Se o n√∫mero for menor do que 51, diga sim.
-  Diga n√£o.
+FunÁ„o para que se determine se estamos com sorte:
+  Escolha aleatoriamente um n˙mero entre 1 e 100.
+  Se o n˙mero for menor do que 51, diga sim.
+  Diga n„o.

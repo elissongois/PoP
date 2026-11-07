@@ -1,70 +1,70 @@
-[02 - Carregamento do c√≥digo fonte.pop](<..\C√≥digo-Fonte\02 - Carregamento do c√≥digo fonte.pop> "02 - Carregamento do c√≥digo fonte.pop")
-[77]  Fun√ß√£o para que se determine se um byte √© um byte ignor√°vel:
+[02 - Carregamento do cÛdigo fonte.pop](<..\CÛdigo-Fonte\02 - Carregamento do cÛdigo fonte.pop> "02 - Carregamento do cÛdigo fonte.pop")
+[77]  FunÁ„o para que se determine se um byte È um byte ignor·vel:
 [78]    Se o byte for algum letra, diga sim.
-[79]    Se o byte for algum d√≠gito, diga sim.
+[79]    Se o byte for algum dÌgito, diga sim.
 [80]    Se o byte for o acento til, diga sim.
 [81]    Se o byte for o sinal de arroba, diga sim.
-[82]    Se o byte for o s√≠mbolo cardinal, diga sim.
+[82]    Se o byte for o sÌmbolo cardinal, diga sim.
 [83]    Se o byte for o sinal de porcentagem, diga sim.
 [84]    Se o byte for o & comercial, diga sim.
 [85]    Se o byte for o underline, diga sim.
-[86]    Se o byte for o ap√≥strofo, diga sim.
-[87]    Se o byte for o h√≠fen, diga sim.
-[88]    Se o byte for o sinal de adi√ß√£o, diga sim.
+[86]    Se o byte for o apÛstrofo, diga sim.
+[87]    Se o byte for o hÌfen, diga sim.
+[88]    Se o byte for o sinal de adiÁ„o, diga sim.
 [89]    Se o byte for o barra inclinada, diga sim.
-[90]    Se o byte for o s√≠mbolo da Libra Esterlina, diga sim.
-[91]    Diga n√£o.
+[90]    Se o byte for o sÌmbolo da Libra Esterlina, diga sim.
+[91]    Diga n„o.
 
-[172]  Fun√ß√£o para que se determine se um percorredor est√° sobre m√∫ltiplas aspas duplas aninhadas:
-[173]    Se o segmento final deste percorredor come√ßa com """""", diga sim.
-[174]    Diga n√£o.
+[172]  FunÁ„o para que se determine se um percorredor est· sobre m˙ltiplas aspas duplas aninhadas:
+[173]    Se o segmento final deste percorredor comeÁa com """""", diga sim.
+[174]    Diga n„o.
 
-[344]  Fun√ß√£o para que se determine se uma string deveria ser expandida usando uma segunda string (an√°lise de termos compostos):
-[345]    Se a string n√£o for "partir", diga n√£o.
-[346]    Se a string n√£o for "partindo", diga n√£o.
-[347]    \Se a string for alguma locu√ß√£o prepositiva, diga sim.
-[348]    Se a segunda string n√£o for "de", diga n√£o.
+[344]  FunÁ„o para que se determine se uma string deveria ser expandida usando uma segunda string (an·lise de termos compostos):
+[345]    Se a string n„o for "partir", diga n„o.
+[346]    Se a string n„o for "partindo", diga n„o.
+[347]    \Se a string for alguma locuÁ„o prepositiva, diga sim.
+[348]    Se a segunda string n„o for "de", diga n„o.
 [349]    Diga sim.
 
-[351]  Fun√ß√£o para que se determine se uma string est√° precisando ser decomposta:
+[351]  FunÁ„o para que se determine se uma string est· precisando ser decomposta:
 [352]    Lance um percorredor sobre a string.
-[353]    Se a string for algum operador de concatena√ß√£o contra√≠do usando o percorredor, diga sim.
-[354]    Diga n√£o.
+[353]    Se a string for algum operador de concatenaÁ„o contraÌdo usando o percorredor, diga sim.
+[354]    Diga n„o.
 
-[356]  Fun√ß√£o para que se determine se uma string √© algum operador de concatena√ß√£o contra√≠do usando um percorredor:
-[357]    Se o segmento inicial deste percorredor de contra√ß√µes for algum operador de concatena√ß√£o,
-[358]      Mova o percorredor (usando diretrizes de compila√ß√£o).
-[359]    \Se o segmento inicial deste percorredor de contra√ß√µes for "seguida", mova o percorredor (usando diretrizes de compila√ß√£o).
-[360]    \Se o segmento inicial deste percorredor de contra√ß√µes for "junto", mova o percorredor (usando diretrizes de compila√ß√£o).
-[361]   \ Se o segmento inicial deste percorredor de contra√ß√µes for "acompanhado", mova o percorredor (usando diretrizes de compila√ß√£o).
-[362]    \Se o segmento inicial deste percorredor for uma vari√°vel, recue o percorredor.
-[363]    Se o segmento inicial deste percorredor de contra√ß√µes for alguma contra√ß√£o de preposi√ß√£o com artigo definido, diga sim.
-[364]    Diga n√£o.
+[356]  FunÁ„o para que se determine se uma string È algum operador de concatenaÁ„o contraÌdo usando um percorredor:
+[357]    Se o segmento inicial deste percorredor de contraÁıes for algum operador de concatenaÁ„o,
+[358]      Mova o percorredor (usando diretrizes de compilaÁ„o).
+[359]    \Se o segmento inicial deste percorredor de contraÁıes for "seguida", mova o percorredor (usando diretrizes de compilaÁ„o).
+[360]    \Se o segmento inicial deste percorredor de contraÁıes for "junto", mova o percorredor (usando diretrizes de compilaÁ„o).
+[361]   \ Se o segmento inicial deste percorredor de contraÁıes for "acompanhado", mova o percorredor (usando diretrizes de compilaÁ„o).
+[362]    \Se o segmento inicial deste percorredor for uma vari·vel, recue o percorredor.
+[363]    Se o segmento inicial deste percorredor de contraÁıes for alguma contraÁ„o de preposiÁ„o com artigo definido, diga sim.
+[364]    Diga n„o.
 
-[366]  Fun√ß√£o para que se determine se uma string √© algum operador de concatena√ß√£o:
-[367]    Se a string for "junto", diga sim. \ junto de ".., junto com o ‚Ä¶
-[368]    Se a string for "juntamente", diga sim. \ juntamente com o‚Ä¶
-[369]    Se a string for "seguido", diga sim. \ seguido de "‚Ä¶.
-[370]    Se a string for "seguida", diga sim. \ seguido de "‚Ä¶.
-[371]    Se a string for "acompanhado", diga sim. \ acompanhado de "‚Ä¶
+[366]  FunÁ„o para que se determine se uma string È algum operador de concatenaÁ„o:
+[367]    Se a string for "junto", diga sim. \ junto de ".., junto com o Ö
+[368]    Se a string for "juntamente", diga sim. \ juntamente com oÖ
+[369]    Se a string for "seguido", diga sim. \ seguido de "Ö.
+[370]    Se a string for "seguida", diga sim. \ seguido de "Ö.
+[371]    Se a string for "acompanhado", diga sim. \ acompanhado de "Ö
 [372]    \Se a string for "em", diga sim.
 [373]    \Se a string for "&", diga sim.
-[374]    Diga n√£o.
+[374]    Diga n„o.
 
-[376]  Fun√ß√£o para que se determine se uma string √© alguma contra√ß√£o de preposi√ß√£o com artigo definido:
+[376]  FunÁ„o para que se determine se uma string È alguma contraÁ„o de preposiÁ„o com artigo definido:
 [377]    Se a string for "do", diga sim.
 [378]    Se a string for "da", diga sim.
 [379]    Se a string for "dos", diga sim.
 [380]    Se a string for "das", diga sim.
-[381]    Diga n√£o.
+[381]    Diga n„o.
 
-[03 - Valida√ß√£o do c√≥digo fonte.pop](<..\C√≥digo-Fonte\03 - Valida√ß√£o do c√≥digo fonte.pop> "03 - Valida√ß√£o do c√≥digo fonte.pop")
+[03 - ValidaÁ„o do cÛdigo fonte.pop](<..\CÛdigo-Fonte\03 - ValidaÁ„o do cÛdigo fonte.pop> "03 - ValidaÁ„o do cÛdigo fonte.pop")
 [154]  
-[155]  Fun√ß√£o para que se determine se uma string √© o in√≠cio de algum tipo:
+[155]  FunÁ„o para que se determine se uma string È o inÌcio de algum tipo:
 [156]    Se a string for algum artigo indefinido, diga sim.
-[157]    Diga n√£o.
+[157]    Diga n„o.
 [158]  
-[159]  Fun√ß√£o para que se determine se uma string √© algum artigo indefinido:
+[159]  FunÁ„o para que se determine se uma string È algum artigo indefinido:
 [160]    \PAL
 [161]    Se a string for "um", diga sim.
 [162]    Se a string for "uma", diga sim.
@@ -77,9 +77,9 @@
 [169]    \Se a string for "alguns", diga sim.
 [170]    \Se a string for "algumas", diga sim.
 [171]    Se a string for algum pronome demonstrativo abrangente, diga sim. \ para funcionamento dos possessivos - local correto
-[172]    Diga n√£o.
+[172]    Diga n„o.
 [173]  
-[174]  Fun√ß√£o para que se determine se uma string √© algum pronome demonstrativo abrangente:
+[174]  FunÁ„o para que se determine se uma string È algum pronome demonstrativo abrangente:
 [175]    Se a string for "esse", diga sim.
 [176]    Se a string for "essa", diga sim.
 [177]    Se a string for "aquele", diga sim.
@@ -96,55 +96,55 @@
 [188]    Se a string for "determinada", diga sim.
 [189]    Se a string for "determinados", diga sim.
 [190]    Se a string for "determinadas", diga sim.
-[191]    Diga n√£o.
+[191]    Diga n„o.
 
-[263]  Fun√ß√£o para que se determine se um percorredor est√° sobre algum indicador de in√≠cio de vari√°vel:
-[264]    \ compare com indicador de fim de vari√°vel
-[265]    Se o segmento inicial deste percorredor for algum sinal de pontua√ß√£o, diga n√£o.
-[266]    Se o segmento inicial deste percorredor for algum s√≠mbolo, diga n√£o.
-[267]    Se o segmento inicial deste percorredor for algum artigo, diga n√£o.
-[268]    Se o segmento inicial deste percorredor for alguma conjun√ß√£o, diga sim.
-[269]    Se o segmento inicial deste percorredor for algum possessivo ingl√™s, diga n√£o.
+[263]  FunÁ„o para que se determine se um percorredor est· sobre algum indicador de inÌcio de vari·vel:
+[264]    \ compare com indicador de fim de vari·vel
+[265]    Se o segmento inicial deste percorredor for algum sinal de pontuaÁ„o, diga n„o.
+[266]    Se o segmento inicial deste percorredor for algum sÌmbolo, diga n„o.
+[267]    Se o segmento inicial deste percorredor for algum artigo, diga n„o.
+[268]    Se o segmento inicial deste percorredor for alguma conjunÁ„o, diga sim.
+[269]    Se o segmento inicial deste percorredor for algum possessivo inglÍs, diga n„o.
 [270]    Se o segmento inicial deste percorredor for algum verbo, diga sim.
-[271]    Se o segmento inicial deste percorredor for algum operador aritm√©tico, diga sim.
-[272]    Se o percorredor estiver sobre alguma preposi√ß√£o, diga sim.
-[273]    Se o segmento inicial deste percorredor for algum qualificador, diga n√£o.
-[274]    Se o segmento inicial deste percorredor for algum valor literal, diga n√£o.
-[275]    Se o segmento inicial deste percorredor for uma palavra-chave de designa√ß√£o, diga sim.
-[276]    Se o segmento inicial deste percorredor for "ent√£o", diga sim.
-[277]    Se o segmento inicial deste percorredor for algum operador de atribui√ß√£o composto, diga sim.
-[278]    Se o segmento inicial deste percorredor estiver em branco, diga n√£o.
+[271]    Se o segmento inicial deste percorredor for algum operador aritmÈtico, diga sim.
+[272]    Se o percorredor estiver sobre alguma preposiÁ„o, diga sim.
+[273]    Se o segmento inicial deste percorredor for algum qualificador, diga n„o.
+[274]    Se o segmento inicial deste percorredor for algum valor literal, diga n„o.
+[275]    Se o segmento inicial deste percorredor for uma palavra-chave de designaÁ„o, diga sim.
+[276]    Se o segmento inicial deste percorredor for "ent„o", diga sim.
+[277]    Se o segmento inicial deste percorredor for algum operador de atribuiÁ„o composto, diga sim.
+[278]    Se o segmento inicial deste percorredor estiver em branco, diga n„o.
 [279]    Diga sim.
 
-[281]  Fun√ß√£o para que se determine se uma string √© algum sinal de pontua√ß√£o:
-[282]    Se a quantidade de caracteres desta string n√£o for 1, diga n√£o.
-[283]    Se o conte√∫do deste caractere inicial desta string for algum sinal de pontua√ß√£o, diga sim.
-[284]    Diga n√£o.
+[281]  FunÁ„o para que se determine se uma string È algum sinal de pontuaÁ„o:
+[282]    Se a quantidade de caracteres desta string n„o for 1, diga n„o.
+[283]    Se o conte˙do deste caractere inicial desta string for algum sinal de pontuaÁ„o, diga sim.
+[284]    Diga n„o.
 
-[286]  Fun√ß√£o para que se determine se um byte √© algum sinal de pontua√ß√£o:
+[286]  FunÁ„o para que se determine se um byte È algum sinal de pontuaÁ„o:
 [287]    Se o byte for o ponto final, diga sim.
-[288]    Se o byte for o v√≠rgula, diga sim.
-[289]    Se o byte for o ponto&v√≠rgula, diga sim.
+[288]    Se o byte for o vÌrgula, diga sim.
+[289]    Se o byte for o ponto&vÌrgula, diga sim.
 [290]    Se o byte for o sinal de dois pontos, diga sim.
-[291]    Se o byte for o ponto de exclama√ß√£o, diga sim.
-[292]    Se o byte for o ponto de interroga√ß√£o, diga sim.
-[293]    Diga n√£o.
+[291]    Se o byte for o ponto de exclamaÁ„o, diga sim.
+[292]    Se o byte for o ponto de interrogaÁ„o, diga sim.
+[293]    Diga n„o.
 
-[295]  Fun√ß√£o para que se determine se uma string √© algum s√≠mbolo:
-[296]    Se a quantidade de caracteres desta string n√£o for 1, diga n√£o.
-[297]    Se o conte√∫do deste caractere inicial desta string for algum s√≠mbolo, diga sim.
-[298]    Diga n√£o.
+[295]  FunÁ„o para que se determine se uma string È algum sÌmbolo:
+[296]    Se a quantidade de caracteres desta string n„o for 1, diga n„o.
+[297]    Se o conte˙do deste caractere inicial desta string for algum sÌmbolo, diga sim.
+[298]    Diga n„o.
 
-[300]  Fun√ß√£o para que se determine se um byte √© algum s√≠mbolo:
-[301]    \ esta rotina deveria estar na biblioteca padr√£o
+[300]  FunÁ„o para que se determine se um byte È algum sÌmbolo:
+[301]    \ esta rotina deveria estar na biblioteca padr„o
 [302]    Se o byte for o acento circunflexo, diga sim.
 [303]    Se o byte for o barra vertical, diga sim.
 [304]    Se o byte for o asterisco, diga sim.
-[305]    Se o byte for o sinal de adi√ß√£o, diga sim.
-[306]    Se o byte for o h√≠fen, diga sim.
+[305]    Se o byte for o sinal de adiÁ„o, diga sim.
+[306]    Se o byte for o hÌfen, diga sim.
 [307]    Se o byte for o barra inclinada, diga sim.
-[308]    Se o byte for o s√≠mbolo menor do que, diga sim.
-[309]    Se o byte for o s√≠mbolo maior do que, diga sim.
+[308]    Se o byte for o sÌmbolo menor do que, diga sim.
+[309]    Se o byte for o sÌmbolo maior do que, diga sim.
 [310]    Se o byte for a chave esquerda, diga sim.
 [311]    Se o byte for a chave direita, diga sim.
 [312]    Se o byte for o sinal de igualdade, diga sim.
@@ -159,65 +159,65 @@
 [321]    Se o byte estiver entre 183 e 191, diga sim.
 [322]    Se o byte for 215, diga sim.
 [323]    Se o byte for 247, diga sim.
-[324]    Diga n√£o.
+[324]    Diga n„o.
 
-[326]  Fun√ß√£o para que se determine se uma string √© algum artigo:
+[326]  FunÁ„o para que se determine se uma string È algum artigo:
 [327]    Se a string for algum artigo indefinido, diga sim.
 [328]    Se a string for algum artigo definido, diga sim.
-[329]    Diga n√£o.
+[329]    Diga n„o.
 
-[331]  Fun√ß√£o para que se determine se uma string √© algum artigo definido:
+[331]  FunÁ„o para que se determine se uma string È algum artigo definido:
 [332]    Se a string for "o", diga sim.
 [333]    Se a string for "a", diga sim.
 [334]    Se a string for "os", diga sim.
 [335]    Se a string for "as", diga sim.
 [336]    Se a string for algum pronome demonstrativo adjacente, diga sim.
-[337]    Diga n√£o.
+[337]    Diga n„o.
 
-[339]  Fun√ß√£o para que se determine se uma string √© algum pronome demonstrativo adjacente:
+[339]  FunÁ„o para que se determine se uma string È algum pronome demonstrativo adjacente:
 [340]    Se a string for "este", diga sim.
 [341]    Se a string for "esta", diga sim.
 [342]    Se a string for "estes", diga sim.
 [343]    Se a string for "estas", diga sim.
-[344]    Diga n√£o.
+[344]    Diga n„o.
 
-[346]  Fun√ß√£o para que se determine se uma string √© alguma conjun√ß√£o:
+[346]  FunÁ„o para que se determine se uma string È alguma conjunÁ„o:
 [347]    \# verificar o uso dos termos: "ambos", "mas" e "nenhum"
 [348]    Se a string for "e", diga sim.
 [349]    Se a string for "ou", diga sim.
 [350]    Se a string for "nem", diga sim.
-[351]    \INGL√äS - REMOVER
+[351]    \INGL S - REMOVER
 [352]    Se a string for "neither", diga sim.
 [353]    Se a string for "nor", diga sim.
-[354]    Diga n√£o.
+[354]    Diga n„o.
 
-[356]  Fun√ß√£o para que se determine se uma string √© algum possessivo ingl√™s:
+[356]  FunÁ„o para que se determine se uma string È algum possessivo inglÍs:
 [357]    Se a string for "'s", diga sim.
 [358]    Se a string for "'", diga sim.
-[359]    Diga n√£o.
+[359]    Diga n„o.
 
-[361]  Fun√ß√£o para que se determine se uma string √© algum verbo:
+[361]  FunÁ„o para que se determine se uma string È algum verbo:
 [362]    Se a string for "cabe", diga sim.
 [363]    Se a string for "couber", diga sim.
-[364]    Se a string for "come√ßa", diga sim.
-[365]    Se a string for "come√ßar", diga sim.
+[364]    Se a string for "comeÁa", diga sim.
+[365]    Se a string for "comeÁar", diga sim.
 [366]    Se a string for "conter", diga sim.
 [367]    Se a string for "contiver", diga sim.
-[368]    Se a string for "cont√©m", diga sim.
+[368]    Se a string for "contÈm", diga sim.
 [369]    Se a string for "deve", diga sim.
 [370]    Se a string for "devem", diga sim.
 [371]    Se a string for "deveria", diga sim.
 [372]    Se a string for "deveriam", diga sim.
 [373]    Se a string for "estamos", diga sim.
 [374]    Se a string for "estar", diga sim.
-[375]    Se a string for "estar√°", diga sim.
-[376]    Se a string for "estar√£o", diga sim.
+[375]    Se a string for "estar·", diga sim.
+[376]    Se a string for "estar„o", diga sim.
 [377]    Se a string for "estava", diga sim.
 [378]    Se a string for "estavam", diga sim.
 [379]    Se a string for "estiver", diga sim.
 [380]    Se a string for "estiverem", diga sim.
-[381]    Se a string for "est√°", diga sim.
-[382]    Se a string for "est√£o", diga sim.
+[381]    Se a string for "est·", diga sim.
+[382]    Se a string for "est„o", diga sim.
 [383]    Se a string for "excede", diga sim.
 [384]    Se a string for "excedem", diga sim.
 [385]    Se a string for "existe", diga sim.
@@ -225,12 +225,12 @@
 [387]    Se a string for "existir", diga sim.
 [388]    Se a string for "finaliza", diga sim.
 [389]    Se a string for "finalizar", diga sim.
-[390]    Se a string for "√©", diga sim.
+[390]    Se a string for "È", diga sim.
 [391]    Se a string for "foi", diga sim.
 [392]    Se a string for "for", diga sim.
 [393]    Se a string for "foram", diga sim.
 [394]    Se a string for "forem", diga sim.
-[395]    Se a string for "h√°", diga sim.
+[395]    Se a string for "h·", diga sim.
 [396]    Se a string for "houver", diga sim.
 [397]    Se a string for "inicia", diga sim.
 [398]    Se a string for "iniciar", diga sim.
@@ -250,21 +250,21 @@
 [412]    Se a string for "requer", diga sim.
 [413]    \Se a string for "seja", diga sim.
 [414]    Se a string for "ser", diga sim.
-[415]    Se a string for "ser√°", diga sim.
-[416]    Se a string for "ser√£o", diga sim.
+[415]    Se a string for "ser·", diga sim.
+[416]    Se a string for "ser„o", diga sim.
 [417]    Se a string for "supera", diga sim.
 [418]    Se a string for "superam", diga sim.
 [419]    Se a string for "superar", diga sim.
-[420]    Se a string for "s√£o", diga sim.
+[420]    Se a string for "s„o", diga sim.
 [421]    Se a string for "tem", diga sim.
 [422]    Se a string for "ter", diga sim.
 [423]    Se a string for "termina", diga sim.
 [424]    Se a string for "terminar", diga sim.
 [425]    Se a string for "tiver", diga sim.
-[426]    Se a string for "t√™m", diga sim.
-[427]    Diga n√£o.
+[426]    Se a string for "tÍm", diga sim.
+[427]    Diga n„o.
 
-[429]  Fun√ß√£o para que se determine se uma string √© algum operador aritm√©tico:
+[429]  FunÁ„o para que se determine se uma string È algum operador aritmÈtico:
 [430]    Se a string for "mais", diga sim.
 [431]    Se a string for "menos", diga sim.
 [432]    Se a string for "vezes", diga sim.
@@ -275,12 +275,12 @@
 [437]    Se a string for "juntamente", diga sim.
 [438]    Se a string for "junto", diga sim.
 [439]    Se a string for "acompanhado", diga sim.
-[440]    Diga n√£o.
+[440]    Diga n„o.
 
-[442]  Fun√ß√£o para que se determine se um percorredor est√° sobre alguma preposi√ß√£o:
+[442]  FunÁ„o para que se determine se um percorredor est· sobre alguma preposiÁ„o:
 [443]    Atribua o segmento inicial deste percorredor para um subtexto.
-[444]    Se o percorredor estiver sobre alguma preposi√ß√£o conectiva, diga sim. \ "a" no sentido de "para"
-[445]    Se o subtexto for "parde", diga sim. \ contra√ß√£o de para + de, usada internamente
+[444]    Se o percorredor estiver sobre alguma preposiÁ„o conectiva, diga sim. \ "a" no sentido de "para"
+[445]    Se o subtexto for "parde", diga sim. \ contraÁ„o de para + de, usada internamente
 [446]    Se o subtexto for "partir", diga sim.
 [447]    Se o subtexto for "partindo", diga sim.
 [448]    Se o subtexto for "abaixo", diga sim.
@@ -298,7 +298,7 @@
 [460]    Se o subtexto for "cujo", diga sim.
 [461]    Se o subtexto for "cujas", diga sim.
 [462]    Se o subtexto for "cujos", diga sim.
-[463]    Se o subtexto for "pr√≥ximo", diga sim.
+[463]    Se o subtexto for "prÛximo", diga sim.
 [464]    Se o subtexto for "perto", diga sim.
 [465]    Se o subtexto for "com", diga sim.
 [466]    \Se o subtexto for "contendo", diga sim.
@@ -313,12 +313,12 @@
 [475]    Se o subtexto for "retornando", diga sim.
 [476]    Se o subtexto for "desde", diga sim.
 [477]    Se o subtexto for "depois", diga sim.
-[478]    Se o subtexto for "ap√≥s", diga sim.
+[478]    Se o subtexto for "apÛs", diga sim.
 [479]    Se o subtexto for "durante", diga sim.
 [480]    Se o subtexto for "em", diga sim.
 [481]    Se o subtexto for "entre", diga sim.
 [482]    Se o subtexto for "dentre", diga sim.
-[483]    Se o subtexto for "at√©", diga sim.
+[483]    Se o subtexto for "atÈ", diga sim.
 [484]    \Se o subtexto for "que", diga sim.
 [485]    \Se o subtexto for "esquerda", diga sim.
 [486]    Se o subtexto for "mediante", diga sim.
@@ -327,13 +327,13 @@
 [489]    Se o subtexto for "segundo", diga sim.
 [490]    Se o subtexto for "acordo", diga sim.
 [491]    Se o subtexto for "sem", diga sim.
-[492]    Se o subtexto for "ent√£o", diga sim.
+[492]    Se o subtexto for "ent„o", diga sim.
 [493]    Se o subtexto for "sobre", diga sim.
 [494]    Se o subtexto for "usando", diga sim.
 [495]    Se o subtexto for "versus", diga sim.
 [496]    Se o subtexto for "enquanto", diga sim.
 [497]    Se o subtexto for "aproximadamente", diga sim.
-[498]    Se o subtexto for "atrav√©s", diga sim.
+[498]    Se o subtexto for "atravÈs", diga sim.
 [499]    Se o subtexto for "algum", diga sim.
 [500]    Se o subtexto for "sob", diga sim.
 [501]    Se o subtexto for "debaixo", diga sim.
@@ -350,8 +350,8 @@
 [512]    Se o subtexto for "atinente", diga sim.
 [513]    Se o subtexto for "pertinente", diga sim.
 [514]    Se o subtexto for "retornando", diga sim.
-[515]    Se o subtexto for "come√ßando", diga sim.
-[516]    Se o subtexto for "come√ßando", diga sim.
+[515]    Se o subtexto for "comeÁando", diga sim.
+[516]    Se o subtexto for "comeÁando", diga sim.
 [517]    Se o subtexto for "iniciando", diga sim.
 [518]    Se o subtexto for "usando", diga sim.
 [519]    Se o subtexto for "via", diga sim.
@@ -369,10 +369,10 @@
 [531]    Se o subtexto for "virado", diga sim.
 [532]    Se o subtexto for "virando", diga sim.
 [533]    Se o subtexto for "virando-se", diga sim.
-[534]    Se o subtexto for "t√£o", diga sim.
+[534]    Se o subtexto for "t„o", diga sim.
 [535]    Se o subtexto for "tanto", diga sim.
 [536]    Se o subtexto for "quanto", diga sim.
-[537]    Se o subtexto for "qu√£o", diga sim.
+[537]    Se o subtexto for "qu„o", diga sim.
 [538]    Se o subtexto for "qual", diga sim.
 [539]    Se o subtexto for "after", diga sim.
 [540]    Se o subtexto for "regressivamente", diga sim.
@@ -385,7 +385,7 @@
 [547]    Se o subtexto for "em comprimento", diga sim.
 [548]    Se o subtexto for "d'", diga sim.
 [549]    Se o subtexto for "d'", diga sim.
-[550]    Se o subtexto for "s√≥", diga sim.
+[550]    Se o subtexto for "sÛ", diga sim.
 [551]    Se o subtexto for "somente", diga sim.
 [552]    Se o subtexto for "unicamente", diga sim.
 [553]    Se o subtexto for "exclusivamente", diga sim.
@@ -398,22 +398,22 @@
 [560]    Se o subtexto for "comprida", diga sim.
 [561]    Se o subtexto for "largo", diga sim.
 [562]    Se o subtexto for "larga", diga sim.
-[563]    Diga n√£o.
+[563]    Diga n„o.
 
-[565]  Fun√ß√£o para que se determine se uma string √© algum qualificador:
-[566]    Se a string estiver em branco, diga n√£o.
-[567]    Se o conte√∫do deste caractere inicial desta string for o par√™nteses esquerdo, diga sim.
-[568]    Diga n√£o.
+[565]  FunÁ„o para que se determine se uma string È algum qualificador:
+[566]    Se a string estiver em branco, diga n„o.
+[567]    Se o conte˙do deste caractere inicial desta string for o parÍnteses esquerdo, diga sim.
+[568]    Diga n„o.
 
-[570]  Fun√ß√£o para que se determine se uma string √© algum valor literal:
+[570]  FunÁ„o para que se determine se uma string È algum valor literal:
 [571]    Se a string for algum ponteiro literal, diga sim.
-[572]    Se a string for algum valor num√©rico literal, diga sim.
+[572]    Se a string for algum valor numÈrico literal, diga sim.
 [573]    Se a string for algum string literal, diga sim.
 [574]    \Se a string for algum sinalizador literal, diga sim. ***
 [575]    Se a string for algum valor hexadecimal literal, diga sim.
-[576]    Diga n√£o.
+[576]    Diga n„o.
 
-[578]  Fun√ß√£o para que se determine se uma string √© algum ponteiro literal:
+[578]  FunÁ„o para que se determine se uma string È algum ponteiro literal:
 [579]    Se a string for "nulo", diga sim.
 [580]    Se a string for "nula", diga sim.
 [581]    Se a string for "nulos", diga sim.
@@ -423,28 +423,28 @@
 [585]    Se a string for "zerado", diga sim.
 [586]    \CAL
 [587]    Se a string for "nil", diga sim.
-[588]    Diga n√£o.
+[588]    Diga n„o.
 
-[590]  Fun√ß√£o para que se determine se uma string √© algum valor num√©rico literal:
-[591]    Se a string estiver em branco, diga n√£o.
-[592]    Se o conte√∫do deste caractere inicial desta string n√£o for algum indicador num√©rico, diga n√£o.
-[593]    Se a string for algum n√∫mero inteiro, diga sim.
-[594]    Se a string for alguma fra√ß√£o literal, diga sim.
+[590]  FunÁ„o para que se determine se uma string È algum valor numÈrico literal:
+[591]    Se a string estiver em branco, diga n„o.
+[592]    Se o conte˙do deste caractere inicial desta string n„o for algum indicador numÈrico, diga n„o.
+[593]    Se a string for algum n˙mero inteiro, diga sim.
+[594]    Se a string for alguma fraÁ„o literal, diga sim.
 [595]    Se a string for algum numeral misto literal, diga sim.
-[596]    Diga n√£o.
+[596]    Diga n„o.
 
-[598]  Fun√ß√£o para que se determine se uma string √© alguma string literal;
-[599]  Fun√ß√£o para que se determine se uma string √© algum string literal:
-[600]    Se a string estiver em branco, diga n√£o.
-[601]    Se o conte√∫do deste caractere inicial desta string for as aspas duplas, diga sim.
-[602]    Diga n√£o.
+[598]  FunÁ„o para que se determine se uma string È alguma string literal;
+[599]  FunÁ„o para que se determine se uma string È algum string literal:
+[600]    Se a string estiver em branco, diga n„o.
+[601]    Se o conte˙do deste caractere inicial desta string for as aspas duplas, diga sim.
+[602]    Diga n„o.
 
-[604]  Fun√ß√£o para que se determine se uma string √© algum valor hexadecimal literal:
-[605]    Se a string estiver em branco, diga n√£o.
-[606]    Se o conte√∫do deste caractere inicial desta string for o cifr√£o, diga sim.
-[607]    Diga n√£o.
+[604]  FunÁ„o para que se determine se uma string È algum valor hexadecimal literal:
+[605]    Se a string estiver em branco, diga n„o.
+[606]    Se o conte˙do deste caractere inicial desta string for o cifr„o, diga sim.
+[607]    Diga n„o.
 
-[609]  Fun√ß√£o para que se determine se uma string √© uma palavra-chave de designa√ß√£o:
+[609]  FunÁ„o para que se determine se uma string È uma palavra-chave de designaÁ„o:
 [610]    Se a string for "chamado", diga sim.
 [611]    Se a string for "chamados", diga sim.
 [612]    Se a string for "chamada", diga sim.
@@ -453,73 +453,73 @@
 [615]    Se a string for "denominados", diga sim.
 [616]    Se a string for "denominada", diga sim.
 [617]    Se a string for "denominadas", diga sim.
-[618]    Diga n√£o.
+[618]    Diga n„o.
 
-[620]  Fun√ß√£o para que se determine se uma string √© algum operador de atribui√ß√£o composto:
+[620]  FunÁ„o para que se determine se uma string È algum operador de atribuiÁ„o composto:
 [621]    Se a string for "igual", diga sim.
-[622]    Diga n√£o.
+[622]    Diga n„o.
 
-[630]  Fun√ß√£o para que se determine se um percorredor est√° sobre algum indicador de fim de vari√°vel:
-[631]    \ compare com indicador de in√≠cio de vari√°vel
-[632]    Se o segmento inicial deste percorredor for algum sinal de pontua√ß√£o, diga sim.
-[633]    Se o segmento inicial deste percorredor for algum s√≠mbolo, diga sim.
+[630]  FunÁ„o para que se determine se um percorredor est· sobre algum indicador de fim de vari·vel:
+[631]    \ compare com indicador de inÌcio de vari·vel
+[632]    Se o segmento inicial deste percorredor for algum sinal de pontuaÁ„o, diga sim.
+[633]    Se o segmento inicial deste percorredor for algum sÌmbolo, diga sim.
 [634]    Se o segmento inicial deste percorredor for algum artigo, diga sim.
-[635]    Se o segmento inicial deste percorredor for alguma conjun√ß√£o, diga sim.
-[636]    Se o segmento inicial deste percorredor for algum possessivo ingl√™s, diga sim.
+[635]    Se o segmento inicial deste percorredor for alguma conjunÁ„o, diga sim.
+[636]    Se o segmento inicial deste percorredor for algum possessivo inglÍs, diga sim.
 [637]    Se o percorredor estiver sobre algum possessivo reverso, diga sim. \
 [638]    Se o segmento inicial deste percorredor for algum verbo, diga sim.
-[639]    Se o segmento inicial deste percorredor for algum operador aritm√©tico, diga sim.
-[640]    Se o percorredor estiver sobre alguma preposi√ß√£o, diga sim.
+[639]    Se o segmento inicial deste percorredor for algum operador aritmÈtico, diga sim.
+[640]    Se o percorredor estiver sobre alguma preposiÁ„o, diga sim.
 [641]    Se o segmento inicial deste percorredor for algum qualificador, diga sim.
 [642]    Se o segmento inicial deste percorredor for algum valor literal, diga sim.
-[643]    Se o segmento inicial deste percorredor for uma palavra-chave de designa√ß√£o, diga sim.
-[644]    Se o segmento inicial deste percorredor for "ent√£o", diga sim.
-[645]    Se o segmento inicial deste percorredor for algum operador de atribui√ß√£o composto, diga sim.
+[643]    Se o segmento inicial deste percorredor for uma palavra-chave de designaÁ„o, diga sim.
+[644]    Se o segmento inicial deste percorredor for "ent„o", diga sim.
+[645]    Se o segmento inicial deste percorredor for algum operador de atribuiÁ„o composto, diga sim.
 [646]    Se o segmento inicial deste percorredor estiver em branco, diga sim.
-[647]    Se o segmento inicial deste percorredor for algum adv√©rbio de nega√ß√£o, diga sim.
-[648]    Diga n√£o.
+[647]    Se o segmento inicial deste percorredor for algum advÈrbio de negaÁ„o, diga sim.
+[648]    Diga n„o.
 
-[650]  Fun√ß√£o para que se determine se um percorredor est√° sobre algum possessivo reverso:
+[650]  FunÁ„o para que se determine se um percorredor est· sobre algum possessivo reverso:
 [651]    Preserve o percorredor.
-[652]    Se o segmento inicial deste percorredor n√£o for "de", diga n√£o.
-[653]    Mova o percorredor (usando diretrizes de compila√ß√£o).
+[652]    Se o segmento inicial deste percorredor n„o for "de", diga n„o.
+[653]    Mova o percorredor (usando diretrizes de compilaÁ„o).
 [654]    Se o segmento inicial deste percorredor for algum pronome demonstrativo, diga sim.
-[655]    Diga n√£o.
+[655]    Diga n„o.
 
-[657]  Fun√ß√£o para que se determine se uma string √© algum adv√©rbio de nega√ß√£o:
-[658]    Se a string for "n√£o", diga sim.
-[659]    Diga n√£o.
+[657]  FunÁ„o para que se determine se uma string È algum advÈrbio de negaÁ„o:
+[658]    Se a string for "n„o", diga sim.
+[659]    Diga n„o.
 
-[1133]  Fun√ß√£o para que se determine se uma string √© algum operador de atribui√ß√£o de estruturas compostas:
+[1133]  FunÁ„o para que se determine se uma string È algum operador de atribuiÁ„o de estruturas compostas:
 [1134]    Se a string for "tem", diga sim.
-[1135]    Se a string for "t√™m", diga sim.
-[1136]    Se a string for "cont√©m", diga sim.
-[1137]    Se a string for "cont√™m", diga sim.
+[1135]    Se a string for "tÍm", diga sim.
+[1136]    Se a string for "contÈm", diga sim.
+[1137]    Se a string for "contÍm", diga sim.
 [1138]    \Se a string for "possui", diga sim.
-[1139]    Diga n√£o.
+[1139]    Diga n„o.
 
-[1250]  Fun√ß√£o para que se determine se uma string √© uma palavra-chave de referenciamento:
-[1251]    Se a string for "(refer√™ncia)", diga sim.
-[1252]    Diga n√£o.
+[1250]  FunÁ„o para que se determine se uma string È uma palavra-chave de referenciamento:
+[1251]    Se a string for "(referÍncia)", diga sim.
+[1252]    Diga n„o.
 
-[1254]  Rotina para que se examine um campo usando um percorredor (cl√°usula de refer√™ncia):
-[1255]    Se existir algum problema de compila√ß√£o, retorne.
-[1256]    Mova o percorredor (usando diretrizes de compila√ß√£o).
-[1257]    Ative o sinalizador de refer√™ncia deste campo.
+[1254]  Rotina para que se examine um campo usando um percorredor (cl·usula de referÍncia):
+[1255]    Se existir algum problema de compilaÁ„o, retorne.
+[1256]    Mova o percorredor (usando diretrizes de compilaÁ„o).
+[1257]    Ative o sinalizador de referÍncia deste campo.
 
-[1259]  Fun√ß√£o para que se determine se uma string √© alguma pausa:
+[1259]  FunÁ„o para que se determine se uma string È alguma pausa:
 [1260]    Se a string for "e", diga sim.
 [1261]    Se a string for "ou", diga sim.
 [1262]    \default
 [1263]    Se a string for ",", diga sim.
 [1264]    Se a string for ";", diga sim.
-[1265]    Diga n√£o.
+[1265]    Diga n„o.
 
-[1295]  Fun√ß√£o para que se determine se uma string √© algum operador de atribui√ß√£o simples:
-[1296]    Se a string for "√©", diga sim.
-[1297]    Se a string for "est√°", diga sim.
-[1298]    Se a string for "s√£o", diga sim.
-[1299]    Se a string for "est√£o", diga sim.
+[1295]  FunÁ„o para que se determine se uma string È algum operador de atribuiÁ„o simples:
+[1296]    Se a string for "È", diga sim.
+[1297]    Se a string for "est·", diga sim.
+[1298]    Se a string for "s„o", diga sim.
+[1299]    Se a string for "est„o", diga sim.
 [1300]    Se a string for "estamos", diga sim.
 [1301]    Se a string for "for", diga sim.
 [1302]    Se a string for "forem", diga sim.
@@ -527,320 +527,320 @@
 [1304]    Se a string for "estarem", diga sim.
 [1305]    Se a string for "possui", diga sim.
 [1306]    \Se a string for "tem", diga sim. \records
-[1307]    Diga n√£o.
+[1307]    Diga n„o.
 
-[1350]  Fun√ß√£o para que se determine se uma string √© alguma palavra-chave de complementa√ß√£o:
+[1350]  FunÁ„o para que se determine se uma string È alguma palavra-chave de complementaÁ„o:
 [1351]    Se a string for "com", diga sim.
 [1352]    Se a string for "contendo", diga sim.
-[1353]    Diga n√£o.
+[1353]    Diga n„o.
 
-[1363]  Fun√ß√£o para que se determine se uma string √© o in√≠cio de alguma vari√°vel global:
+[1363]  FunÁ„o para que se determine se uma string È o inÌcio de alguma vari·vel global:
 [1364]    Se a string for algum artigo definido, diga sim.
-[1365]    Diga n√£o.
+[1365]    Diga n„o.
 
-[1454]  Fun√ß√£o para que se determine se uma string √© o in√≠cio de algum dado complementar:
+[1454]  FunÁ„o para que se determine se uma string È o inÌcio de algum dado complementar:
 [1455]    \PAL
 [1456]    Se a string for "com", diga sim.
 [1457]    Se a string for "contendo", diga sim.
-[1458]    Diga n√£o.
+[1458]    Diga n„o.
 
-[1492]  Fun√ß√£o para que se determine se uma string √© algum termo de equival√™ncia: \ igual a
+[1492]  FunÁ„o para que se determine se uma string È algum termo de equivalÍncia: \ igual a
 [1493]    Se a string for "a", diga sim.
 [1494]    Se a string for "para", diga sim.
 [1495]    \Se a string for "que", diga sim.
-[1496]    Diga n√£o.
+[1496]    Diga n„o.
 
-[1509]  Fun√ß√£o para que se determine se uma string √© o in√≠cio de alguma rotina:
+[1509]  FunÁ„o para que se determine se uma string È o inÌcio de alguma rotina:
 [1510]    Se a string for "Para", diga sim.
 [1511]    Se a string for "Procedimento", diga sim.
 [1512]    Se a string for "Rotina", diga sim.
-[1513]    Se a string for "Fun√ß√£o", diga sim.
+[1513]    Se a string for "FunÁ„o", diga sim.
 [1514]    \ Se a string for "Passos", diga sim.
 [1515]    \ Se a string for "Etapas", diga sim.
-[1516]    \ Se a string for "Instru√ß√µes", diga sim.
+[1516]    \ Se a string for "InstruÁıes", diga sim.
 [1517]    \ Se a string for "Diretrizes", diga sim.
-[1518]    \ Se a string for "M√©todo", diga sim.
+[1518]    \ Se a string for "MÈtodo", diga sim.
 [1519]    \ Se a string for "Roteiro", diga sim.
-[1520]    \ Se a string for "Descri√ß√£o", diga sim.
+[1520]    \ Se a string for "DescriÁ„o", diga sim.
 [1521]    \ Se a string for "Processo", diga sim.
-[1522]    \ Se a string for "A√ß√µes", diga sim.
+[1522]    \ Se a string for "AÁıes", diga sim.
 [1523]    \ Se a string for "Caminho", diga sim.
 [1524]    \ Se a string for "Guia", diga sim.
 
-[1568]  Fun√ß√£o para que se determine se uma string √© a√ß√∫car sint√°tico:
+[1568]  FunÁ„o para que se determine se uma string È aÁ˙car sint·tico:
 [1569]    \PAL
 [1570]    \Se a string for "Passos", diga sim.
 [1571]    \Se a string for "Etapas", diga sim.
 [1572]    Se a string for "Procedimento", diga sim.
 [1573]    Se a string for "Rotina", diga sim.
-[1574]    Se a string for "Fun√ß√£o", diga sim.
-[1575]    Diga n√£o.
+[1574]    Se a string for "FunÁ„o", diga sim.
+[1575]    Diga n„o.
 
-[1624]  Fun√ß√£o para que se determine se uma string √© o enunciado de alguma rotina ou vari√°vel:
-[1625]    Se a string for a√ß√∫car sint√°tico, diga sim.
+[1624]  FunÁ„o para que se determine se uma string È o enunciado de alguma rotina ou vari·vel:
+[1625]    Se a string for aÁ˙car sint·tico, diga sim.
 [1626]    Se a string for algum artigo indefinido, diga sim.
 [1627]    Se a string for algum artigo definido, diga sim.
-[1628]    Diga n√£o.
+[1628]    Diga n„o.
 
-[05 - Identifica√ß√£o de vari√°veis globais.pop](<..\C√≥digo-Fonte\05 - Identifica√ß√£o de vari√°veis globais.pop> "05 - Identifica√ß√£o de vari√°veis globais.pop")
-[140]  Fun√ß√£o para que se determine se um percorredor est√° acompanhado por alguma unidade de medida:
+[05 - IdentificaÁ„o de vari·veis globais.pop](<..\CÛdigo-Fonte\05 - IdentificaÁ„o de vari·veis globais.pop> "05 - IdentificaÁ„o de vari·veis globais.pop")
+[140]  FunÁ„o para que se determine se um percorredor est· acompanhado por alguma unidade de medida:
 [141]    Preserve o percorredor.
-[142]    Mova o percorredor (usando diretrizes de compila√ß√£o).
-[143]    Se o percorredor n√£o estiver sobre algum indicador de in√≠cio de vari√°vel, diga n√£o.
+[142]    Mova o percorredor (usando diretrizes de compilaÁ„o).
+[143]    Se o percorredor n„o estiver sobre algum indicador de inÌcio de vari·vel, diga n„o.
 [144]    Examine um nome usando o percorredor.
-[145]    Encontre um tipo usando o nome e o cat√°logo de tipos.
-[146]    Se o tipo for inexistente, diga n√£o.
+[145]    Encontre um tipo usando o nome e o cat·logo de tipos.
+[146]    Se o tipo for inexistente, diga n„o.
 [147]    \Se o nome for "vezes", diga talvez.
-[148]    Se o nome n√£o for algum operador de multiplica√ß√£o, diga sim. \ para lidar com o vezes
-[149]    Se o segmento inicial deste percorredor for o in√≠cio de alguma express√£o matem√°tica, diga n√£o.
+[148]    Se o nome n„o for algum operador de multiplicaÁ„o, diga sim. \ para lidar com o vezes
+[149]    Se o segmento inicial deste percorredor for o inÌcio de alguma express„o matem·tica, diga n„o.
 [150]    Diga sim.
 
-[152]  Fun√ß√£o para que se determine se uma string √© algum operador de multiplica√ß√£o:
+[152]  FunÁ„o para que se determine se uma string È algum operador de multiplicaÁ„o:
 [153]    Se a string for "vezes", diga sim.
 [154]    Se a string for "multiplicado", diga sim.
-[155]    Diga n√£o.
+[155]    Diga n„o.
 
-[157]  Fun√ß√£o para que se determine se uma string √© o in√≠cio de alguma express√£o matem√°tica:
-[158]    Se a string for algum sinal aritm√©tico, diga sim.
+[157]  FunÁ„o para que se determine se uma string È o inÌcio de alguma express„o matem·tica:
+[158]    Se a string for algum sinal aritmÈtico, diga sim.
 [159]    Se a string for algum artigo indefinido, diga sim.
 [160]    Se a string for algum artigo definido, diga sim.
 [161]    Se a string for algum valor literal, diga sim.
-[162]    Diga n√£o.
+[162]    Diga n„o.
 
-[06 - Compila√ß√£o dos cabe√ßalhos de rotina.pop](<..\C√≥digo-Fonte\06 - Compila√ß√£o dos cabe√ßalhos de rotina.pop> "06 - Compila√ß√£o dos cabe√ßalhos de rotina.pop")
-[38]  Fun√ß√£o para que se determine se uma string √© algum comando de delibera√ß√£o:
+[06 - CompilaÁ„o dos cabeÁalhos de rotina.pop](<..\CÛdigo-Fonte\06 - CompilaÁ„o dos cabeÁalhos de rotina.pop> "06 - CompilaÁ„o dos cabeÁalhos de rotina.pop")
+[38]  FunÁ„o para que se determine se uma string È algum comando de deliberaÁ„o:
 [39]    \Se a string for "decida", diga sim.
 [40]    Se a string for "determine", diga sim.
-[41]    \Se a string for "esclare√ßa", diga sim.
-[42]    Diga n√£o.
+[41]    \Se a string for "esclareÁa", diga sim.
+[42]    Diga n„o.
 
-[67]  Fun√ß√£o para que se determine se uma string √© algum comando condicional:
+[67]  FunÁ„o para que se determine se uma string È algum comando condicional:
 [68]    Se a string for "se", diga sim.
 [69]    Se a string for "quando", diga sim.
-[70]    Diga n√£o.
+[70]    Diga n„o.
 
-[238]  Fun√ß√£o para que se determine se um percorredor est√° sobre algum artigo indefinido:
-[239]    Se o percorredor estiver sobre alguma preposi√ß√£o conectiva, diga n√£o.
-[240]    Se o segmento inicial deste percorredor n√£o for algum artigo indefinido, diga n√£o.
+[238]  FunÁ„o para que se determine se um percorredor est· sobre algum artigo indefinido:
+[239]    Se o percorredor estiver sobre alguma preposiÁ„o conectiva, diga n„o.
+[240]    Se o segmento inicial deste percorredor n„o for algum artigo indefinido, diga n„o.
 [241]    Diga sim.
 
-[243]  Fun√ß√£o para que se determine se um percorredor est√° sobre alguma preposi√ß√£o conectiva:
-[244]    Se o segmento inicial deste percorredor n√£o for alguma preposi√ß√£o especial, diga n√£o.
+[243]  FunÁ„o para que se determine se um percorredor est· sobre alguma preposiÁ„o conectiva:
+[244]    Se o segmento inicial deste percorredor n„o for alguma preposiÁ„o especial, diga n„o.
 [245]    Preserve o percorredor.
-[246]    Mova o percorredor (usando diretrizes de compila√ß√£o).
+[246]    Mova o percorredor (usando diretrizes de compilaÁ„o).
 [247]    Se o segmento inicial deste percorredor for algum artigo, diga sim.
-[248]    Se o segmento inicial deste percorredor for algum n√∫mero literal, diga sim.
-[249]    Diga n√£o.
+[248]    Se o segmento inicial deste percorredor for algum n˙mero literal, diga sim.
+[249]    Diga n„o.
 
-[251]  Fun√ß√£o para que se determine se uma string √© alguma preposi√ß√£o especial:
+[251]  FunÁ„o para que se determine se uma string È alguma preposiÁ„o especial:
 [252]    Se a string for "a", diga sim.
 [253]    Se a string for "de", diga sim.
-[254]    Diga n√£o.
+[254]    Diga n„o.
 
-[256]  Fun√ß√£o para que se determine se uma string √© algum n√∫mero literal:
-[257]    Se a string for algum valor num√©rico literal, diga sim.
+[256]  FunÁ„o para que se determine se uma string È algum n˙mero literal:
+[257]    Se a string for algum valor numÈrico literal, diga sim.
 [258]    Se a string for algum ponteiro literal, diga sim.
 [259]    Se a string for algum valor hexadecimal literal, diga sim.
-[260]    Diga n√£o.
+[260]    Diga n„o.
 
-[393]  Fun√ß√£o para que se determine se um percorredor √© o in√≠cio de alguma fun√ß√£o possessiva reversa:
-[394]    Se o sinalizador de erros deste compilador estiver ativo, diga n√£o.
-[395]    Se o segmento inicial deste percorredor n√£o for algum comando de atribui√ß√£o, diga n√£o.
+[393]  FunÁ„o para que se determine se um percorredor È o inÌcio de alguma funÁ„o possessiva reversa:
+[394]    Se o sinalizador de erros deste compilador estiver ativo, diga n„o.
+[395]    Se o segmento inicial deste percorredor n„o for algum comando de atribuiÁ„o, diga n„o.
 [396]    Preserve o percorredor.
-[397]    Mova o percorredor (usando diretrizes de compila√ß√£o).
-[398]    Se o segmento inicial deste percorredor n√£o for algum artigo definido, diga n√£o.
-[399]    Mova o percorredor (usando diretrizes de compila√ß√£o).
+[397]    Mova o percorredor (usando diretrizes de compilaÁ„o).
+[398]    Se o segmento inicial deste percorredor n„o for algum artigo definido, diga n„o.
+[399]    Mova o percorredor (usando diretrizes de compilaÁ„o).
 [400]    Examine um nome usando o percorredor.
-[401]    Se o percorredor n√£o estiver sobre algum possessivo reverso, diga n√£o.
+[401]    Se o percorredor n„o estiver sobre algum possessivo reverso, diga n„o.
 [402]    Diga sim.
 
-[404]  Fun√ß√£o para que se determine se uma string √© algum comando de atribui√ß√£o:
-[405]    \"Rotina para que se acrescente uma string para uma segunda string usando uma terceira string (para expandir contra√ß√µes)"
+[404]  FunÁ„o para que se determine se uma string È algum comando de atribuiÁ„o:
+[405]    \"Rotina para que se acrescente uma string para uma segunda string usando uma terceira string (para expandir contraÁıes)"
 [406]    Se a string for "atribua", diga sim.
-[407]    Diga n√£o.
+[407]    Diga n„o.
 
-[456]  Fun√ß√£o para que se determine se uma string √© alguma preposi√ß√£o de atribui√ß√£o:
+[456]  FunÁ„o para que se determine se uma string È alguma preposiÁ„o de atribuiÁ„o:
 [457]    Se a string for "em", diga sim.
 [458]    Se a string for "para", diga sim.
-[459]    Diga n√£o.
+[459]    Diga n„o.
 
-[461]  Fun√ß√£o para que se determine se um percorredor √© o in√≠cio de alguma fun√ß√£o:
-[462]    Se existir algum problema de compila√ß√£o, diga n√£o.
-[463]    \Se o segmento inicial deste percorredor n√£o for algum comando de atribui√ß√£o, diga n√£o.
-[464]    Se o segmento inicial deste percorredor n√£o for "atribua", diga n√£o.
+[461]  FunÁ„o para que se determine se um percorredor È o inÌcio de alguma funÁ„o:
+[462]    Se existir algum problema de compilaÁ„o, diga n„o.
+[463]    \Se o segmento inicial deste percorredor n„o for algum comando de atribuiÁ„o, diga n„o.
+[464]    Se o segmento inicial deste percorredor n„o for "atribua", diga n„o.
 [465]    Preserve o percorredor.
-[466]    Mova o percorredor (usando diretrizes de compila√ß√£o).
-[467]    Se o segmento inicial deste percorredor n√£o for algum artigo, diga n√£o.
-[468]    Mova o percorredor (usando diretrizes de compila√ß√£o).
+[466]    Mova o percorredor (usando diretrizes de compilaÁ„o).
+[467]    Se o segmento inicial deste percorredor n„o for algum artigo, diga n„o.
+[468]    Mova o percorredor (usando diretrizes de compilaÁ„o).
 [469]    Examine um nome usando o percorredor.
-[470]    Se o segmento inicial deste percorredor for algum possessivo ingl√™s, diga sim.
-[471]    Diga n√£o.
+[470]    Se o segmento inicial deste percorredor for algum possessivo inglÍs, diga sim.
+[471]    Diga n„o.
 
 
-[10 - Rotinas pr√© e p√≥s execu√ß√£o.pop](<..\C√≥digo-Fonte\10 - Rotinas pr√© e p√≥s execu√ß√£o.pop> "10 - Rotinas pr√© e p√≥s execu√ß√£o.pop")
-[565]  Fun√ß√£o para que se determine se uma string √© o in√≠cio de alguma vari√°vel:
+[10 - Rotinas prÈ e pÛs execuÁ„o.pop](<..\CÛdigo-Fonte\10 - Rotinas prÈ e pÛs execuÁ„o.pop> "10 - Rotinas prÈ e pÛs execuÁ„o.pop")
+[565]  FunÁ„o para que se determine se uma string È o inÌcio de alguma vari·vel:
 [566]    Se a string for algum artigo definido, diga sim.
 [567]    \Se a string for "do", diga sim. \ para reverse-possessives
 [568]    \Se a string for "cada", diga sim.
-[569]    Diga n√£o.
+[569]    Diga n„o.
 
-[597]  Fun√ß√£o para que se determine se uma string √© o in√≠cio de alguma vari√°vel local:
+[597]  FunÁ„o para que se determine se uma string È o inÌcio de alguma vari·vel local:
 [598]    Se a string for algum artigo indefinido, diga sim.
-[599]    Diga n√£o.
+[599]    Diga n„o.
 [600]  
 
-[929]  Fun√ß√£o para que se determine se um percorredor est√° sobre alguma conjun√ß√£o modificadora:
-[930]    \ adicionado para as rotinas de fr√°gico de tartatuga ***
+[929]  FunÁ„o para que se determine se um percorredor est· sobre alguma conjunÁ„o modificadora:
+[930]    \ adicionado para as rotinas de fr·gico de tartatuga ***
 [931]    Preserve o percorredor.
 [932]    Se o segmento inicial deste percorredor for "like", diga sim.
 [933]    \Se o segmento inicial deste percorredor for "tal qual", diga sim.
-[934]    Se o segmento inicial deste percorredor n√£o for "as", diga n√£o.
-[935]    Mova o percorredor (usando diretrizes de compila√ß√£o).
-[936]    Se o segmento inicial deste percorredor for algum artigo indefinido, diga n√£o.
+[934]    Se o segmento inicial deste percorredor n„o for "as", diga n„o.
+[935]    Mova o percorredor (usando diretrizes de compilaÁ„o).
+[936]    Se o segmento inicial deste percorredor for algum artigo indefinido, diga n„o.
 [937]    Diga sim.
 
-[1025]  Fun√ß√£o para que se determine se uma string √© algum operador de divis√£o:
+[1025]  FunÁ„o para que se determine se uma string È algum operador de divis„o:
 [1026]    Se a string for "dividido", diga sim.
-[1027]    Diga n√£o.
+[1027]    Diga n„o.
 
-[1068]  Fun√ß√£o para que se determine se uma string √© algum objeto indireto:
+[1068]  FunÁ„o para que se determine se uma string È algum objeto indireto:
 [1069]    Se a string for "via", diga sim.
 [1070]    Se a string for "por", diga sim. \ TODO: Testar a compatibilidade
-[1071]    Diga n√£o.
+[1071]    Diga n„o.
 
-[1073]  Fun√ß√£o para que se determine se uma string √© algum operador de subtra√ß√£o:
+[1073]  FunÁ„o para que se determine se uma string È algum operador de subtraÁ„o:
 [1074]    Se a string for "menos", diga sim.
-[1075]    Diga n√£o.
+[1075]    Diga n„o.
 
-[1111]  Fun√ß√£o para que se determine se uma string √© algum operador de adi√ß√£o:
+[1111]  FunÁ„o para que se determine se uma string È algum operador de adiÁ„o:
 [1112]    Se a string for "mais", diga sim.
-[1113]    Diga n√£o.
+[1113]    Diga n„o.
 
-[1192]  Fun√ß√£o para que se determine se uma string √© alguma palavra de concatena√ß√£o:
+[1192]  FunÁ„o para que se determine se uma string È alguma palavra de concatenaÁ„o:
 [1193]    Se a string for "com", diga sim.
 [1194]    Se a string for "de", diga sim.
-[1195]    Se a string for "a", diga sim. \ junto √†
+[1195]    Se a string for "a", diga sim. \ junto ‡
 [1196]    Se a string for "seguida", diga sim.
-[1197]    Diga n√£o.
+[1197]    Diga n„o.
 
-[1431]  Fun√ß√£o para que se determine se uma string √© algum comando de retorno de rotina:
+[1431]  FunÁ„o para que se determine se uma string È algum comando de retorno de rotina:
 [1432]    Se a string for "Retorne", diga sim.
-[1433]    Diga n√£o.
+[1433]    Diga n„o.
 
-[1443]  Fun√ß√£o para que se determine se uma string √© algum comando de repeti√ß√£o:
+[1443]  FunÁ„o para que se determine se uma string È algum comando de repetiÁ„o:
 [1444]    \Se a string for "recomece", diga sim.
 [1445]    \Se a string for "repita", diga sim.
 [1446]    Se a string for "reitere", diga sim.
 [1447]    \Se a string for "reinicie", diga sim.
-[1448]    Diga n√£o.
+[1448]    Diga n„o.
 
-[1454]  Fun√ß√£o para que se determine se uma string √© algum comando de interrup√ß√£o de repeti√ß√µes:
+[1454]  FunÁ„o para que se determine se uma string È algum comando de interrupÁ„o de repetiÁıes:
 [1455]    Se a string for "pare", diga sim.
-[1456]    Diga n√£o.
+[1456]    Diga n„o.
 
-[1462]  Fun√ß√£o para que se determine se uma string √© algum comando de confirma√ß√£o ou nega√ß√£o:
+[1462]  FunÁ„o para que se determine se uma string È algum comando de confirmaÁ„o ou negaÁ„o:
 [1463]    Se a string for "diga", diga sim.
 [1464]    \Se a string for "responda", diga sim.
-[1465]    Diga n√£o.
+[1465]    Diga n„o.
 
-[1524]  Fun√ß√£o para que se determine se uma string √© algum comando de delibera√ß√£o literal:
+[1524]  FunÁ„o para que se determine se uma string È algum comando de deliberaÁ„o literal:
 [1525]    Se a string for "sim", diga sim.
 [1526]    \Se a string for "positivo", diga sim.
 [1527]    \Se a string for "positivamente", diga sim.
 [1528]    \Se a string for "afirmativamente", diga sim.
-[1529]    Se a string for "n√£o", diga sim.
+[1529]    Se a string for "n„o", diga sim.
 [1530]    \Se a string for "negativo", diga sim.
 [1531]    \Se a string for "negativamente", diga sim.
 [1532]    \Se a string for "no", diga sim.
-[1533]    Diga n√£o.
+[1533]    Diga n„o.
 
-[1535]  Fun√ß√£o para que se determine se uma string √© algum decisor literal afirmativo:
+[1535]  FunÁ„o para que se determine se uma string È algum decisor literal afirmativo:
 [1536]    Se a string for "sim", diga sim.
 [1537]    \Se a string for "positivo", diga sim.
 [1538]    \Se a string for "positivamente", diga sim.
 [1539]    \Se a string for "afirmativamente", diga sim.
-[1540]    Diga n√£o.
+[1540]    Diga n„o.
 
-[1580]  Fun√ß√£o para que se determine se um tipo √© valor empilh√°vel:
-[1581]    Se o tipo for inexistente, diga n√£o.
+[1580]  FunÁ„o para que se determine se um tipo È valor empilh·vel:
+[1581]    Se o tipo for inexistente, diga n„o.
 [1582]    Se a quantidade de caracteres deste tipo for 4, diga sim.
 [1583]    Se a quantidade de caracteres deste tipo for 2, diga sim.
 [1584]    Se a quantidade de caracteres deste tipo for 1, diga sim.
-[1585]    Diga n√£o.
+[1585]    Diga n„o.
 
-[1587]  Fun√ß√£o para que se determine se uma string √© alguma chamada de biblioteca externa:
+[1587]  FunÁ„o para que se determine se uma string È alguma chamada de biblioteca externa:
 [1588]    \Se a string for "chame", diga sim.
 [1589]    Se a string for "invoque", diga sim.
 [1590]    \Se a string for "acione", diga sim.
 [1591]    Se a string for "processe", diga sim.
 [1592]    \Se a string for "informe", diga sim.
-[1593]    \ no caso de comandos como "repasse os par√¢metros x e y e z para a fun√ß√£o "FunctionName" da biblioteca "MyLibrary.dll"
-[1594]    Diga n√£o.
+[1593]    \ no caso de comandos como "repasse os par‚metros x e y e z para a funÁ„o "FunctionName" da biblioteca "MyLibrary.dll"
+[1594]    Diga n„o.
 
-[1698]  Fun√ß√£o para que se determine se uma string √© algum operador de continuidade:
+[1698]  FunÁ„o para que se determine se uma string È algum operador de continuidade:
 [1699]    Se a string for "e", diga sim.
-[1700]    Diga n√£o.
+[1700]    Diga n„o.
 
-[1702]  Fun√ß√£o para que se determine se uma string √© alguma palavra-chave de devolu√ß√£o:
+[1702]  FunÁ„o para que se determine se uma string È alguma palavra-chave de devoluÁ„o:
 [1703]    Se a string for "retornando", diga sim.
 [1704]    Se a string for "recebendo", diga sim.
 [1705]    Se a string for "obtendo", diga sim.
-[1706]    Diga n√£o.
+[1706]    Diga n„o.
 
-[1759]  Fun√ß√£o para que se determine se uma string √© algum point:
+[1759]  FunÁ„o para que se determine se uma string È algum point:
 [1760]    Se a string for "aponte", diga sim.
 [1761]    Se a string for "direcione", diga sim.
 [1762]    Se a string for "redirecione", diga sim.
-[1763]    Diga n√£o.
+[1763]    Diga n„o.
 
-[1910]  Fun√ß√£o para que se determine se uma string √© algum comando de prote√ß√£o:
+[1910]  FunÁ„o para que se determine se uma string È algum comando de proteÁ„o:
 [1911]    Se a string for "isole", diga sim.
 [1912]    Se a string for "conserve", diga sim.
 [1913]    Se a string for "preserve", diga sim.
 [1914]    \Se a string for "derive", diga sim.
-[1915]    Diga n√£o.
+[1915]    Diga n„o.
 
-[1949]  Fun√ß√£o para que se determine se uma string √© algum comando de percorrimento:
+[1949]  FunÁ„o para que se determine se uma string È algum comando de percorrimento:
 [1950]    \Se a string for "percorra", diga sim.
 [1951]    \Se a string for "comece", diga sim.
 [1952]    Se a string for "itere", diga sim.
-[1953]    Diga n√£o.
+[1953]    Diga n„o.
 
-[1955]  Fun√ß√£o para que se determine se uma string √© uma palavra-chave de reutiliza√ß√£o de rotina:
-[1956]    \ Funcionalidade obsoleta desde a implanta√ß√£o da sobrecarga de cabe√ßalhos de rotina
+[1955]  FunÁ„o para que se determine se uma string È uma palavra-chave de reutilizaÁ„o de rotina:
+[1956]    \ Funcionalidade obsoleta desde a implantaÁ„o da sobrecarga de cabeÁalhos de rotina
 [1957]    Se a string for "empregue", diga sim.
-[1958]    Diga n√£o.
+[1958]    Diga n„o.
 
-[1960]  Fun√ß√£o para que se determine se uma string √© o in√≠cio de alguma declara√ß√£o:
-[1961]    Se a string for o enunciado de alguma rotina ou vari√°vel, diga n√£o.
-[1962]    Se a string for algum valor literal, diga n√£o.
-[1963]    Se a string for algum sinal de pontua√ß√£o, diga n√£o.
-[1964]    Se a string estiver em branco, diga n√£o.
+[1960]  FunÁ„o para que se determine se uma string È o inÌcio de alguma declaraÁ„o:
+[1961]    Se a string for o enunciado de alguma rotina ou vari·vel, diga n„o.
+[1962]    Se a string for algum valor literal, diga n„o.
+[1963]    Se a string for algum sinal de pontuaÁ„o, diga n„o.
+[1964]    Se a string estiver em branco, diga n„o.
 [1965]    Diga sim.
 
-[16 - Etapa Final.pop](<..\C√≥digo-Fonte\16 - Etapa Final.pop> "16 - Etapa Final.pop")
-[440]  Fun√ß√£o para que se determine se uma string √© algum decisor literal negativo:
-[441]    Se a string for "n√£o", diga sim.
+[16 - Etapa Final.pop](<..\CÛdigo-Fonte\16 - Etapa Final.pop> "16 - Etapa Final.pop")
+[440]  FunÁ„o para que se determine se uma string È algum decisor literal negativo:
+[441]    Se a string for "n„o", diga sim.
 [442]    Se a string for "negativo", diga sim.
 [443]    Se a string for "negativamente", diga sim.
-[444]    Diga n√£o.
+[444]    Diga n„o.
 
-[446]  Fun√ß√£o para que se determine se uma string √© algum n√∫mero ordinal:
-[447]    Se a string estiver em branco, diga n√£o.
-[448]    Se o conte√∫do deste caractere final desta string for o indicador ordinal masculino, diga sim.
-[449]    Se o conte√∫do deste caractere final desta string for o indicador ordinal feminino, diga sim.
-[450]    Diga n√£o.
+[446]  FunÁ„o para que se determine se uma string È algum n˙mero ordinal:
+[447]    Se a string estiver em branco, diga n„o.
+[448]    Se o conte˙do deste caractere final desta string for o indicador ordinal masculino, diga sim.
+[449]    Se o conte˙do deste caractere final desta string for o indicador ordinal feminino, diga sim.
+[450]    Diga n„o.
 
-[452]  Fun√ß√£o para que se determine se uma string √© algum pronome demonstrativo:
+[452]  FunÁ„o para que se determine se uma string È algum pronome demonstrativo:
 [453]    Se a string for algum pronome demonstrativo adjacente, diga sim.
 [454]    Se a string for algum pronome demonstrativo abrangente, diga sim.
-[455]    Diga n√£o.
+[455]    Diga n„o.
 
-[457]  Fun√ß√£o para que se determine se uma string √© alguma preposi√ß√£o:
+[457]  FunÁ„o para que se determine se uma string È alguma preposiÁ„o:
 [458]    Se a string for "partir", diga sim.
 [459]    Se a string for "partindo", diga sim.
 [460]    Se a string for "aproximadamente", diga sim.
-[461]    Se a string for "atrav√©s", diga sim.
+[461]    Se a string for "atravÈs", diga sim.
 [462]    Se a string for "after", diga sim.
 [463]    \Se a string for "all", diga sim.
 [464]    Se a string for "alone", diga sim.
@@ -865,8 +865,8 @@
 [483]    \Se a string for "for", diga sim.
 [484]    Se a string for "por", diga sim.
 [485]    Se a string for "usando", diga sim.
-[486]    Se a string for "t√£o", diga sim.
-[487]    Se a string for "qu√£o", diga sim.
+[486]    Se a string for "t„o", diga sim.
+[487]    Se a string for "qu„o", diga sim.
 [488]    Se a string for "tanto", diga sim.
 [489]    Se a string for "quanto", diga sim.
 [490]    Se a string for "dentro", diga sim.
@@ -878,15 +878,15 @@
 [496]    Se a string for "pertinente", diga sim.
 [497]    Se a string for "somente", diga sim.
 [498]    Se a string for "apenas", diga sim.
-[499]    Se a string for "s√≥", diga sim.
+[499]    Se a string for "sÛ", diga sim.
 [500]    Se a string for "exclusivamente", diga sim.
 [501]    Se a string for "fora", diga sim.
 [502]    \Se a string for "sobre", diga sim.
 [503]    Se a string for "pointing", diga sim.
 [504]    Se a string for "retornando", diga sim.
 [505]    Se a string for "retornando", diga sim.
-[506]    Se a string for "come√ßando", diga sim.
-[507]    Se o subtexto for "come√ßando", diga sim.
+[506]    Se a string for "comeÁando", diga sim.
+[507]    Se o subtexto for "comeÁando", diga sim.
 [508]    Se o subtexto for "iniciando", diga sim.
 [509]    Se a string for "usando", diga sim.
 [510]    Se a string for "via", diga sim.
@@ -896,42 +896,42 @@
 [514]    Se a string for "desde", diga sim.
 [515]    Se a string for "aproximadamente", diga sim.
 [516]    Se a string for "cerca", diga sim.
-[517]    Diga n√£o.
+[517]    Diga n„o.
 
-[519]  Fun√ß√£o para que se determine se uma string √© algum possessivo reverso:
+[519]  FunÁ„o para que se determine se uma string È algum possessivo reverso:
 [520]    Se a string for "de", diga sim.
 [521]    \Se a string for "do", diga sim. \ short por "de o", expanded em "compile um termo usando um percorredor e um campo nome (possessivo reverso)"
-[522]    Diga n√£o.
+[522]    Diga n„o.
 
-[524]  Fun√ß√£o para que se determine se um percorredor est√° sobre ("de" como preposi√ß√£o):
+[524]  FunÁ„o para que se determine se um percorredor est· sobre ("de" como preposiÁ„o):
 [525]    Preserve o percorredor.
-[526]    Se o segmento inicial deste percorredor n√£o for "de", diga n√£o.
-[527]    Mova o percorredor (usando diretrizes de compila√ß√£o).
+[526]    Se o segmento inicial deste percorredor n„o for "de", diga n„o.
+[527]    Mova o percorredor (usando diretrizes de compilaÁ„o).
 [528]    Se o segmento inicial deste percorredor for algum artigo, diga sim.
-[529]    Diga n√£o.
+[529]    Diga n„o.
 
-[531]  Fun√ß√£o para que se determine se um percorredor est√° sobre alguma locu√ß√£o prepositiva:
+[531]  FunÁ„o para que se determine se um percorredor est· sobre alguma locuÁ„o prepositiva:
 [532]    Preserve o percorredor.
-[533]    Se o segmento inicial deste percorredor n√£o for alguma locu√ß√£o prepositiva diga n√£o.
-[534]    Mova o percorredor (usando diretrizes de compila√ß√£o).
+[533]    Se o segmento inicial deste percorredor n„o for alguma locuÁ„o prepositiva diga n„o.
+[534]    Mova o percorredor (usando diretrizes de compilaÁ„o).
 [535]    Se o segmento inicial deste percorredor for "de", diga sim.
 [536]    Se o segmento inicial deste percorredor for "do", diga sim.\ Se o segmento inicial deste percorredor for "do", atribua "o" para o segmento inicial deste percorredor original; diga sim.
 [537]    Se o segmento inicial deste percorredor for "dos", diga sim.
 [538]    Se o segmento inicial deste percorredor for "da", diga sim.
 [539]    Se o segmento inicial deste percorredor for "das", diga sim.
-[540]    Diga n√£o.
+[540]    Diga n„o.
 
-[542]  Fun√ß√£o para que se determine se uma string √© alguma locu√ß√£o prepositiva:
-[543]    Se a string for alguma preposi√ß√£o, diga sim.
-[544]    Diga n√£o.
+[542]  FunÁ„o para que se determine se uma string È alguma locuÁ„o prepositiva:
+[543]    Se a string for alguma preposiÁ„o, diga sim.
+[544]    Diga n„o.
 
-[546]  Fun√ß√£o para que se determine se uma string √© alguma palavra ignor√°vel:
-[547]    Se a string for "j√°", diga sim.
+[546]  FunÁ„o para que se determine se uma string È alguma palavra ignor·vel:
+[547]    Se a string for "j·", diga sim.
 [548]    Se a string for "ainda", diga sim.
 [549]    \Se a string for "que", diga sim.
 [550]    \Se a string for "se", diga sim.
-[551]    Diga n√£o.
+[551]    Diga n„o.
 
-[553]  Fun√ß√£o para que se determine se um byte √© alguma vogal acentuada:
-[554]    Se o byte estiver em "√°√£√¢√†√©√®√™√´√≠√Æ√¨√Ø√≥√µ√¥√∂√∫√π√º√ª√Ω", diga sim.
-[555]    Diga n√£o.
+[553]  FunÁ„o para que se determine se um byte È alguma vogal acentuada:
+[554]    Se o byte estiver em "·„‚‡ÈËÍÎÌÓÏÔÛıÙˆ˙˘¸˚˝", diga sim.
+[555]    Diga n„o.

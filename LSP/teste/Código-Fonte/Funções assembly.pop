@@ -1,0 +1,274 @@
+
+Função para que se determine se um byte é um segundo byte:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
+  Decodifique $8A1B. \ mov bl,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o outro byte
+  Decodifique $3A19. \ cmp bl,[ecx]
+  Decodifique $0F8406000000. \ je sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um byte é maior que um segundo byte;
+Função para que se determine se um byte é maior do que um segundo byte:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
+  Decodifique $8A1B. \ mov bl,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ a segunda byte
+  Decodifique $3A19. \ cmp bl,[ecx]
+  Decodifique $0F8706000000. \ ja sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um byte é maior que um número;
+Função para que se determine se um byte é maior do que um número:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
+  Decodifique $0FB61B. \ movzx ebx,byte ptr [ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o número
+  Decodifique $3B19. \ cmp ebx,[ecx]
+  Decodifique $0F8F06000000. \ jg sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um byte é maior do que ou igual a um segundo byte;
+Função para que se determine se um byte é maior que ou igual a um segundo byte;
+Função para que se determine se um byte é maior ou igual a um segundo byte:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
+  Decodifique $8A1B. \ mov bl,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ a segunda byte
+  Decodifique $3A19. \ cmp bl,[ecx]
+  Decodifique $0F8306000000. \ ja sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um byte é menor que um segundo byte;
+Função para que se determine se um byte é menor do que um segundo byte:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
+  Decodifique $8A1B. \ mov bl,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ a segunda byte
+  Decodifique $3A19. \ cmp bl,[ecx]
+  Decodifique $0F8206000000. \ jb sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um byte é menor que um número;
+Função para que se determine se um byte é menor do que um número:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
+  Decodifique $0FB61B. \ movzx ebx,byte ptr [ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o número
+  Decodifique $3B19. \ cmp ebx,[ecx]
+  Decodifique $0F8C06000000. \ jl sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um byte é menor do que ou igual a um segundo byte;
+Função para que se determine se um byte é menor que ou igual a um segundo byte;
+Função para que se determine se um byte é igual ou menor do que um segundo byte;
+Função para que se determine se um byte é igual ou menor que um segundo byte;
+Função para que se determine se um byte é menor ou igual a um segundo byte:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
+  Decodifique $8A1B. \ mov bl,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ a segunda byte
+  Decodifique $3A19. \ cmp bl,[ecx]
+  Decodifique $0F8606000000. \ jbe sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um byte é igual a um número;
+Função para que se determine se um byte é um número:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o byte
+  Decodifique $0FB61B. \ movzx ebx,byte ptr [ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o número
+  Decodifique $3B19. \ cmp ebx,[ecx]
+  Decodifique $0F8406000000. \ je sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um sinalizador é um número;
+Função para que se determine se um sinalizador é um segundo sinalizador;
+Função para que se determine se um ponteiro é um número;
+Função para que se determine se um ponteiro é um segunda ponteiro;
+Função para que se determine se um número é igual a um segundo número;
+Função para que se determine se um número é um segundo número:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o número
+  Decodifique $8B1B. \ mov ebx,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo número
+  Decodifique $3B19. \ cmp ebx,[ecx]
+  Decodifique $0F8406000000. \ je sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um ponteiro é maior do que um segundo ponteiro;
+Função para que se determine se um número é maior do que um segundo número:
+  Decodifique $C7C001000000. \ mov eax,1 \ presume que o número seja maior logo de começo
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o número
+  Decodifique $8B1B. \ mov ebx,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo número
+  Decodifique $3B19. \ cmp ebx,[ecx]
+  Decodifique $0F8F06000000. \ jg sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um ponteiro é maior do que ou igual a um segundo ponteiro;
+Função para que se determine se um ponteiro é maior que ou igual a um segundo ponteiro;
+Função para que se determine se um ponteiro é igual ou maior do que um segundo ponteiro;
+Função para que se determine se um ponteiro é igual ou maior que um segundo ponteiro;
+Função para que se determine se um ponteiro é maior ou igual a um segundo ponteiro;
+Função para que se determine se um número é um segundo número ou more;
+Função para que se determine se um número é maior do que ou igual a um segundo número;
+Função para que se determine se um número é maior que ou igual a um segundo número;
+Função para que se determine se um número é igual ou maior do que um segundo número;
+Função para que se determine se um número é igual ou maior que um segundo número;
+Função para que se determine se um número é maior ou igual a um segundo número:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o número
+  Decodifique $8B1B. \ mov ebx,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo número
+  Decodifique $3B19. \ cmp ebx,[ecx]
+  Decodifique $0F8D06000000. \ jge sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um ponteiro é menor do que um segundo ponteiro;
+Função para que se determine se um ponteiro é menor que um segundo ponteiro;
+Função para que se determine se um número é menor que um segundo número;
+Função para que se determine se um número é menor do que um segundo número:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o número
+  Decodifique $8B1B. \ mov ebx,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo número
+  Decodifique $3B19. \ cmp ebx,[ecx]
+  Decodifique $0F8C06000000. \ jl sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+Função para que se determine se um ponteiro é menor do que ou igual a um segundo ponteiro;
+Função para que se determine se um ponteiro é menor que ou igual a um segundo ponteiro;
+Função para que se determine se um ponteiro é menor ou igual a um segundo ponteiro;
+Função para que se determine se um ponteiro é igual ou menor do que um segundo ponteiro;
+Função para que se determine se um ponteiro é igual ou menor que um segundo ponteiro;
+Função para que se determine se um número é um segundo número ou menos;
+Função para que se determine se um número é um segundo número ou menor;
+Função para que se determine se um número é menor do que ou igual a um segundo número;
+Função para que se determine se um número é menor que ou igual a um segundo número;
+Função para que se determine se um número é igual ou menor do que um segundo número;
+Função para que se determine se um número é igual ou menor que um segundo número;
+Função para que se determine se um número é menor ou igual a um segundo número:
+  Decodifique $C7C001000000. \ mov eax,1 \ assume true
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o número
+  Decodifique $8B1B. \ mov ebx,[ebx]
+  Decodifique $8B8D0C000000. \ mov ecx,[ebp+12] \ o segundo número
+  Decodifique $3B19. \ cmp ebx,[ecx]
+  Decodifique $0F8E06000000. \ jle sobre o próximo 1 statement
+  Decodifique $C7C000000000. \ mov eax,0 \ now it is false
+
+\Função para que se determine se uma string possui conteúdo dentro dela;
+\Função para que se determine se uma string contém algum texto;
+\Função para que se determine se uma string contém texto;
+Função para que se determine se uma string está definida;
+Função para que se determine se há conteúdo dentro de uma string;
+Função para que se determine se uma string está preenchida:
+  Se a string estiver em branco, diga não.
+  Diga sim.
+
+Função para que se determine se uma string está em branco:
+  \ A função começa presumindo veracidade
+  Decodifique $B801000000. \ mov eax, 1
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ a string
+    \ Se o caractere inicial for 0, retorna
+  Decodifique $833B00. \ cmp [ebx],0
+  Decodifique $0F8410000000. \ je end
+  \ Se o caractere final for menor do que o inicial, retorna
+  Decodifique $8B5304. \ mov edx,[ebx+4] \ caractere final
+  Decodifique $3B13. \ cmp edx,[ebx]
+  Decodifique $0F8C05000000. \ jl end
+  \ Retorna falso.
+  Decodifique $B800000000. \ mov eax,0
+  \ FIM:
+
+Rotina para que se preencha bytes com um byte começando sob um ponteiro por um quantidade de bytes:
+  Decodifique $8BBD0C000000. \ mov edi,[ebp+12] \ o ponteiro
+  Decodifique $8B3F. \ mov edi,[edi]
+  Decodifique $8B8D10000000. \ mov ecx,[ebp+16] \ a contagem
+  Decodifique $8B09. \ mov ecx,[ecx]
+  Decodifique $8B8508000000. \ mov eax,[ebp+8] \ o byte
+  Decodifique $8A00. \ mov al,[eax]
+  Decodifique $FC. \ cld
+  Decodifique $F3AA. \ rep stosb
+
+\Rotina para que se copie um número de bytes desde um ponteiro para um segundo ponteiro;
+Rotina para que se copie bytes desde um ponteiro para um segundo ponteiro por uma quantidade de bytes:
+    \ copie handling overlap com 1 byte moves
+  Decodifique $8BB508000000. \ mov esi,[ebp+8] \ o ponteiro
+  Decodifique $8B36. \ mov esi,[esi]
+  Decodifique $8BBD0C000000. \ mov edi,[ebp+12] \ a segunda ponteiro
+  Decodifique $8B3F. \ mov edi,[edi]
+  Decodifique $8B8D10000000. \ mov ecx,[ebp+16] \ o número
+  Decodifique $8B09. \ mov ecx,[ecx]
+  \ verifique por something para copiar
+  Decodifique $81F900000000. \ cmp ecx,0
+  Decodifique $0F8E39000000. \ jle end
+  \ verifique por no overlap
+  Decodifique $3BF7. \ cmp esi,edi
+  Decodifique $0F8D24000000. \ jge forward
+  Decodifique $8BC6. \ mov eax,esi
+  Decodifique $03C1. \ adicione eax,ecx
+  Decodifique $3BC7. \ cmp eax,edi
+  Decodifique $0F8E18000000. \ jle forward
+  \ copia backward
+  Decodifique $03F1. \ adicione esi,ecx
+  Decodifique $4E. \ dec esi
+  Decodifique $03F9. \ adicione edi,ecx
+  Decodifique $4F. \ dec esi
+  \ backward
+  Decodifique $8A16. \ mov dl,[esi]
+  Decodifique $8817. \ mov [edi],dl
+  Decodifique $4E. \ dec esi
+  Decodifique $4F. \ dec edi
+  Decodifique $49. \ dec ecx
+  Decodifique $0F85F3FFFFFF. \ jnz backward
+  Decodifique $E90D000000. \ jmp end
+  \ forward: copia forward
+  Decodifique $8A16. \ mov dl,[esi]
+  Decodifique $8817. \ mov [edi],dl
+  Decodifique $46. \ inc esi
+  Decodifique $47. \ inc edi
+  Decodifique $49. \ dec ecx
+  Decodifique $0F85F3FFFFFF. \ jnz forward
+
+Rotina para que se lance um subtexto sobre uma string: \assembly
+  Decodifique $8B8508000000. \ mov eax,[ebp+8] \ o subtexto
+  Decodifique $8B9D0C000000. \ mov ebx,[ebp+12] \ a string
+  \ atribua o caractere inicial desta string ao primeiro do subtexto
+  Decodifique $8B8B00000000. \ mov ecx,[ebx+0] \ o caractere inicial desta string
+  Decodifique $898800000000. \ mov [eax+0],ecx \ o primeiro do subtexto
+  \ atribua o caractere final desta string ao caractere final deste subtexto
+  Decodifique $8B8B04000000. \ mov ecx,[ebx+4] \ o último do string
+  Decodifique $898804000000. \ mov [eax+4],ecx \ o caractere final deste subtexto
+
+Rotina para que se divida um ponteiro por um número;
+Rotina para que se divida um número por um segundo número:
+  Se o segundo número for 0,
+    Atribua o maior número ao número;
+    Retorne.
+  Decodifique $8B8508000000. \ mov eax,[ebp+8] \ o número
+  Decodifique $8B9D0C000000. \ mov ebx,[ebp+12] \ o segundo número
+  Decodifique $8B00. \ mov eax,[eax]
+  Decodifique $99. \ cdq
+  Decodifique $F73B. \ div [ebx] \ means div eax,[ebx] but é weird form
+  Decodifique $8B9D08000000. \ mov ebx,[ebp+8] \ o número
+  Decodifique $8903. \ mov [ebx],eax
+
+Rotina para que se divida um ponteiro por um segundo número usando um quociente e um resto;
+Rotina para que se divida um número por um segundo número usando um quociente e um resto:
+  Se o segundo número for 0,
+    Atribua o maior número ao quociente;
+    Atribua 0 ao resto;
+    Retorne.
+  Decodifique $8B8508000000. \ mov eax,[ebp+8] ; -> salva o 1º número (epb+8) no registrador eax
+  Decodifique $8B9D0C000000. \ mov ebx,[ebp+12] ; -> salva o 2º número (epb+12) no registrador ebx
+  Decodifique $8B00. \ mov eax,[eax]
+  Decodifique $99. \ cdq
+  Decodifique $F73B. \ idiv [ebx] ; -> é a mesma lista que idiv eax,[ebx] mas está num formato estranho
+  Decodifique $8B9D10000000. \ mov ebx,[ebp+16] ; ->salva o quociente (ebp+16) no registrador ebx
+  Decodifique $8903. \ mov [ebx],eax ; -> salva eax no endereço de ebx
+  Decodifique $8B9D14000000. \ mov ebx,[ebp+20] ; ->salva o resto (ebp+20) no registrador ebx
+  Decodifique $8913. \ mov [ebx],edx ; -> salva o conteúdo de edx no registrador ebx
+
+\------------------------------------------------------------------------------------------------------------------------------------
+
